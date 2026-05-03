@@ -4,8 +4,8 @@
 
 <p>Somos el grupo Ctrl+Alt+Lena, el cual esta conformado por:</p>
 
-<ul>- Estefania Corvalan</ul>
+<ul>- Estefania De Los Angeles Corvalan</ul>
 <ul>- Gonzalo Asenso</ul>
 <ul>- Pablo Buttazzoni</ul>
-<ul>- Ignacio Martin Gonzalez</ul>
-<ul>- Juan Pulli</ul>
+<ul>- Martin Ignacio Gonzalez Lopez</ul>
+<ul>- Juan Nicolas Pulli</ul>
