@@ -1,0 +1,154 @@
+.contenedor-perfil {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.encabezado-perfil h1 {
+    color: #001442;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.encabezado-perfil p {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Tarjeta Blanca Principal */
+.tarjeta-perfil {
+    background-color: #FFFFFF;
+    border: 1px solid #CFCFCF;
+    border-radius: 15px;
+    padding: 40px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Foto Circular */
+.contenedor-avatar {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%; 
+    border: 3px solid black;
+}
+
+.avatar-circular {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.perfil-info-basica {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.etiqueta-cliente {
+    background-color: #E5EEFF;
+    color: #1E5BFF;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.miembro-desde {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Filas de Datos */
+.seccion-datos {
+    margin-top: 30px;
+}
+
+.seccion-datos h3 {
+    font-size: 1.1rem;
+    border-bottom: 1px solid #CFCFCF;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fila-dato {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.fila-dato span {
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fila-dato p {
+    font-weight: 600;
+}
+
+/* Acciones Rápidas */
+.acciones-rapidas {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.btn-accion {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+/* Estos son los 3 botones que estan al final de la info del usuario*/
+
+.btn-accion i { font-size: 1.5rem; }
+.btn-accion strong { display: block; }
+.btn-accion small { color: #666; }
+
+.btn-reservas { border: 0.1rem solid rgb(85, 84, 84); background-color: #E9F0FF; color: #1E5BFF; }
+.btn-preferencias { border: 0.1rem solid rgb(85, 84, 84); background-color: #F3EBFF; color: #7A3CFF; }
+.btn-cerrar { border: 0.1rem solid rgb(85, 84, 84); background-color: #FFEBED; color: #D93025; }
+
+/* Banner de Ayuda inferior */
+.banner-ayuda {
+    background-color: #E9F0FF;
+    border-radius: 12px;
+    padding: 20px 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ayuda-texto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ayuda-texto i { font-size: 2rem; color: #1E5BFF; }
+
+.btn-soporte {
+    border: 1px solid #1E5BFF;
+    color: #1E5BFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    background: white;
+}
