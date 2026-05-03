@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Checkout Pasajeros</title>
+
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+
+    <main>
+        <h2> Checkout</h2>
+
+        <ol class="container-lista">
+            <li>Pasajeros</li>
+            <li>Asientos</li>
+            <li>Pago</li>
+            <li>Confirmacion</li>
+        </ol>
+
+        <section class="container-datos-pasajeros">
+
+            <h3>Datos del pasajero</h3>
+
+            <form class="container-campos">
+                <div class="campo-nombre">
+                    <label>Nombre</label>
+                    <input type="text" placeholder="Nombre">
+                </div>
+
+                <div class="campo-apellido">
+                    <label>Apellido</label>
+                    <input type="text" placeholder="Apellido">
+                </div>
+
+                <div class="campo-tipo-documento"></div>
+                <label>Tipo de documento</label>
+                <select>
+                    <option>DNI</option>
+                    <option>Pasaporte</option>
+                </select>
+                </div>
+
+                <div class="campo-numero-dni">
+                    <label>Número de documento</label>
+                    <input type="text" placeholder="1234568">
+                </div>
+
+                <div class="campo-fn">
+                    <label>Fecha de nacimienot</label>
+                    <input type="date">
+                </div>
+
+                <div class="campo">
+                    <label>Nacionalidad</label>
+                    <select>
+                        <option>Argentina</option>
+                        <option>Bolivia</option>
+                        <option>Brasil</option>
+                        <option>Chile</option>
+                        <option>Paraguay</option>
+                        <option>Uruguay</option>
+                    </select>
+                </div>
+
+                <div class="campo-email">
+                    <label>Email</label>
+                    <input type="email" placeholder="juanperez@email.com">
+                </div>
+
+                <div class="campo-tel">
+                    <label>Teléfono</label>
+                    <input type="tel" placeholder="+54 11 1234 5678">
+                </div>
+
+        </section>
+
+        </form>
+
+        <section class="botton">
+            <button type="button">Cancelar</button>
+        </section>
+
+        <section class="container-reservas">
+            <h3>Tu reserva</h3>
+
+            <div class="vuelo">
+                <p>Ida 12 Jun 2024</p>
+                <p>08:30 BUE → 10:45 MAD</p>
+                <p>Air Europa UX 41 - Directo</p>
+            </div>
+
+            <div class="vuelo">
+                <p>Vuelta 26 Jun 2024</p>
+                <p>16:00 MAD → 23:15 BUE</p>
+                <p>Air Europa UX 41 - Directo</p>
+            </div>
+
+            <div class="container-pasajero">
+                <p>1 pasajero Economica</p>
+            </div>
+
+
+
+            <dl> <!-- descripcion de lista -->
+                <dt>Tarifa</dt> <!-- es el termino o la clave -->
+                <dd>USD 520</dd> <!-- descripcion o el valor-->
+
+                <dt>Impuestos y tasas</dt>
+                <dd>USD 100</dd>
+            </dl>
+
+            <h3>Total USD 620</h3>
+        </section>
+
+
+        <section class="botton-continuae">
+            <button type="button">Continuar al pago</button>
+        </section>
+
+
+
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html

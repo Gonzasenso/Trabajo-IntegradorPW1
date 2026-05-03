@@ -1,0 +1,26 @@
+h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.container-lista{
+    font-family: 'Inter' sans-serif;
+
+}
+
+.container-datos{
+    list-style-type: none;
+    font-family: 'Inter' sans-serif;
+    
+
+}
+
+.class-botton{
+    font-family: 'Inter' sans-serif;
+}
+
+container-reservas{
+   font-family: 'Inter' sans-serif; 
+}
+
