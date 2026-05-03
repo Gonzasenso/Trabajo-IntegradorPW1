@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Busqueda - Filtro 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="">Vuelos</a></li>
+                <li><a href="">Ofertas</a></li>
+                <li><a href="">Ayuda</a></li>
+            </ul>
+            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html"><i class="fa-solid fa-user"></i></a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccionInfoBusqueda">
+            <div class="contenedorInfo">
+                <div class="contenedorInfoParte1">
+                    <p>Buenos Aires (BUE)</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <p>Madrid (MAD)</p>
+                </div>
+                <div class="contenedorInfoParte2">
+                    <p>12 Jun 2024 . 26 Jun 2024</p>
+                    <hr>
+                    <p>1 pasajero</p>
+                    <hr>
+                    <p>Economica</p>
+                </div>
+            </div>
+
+            <div class="contenedorModificarBusqueda">
+                <a href="../../index.html">Modificar búsqueda</a>
+            </div>
+
+        </section>
+
+        <section class="seccionResultados">
+
+            <aside class="filtros">
+                <h3>Filtros</h3>
+
+                <div class="grupoFiltro">
+                    <h4>Escalas</h4>
+                    <label><input type="checkbox" checked> Directo</label>
+                    <label><input type="checkbox"> 1 escala</label>
+                    <label><input type="checkbox"> 2 o más escalas</label>
+                </div>
+
+                <div class="grupoFiltro">
+                    <h4>Precio</h4>
+                    <input type="range">
+                </div>
+
+                <div class="grupoFiltro">
+                    <h4>Aerolíneas</h4>
+                    <label><input type="checkbox" checked> Todas</label>
+                    <label><input type="checkbox"> Air Europa</label>
+                    <label><input type="checkbox"> Iberia</label>
+                    <label><input type="checkbox"> LATAM</label>
+                </div>
+            </aside>
+
+            <section class="resultadosVuelos">
+                <div class="encabezadoResultados">
+                    <h2>3 vuelos encontrados</h2>
+                    <button>Ordenar por: Mejor opción</button>
+                </div>
+
+                <article class="cardVuelo">
+                    <div class="aerolinea">Air Europa</div>
+                    <div class="horario">
+                        <strong>08:30</strong>
+                        <span>BUE</span>
+                    </div>
+                    <div class="trayecto">
+                        <span>Directo</span>
+                        <hr>
+                    </div>
+                    <div class="horario">
+                        <strong>10:45</strong>
+                        <span>MAD</span>
+                    </div>
+                    <div class="duracion">11h 15m</div>
+                    <div class="precio">
+                        <strong>USD 620</strong>
+                        <span>ida y vuelta</span>
+                        <a href="../detalle-de-vuelo/detalle-de-vuelo.html">Ver detalles</a>
+                    </div>
+                </article>
+                <article class="cardVuelo">
+                    <div class="aerolinea">IBERIA</div>
+                    <div class="horario">
+                        <strong>12:30</strong>
+                        <span>BUE</span>
+                    </div>
+                    <div class="trayecto">
+                        <span>Directo</span>
+                        <hr>
+                    </div>
+                    <div class="horario">
+                        <strong>14:30</strong>
+                        <span>MAD</span>
+                    </div>
+                    <div class="duracion">11h 15m</div>
+                    <div class="precio">
+                        <strong>USD 1000</strong>
+                        <span>ida y vuelta</span>
+                        <a href="../detalle-de-vuelo/detalle-de-vuelo.html">Ver detalles</a>
+                    </div>
+                </article>
+                <article class="cardVuelo">
+                    <div class="aerolinea">LATAM</div>
+                    <div class="horario">
+                        <strong>17:00</strong>
+                        <span>BUE</span>
+                    </div>
+                    <div class="trayecto">
+                        <span>Directo</span>
+                        <hr>
+                    </div>
+                    <div class="horario">
+                        <strong>19:00</strong>
+                        <span>MAD</span>
+                    </div>
+                    <div class="duracion">11h 15m</div>
+                    <div class="precio">
+                        <strong>USD 800</strong>
+                        <span>ida y vuelta</span>
+                        <a href="../detalle-de-vuelo/detalle-de-vuelo.html">Ver detalles</a>
+                    </div>
+                </article>
+            </section>
+
+        </section>
+    </main>
+</body>
+
+</html>

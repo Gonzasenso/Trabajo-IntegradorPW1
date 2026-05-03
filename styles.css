@@ -137,6 +137,7 @@ body {
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
 }
 
 /* Config de Beneficios ---La fila que esta abajo del buscador de vuelos--- */
