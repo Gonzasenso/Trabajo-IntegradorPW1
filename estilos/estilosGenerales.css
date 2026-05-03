@@ -1,0 +1,106 @@
+/* #region estilos generales */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+html {
+    font-size: 62, 5%;
+}
+
+body {
+    background-color: #FFFFFF;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Menú */
+nav a {
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Título principal */
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+/* Títulos de sección */
+h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Subtítulos internos */
+h3 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Textos comunes */
+p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #64748B;
+}
+
+/* Labels de formularios */
+label {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #0F172A;
+}
+
+/* Inputs */
+input,
+select {
+    font-family: var(--font-principal);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+/* Botones */
+button,
+.btn {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Cards de vuelos */
+.card-vuelo h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.card-vuelo p {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+/* Precios */
+.precio {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Textos chicos */
+.texto-chico {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #64748B;
+}
+
+/* #endregion */

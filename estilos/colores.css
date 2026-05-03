@@ -1,0 +1,22 @@
+/* #region colores */
+.coloresPrincipales{
+    color: #1E3A8A;   /* azul oscuro */
+    color: #3B82F6;   /* azul medio */
+}
+
+.coloresParaFondos{
+    color: #F8FAFC;   /* gris muy claro (fondo general) */
+    color: #FFFFFF;   /* blanco (cards) */
+}
+
+.coloresParaTexto{
+    color: #0F172A;   /* texto principal */
+    color: #64748B;  /* texto secundario */
+}
+
+.coloresParaBotones{
+    color: #2563EB; /* Principal */
+    color: #1D4ED8;; /* Hover */
+}
+
+/* #endregion colores de fondo */
