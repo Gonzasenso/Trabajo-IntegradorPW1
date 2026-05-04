@@ -1,0 +1,272 @@
+/* Config Global & Fuente*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* #region CSS del Header */
+body {
+    background-color: #FFFFFF;
+}
+
+.encabezado-principal {
+    background-color: #001442;
+    padding: 0.4rem 5%; 
+}
+
+.logo-header {
+    height: 30px; 
+    width: auto;
+    display: block; 
+}
+
+.navegacion-barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    min-height: 50px; 
+}
+
+.logo-header {
+    height: 40px;
+}
+
+.menu-usuario {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-usuario a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+/* #endregion CSS del Header */
+
+/* #region CSS del Body */
+.seccion-hero {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    color: white;
+}
+
+.hero-contenido h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Config del Buscador */
+.buscador-vuelos {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: #333;
+}
+
+.tipo-viaje {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+.boton-tipo {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    transition: background 0.3s;
+}
+
+.boton-tipo:hover {
+    background-color: #CFCFCF; /* Pedido 7 */
+}
+
+.boton-tipo.activo {
+    color: #1E5BFF;
+    border-bottom: 3px solid #1E5BFF;
+}
+
+.formulario-vuelos {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.campo label {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.campo input {
+    padding: 10px;
+    border: 1px solid #CFCFCF;
+    border-radius: 6px;
+}
+
+.boton-buscar {
+    background-color: #1E5BFF;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Config de Beneficios ---La fila que esta abajo del buscador de vuelos--- */
+.seccion-beneficios {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 10%;
+    background-color: #FFFFFF;
+}
+
+.beneficio-item {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.beneficio-item i {
+    font-size: 1.5rem;
+    color: #1E5BFF;
+    margin-bottom: 10px;
+}
+
+/* Config del Ofertas Destacadas */
+.seccion-ofertas {
+    padding: 20px 10%;
+}
+
+.ofertas-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #CFCFCF;
+    padding-bottom: 10px;
+}
+
+.link-ver-todas {
+    color: #1E5BFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+/* #endregion CSS del Body */
+
+/* #region CSS del Footer */
+.footer-custom {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(./img/footer.png) no-repeat center center/cover;
+    color: white;
+    padding: 40px 5%;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+}
+
+.logo-img {
+    width: 10rem;
+    height: auto;
+}
+
+.footer-socials a img {
+    width: 2rem;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a img:hover {
+    transform: scale(1.3);
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.column {
+    padding: 0 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.column:last-child {
+    border-right: none;
+}
+
+.column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #a0d4f1;
+}
+
+.column a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.column a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    font-size: 0.85rem;
+}
+
+.legal-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.legal-links a:hover {
+    color: white;
+}
+
+/* #endregion CSS del Footer */

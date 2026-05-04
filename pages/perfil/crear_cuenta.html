@@ -1,0 +1,74 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+    <link href="./estilos_Cuenta.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <section class="section-formulario">
+            <form class="form-form" action="#" method="post">
+                <div class="fila-nombres">
+                    <div class="grupo-input">
+                        <label for="nombre1">Nombre 1: <span style="color: red;">(*)</span></label>
+                        <input type="text" id="nombre1" name="nombre1" placeholder="Tu primer nombre." required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="nombre2">Nombre 2:</label>
+                        <input type="text" id="nombre2" name="nombre2" placeholder="Tu segundo nombre.">
+                    </div>
+                </div>
+
+                <label for="nombre">Apellido: <span style="color: red;">(*)</span></label>
+                <input type="text" id="apellido" name="apellido" placeholder="Coloca aqui tu apellido." required>
+
+                <label for="tipo_doc">Tipo de Documento: <span style="color: red;">(*)</span></label>
+                <select id="tipo_doc" name="tipo_doc" required>
+                    <option value="" disabled selected>Selecciona tipo</option>
+                    <option value="dni">D.N.I</option>
+                    <option value="dni">L.E</option>
+                    <option value="dni">L.C</option>
+                    <option value="dni">C.I</option>
+                    <option value="pasaporte">Pasaporte</option>
+                </select>
+
+                <label for="num_doc">Número de Documento: <span style="color: red;">(*)</span></label>
+                <input type="number" id="num_doc" name="num_doc" placeholder="Solo números" required>
+
+                <label for="fecha_nac">Fecha de Nacimiento: <span style="color: red;">(*)</span></label>
+                <input type="date" id="fecha_nac" name="fecha_nac" required>
+
+                <label for="email">E-mail: <span style="color: red;">(*)</span></label>
+                <input type="email" id="email" name="email" placeholder="Coloca aqui tu@email.com" required>
+
+                <label for="telefono">Teléfono Movil: <span style="color: red;">(*)</span></label>
+                <input type="tel" id="telefono" name="telefono" pattern="[\+]?[\d\s\-\(\)]{8,}"
+                    title="Ingresar telefono válido (+Codigo de país, codigo de area, número de télefono)"
+                    placeholder="+54 9 11 555 4444" required>
+
+                <label for="nombre">Dirección: <span style="color: red;">(*)</span></label>
+                <input type="text" id="direccion" name="dirección" placeholder="Coloca aqui tu domicilio actual."
+                    required>
+
+                <label for="nombre">Localidad: <span style="color: red;">(*)</span></label>
+                <input type="text" id="localidad" name="localidad" placeholder="Coloca aqui la localidad donde vives."
+                    required>
+
+                <label for="nombre">Código Postal: <span style="color: red;">(*)</span></label>
+                <input type="text" id="cp" name="código postal" placeholder="Coloca aqui tu código postal." required>
+
+
+                <div class="form-actions">
+                    <button type="submit">Registrarse</button>
+                    <button type="reset">Limpiar Formulario</button>
+                    <a href="../../index.html" class="btn-cancelar">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
