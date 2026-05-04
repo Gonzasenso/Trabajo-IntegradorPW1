@@ -7,5 +7,5 @@
 <ul>- Estefania Corvalan</ul>
 <ul>- Gonzalo Asenso</ul>
 <ul>- Pablo Buttazzoni</ul>
-<ul>- Ignacio Martin Gonzalez</ul>
-<ul>- Juan Pulli</ul>
+<ul>- Martin Ignacio Gonzalez Lopez</ul>
+<ul>- Juan Nicolas Pulli</ul>
