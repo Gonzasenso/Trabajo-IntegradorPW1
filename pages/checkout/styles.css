@@ -72,7 +72,7 @@ h3 {
 .container-lista {
     font-family: 'Inter', sans-serif;
     display: flex;
-    margin-left: 10rem;
+    margin-left: 9rem;
     padding: 2rem;
     list-style: none;
     counter-reset: contador;
@@ -82,14 +82,13 @@ h3 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    white-space: nowrap;
 
 }
 
 .container-lista li:not(:last-child)::after {
     content: '';
     display: block;
-    width: 20rem;
+    width: 10rem;
     height: 1px;
     background-color: #ccc;
     margin: 0 12px;
@@ -160,13 +159,6 @@ h3 {
     font-family: 'Inter', sans-serif;
 }
 
-.botton,
-.botton-agregar-pasajero,
-.botton-continuar {
-    font-family: 'Inter', sans-serif;
-
-}
-
 .botton-agregar-pasajero button {
     margin: 1rem;
     background-color: #FFFFFF;
@@ -178,45 +170,12 @@ h3 {
 
 }
 
-.asientos {
-    margin: 0.8rem;
-    padding: 0.4rem;
-    border: 0.1rem solid #64748B;
-    border-radius: 0.5rem;
-    font-size: medium;
-}
-
-.pago {
-    margin: 0.8rem;
-    padding: 0.4rem;
-    border: 0.1rem solid #64748B;
-    border-radius: 0.5rem;
-    font-size: medium;
-}
-
-.confirmacion {
-    margin: 0.8rem;
-    padding: 0.4rem;
-    border: 0.1rem solid #64748B;
-    border-radius: 0.5rem;
-    font-size: medium;
-}
-
-
 p {
     font-size: small;
     color: #64748B;
 
 }
 
-.container-datos-pasajeros,
-.asientos,
-.pago,
-.confirmacion {
-    margin-left: 10rem;
-    margin-right: 10rem;
-
-}
 
 .botones {
     margin: 0.8rem;
@@ -229,8 +188,8 @@ p {
 }
 
 .botton-continuar button {
-    margin-left: 10rem;
-    margin-right: 10rem;
+    display: block;
+margin: 0 auto;
     padding: 0.5rem;
     border: 0.1rem solid #3B82F6;
     border-radius: 0.3rem;
@@ -245,6 +204,14 @@ p {
     border: 0.1rem solid #64748B;
     border-radius: 0.3rem;
     cursor: pointer;
+}
+
+.container-pago {
+    margin: 0.8rem;
+    padding: 0.4rem;
+    border: 0.1rem solid #64748B;
+    border-radius: 0.5rem;
+    font-size: medium;
 }
 
 .acordeon-credito form,
@@ -267,6 +234,12 @@ details summary {
     color: #3B82F6;
 }
 
+.container-pago label{
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748B; 
+}
+
 .acordeon i {
     transition: transform 0.3s;
     margin: 0.8rem;
@@ -284,9 +257,10 @@ details[open] .acordeon i {
 
 form div input,
 form div select {
-    border: 0.1rem solid #64748B;
-    border-radius: 8px;
-    padding: 0.6rem;
+    border: 1px solid  #CBD5E1;
+    border-radius: 0.8rem;
+    padding: 8px 12px;
+    
 
 }
 
@@ -314,7 +288,7 @@ form div select {
     border-radius: 0.6rem;
 }
 
-.container-confirmacion {
+.container-confirmacion button{
     display: block;
     margin: 1rem auto;
     padding: 1rem;
@@ -322,5 +296,183 @@ form div select {
     border-radius: 0.5rem;
     background-color: #3B82F6;
     color: #FFFFFF;
+    
     cursor: pointer;
 }
+
+.container-confirmacion a {
+text-decoration: none;
+}
+
+.container-confirmacion-vuelo-ida-vuelta{
+    max-width: 30rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 0.1rem solid #64748B;
+    border-radius: 0.5rem;
+    font-size: medium;
+}
+
+
+.container-confirmacion-vuelo-ida-vuelta i, .container-confirmacion-vuelo-ida-vuelta h3{
+    color: #3B82F6;
+    margin: 0.2rem;
+}
+
+.vuelo-ida, .vuelo-vuelta{
+    border-top: 0.1rem solid #CBD5E1;
+    margin: 1rem;
+    
+
+}
+
+.icono-aerolinea{
+width: 100px;
+height: auto;
+}
+
+.vuelo-ida-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.vuelo-ruta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+
+.vuelo-flecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    flex: 1;          /* esto hace que ocupe todo el espacio del medio */
+    min-width: 120px; /* ancho mínimo para que la flecha tenga espacio */
+}
+
+
+.flecha-larga {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #64748B;
+    position: relative;
+}
+
+.flecha-larga::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border: 5px solid transparent;
+    border-left-color: #64748B;
+}
+
+.vuelo-hora {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+.asiento i{
+font-size: 1.2rem; 
+}
+.asiento{
+    gap: 0.8rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    border: 0.1rem solid #3B82F6;
+    border-radius: 0.5rem;
+    background-color: #EFF6FF;
+}
+
+.asiento h5{
+    color: #3B82F6;
+
+}
+
+.container-resumen{
+    border: 0.1rem solid #64748B;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    justify-content: space-between;
+}
+
+.precio-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.3rem 0;
+}
+
+.total h3{
+     display: flex;
+    justify-content: flex-end;
+}
+
+.condiciones{
+    border: 0.1rem solid #e8effa;
+    border-radius: 0.5rem;
+    max-width: 30rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: #e8effa;
+}
+
+.escudo{
+    display:inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.2rem;
+     gap: 0.5rem;
+    
+
+}
+
+.condiciones i, .condiciones h3{
+    color: #3B82F6;
+}
+
+.terminos-condiciones{
+    color:#3B82F6;
+}
+
+.confirmar-vuelo button{
+    display: block;
+    margin: 1rem auto;
+    padding: 0.8rem 2rem;
+    background-color: green;
+    color: #FFFFFF;
+    border: green;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

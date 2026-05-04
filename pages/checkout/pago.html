@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Checkout Pasajeros</title>
+    <title>Checkout Pagos</title>
 
 </head>
 
@@ -37,7 +37,7 @@
         </ol>
 
 
-        <section class="pago">
+        <section class="container-pago">
             <h3>3. Pago</h3>
             <h4>Seleccione tu metodo de pago</h4>
 
@@ -75,7 +75,7 @@
                     </form>
                 </div>
             </details>
-            </div>
+           
 
 
             <details class="acordeon-debito">
@@ -133,8 +133,7 @@
                             <label>Comprobante de pago</label>
                             <div class="subir-archivo">
                                 <input type="file" id="comprobante" accept=".jpg,.png,.pdf">
-                                <label for="comprobante">
-                                    ⬆ Subir archivo
+                                <label for="comprobante"> Subir archivo
                                     <span>JPG, PNG o PDF hasta 5MB</span>
                                 </label>
                             </div>
@@ -146,8 +145,11 @@
                 <h4>Pago 100% seguro</h4>
             </div>
         </section>
+        <div class="container-confirmacion">
+            <a href="../checkout/confirmacion.html">
+                <button> Confirmar pago</button></a>
 
-        <button class="container-confirmacion"> Confirmar pago</button>
+        </div>
     </main>
 </body>
 
