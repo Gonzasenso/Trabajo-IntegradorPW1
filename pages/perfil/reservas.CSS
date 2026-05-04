@@ -1,7 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f3f0f9; 
-    color: #4a4a68;
+    background-color: #F8FAFC; 
+    color: #0F172A;
     margin: 0;
 }
 
@@ -14,18 +14,24 @@ body {
 }
 
 h2 {
-    color: #3f3d56;
-    margin-bottom: 20px;
+    color: #0F172A;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+h3,h4{
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 
 .acordion {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 details {
-    background-color: #f9f7fd;
-    border: 1px solid #e2d9f3;
+    background-color: #FFFFFF;
+    border: 1px solid #0F172A;
     border-radius: 6px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -33,7 +39,7 @@ details {
 
 
 summary {
-    padding: 15px;
+    padding: 18px 24px; 
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -43,16 +49,10 @@ summary {
     
 }
 
-
-summary::-webkit-details-marker {
-    display: none; 
-}
-
-
 .precio-ruta::after {
-    content: "∨";
+    content: "▼";
     font-size: 1.2rem;
-    color: #8a7a9f;
+    color: #0F172A;
     transition: transform 0.3s ease;
 }
 
@@ -61,33 +61,43 @@ details[open] .precio-ruta::after {
 }
 
 details[open] {
-    border: 1.5px solid #d1c4e9;
+    border: 1.5px solid #0F172A;
 }
 
 .precio-ruta {
     display: flex;
     align-items: center;
     gap: 12px;  
+    
 }
 
-
-.detalle-vuelo {
-    padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #e2d9f3;
-}
 
 .vuelo {
-    padding: 15px;
-    border: 1px solid #eeeef6;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    display: flex;          
+    align-items: center;
+    gap: 16px;             
+    flex-wrap: wrap;        
 }
 
 .vuelo h4 {
-    margin: 0 0 10px 0;
-    font-size: 0.95rem;
-    color: #6c63ff;
+    flex: 1;                
+    min-width: 200px;
+}
+
+.ruta-vuelo {
+    gap: 16px;         
+}
+
+.detalle-vuelo {
+    padding: 24px;      
+}
+
+.duracion-vuelo {
+    white-space: nowrap;    
+}
+
+.info-vuelo {
+    margin-left: auto;      
 }
 
 .tiempo-vuelo {
@@ -96,30 +106,24 @@ details[open] {
     margin-bottom: 5px;
 }
 
-.time-offset {
-    font-size: 0.8rem;
-    color: #888;
-    vertical-align: super;
-}
-
-.duracion-vuelo, .info-vuelo {
+.duracion-vuelo {
     font-size: 0.85rem;
-    color: #777;
+    color: #64748B;
 }
 
 
 .vuelo.return {
-    border-top: 1px solid #f0edf7;
-    background-color: #fcfaff;
+    border-top: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 
-header {
+header{
     width: 100%;
     background-color: #0c1735;
 }
 
-header nav {
+header nav{
     display: flex;
     justify-content: space-between;
     padding: 0 2rem;
@@ -128,32 +132,34 @@ header nav {
 
 }
 
-header nav .logo {
+header nav .logo{
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: -0.5px;
 }
 
-header nav ul {
+header nav ul{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5rem;
 }
 
-header nav ul li {
+header nav ul li{
     list-style: none;
 }
 
-header nav ul li a {
+header nav ul li a{
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
 }
 
-header nav .iconoPerfil {
+header nav .iconoPerfil{
     font-size: 1.4rem;
     font-weight: 500;
     color: #FFFFFF;
 }
+
+
