@@ -51,7 +51,7 @@ header nav .iconoPerfil {
 
 main {
     margin: 1rem 4rem;
-    
+
 }
 
 
@@ -61,7 +61,7 @@ h2 {
     line-height: 1.2;
     font-family: 'Inter', sans-serif;
     margin: 0.5rem;
-   
+
 
 }
 
@@ -72,7 +72,7 @@ h3 {
 .container-lista {
     font-family: 'Inter', sans-serif;
     display: flex;
-    gap: 1rem;
+    margin-left: 10rem;
     padding: 2rem;
     list-style: none;
     counter-reset: contador;
@@ -162,9 +162,9 @@ h3 {
 
 .botton,
 .botton-agregar-pasajero,
-.botton-continuar{
+.botton-continuar {
     font-family: 'Inter', sans-serif;
-    
+
 }
 
 .botton-agregar-pasajero button {
@@ -213,34 +213,114 @@ p {
 .asientos,
 .pago,
 .confirmacion {
-    margin-left: 1rem;
-    margin-right: 1rem;
-   
+    margin-left: 10rem;
+    margin-right: 10rem;
+
 }
 
-.botones{
-    margin: 0.8rem; 
+.botones {
+    margin: 0.8rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
     display: flex;
     justify-content: space-between;
-    
+
 
 }
 
-.botton-continuar button{
+.botton-continuar button {
+    margin-left: 10rem;
+    margin-right: 10rem;
     padding: 0.5rem;
     border: 0.1rem solid #3B82F6;
     border-radius: 0.3rem;
     color: #FFFFFF;
     background-color: #3B82F6;
-      cursor: pointer;
-    
+    cursor: pointer;
+
 }
 
-.botton-cancelar button{
+.botton-cancelar button {
     padding: 0.5rem;
     border: 0.1rem solid #64748B;
     border-radius: 0.3rem;
     cursor: pointer;
 }
 
+.acordeon-credito form,
+.acordeon-debito form,
+.acordeon-trans form {
+    border: 0.1rem solid #64748B;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
 
+}
+
+details summary {
+    list-style: none;
+}
+
+.acordeon {
+    color: #3B82F6;
+}
+
+.acordeon i {
+    transition: transform 0.3s;
+    margin: 0.8rem;
+}
+
+details[open] .acordeon i {
+    transform: rotate(180deg);
+}
+
+.container-tarjeta,
+.container-debito,
+.container-transferencia {
+    border-radius: 0.5rem;
+}
+
+form div input,
+form div select {
+    border: 0.1rem solid #64748B;
+    border-radius: 8px;
+    padding: 0.6rem;
+
+}
+
+.campo-tarjeta,
+.campo-fecha,
+.campo-codigo,
+.campo-nombre-completo,
+.campo-cuotas,
+.campo-banco,
+.campo-cbu,
+.campo-cuit,
+.campo-titular,
+.campo-comprobante {
+    display: flex;
+    flex-direction: column;
+}
+
+.pago-texto {
+    justify-content: center;
+    color: green;
+    margin: 1rem;
+    border: 0.1rem solid #64748B;
+    padding: 0.5rem;
+    display: flex;
+    border-radius: 0.6rem;
+}
+
+.container-confirmacion {
+    display: block;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 0.1rem solid #3B82F6;
+    border-radius: 0.5rem;
+    background-color: #3B82F6;
+    color: #FFFFFF;
+    cursor: pointer;
+}
