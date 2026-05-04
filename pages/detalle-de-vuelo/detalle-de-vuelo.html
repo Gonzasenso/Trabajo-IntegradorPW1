@@ -5,15 +5,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title> Detalles del Vuelo </title>
     <!-- Hoja de estilos principal -->
-    <link rel='stylesheet' href='main.css'>
+    <link rel='stylesheet' href='styles.css'>
     <!-- Fuente Inter desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- ========== HEADER ========== -->
-    <!-- Contiene el logo, el menú de navegación y el ícono de perfil -->
+    <!--HEADER-->
     <header>
         <nav>
             <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
@@ -28,7 +27,7 @@
         </nav>
     </header>
 
-    <!-- ========== CONTENIDO PRINCIPAL ========== -->
+    <!--CONTENIDO PRINCIPAL-->
     <main>
 
         <!-- Link para volver a la página anterior -->
@@ -45,8 +44,10 @@
                 <!-- Card de ida: muestra ruta, horarios y línea de tiempo del vuelo de ida -->
                 <section class="ida-card">
                     <p> Ida - 12 Jun 2027 </p>
-                    <img src="img/fly_lena_logo_chico.png" alt="FlyLena">
-                    <span> FlyLena </span>
+                    <div class="aerolinea">
+                        <img src="../../img/fly_lena_logo_chico.png" alt="FlyLena">
+                        <span>FlyLena</span>
+                    </div>
 
                     <!-- Línea de tiempo visual: origen > conexión > destino -->
                     <div class="linea-tiempo">
@@ -72,8 +73,10 @@
                 <!-- Card de vuelta: misma estructura que ida, invertida (MAD > EZE) -->
                 <section class="vuelta-card">
                     <p> Vuelta - 24 Jun 2027 </p>
-                    <img src="img/fly_lena_logo_chico.png" alt="FlyLena">
-                    <span> FlyLena </span>
+                    <div class="aerolinea">
+                        <img src="../../img/fly_lena_logo_chico.png" alt="FlyLena">
+                        <span>FlyLena</span>
+                    </div>
 
                     <div class="linea-tiempo">
                         <div class="origen">
@@ -134,7 +137,7 @@
             <!-- Contiene el selector de asientos -->
             <div class="panel-derecho">
 
-                <h2> Seleccioná tu asiento </h2>
+                <h2> Seleccioná tu asiento </h2><br>
 
                 <!-- Leyenda: indica qué significa cada color de asiento -->
                 <!-- Los span vacíos (cuadrado-...) se convierten en cuadrados de color con CSS -->
@@ -177,7 +180,7 @@
 
                     <!-- Filas de asientos (1 a 8) -->
                     <!-- Estructura de cada fila: numero | A | B | C | pasillo | D | E | F | numero -->
-                    <!-- Los asientos ocupados tienen otra clase llamada "ocupado" para usar un color distinto -->
+                    <!-- Los asientos ocupados tienen otra clase llamada "ocupado" para usar un color distinto, lo mismo el asiento seleccionado  -->
 
                     <div class="fila">
                         <span class="numero-fila">1</span>
@@ -218,8 +221,8 @@
                     <div class="fila">
                         <span class="numero-fila">4</span>
                         <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
+                        <div class="asiento"></div>
+                        <div class="asiento"></div>
                         <div class="pasillo"></div>
                         <div class="asiento"></div>
                         <div class="asiento"></div>
@@ -242,8 +245,8 @@
                     <div class="fila">
                         <span class="numero-fila">6</span>
                         <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
+                        <div class="asiento"></div>
+                        <div class="asiento"></div>
                         <div class="pasillo"></div>
                         <div class="asiento"></div>
                         <div class="asiento"></div>
@@ -259,7 +262,7 @@
                         <div class="pasillo"></div>
                         <div class="asiento ocupado"></div>
                         <div class="asiento ocupado"></div>
-                        <div class="asiento"></div>
+                        <div class="asiento seleccionado"></div>
                         <span class="numero-fila">7</span>
                     </div>
 
@@ -293,52 +296,5 @@
         <!-- Fin contenedor -->
 
     </main>
-
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-header">
-                <div class="footer-logo">
-                    <img src="../../img/fly_lena_logo_chico.png" alt="Logo" class="logo-img">
-                </div>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/despegar.ar/"><img src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/DespegarArgentina/"><img src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
-                    <a href="https://www.tiktok.com/@despegar.ar"><img src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
-                    <a href="https://x.com/Despegar"><img src="../../img/iconos/icono_X.png" alt="X"></a>
-                </div>
-            </div>
-
-            <div class="footer-columns">
-                <div class="column">
-                    <h3>Sobre Nosotros</h3>
-                    <a href="../pages_footer/historia.html">Historia</a>
-                    <a href="../pages_footer/servicios.html">Servicios</a>
-                    <a href="https://www.linkedin.com/company/despegar/">Trabajá con nosotros</a>
-                </div>
-                <div class="column">
-                    <h3>Mi Cuenta</h3>
-                    <a href="../perfil/login.html">Ingresar</a>
-                    <a href="#">Historial de Compras</a>
-                    <a href="#">Seguimiento de Compras</a>
-                </div>
-                <div class="column">
-                    <h3>Atención al Cliente</h3>
-                    <a href="../pages_footer/contacto.html">Contacto</a>
-                    <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
-                <div class="legal-links">
-                    <a href="../../assets/Terminos de Uso y Condiciones.pdf">Términos y condiciones</a>
-                    <a href="../../assets/Terminos de Uso y Condiciones.pdf">Privacidad</a>
-                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor">Defensa del Consumidor</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
 </body>
 </html>
