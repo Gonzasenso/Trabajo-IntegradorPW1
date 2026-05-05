@@ -121,7 +121,6 @@
 .btn-accion small { color: #666; }
 
 .btn-reservas { border: 0.1rem solid rgb(85, 84, 84); background-color: #E9F0FF; color: #1E5BFF; }
-.btn-preferencias { border: 0.1rem solid rgb(85, 84, 84); background-color: #F3EBFF; color: #7A3CFF; }
 .btn-cerrar { border: 0.1rem solid rgb(85, 84, 84); background-color: #FFEBED; color: #D93025; }
 
 /* Banner de Ayuda inferior */

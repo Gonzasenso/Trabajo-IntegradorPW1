@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Lena</title>
+    <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos_index_home.css">
+</head>
+
+<body id="top">
+    <header class="encabezado-principal">
+        <nav class="navegacion-barra">
+            <a class="logo-header" href="home.html"">
+                <img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena">
+            </a>
+            <ul class="menu-navegacion">
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="./pages/perfil/reservas.html">Reservas</a></li>
+                <li><a href="####">Ofertas</a></li>
+                <li><a href="#contacto-footer">Ayuda</a></li>
+            </ul>
+            <a class="icono-perfil-gonza" href="./pages/perfil/perfil_de_usuario.html">
+                <span class="nombre-usuario">¡Hola, Gonzalo!</span>
+                <img src="../../img/foto_perfil.jpg" alt="Foto Perfil">
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Hero con el Avión -->
+        <section class="seccion-hero" style="background-image: url(./img/banner_avion.jpg);">
+            <div class="hero-contenido">
+                <h1>Tu próximo destino te está esperando</h1>
+                <p>Compara y reserva vuelos al mejor precio</p>
+            </div>
+
+            <!-- Buscador de Vuelos -->
+            <div class="buscador-vuelos">
+                <div class="tipo-viaje">
+                    <button class="boton-tipo activo">Ida y vuelta</button>
+                    <button class="boton-tipo">Solo ida</button>
+                    <button class="boton-tipo">Multi destino</button>
+                </div>
+                <div class="formulario-vuelos">
+                    <div class="campo">
+                        <label>Desde</label>
+                        <input type="text" placeholder="Buenos Aires (BUE)">
+                    </div>
+                    <div class="campo">
+                        <label>Hacia</label>
+                        <input type="text" placeholder="Madrid (MAD)">
+                    </div>
+                    <div class="campo">
+                        <label>Fecha ida</label>
+                        <input type="date" placeholder="12/06/2026">
+                    </div>
+                    <div class="campo">
+                        <label>Fecha vuelta</label>
+                        <input type="date" placeholder="26/06/2026">
+                    </div>
+                    <div class="campo">
+                        <label>Pasajeros</label>
+                        <input type="text" placeholder="1 pasajero">
+                    </div>
+                    <a href="./pages/resultados-de-busqueda/filtro-1.html" class="boton-buscar">Buscar vuelos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Esto es la barra de Beneficios que esta abajo del buscador -->
+        <section class="seccion-beneficios">
+            <div class="beneficio-item">
+                <i class="fa-solid fa-tags"></i>
+                <p><strong>Mejor precio garantizado</strong><br>Encontrá las mejores tarifas</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-lock"></i>
+                <p><strong>Pago seguro</strong><br>Tus datos protegidos</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-headset"></i>
+                <p><strong>Atención 24/7</strong><br>Estamos para ayudarte</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-star"></i>
+                <p><strong>Millas y puntos</strong><br>Sumá millas en cada viaje</p>
+            </div>
+        </section>
+
+        <!-- Sección de Ofertas -->
+        <section class="seccion-ofertas">
+            <div class="ofertas-cabecera">
+                <h2>Ofertas destacadas</h2>
+                <a href="####" class="link-ver-todas">Ver todas</a>
+            </div>
+
+            <div class="carrusel-container">
+                <!-- Botones del slider -->
+                <input type="radio" name="carrusel-control" id="slide-1" checked>
+                <input type="radio" name="carrusel-control" id="slide-2">
+                <input type="radio" name="carrusel-control" id="slide-3">
+
+                <div class="carrusel-slides">
+                    <div class="slide-item">
+                        <img src="./img/promo_madrid_carrusel.png" alt="Oferta 1">
+                    </div>
+                    <div class="slide-item">
+                        <img src="./img/promo_cancun_carrusel.png" alt="Oferta 2">
+                    </div>
+                    <div class="slide-item">
+                        <img src="./img/promo_tokio_carrusel.png" alt="Oferta 3">
+                    </div>
+                </div>
+
+                <!-- Botones del slider para que vayan en reversa -->
+                <div class="carrusel-nav">
+                    <div class="controles s1">
+                        <label for="slide-3" class="prev">&lt;</label>
+                        <label for="slide-2" class="next">&gt;</label>
+                    </div>
+                    <div class="controles s2">
+                        <label for="slide-1" class="prev">&lt;</label>
+                        <label for="slide-3" class="next">&gt;</label>
+                    </div>
+                    <div class="controles s3">
+                        <label for="slide-2" class="prev">&lt;</label>
+                        <label for="slide-1" class="next">&gt;</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto-footer" class="footer-custom">
+        <div class="footer-container">
+            <div class="footer-header">
+                <div class="footer-logo">
+                    <a href="#top">
+                        <img src="./img/fly_lena_logo_grande.png" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img
+                            src="./img/iconos/icono_ig.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img
+                            src="./img/iconos/icono_fb.png" alt="Facebook"></a>
+                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img
+                            src="./img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
+                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img
+                            src="./img/iconos/icono_X.png" alt="X"></a>
+                </div>
+            </div>
+
+            <div class="footer-columns">
+                <div class="column">
+                    <h3>Sobre Nosotros</h3>
+                    <a href="./pages/pages_footer/historia.html">Historia</a>
+                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/" target="_blank" rel="noopener noreferrer">Trabajá
+                        con nosotros</a>
+                </div>
+
+                <div class="column">
+                    <h3>Mi Cuenta</h3>
+                    <a href="./pages/perfil/perfil_de_usuario.html">Perfil de Usuario</a>
+                    <a href="./pages/perfil/reservas.html">Mis Reservas</a>
+                </div>
+
+                <div class="column">
+                    <h3>Atención al Cliente</h3>
+                    <a href="./pages/pages_footer/contacto.html">Contacto</a>
+                    <a href="./pages/pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
+                <div class="legal-links">
+                    <a href="./assets/Terminos de Uso y Condiciones.pdf" target="_blank" rel="noopener noreferrer">Términos y condiciones</a>
+                    <a href="./assets/Politica de Privacidad.pdf" target="_blank" rel="noopener noreferrer">Privacidad</a>
+                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor" target="_blank" rel="noopener noreferrer">Defensa
+                        del Consumidor</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
