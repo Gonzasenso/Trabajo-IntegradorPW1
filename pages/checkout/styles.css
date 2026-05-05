@@ -537,7 +537,7 @@ display: flex;
 }
 
 .condiciones{
-    border: 0.1rem solid #e8effa;
+    border: 0.1rem solid #a3afc2;
     border-radius: 0.5rem;
     max-width: 30rem;
     margin: 1rem auto;
@@ -563,6 +563,9 @@ display: flex;
     color:#3B82F6;
 }
 
+.confirmar-vuelo{
+    text-decoration: none;
+}
 .confirmar-vuelo button{
     display: block;
     margin: 1rem auto;
@@ -572,6 +575,7 @@ display: flex;
     border: green;
     border-radius: 0.5rem;
     cursor: pointer;
+    
 
 }
 
