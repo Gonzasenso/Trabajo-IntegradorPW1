@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Checkout Pagos</title>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="">Vuelos</a></li>
+                <li><a href="">Ofertas</a></li>
+                <li><a href="">Ayuda</a></li>
+            </ul>
+            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html"><i class="fa-solid fa-user"></i></a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <h2> Checkout</h2>
+
+        <ol class="container-lista">
+            <li>Pasajeros</li>
+            <li>Asientos</li>
+            <li class="activo">Pago</li>
+            <li>Confirmacion</li>
+        </ol>
+
+
+        <section class="container-pago">
+            <h3>3. Pago</h3>
+            <h4>Seleccione tu metodo de pago</h4>
+
+
+
+
+            <details class="acordeon-credito" open>
+                <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con tarjeta de credito</summary>
+                <div class="acordeon-contenido">
+                    <form class="container-tarjeta">
+                        <div class="campo-tarjeta">
+                            <label>Numero de Tarjeta</label>
+                            <input type="text" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="campo-fecha">
+                            <label>Fecha de vencimiento</label>
+                            <input type="month">
+                        </div>
+                        <div class="campo-codigo">
+                            <label>Codigo de seguridad</label>
+                            <input type="text" placeholder="123">
+                        </div>
+                        <div class="campo-nombre-completo">
+                            <label>Nombre completo del titular</label>
+                            <input type="text" placeholder="Ej: GONZALEZ JUAN">
+                        </div>
+                        <div class="campo-cuotas">
+                            <label>Cuotas</label>
+                            <select>
+                                <option>1 cuota (sin interes) de USD620</option>
+                                <option>3 cuotas de USD713 (%15)</option>
+                                <option>6 cuotas de USD819.95 (%30)</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </details>
+           
+
+
+            <details class="acordeon-debito">
+                <summary class="acordeon"><i class="fa-solid fa-caret-up"></i> Pago con tarjeta de debito</summary>
+                <div class="acordeon-contenido">
+                    <form class="container-debito">
+                        <div class="campo-tarjeta">
+                            <label>Numero de Tarjeta</label>
+                            <input type="text" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="campo-fecha">
+                            <label>Fecha de vencimiento</label>
+                            <input type="month">
+                        </div>
+                        <div class="campo-codigo">
+                            <label>Codigo de seguridad</label>
+                            <input type="text" placeholder="123">
+                        </div>
+                        <div class="campo-nombre-completo">
+                            <label>Nombre completo del titular</label>
+                            <input type="text" placeholder="Ej: GONZALEZ JUAN">
+                        </div>
+                    </form>
+                </div>
+            </details>
+
+
+
+            <details class="acordeon-trans">
+                <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con Transferencia</summary>
+                <div class="acordeon-contenido">
+                    <form class="container-transferencia">
+                        <div class="campo-banco">
+                            <label>Banco</label>
+                            <select>
+                                <option>Banco Provincia</option>
+                                <option>Banelco</option>
+                                <option>Banco Santander Rio</option>
+                                <option>Banco Nacion</option>
+                            </select>
+                        </div>
+                        <div class="campo-cbu">
+                            <label>CBU/CVU</label>
+                            <input type="text" placeholder="0000003100000006000000">
+                        </div>
+                        <div class="campo-cuit">
+                            <label>CUIT/CUIL</label>
+                            <input type="text" placeholder="20-00000000-0">
+                        </div>
+                        <div class="campo-titular">
+                            <label>Titular de la cuenta</label>
+                            <input type="text" placeholder="Ej. PEREZ JUAN">
+                        </div>
+                        <div class="campo-comprobante">
+                            <label>Comprobante de pago</label>
+                            <div class="subir-archivo">
+                                <input type="file" id="comprobante" accept=".jpg,.png,.pdf">
+                                <label for="comprobante"> Subir archivo
+                                    <span>JPG, PNG o PDF hasta 5MB</span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </details>
+            <div class="pago-texto">
+                <h4>Pago 100% seguro</h4>
+            </div>
+        </section>
+        <div class="container-confirmacion">
+            <a href="../checkout/confirmacion.html">
+                <button> Confirmar pago</button></a>
+
+        </div>
+    </main>
+</body>
+
+</html>
