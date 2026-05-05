@@ -51,7 +51,7 @@
                     <form class="container-tarjeta">
                         <div class="campo-tarjeta">
                             <label>Numero de Tarjeta</label>
-                            <input type="text" placeholder="1234 5678 9012 3456">
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="1234 5678 9012 3456" required>
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="campo-codigo">
                             <label>Codigo de seguridad</label>
-                            <input type="text" placeholder="123">
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="123">
                         </div>
                         <div class="campo-nombre-completo">
                             <label>Nombre completo del titular</label>
@@ -85,7 +85,7 @@
                     <form class="container-debito">
                         <div class="campo-tarjeta">
                             <label>Numero de Tarjeta</label>
-                            <input type="text" placeholder="1234 5678 9012 3456">
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="1234 5678 9012 3456">
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
@@ -120,11 +120,11 @@
                         </div>
                         <div class="campo-cbu">
                             <label>CBU/CVU</label>
-                            <input type="text" placeholder="0000003100000006000000">
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="0000003100000006000000">
                         </div>
                         <div class="campo-cuit">
                             <label>CUIT/CUIL</label>
-                            <input type="text" placeholder="20-00000000-0">
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="20-00000000-0">
                         </div>
                         <div class="campo-titular">
                             <label>Titular de la cuenta</label>

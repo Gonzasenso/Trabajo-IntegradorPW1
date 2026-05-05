@@ -147,10 +147,12 @@ border: 1px solid #3B82F6;
 
 .container-datos-pasajeros h3 {
     margin-bottom: 0.2rem;
+    margin: 1rem;
 }
 
 .container-datos-pasajeros h4 {
     margin-bottom: 1rem;
+    margin: 1rem;
 }
 
 .container-campos {
@@ -193,6 +195,30 @@ border: 1px solid #3B82F6;
     color: #3B82F6;
     cursor: pointer;
 
+}
+
+#pasajero2 {
+    display: none;
+    margin-top: 1rem;
+}
+
+#toggle-pasajero2:checked ~ .container-datos-pasajeros #pasajero2 {
+    display: block;
+}
+
+#toggle-pasajero2:checked ~ .container-datos-pasajeros .botton-agregar-pasajero {
+    display: none;
+}
+
+.botton-agregar-pasajero label {
+    margin: 1rem;
+    background-color: #FFFFFF;
+    border: 0.2rem solid #3B82F6;
+    border-radius: 0.6rem;
+    padding: 0.4rem;
+    color: #3B82F6;
+    cursor: pointer;
+    display: inline-block;
 }
 
 p {
@@ -246,6 +272,11 @@ p {
 
 .container-pago h3 {
     margin-bottom: 0.5rem;
+    margin: 1rem;
+}
+
+.container-pago h4{
+    margin: 1rem;
 }
 
 
