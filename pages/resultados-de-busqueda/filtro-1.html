@@ -16,11 +16,13 @@
             <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
             <ul>
                 <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="">Vuelos</a></li>
+                <li><a href="../perfil/reservas.html">Reservas</a></li>
                 <li><a href="">Ofertas</a></li>
                 <li><a href="">Ayuda</a></li>
             </ul>
-            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html"><i class="fa-solid fa-user"></i></a>
+            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
+                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
+            </a>
         </nav>
     </header>
 
@@ -47,6 +49,7 @@
 
         </section>
 
+
         <section class="seccionResultados">
 
             <aside class="filtros">
@@ -61,7 +64,12 @@
 
                 <div class="grupoFiltro">
                     <h4>Precio</h4>
-                    <input type="range">
+                    <div class="valoresRango">
+                        <span>USD 400</span>
+                        <span>USD 1000</span>
+                    </div>
+
+                    <input type="range" min="400" max="1000" value="1000">
                 </div>
 
                 <div class="grupoFiltro">
@@ -76,7 +84,17 @@
             <section class="resultadosVuelos">
                 <div class="encabezadoResultados">
                     <h2>3 vuelos encontrados</h2>
-                    <button>Ordenar por: Mejor opción</button>
+                    <div class="dropdown">
+                        <input type="checkbox" id="toggleDropdown">
+                        <label for="toggleDropdown" class="botonOrdenar">Ordenar por: Mejor opción <i
+                                class="fa-solid fa-chevron-down"></i></label>
+                        <ul class="dropdownMenu">
+                            <li>Mejor opcion</li>
+                            <li>Precio más bajo</li>
+                            <li>Duración mas corta</li>
+                            <li>Salida mas temprana</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <article class="cardVuelo">
@@ -90,7 +108,7 @@
                         <hr>
                     </div>
                     <div class="horario">
-                        <strong>10:45</strong>
+                        <strong>19:45</strong>
                         <span>MAD</span>
                     </div>
                     <div class="duracion">11h 15m</div>
@@ -101,7 +119,7 @@
                     </div>
                 </article>
                 <article class="cardVuelo">
-                    <div class="aerolinea">IBERIA</div>
+                    <div class="aerolinea">Iberia</div>
                     <div class="horario">
                         <strong>12:30</strong>
                         <span>BUE</span>
@@ -111,7 +129,7 @@
                         <hr>
                     </div>
                     <div class="horario">
-                        <strong>14:30</strong>
+                        <strong>23:45</strong>
                         <span>MAD</span>
                     </div>
                     <div class="duracion">11h 15m</div>
@@ -132,7 +150,7 @@
                         <hr>
                     </div>
                     <div class="horario">
-                        <strong>19:00</strong>
+                        <strong>04:15</strong>
                         <span>MAD</span>
                     </div>
                     <div class="duracion">11h 15m</div>
@@ -145,6 +163,8 @@
             </section>
 
         </section>
+
+
     </main>
 </body>
 
