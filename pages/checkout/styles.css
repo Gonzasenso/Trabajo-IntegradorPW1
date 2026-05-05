@@ -365,7 +365,7 @@ width: 100px;
 height: auto;
 }
 
-.vuelo-ida-header{
+.vuelo-ida-header, .vuelo-vuelta-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
