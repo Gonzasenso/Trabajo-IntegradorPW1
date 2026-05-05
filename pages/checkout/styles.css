@@ -5,6 +5,12 @@
     font-family: 'Inter', sans-serif;
 }
 
+html {
+    font-size: 62. 5%;
+}
+
+
+
 header {
     width: 100%;
     background-color: #0c1735;
@@ -15,8 +21,10 @@ header nav {
     justify-content: space-between;
     padding: 0 2rem;
     align-items: center;
-    height: 7vh;
-
+    height: 10vh;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 120rem;
 }
 
 header nav .logo {
@@ -36,23 +44,56 @@ header nav ul li {
     list-style: none;
 }
 
+
 header nav ul li a {
+    position: relative;
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
+} 
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    width: 100%;
+    height: 0.2rem;
+    background-color: #FFFFFF;
+
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
 }
 
 header nav .iconoPerfil {
     font-size: 1.4rem;
     font-weight: 500;
     color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
 }
 
-main {
-    margin: 0.5rem 4rem;
-
+header nav .iconoPerfil .nombre {
+    text-decoration: none;
+    font-size: 1.4rem;
 }
+
+header nav .iconoPerfil img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+
+/* comienzo de pasajeros.html */
 
 
 h2 {
@@ -259,7 +300,11 @@ p {
     border: 0.1rem solid #64748B;
     border-radius: 0.3rem;
     cursor: pointer;
-}
+} 
+ /* finalizacion de pasajeros.html */
+
+
+ /* comienzo de pago.html */
 
 .container-pago {
     margin: 0.8rem auto;
@@ -354,8 +399,12 @@ form div select {
     border-radius: 0.6rem;
 }
 
+.container-confirmacion {
+    margin-bottom: 2rem;
+}
+
 .container-confirmacion button{
-     display: block;
+    display: block;
     margin: 0 auto;
     padding: 0.5rem;
     border: 0.1rem solid #3B82F6;
@@ -368,6 +417,10 @@ form div select {
 .container-confirmacion a {
 text-decoration: none;
 }
+
+/* Finalizacion de pago.html */
+
+/* Comienzo de confirmacio.html */
 
 .container-confirmacion-vuelo-ida-vuelta{
     max-width: 600px;
@@ -417,8 +470,8 @@ height: auto;
     flex-direction: column;
     align-items: center;
     gap: 0.2rem;
-    flex: 1;          /* esto hace que ocupe todo el espacio del medio */
-    min-width: 120px; /* ancho mínimo para que la flecha tenga espacio */
+    flex: 1;         
+    min-width: 120px; 
 }
 
 
@@ -521,6 +574,8 @@ display: flex;
     cursor: pointer;
 
 }
+
+/* Finalizacion de confirmacio.html */
 
 .footer-custom {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
