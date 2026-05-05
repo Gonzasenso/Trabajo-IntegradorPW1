@@ -1,4 +1,4 @@
-/* Config Global & Fuente*/
+/* #region Config Global & Fuente*/
 * {
     margin: 0;
     padding: 0;
@@ -6,45 +6,87 @@
     font-family: 'Inter', sans-serif;
 }
 
+html {
+    font-size: 62. 5%;
+}
+/* #endregion CSS Global & Fuente */
+
 /* #region CSS del Header */
-body {
-    background-color: #FFFFFF;
+header {
+    width: 100%;
+    background-color: #0c1735;
 }
 
-.encabezado-principal {
-    background-color: #001442;
-    padding: 0.4rem 5%; 
-}
-
-.logo-header {
-    height: 30px; 
-    width: auto;
-    display: block; 
-}
-
-.navegacion-barra {
+header nav {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-    min-height: 50px; 
+    padding: 0 2rem;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 140rem; 
 }
 
-.logo-header {
-    height: 40px;
-}
-
-.menu-usuario {
-    display: flex;
-    gap: 20px;
-}
-
-.menu-usuario a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 0.9rem;
+header nav .icono-perfil-gonza {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 1.2rem;
+    text-decoration: none;
+    color: #FFFFFF;
+    height: 100%; 
+    flex-shrink: 0;
+}
+
+header nav .icono-perfil-gonza .nombre-usuario {
+    font-size: 1.4rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+header nav .icono-perfil-gonza img {
+    width: 3rem; 
+    height: 3rem; 
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+header nav ul {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 6rem; 
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+header nav ul li a {
+    position: relative;
+    font-size: 1.6rem; 
+    font-weight: 500;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0.5rem 0;
+}
+
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    width: 100%;
+    height: 0.2rem;
+    background-color: #FFFFFF;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
 }
 /* #endregion CSS del Header */
 
@@ -64,7 +106,7 @@ body {
 .hero-contenido h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Config del Buscador */
@@ -73,7 +115,7 @@ body {
     border-radius: 12px;
     padding: 20px;
     margin-top: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     color: #333;
 }
 
@@ -95,7 +137,8 @@ body {
 }
 
 .boton-tipo:hover {
-    background-color: #CFCFCF; /* Pedido 7 */
+    background-color: #CFCFCF;
+    /* Pedido 7 */
 }
 
 .boton-tipo.activo {
@@ -178,6 +221,83 @@ body {
     text-decoration: none;
     font-weight: 600;
 }
+
+.carrusel-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* Escondemos los radios */
+input[name="carrusel-control"] {
+    display: none;
+}
+
+/* Contenedor de las imágenes en línea */
+.carrusel-slides {
+    display: flex;
+    width: 300%; 
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide-item {
+    width: 33.333%; 
+}
+
+.slide-item img {
+    width: 100%;
+    display: block;
+    height: 400px; 
+    object-fit: cover;
+}
+
+/* Lógica de movimiento según el radio seleccionado */
+#slide-1:checked ~ .carrusel-slides { transform: translateX(0); }
+#slide-2:checked ~ .carrusel-slides { transform: translateX(-33.333%); }
+#slide-3:checked ~ .carrusel-slides { transform: translateX(-66.666%); }
+
+/* Estilo de los botones laterales del carrusel */
+.carrusel-nav .controles {
+    display: none; 
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#slide-1:checked ~ .carrusel-nav .s1,
+#slide-2:checked ~ .carrusel-nav .s2,
+#slide-3:checked ~ .carrusel-nav .s3 {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    user-select: none;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+.prev:hover, .next:hover {
+    background: rgba(128, 128, 128, 0.4);
+}
+
 /* #endregion CSS del Body */
 
 /* #region CSS del Footer */
@@ -203,7 +323,7 @@ body {
 }
 
 .logo-img {
-    width: 10rem;
+    width: 7rem;
     height: auto;
 }
 
@@ -269,4 +389,47 @@ body {
     color: white;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* #endregion CSS del Footer */
+
+/* #region CSS del Landing */
+.landing-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 30, 66, 0.8), rgba(0, 30, 66, 0.8)), url('./img/banner_avion.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.opciones-acceso {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-acceso {
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-login {
+    background: white;
+    color: #001E42;
+}
+
+.btn-registro {
+    background: #7A3CFF;
+    color: white;
+}
+
+/* #endregion CSS del Landing */
