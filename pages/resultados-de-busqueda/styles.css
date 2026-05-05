@@ -6,74 +6,116 @@
 }
 
 html {
-    font-size: 62,5%;
+    font-size: 62. 5%;
 }
 
 body {
     background-color: black;
 }
 
-header{
+header {
     width: 100%;
     background-color: #0c1735;
 }
 
-header nav{
+header nav {
     display: flex;
     justify-content: space-between;
     padding: 0 2rem;
     align-items: center;
     height: 10vh;
-
+    width: 100%;
+    margin: 0 auto;
+    max-width: 120rem;
 }
 
-header nav .logo{
+header nav .logo {
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: -0.5px;
 }
 
-header nav ul{
+header nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5rem;
 }
 
-header nav ul li{
+header nav ul li {
     list-style: none;
 }
 
-header nav ul li a{
+
+header nav ul li a {
+    position: relative;
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
 }
 
-header nav .iconoPerfil{
+
+/* Linea */
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    width: 100%;
+    height: 0.2rem;
+    background-color: #FFFFFF;
+
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+/* Hover */
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+header nav .iconoPerfil {
     font-size: 1.4rem;
     font-weight: 500;
     color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+}
+
+header nav .iconoPerfil .nombre {
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+header nav .iconoPerfil img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
 }
 
 /* Main Filtros*/
 
-main{
+main {
     height: 90vh;
 }
 
-.seccionInfoBusqueda{
+.seccionInfoBusqueda {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     height: 15vh;
-    background-color: #19264d;
     padding: 0 2rem;
+    margin: 0 auto;
+    background-color: #19264d;
 }
 
-.contenedorInfo{
+.contenedorInfo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -81,118 +123,170 @@ main{
     gap: 0.5rem;
 }
 
-.contenedorInfo div{
+.contenedorInfo div {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.contenedorInfo div hr{
+.contenedorInfo div hr {
     border: none;
     background-color: #FFFFFF;
     width: 0.2rem;
     height: 1rem;
 }
 
-.contenedorInfoParte1 p{
+.contenedorInfoParte1 p {
     font-size: 2rem;
     color: #FFFFFF;
 }
 
-.contenedorInfoParte1 i{
+.contenedorInfoParte1 i {
     color: #FFFFFF;
 }
 
-.contenedorInfoParte2 p{
+.contenedorInfoParte2 p {
     font-size: 1.2rem;
     color: #FFFFFF;
 }
 
-.contenedorModificarBusqueda{
+.contenedorModificarBusqueda {
     padding: 1rem;
     background-color: #FFFFFF;
     border-radius: 0.5rem;
 }
 
-.contenedorModificarBusqueda a{
+.contenedorModificarBusqueda a {
     color: #1266d6;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.3rem;
 }
 
-.seccionResultados{
+.seccionResultados {
     display: flex;
     width: 100%;
     height: 75vh;
     background-color: #f6f8fb;
 }
 
-.filtros{
+.filtros {
     width: 22rem;
     padding: 2rem;
     background-color: white;
     border-right: 0.1rem solid #d9e1ec;
 }
 
-.filtros h3{
+.filtros h3 {
     font-size: 1.6rem;
     margin-bottom: 2rem;
     color: #0c1735;
 }
 
-.grupoFiltro{
+.grupoFiltro {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 2.5rem;
 }
 
-.grupoFiltro h4{
+.grupoFiltro h4 {
     font-size: 1.4rem;
     color: #0c1735;
 }
 
-.grupoFiltro label{
+.grupoFiltro label {
     font-size: 1.3rem;
     color: #44516c;
 }
 
-.grupoFiltro label input[type="checkbox"]{
+.grupoFiltro label input[type="checkbox"] {
     accent-color: #006ee6;
     cursor: pointer;
 }
 
-.grupoFiltro input[type="range"]{
+.valoresRango {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    color: #44516c;
+}
+
+.grupoFiltro input[type="range"] {
+    width: 100%;
     accent-color: #006ee6;
     cursor: pointer;
 }
 
-.resultadosVuelos{
+
+.resultadosVuelos {
     flex: 1;
     padding: 2rem;
 }
 
-.encabezadoResultados{
+.encabezadoResultados {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
 }
 
-.encabezadoResultados h2{
+.encabezadoResultados h2 {
     font-size: 1.8rem;
     color: #0c1735;
 }
 
-.encabezadoResultados button{
+.dropdown {
+    position: relative;
+}
+
+#toggleDropdown {
+    display: none;
+}
+
+.botonOrdenar {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     padding: 0.8rem 1.2rem;
     border: 0.1rem solid #d9e1ec;
     background-color: white;
     border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.cardVuelo{
+.dropdownMenu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: #FFFFFF;
+    border: 0.1rem solid #d9e1ec;
+    border-radius: 0.5rem;
+    list-style: none;
+    width: 17rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s;
+}
+
+#toggleDropdown:checked~.dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdownMenu li {
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.dropdownMenu li:hover {
+    background-color: #f0f4fa;
+}
+
+
+.cardVuelo {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1.5fr 1fr 1fr 1.2fr;
     align-items: center;
@@ -204,56 +298,56 @@ main{
     margin-bottom: 1.5rem;
 }
 
-.aerolinea{
-    font-size: 1.6rem;
+.aerolinea img{
+    width: 8rem;
     font-weight: 700;
     color: #1266d6;
 }
 
-.horario{
+.horario {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.horario strong{
+.horario strong {
     font-size: 1.8rem;
     color: #0c1735;
 }
 
 .horario span,
-.duracion{
+.duracion {
     font-size: 1.2rem;
     color: #44516c;
 }
 
-.trayecto{
+.trayecto {
     text-align: center;
     color: #44516c;
 }
 
-.trayecto hr{
+.trayecto hr {
     margin-top: 0.5rem;
 }
 
-.precio{
+.precio {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
 }
 
-.precio strong{
+.precio strong {
     font-size: 1.6rem;
     color: #0c1735;
 }
 
-.precio span{
+.precio span {
     font-size: 1.1rem;
     color: #44516c;
 }
 
-.precio a{
+.precio a {
     background-color: #006ee6;
     color: white;
     padding: 0.6rem 1rem;
@@ -262,7 +356,93 @@ main{
     font-size: 1.2rem;
 }
 
+/* #region CSS del Footer */
+.footer-custom {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(../../img/footer.png) no-repeat center center/cover;
+    color: white;
+    padding: 40px 5%;
+    font-family: Arial, sans-serif;
+}
 
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.footer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+}
 
+.logo-img {
+    width: 10rem;
+    height: auto;
+}
 
+.footer-socials a img {
+    width: 2rem;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a img:hover {
+    transform: scale(1.3);
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.column {
+    padding: 0 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.column:last-child {
+    border-right: none;
+}
+
+.column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #a0d4f1;
+}
+
+.column a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.column a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    font-size: 0.85rem;
+}
+
+.legal-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.legal-links a:hover {
+    color: white;
+}
+
+/* #endregion CSS del Footer */

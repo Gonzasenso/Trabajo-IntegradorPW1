@@ -16,11 +16,13 @@
             <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
             <ul>
                 <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="">Vuelos</a></li>
+                <li><a href="../perfil/reservas.html">Reservas</a></li>
                 <li><a href="">Ofertas</a></li>
                 <li><a href="">Ayuda</a></li>
             </ul>
-            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html"><i class="fa-solid fa-user"></i></a>
+            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
+                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
+            </a>
         </nav>
     </header>
 
@@ -47,6 +49,7 @@
 
         </section>
 
+
         <section class="seccionResultados">
 
             <aside class="filtros">
@@ -61,7 +64,12 @@
 
                 <div class="grupoFiltro">
                     <h4>Precio</h4>
-                    <input type="range">
+                    <div class="valoresRango">
+                        <span>USD 400</span>
+                        <span>USD 1000</span>
+                    </div>
+
+                    <input type="range" min="400" max="1000" value="1000">
                 </div>
 
                 <div class="grupoFiltro">
@@ -76,11 +84,21 @@
             <section class="resultadosVuelos">
                 <div class="encabezadoResultados">
                     <h2>3 vuelos encontrados</h2>
-                    <button>Ordenar por: Mejor opción</button>
+                    <div class="dropdown">
+                        <input type="checkbox" id="toggleDropdown">
+                        <label for="toggleDropdown" class="botonOrdenar">Ordenar por: Mejor opción <i
+                                class="fa-solid fa-chevron-down"></i></label>
+                        <ul class="dropdownMenu">
+                            <li>Mejor opcion</li>
+                            <li>Precio más bajo</li>
+                            <li>Duración mas corta</li>
+                            <li>Salida mas temprana</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <article class="cardVuelo">
-                    <div class="aerolinea">Air Europa</div>
+                    <div class="aerolinea"><img src="../../img/Logos Aerolineas/air-europa-logo.png" alt="logoAirEuropa"></div>
                     <div class="horario">
                         <strong>08:30</strong>
                         <span>BUE</span>
@@ -90,7 +108,7 @@
                         <hr>
                     </div>
                     <div class="horario">
-                        <strong>10:45</strong>
+                        <strong>19:45</strong>
                         <span>MAD</span>
                     </div>
                     <div class="duracion">11h 15m</div>
@@ -101,7 +119,7 @@
                     </div>
                 </article>
                 <article class="cardVuelo">
-                    <div class="aerolinea">IBERIA</div>
+                    <div class="aerolinea"><img src="../../img/Logos Aerolineas/iberia-logo.png" alt="logoIberia"></div>
                     <div class="horario">
                         <strong>12:30</strong>
                         <span>BUE</span>
@@ -111,7 +129,7 @@
                         <hr>
                     </div>
                     <div class="horario">
-                        <strong>14:30</strong>
+                        <strong>23:45</strong>
                         <span>MAD</span>
                     </div>
                     <div class="duracion">11h 15m</div>
@@ -122,7 +140,7 @@
                     </div>
                 </article>
                 <article class="cardVuelo">
-                    <div class="aerolinea">LATAM</div>
+                    <div class="aerolinea"><img src="../../img/Logos Aerolineas/Latam-logo.png" alt="logoLatam"></div>
                     <div class="horario">
                         <strong>17:00</strong>
                         <span>BUE</span>
@@ -132,7 +150,7 @@
                         <hr>
                     </div>
                     <div class="horario">
-                        <strong>19:00</strong>
+                        <strong>04:15</strong>
                         <span>MAD</span>
                     </div>
                     <div class="duracion">11h 15m</div>
@@ -145,7 +163,62 @@
             </section>
 
         </section>
+
+
     </main>
+
+    <footer id="contacto-footer" class="footer-custom">
+        <div class="footer-container">
+            <div class="footer-header">
+                <div class="footer-logo">
+                    <img src="../../img/fly_lena_logo_grande.png" alt="Logo" class="logo-img">
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
+                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
+                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_X.png" alt="X"></a>
+                </div>
+            </div>
+
+            <div class="footer-columns">
+                <div class="column">
+                    <h3>Sobre Nosotros</h3>
+                    <a href="../pages_footer/historia.html">Historia</a>
+                    <a href="../pages_footer/servicios.html">Servicios</a>
+                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/">Trabajá
+                        con nosotros</a>
+                </div>
+
+                <div class="column">
+                    <h3>Mi Cuenta</h3>
+                    <a href="../perfil/login.html">Ingresar</a>
+                    <a href="#">Historial de Compras</a>
+                    <a href="#">Seguimiento de Compras</a>
+                </div>
+
+                <div class="column">
+                    <h3>Atención al Cliente</h3>
+                    <a href="../pages_footer/contacto.html">Contacto</a>
+                    <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
+                <div class="legal-links">
+                    <a href="../../assets/Terminos de Uso y Condiciones.pdf">Términos y condiciones</a>
+                    <a href="../../assets/Politica de Privacidad.pdf">Privacidad</a>
+                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor">Defensa
+                        del Consumidor</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
