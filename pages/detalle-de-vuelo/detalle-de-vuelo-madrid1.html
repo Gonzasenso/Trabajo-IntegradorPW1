@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='es'>
+
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -11,99 +12,102 @@
     <!-- Logo i de Información -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
 
     <!--HEADER-->
+
     <body>
-    <header>
-        <nav>
-            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
-            <ul>
-                <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="../perfil/reservas.html">Reservas</a></li>
-                <li><a href="">Ofertas</a></li>
-                <li><a href="">Ayuda</a></li>
-            </ul>
-            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
-                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
-            </a>
-        </nav>
-    </header>
+        <header>
+            <nav>
+                <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png"
+                        alt="logoFlyLena"></a>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="../perfil/reservas.html">Reservas</a></li>
+                    <li><a href="../ofertas/ofertas.html">Ofertas</a></li>
+                    <li><a href="#contacto-footer">Ayuda</a></li>
+                </ul>
+                <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
+                    <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
+                </a>
+            </nav>
+        </header>
 
-    <!--CONTENIDO PRINCIPAL-->
-    <main>
+        <!--CONTENIDO PRINCIPAL-->
+        <main>
 
-        <!-- Link para volver a la página anterior -->
-        <a href="../resultados-de-busqueda/filtro-1.html"> Volver a Resultados </a>
-        <h1> Detalles de Vuelo </h1>
+            <!-- Link para volver a la página anterior -->
+            <a href="../resultados-de-busqueda/filtro-1.html"> Volver a Resultados </a>
+            <h1> Detalles de Vuelo </h1>
 
-        <!-- Contenedor general: divide la página en panel izquierdo y derecho usando flex -->
-        <div class="contenedor">
+            <!-- Contenedor general: divide la página en panel izquierdo y derecho usando flex -->
+            <div class="contenedor">
 
-            <!-- ===== PANEL IZQUIERDO ===== -->
-            <!-- Contiene la información del vuelo, precio e información adicional -->
-            <div class="panel-izquierdo">
+                <!-- ===== PANEL IZQUIERDO ===== -->
+                <!-- Contiene la información del vuelo, precio e información adicional -->
+                <div class="panel-izquierdo">
 
-                <!-- Card de ida: muestra ruta, horarios y línea de tiempo del vuelo de ida -->
-                <section class="ida-card">
-                    <p> Ida - 12 Jun 2024 </p>
-                    <div class="aerolinea">
-                        <img src="../../img/Logos Aerolineas/air-europa-logo.png" alt="FlyLena">
-                        <span>Air Europa</span>
-                    </div>
-
-                    <!-- Línea de tiempo visual: origen > conexión > destino -->
-                    <div class="linea-tiempo">
-                        <div class="origen">
-                            <span class="hora">08:30</span>
-                            <span class="codigo">EZE</span>
-                            <span class="ciudad">Buenos Aires</span>
+                    <!-- Card de ida: muestra ruta, horarios y línea de tiempo del vuelo de ida -->
+                    <section class="ida-card">
+                        <p> Ida - 12 Jun 2024 </p>
+                        <div class="aerolinea">
+                            <img src="../../img/Logos Aerolineas/air-europa-logo.png" alt="FlyLena">
+                            <span>Air Europa</span>
                         </div>
-                        <!-- La línea horizontal se genera con CSS sobre el div de clase "linea" vacío -->
-                        <div class="conexion">
-                            <span>Directo</span>
-                            <div class="linea"></div>
-                            <span>11h 15m</span>
-                        </div>
-                        <div class="destino">
-                            <span class="hora">19:45</span>
-                            <span class="codigo">MAD</span>
-                            <span class="ciudad">Madrid</span>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- Card de vuelta: misma estructura que ida, invertida (MAD > EZE) -->
-                <section class="vuelta-card">
-                    <p> Vuelta - 26 Jun 2024 </p>
-                    <div class="aerolinea">
-                        <img src="../../img/Logos Aerolineas/air-europa-logo.png" alt="FlyLena">
-                        <span>Air Europa</span>
-                    </div>
+                        <!-- Línea de tiempo visual: origen > conexión > destino -->
+                        <div class="linea-tiempo">
+                            <div class="origen">
+                                <span class="hora">08:30</span>
+                                <span class="codigo">EZE</span>
+                                <span class="ciudad">Buenos Aires</span>
+                            </div>
+                            <!-- La línea horizontal se genera con CSS sobre el div de clase "linea" vacío -->
+                            <div class="conexion">
+                                <span>Directo</span>
+                                <div class="linea"></div>
+                                <span>11h 15m</span>
+                            </div>
+                            <div class="destino">
+                                <span class="hora">19:45</span>
+                                <span class="codigo">MAD</span>
+                                <span class="ciudad">Madrid</span>
+                            </div>
+                        </div>
+                    </section>
 
-                    <div class="linea-tiempo">
-                        <div class="origen">
-                            <span class="hora">08:30</span>
-                            <span class="codigo">MAD</span>
-                            <span class="ciudad">Madrid</span>
+                    <!-- Card de vuelta: misma estructura que ida, invertida (MAD > EZE) -->
+                    <section class="vuelta-card">
+                        <p> Vuelta - 26 Jun 2024 </p>
+                        <div class="aerolinea">
+                            <img src="../../img/Logos Aerolineas/air-europa-logo.png" alt="FlyLena">
+                            <span>Air Europa</span>
                         </div>
-                        <div class="conexion">
-                            <span>Directo</span>
-                            <div class="linea"></div>
-                            <span>11h 15m</span>
-                        </div>
-                        <div class="destino">
-                            <span class="hora">19:45</span>
-                            <span class="codigo">EZE</span>
-                            <span class="ciudad">Buenos Aires</span>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- Card de precio: detalle del costo del vuelo -->
-                <!-- Cada fila-precio tiene dos span: etiqueta y valor (para poder alinearlos con CSS) -->
-                <section class="precio-card">
-                    <h3> Resumen de Precio </h3><br>
+                        <div class="linea-tiempo">
+                            <div class="origen">
+                                <span class="hora">08:30</span>
+                                <span class="codigo">MAD</span>
+                                <span class="ciudad">Madrid</span>
+                            </div>
+                            <div class="conexion">
+                                <span>Directo</span>
+                                <div class="linea"></div>
+                                <span>11h 15m</span>
+                            </div>
+                            <div class="destino">
+                                <span class="hora">19:45</span>
+                                <span class="codigo">EZE</span>
+                                <span class="ciudad">Buenos Aires</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Card de precio: detalle del costo del vuelo -->
+                    <!-- Cada fila-precio tiene dos span: etiqueta y valor (para poder alinearlos con CSS) -->
+                    <section class="precio-card">
+                        <h3> Resumen de Precio </h3><br>
                         <div class="fila-precio">
                             <span> 1 pasajero </span>
                             <span> USD 530 </span>
@@ -121,230 +125,241 @@
                             <span> TOTAL </span>
                             <span> USD 620 </span>
                         </div>
-                </section>
+                    </section>
 
-                <!-- Card de información adicional: se usa aside porque es contenido complementario -->
-                <aside class="informacion-card"> 
-                    <!-- Ícono fa-circle-info de Font Awesome y título en la misma fila -->
-                    <div class="info-titulo">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <h3> Información </h3>
-                    </div>
-                    <p> Puedes seleccionar tu asiento en el mapa. Los cambios se reflejarán antes de continuar. </p>
-                </aside>
-
-            </div>
-            <!-- Fin panel izquierdo -->
-
-            <!-- ===== PANEL DERECHO ===== -->
-            <!-- Contiene el selector de asientos -->
-            <div class="panel-derecho">
-
-                <h2> Seleccioná tu asiento </h2><br>
-
-                <!-- Leyenda: indica qué significa cada color de asiento -->
-                <!-- Los span vacíos (cuadrado-...) se convierten en cuadrados de color con CSS -->
-                <div class="leyenda">
-                    <div class="leyenda-item">
-                        <span class="cuadrado-disponible"></span>
-                        <span>Disponible</span>
-                    </div>
-                    <div class="leyenda-item">
-                        <span class="cuadrado-ocupado"></span>
-                        <span>Ocupado</span>
-                    </div>
-                    <div class="leyenda-item">
-                        <span class="cuadrado-seleccionado"></span>
-                        <span>Seleccionado</span>
-                    </div>
-                </div>
-
-                <!-- Mapa de asientos del avión -->
-                <div class="mapa-asientos">
-
-                    <!-- Barra superior del mapa -->
-                    <div class="frente-avion">
-                        <span> Frente del avión </span>
-                    </div>
-
-                    <!-- Cabecera con letras de columnas (A B C | pasillo | D E F) -->
-                    <!-- Los dos span vacíos alinean con los números de fila de cada lado -->
-                    <div class="cabecera-columnas">
-                        <span></span>
-                        <span>A</span>
-                        <span>B</span>
-                        <span>C</span>
-                        <div class="pasillo"></div>
-                        <span>D</span>
-                        <span>E</span>
-                        <span>F</span>
-                        <span></span>
-                    </div>
-
-                    <!-- Filas de asientos (1 a 8) -->
-                    <!-- Estructura de cada fila: numero | A | B | C | pasillo | D | E | F | numero -->
-                    <!-- Los asientos ocupados tienen otra clase llamada "ocupado" para usar un color distinto, lo mismo el asiento seleccionado  -->
-
-                    <div class="fila">
-                        <span class="numero-fila">1</span>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <span class="numero-fila">1</span>
-                    </div>
-
-                    <div class="fila">
-                        <span class="numero-fila">2</span>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <span class="numero-fila">2</span>
-                    </div>
-
-                    <div class="fila">
-                        <span class="numero-fila">3</span>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <span class="numero-fila">3</span>
-                    </div>
-
-                    <div class="fila">
-                        <span class="numero-fila">4</span>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <span class="numero-fila">4</span>
-                    </div>
-
-                    <div class="fila">
-                        <span class="numero-fila">5</span>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <span class="numero-fila">5</span>
-                    </div>
-
-                    <div class="fila">
-                        <span class="numero-fila">6</span>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <span class="numero-fila">6</span>
-                    </div>
-
-                    <div class="fila">
-                        <span class="numero-fila">7</span>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento seleccionado"></div>
-                        <span class="numero-fila">7</span>
-                    </div>
-
-                    <div class="fila">
-                        <span class="numero-fila">8</span>
-                        <div class="asiento"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="asiento ocupado"></div>
-                        <div class="pasillo"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <div class="asiento"></div>
-                        <span class="numero-fila">8</span>
-                    </div>
-
-                    <!-- Barra inferior del mapa -->
-                    <div class="trasera-avion">
-                        <span> Parte trasera del avión </span>
-                    </div>
+                    <!-- Card de información adicional: se usa aside porque es contenido complementario -->
+                    <aside class="informacion-card">
+                        <!-- Ícono fa-circle-info de Font Awesome y título en la misma fila -->
+                        <div class="info-titulo">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <h3> Información </h3>
+                        </div>
+                        <p> Puedes seleccionar tu asiento en el mapa. Los cambios se reflejarán antes de continuar. </p>
+                    </aside>
 
                 </div>
-                <!-- Fin mapa de asientos -->
+                <!-- Fin panel izquierdo -->
 
-                <!-- Botón para continuar con la reserva -->
-                <button type="button"> <a href="../checkout/pasajeros.html"> Continuar </a> </button>
+                <!-- ===== PANEL DERECHO ===== -->
+                <!-- Contiene el selector de asientos -->
+                <div class="panel-derecho">
+
+                    <h2> Seleccioná tu asiento </h2><br>
+
+                    <!-- Leyenda: indica qué significa cada color de asiento -->
+                    <!-- Los span vacíos (cuadrado-...) se convierten en cuadrados de color con CSS -->
+                    <div class="leyenda">
+                        <div class="leyenda-item">
+                            <span class="cuadrado-disponible"></span>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="leyenda-item">
+                            <span class="cuadrado-ocupado"></span>
+                            <span>Ocupado</span>
+                        </div>
+                        <div class="leyenda-item">
+                            <span class="cuadrado-seleccionado"></span>
+                            <span>Seleccionado</span>
+                        </div>
+                    </div>
+
+                    <!-- Mapa de asientos del avión -->
+                    <div class="mapa-asientos">
+
+                        <!-- Barra superior del mapa -->
+                        <div class="frente-avion">
+                            <span> Frente del avión </span>
+                        </div>
+
+                        <!-- Cabecera con letras de columnas (A B C | pasillo | D E F) -->
+                        <!-- Los dos span vacíos alinean con los números de fila de cada lado -->
+                        <div class="cabecera-columnas">
+                            <span></span>
+                            <span>A</span>
+                            <span>B</span>
+                            <span>C</span>
+                            <div class="pasillo"></div>
+                            <span>D</span>
+                            <span>E</span>
+                            <span>F</span>
+                            <span></span>
+                        </div>
+
+                        <!-- Filas de asientos (1 a 8) -->
+                        <!-- Estructura de cada fila: numero | A | B | C | pasillo | D | E | F | numero -->
+                        <!-- Los asientos ocupados tienen otra clase llamada "ocupado" para usar un color distinto, lo mismo el asiento seleccionado  -->
+
+                        <div class="fila">
+                            <span class="numero-fila">1</span>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <span class="numero-fila">1</span>
+                        </div>
+
+                        <div class="fila">
+                            <span class="numero-fila">2</span>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <span class="numero-fila">2</span>
+                        </div>
+
+                        <div class="fila">
+                            <span class="numero-fila">3</span>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <span class="numero-fila">3</span>
+                        </div>
+
+                        <div class="fila">
+                            <span class="numero-fila">4</span>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <span class="numero-fila">4</span>
+                        </div>
+
+                        <div class="fila">
+                            <span class="numero-fila">5</span>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <span class="numero-fila">5</span>
+                        </div>
+
+                        <div class="fila">
+                            <span class="numero-fila">6</span>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <span class="numero-fila">6</span>
+                        </div>
+
+                        <div class="fila">
+                            <span class="numero-fila">7</span>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento seleccionado"></div>
+                            <span class="numero-fila">7</span>
+                        </div>
+
+                        <div class="fila">
+                            <span class="numero-fila">8</span>
+                            <div class="asiento"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="asiento ocupado"></div>
+                            <div class="pasillo"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <div class="asiento"></div>
+                            <span class="numero-fila">8</span>
+                        </div>
+
+                        <!-- Barra inferior del mapa -->
+                        <div class="trasera-avion">
+                            <span> Parte trasera del avión </span>
+                        </div>
+
+                    </div>
+                    <!-- Fin mapa de asientos -->
+
+                    <!-- Botón para continuar con la reserva -->
+                    <button type="button"> <a href="../checkout/pasajeros.html"> Continuar </a> </button>
+
+                </div>
+                <!-- Fin panel derecho -->
 
             </div>
-            <!-- Fin panel derecho -->
+            <!-- Fin contenedor -->
 
-        </div>
-        <!-- Fin contenedor -->
+        </main>
 
         <footer id="contacto-footer" class="footer-custom">
-        <div class="footer-container">
-            <div class="footer-header">
-                <div class="footer-logo">
-                    <img src="../../img/fly_lena_logo_grande.png" alt="Logo" class="logo-img">
+            <div class="footer-container">
+                <div class="footer-header">
+                    <div class="footer-logo">
+                        <a href="#top">
+                            <img src="../../img/fly_lena_logo_grande.png" alt="Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img
+                                src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/DespegarArgentina/" target="_blank"
+                            rel="noopener noreferrer"><img src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
+                        <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img
+                                src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
+                        <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img
+                                src="../../img/iconos/icono_X.png" alt="X"></a>
+                    </div>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
-                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
-                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_X.png" alt="X"></a>
+
+                <div class="footer-columns">
+                    <div class="column">
+                        <h3>Sobre Nosotros</h3>
+                        <a href="../pages_footer/historia.html">Historia</a>
+                        <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/"
+                            target="_blank" rel="noopener noreferrer">Trabajá
+                            con nosotros</a>
+                    </div>
+
+                    <div class="column">
+                        <h3>Mi Cuenta</h3>
+                        <a href="../perfil/perfil_de_usuario.html">Perfil de Usuario</a>
+                        <a href="../perfil/reservas.html">Mis Reservas</a>
+                    </div>
+
+                    <div class="column">
+                        <h3>Atención al Cliente</h3>
+                        <a href="../pages_footer/contacto.html">Contacto</a>
+                        <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
+                    <div class="legal-links">
+                        <a href="../../assets/Terminos de Uso y Condiciones.pdf" target="_blank"
+                            rel="noopener noreferrer">Términos y condiciones</a>
+                        <a href="../../assets/Politica de Privacidad.pdf" target="_blank"
+                            rel="noopener noreferrer">Privacidad</a>
+                        <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor"
+                            target="_blank" rel="noopener noreferrer">Defensa
+                            del Consumidor</a>
+                    </div>
                 </div>
             </div>
+        </footer>
+    </body>
 
-            <div class="footer-columns">
-                <div class="column">
-                    <h3>Sobre Nosotros</h3>
-                    <a href="../pages_footer/historia.html">Historia</a>
-                    <a href="..pages_footer/servicios.html">Servicios</a>
-                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/">Trabajá con nosotros</a>
-                </div>
-
-                <div class="column">
-                    <h3>Mi Cuenta</h3>
-                    <a href="../perfil/login.html">Ingresar</a>
-                    <a href="#">Historial de Compras</a>
-                    <a href="#">Seguimiento de Compras</a>
-                </div>
-
-                <div class="column">
-                    <h3>Atención al Cliente</h3>
-                    <a href="../pages_footer/contacto.html">Contacto</a>
-                    <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
-                <div class="legal-links">
-                    <a href="../../assets/Terminos de Uso y Condiciones.pdf">Términos y condiciones</a>
-                    <a href="../../assets/Politica de Privacidad.pdf">Privacidad</a>
-                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor">Defensa del Consumidor</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    </main>
-</body>
 </html>
