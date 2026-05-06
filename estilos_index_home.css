@@ -216,7 +216,7 @@ header nav .iconoPerfil img {
 
 /* Config del Ofertas Destacadas */
 .seccion-ofertas {
-    background-color: #f5f7fb;
+    background-color: white;
     padding: 2.5rem 10% 4rem;
     max-width: 152rem;
     margin-left: auto;
@@ -340,7 +340,7 @@ input[name="carrusel-control"] {
     color: #FFFFFF;
 }
 
-/* Config de Beneficios ---La fila que esta abajo del buscador de vuelos--- */
+/* Config de Beneficios ---La fila que esta abajo del carrusel de ofertas--- */
 .seccion-beneficios {
     display: flex;
     justify-content: space-around;
