@@ -7,6 +7,12 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f6f8fb;
+    color: #0c1735;
 }
 
 /* #region CSS del Header */
@@ -36,7 +42,6 @@ header nav ul li {
     list-style: none;
 }
 
-
 header nav ul li a {
     position: relative;
     font-size: 2rem;
@@ -45,8 +50,6 @@ header nav ul li a {
     color: #FFFFFF;
 }
 
-
-/* Linea */
 header nav ul li a::after {
     content: "";
     position: absolute;
@@ -55,13 +58,11 @@ header nav ul li a::after {
     width: 100%;
     height: 0.2rem;
     background-color: #FFFFFF;
-
     transform: scale(0);
     transform-origin: left;
     transition: transform 0.3s ease;
 }
 
-/* Hover */
 header nav ul li a:hover::after {
     transform: scaleX(1);
 }
@@ -89,12 +90,11 @@ header nav .iconoPerfil img {
     height: 5rem;
     border-radius: 50%;
 }
-
 /* #endregion CSS del Header */
-/* Main Filtros*/
 
+/* #region Main */
 main {
-    height: calc(100vh - 8rem);
+    min-height: calc(100vh - 8rem);
 }
 
 .seccionInfoBusqueda {
@@ -102,9 +102,8 @@ main {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 13rem;
+    min-height: 13rem;
     padding: 0 4rem;
-    margin: 0 auto;
     background-color: #19264d;
 }
 
@@ -125,22 +124,20 @@ main {
 .contenedorInfo div hr {
     border: none;
     background-color: #FFFFFF;
-    width: 0.4rem;
+    width: 0.3rem;
     height: 2rem;
 }
 
-.contenedorInfoParte1 p {
-    font-size: 3.5rem;
-    color: #FFFFFF;
-}
-
+.contenedorInfoParte1 p,
 .contenedorInfoParte1 i {
+    font-size: 3.5rem;
     color: #FFFFFF;
 }
 
 .contenedorInfoParte2 p {
     font-size: 2rem;
     color: #FFFFFF;
+    font-weight: 600;
 }
 
 .contenedorModificarBusqueda {
@@ -152,45 +149,70 @@ main {
 .contenedorModificarBusqueda a {
     color: #1266d6;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 2rem;
 }
 
 .seccionResultados {
-    display: flex;
+    display: grid;
+    grid-template-columns: 28rem 1fr 28rem ;
+    gap: 3rem;
     width: 100%;
-    height: calc(100vh - 21rem);
+    padding: 4rem;
     background-color: #f6f8fb;
+    height: auto;
 }
 
+/* Filtros */
 .filtros {
-    width: 35rem;
-    padding: 4rem;
     background-color: white;
-    border-right: 0.2rem solid #d9e1ec;
+    border: 0.2rem solid #d9e1ec;
+    border-radius: 1.6rem;
+    padding: 2.5rem;
 }
 
 .filtros h3 {
     font-size: 2.8rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #0c1735;
 }
 
 .grupoFiltro {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    border-top: 0.1rem solid #d9e1ec;
+    padding: 2rem 0;
 }
 
-.grupoFiltro h4 {
-    font-size: 2.5rem;
+.grupoFiltro summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: 2.2rem;
+    font-weight: 700;
     color: #0c1735;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grupoFiltro summary::-webkit-details-marker {
+    display: none;
+}
+
+.grupoFiltro summary::after {
+    content: "⌄";
+    font-size: 2rem;
+    color: #1266d6;
+    transition: 0.3s;
+}
+
+.grupoFiltro[open] summary::after {
+    transform: rotate(180deg);
 }
 
 .grupoFiltro label {
-    font-size: 2.2rem;
+    display: block;
+    font-size: 1.8rem;
     color: #44516c;
+    margin-top: 1.4rem;
 }
 
 .grupoFiltro label input[type="checkbox"] {
@@ -201,7 +223,8 @@ main {
 .valoresRango {
     display: flex;
     justify-content: space-between;
-    font-size: 2rem;
+    margin: 1.6rem 0 1rem;
+    font-size: 1.7rem;
     color: #44516c;
 }
 
@@ -211,10 +234,10 @@ main {
     cursor: pointer;
 }
 
-
+/* Resultados */
 .resultadosVuelos {
     width: 100%;
-    padding: 4rem;
+    padding: 0;
 }
 
 .encabezadoResultados {
@@ -253,6 +276,7 @@ main {
     position: absolute;
     top: 110%;
     right: 0;
+    z-index: 10;
     background-color: #FFFFFF;
     border: 0.2rem solid #d9e1ec;
     border-radius: 1rem;
@@ -261,6 +285,7 @@ main {
     opacity: 0;
     visibility: hidden;
     transition: 0.2s;
+    overflow: hidden;
 }
 
 #toggleDropdown:checked~.dropdownMenu {
@@ -278,10 +303,9 @@ main {
     background-color: #f0f4fa;
 }
 
-
 .cardVuelo {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1.5fr 1fr 1fr 1.2fr;
+    grid-template-columns: 1.3fr 0.8fr 1.8fr 0.8fr 0.8fr 1.1fr;
     align-items: center;
     gap: 2rem;
     background-color: white;
@@ -289,13 +313,12 @@ main {
     border-radius: 2rem;
     padding: 2rem;
     margin-bottom: 3rem;
+    box-shadow: 0 0.8rem 2rem rgba(12, 23, 53, 0.06);
 }
 
 .aerolinea img {
     width: 11rem;
     height: auto;
-    font-weight: 700;
-    color: #1266d6;
 }
 
 .horario {
@@ -311,17 +334,43 @@ main {
 
 .horario span,
 .duracion {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     color: #44516c;
 }
 
 .trayecto {
     text-align: center;
     color: #44516c;
+    font-size: 1.3rem;
 }
 
-.trayecto hr {
-    margin-top: 1rem;
+.lineaTrayecto {
+    position: relative;
+    height: 2rem;
+    margin: 0.5rem 0;
+}
+
+.lineaTrayecto::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: #aeb8c6;
+}
+
+.lineaTrayecto i {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    color: #006ee6;
+    padding: 0 0.8rem;
+}
+
+.trayecto small {
+    font-size: 1.4rem;
+    color: #44516c;
 }
 
 .precio {
@@ -345,10 +394,74 @@ main {
     background-color: #006ee6;
     color: white;
     padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 0.6rem;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
+
+.precio a:hover {
+    background-color: #0054b5;
+}
+
+/* Panel derecho: equipaje y políticas */
+.panelResumen {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.boxResumen {
+    background-color: #FFFFFF;
+    border: 0.2rem solid #d9e1ec;
+    border-radius: 1.6rem;
+    padding: 2rem;
+    height: fit-content;
+    box-shadow: 0 0.8rem 2rem rgba(12, 23, 53, 0.06);
+}
+
+.boxResumen h3 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    color: #0c1735;
+    margin-bottom: 1.6rem;
+}
+
+.boxResumen h3 i {
+    color: #006ee6;
+}
+
+.boxResumen label {
+    display: block;
+    font-size: 1.6rem;
+    color: #44516c;
+    margin-bottom: 1.2rem;
+}
+
+.boxResumen input {
+    accent-color: #006ee6;
+}
+
+.boxResumen p {
+    font-size: 1.4rem;
+    color: #6b7485;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+}
+
+.boxResumen ul {
+    padding-left: 2rem;
+}
+
+.boxResumen li {
+    font-size: 1.5rem;
+    color: #44516c;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+/* #endregion Main */
 
 /* #region CSS del Footer */
 .footer-custom {
@@ -440,5 +553,4 @@ main {
 .legal-links a:hover {
     color: white;
 }
-
 /* #endregion CSS del Footer */

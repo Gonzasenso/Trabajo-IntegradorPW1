@@ -1,4 +1,3 @@
-/* #region configuración global */
 * {
     padding: 0;
     margin: 0;
@@ -7,13 +6,92 @@
 }
 
 html {
-    font-size: 75.5%;
+    font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
-/* #endregion config global */
+body {
+    min-height: 100vh;
+    background-color: #f4f7fb;
+    color: #0c1735;
+}
 
-/* #region Header/Nav */
+main {
+    width: 100%;
+    max-width: 118rem;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+}
+
+main h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+summary,
+input,
+select,
+label {
+    font-family: inherit;
+}
+
+button,
+summary {
+    cursor: pointer;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 4.4rem;
+    padding: 1.1rem 1.3rem;
+    border: 0.1rem solid #cbd5e1;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    font-size: 1.4rem;
+    color: #0c1735;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.3rem rgba(59, 130, 246, 0.15);
+}
+
+label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #44516c;
+}
+
+p {
+    font-size: 1.5rem;
+    color: #44516c;
+    line-height: 1.5;
+}
+
+
+
+h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0c1735;
+}
+
+h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #44516c;
+}
+
+/* #region CSS del Header */
 header {
     width: 100%;
     background-color: #0c1735;
@@ -22,35 +100,27 @@ header {
 header nav {
     display: flex;
     justify-content: space-between;
-    padding: 0 2rem;
+    padding: 0 4rem;
     align-items: center;
-    height: 10vh;
+    height: 8rem;
     width: 100%;
     margin: 0 auto;
-    max-width: 120rem;
-}
-
-header nav .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
 }
 
 header nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+    gap: 8rem;
 }
 
 header nav ul li {
     list-style: none;
 }
 
-
 header nav ul li a {
     position: relative;
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
@@ -60,7 +130,7 @@ header nav ul li a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -0.3rem;
+    bottom: -0.6rem;
     width: 100%;
     height: 0.2rem;
     background-color: #FFFFFF;
@@ -74,174 +144,174 @@ header nav ul li a:hover::after {
 }
 
 header nav .iconoPerfil {
-    font-size: 1.4rem;
-    font-weight: 500;
     color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    gap: 0.5rem;
+    gap: 1.5rem;
 }
 
 header nav .iconoPerfil .nombre {
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 2rem;
+}
+
+header nav .logo img {
+    width: 15rem;
 }
 
 header nav .iconoPerfil img {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 1rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
 }
 
-/* #endregion Header/Nav */
+/* #endregion CSS del Header */
 
-/* #region comienzo de pasajeros.html */
-h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    font-family: 'Inter', sans-serif;
-    margin: 0.5rem;
-}
-
-h3 {
-    font-family: 'Inter', sans-serif;
+/* Encabezado checkout */
+main>h2 {
+    text-align: center;
+    margin-bottom: 1.4rem;
 }
 
 .detalle-de-vuelo {
-    border: 1px solid #3B82F6;
-    background-color: #3B82F6;
-    text-decoration: none;
-    color: #FFFFFF;
-    display: block;
-    text-align: center;
-    max-width: 200px;
-    /* ← ajustá a gusto */
-    margin: 0.5rem auto;
-    border-radius: 0.3rem;
-    padding: 0.3rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2.8rem;
+    padding: 1.1rem 1.8rem;
+    border: 0.1rem solid #d8e2f0;
+    border-radius: 999rem;
+    background-color: #ffffff;
+    color: #1266d6;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: 0 0.8rem 2rem rgba(15, 23, 42, 0.06);
+}
 
+.detalle-de-vuelo:hover {
+    background-color: #eff6ff;
 }
 
 .container-lista {
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    margin: 0 auto;
-    padding: 1rem;
+    max-width: 72rem;
+    margin: 0 auto 3rem;
+    padding: 0;
     list-style: none;
     counter-reset: contador;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
 .container-lista li {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-
-}
-
-.container-lista li:not(:last-child)::after {
-    content: '';
-    display: block;
-    width: 10rem;
-    height: 1px;
-    background-color: #ccc;
-    margin: 0 12px;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #64748b;
 }
 
 .container-lista li::before {
     content: counter(contador);
     counter-increment: contador;
-    background-color: #FFFFFF;
-    border: 0.1rem solid #64748B;
-    color: #64748B;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    width: 3.2rem;
+    height: 3.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    border: 0.2rem solid #cbd5e1;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #64748b;
+    font-size: 1.4rem;
 }
 
-.container-lista li.activo::before {
-    border: 0.1rem solid #3B82F6;
-    background-color: #3B82F6;
-    color: white;
+.container-lista li:not(:last-child)::after {
+    content: '';
+    width: 12rem;
+    height: 0.2rem;
+    margin: 0 1.6rem;
+    background-color: #cbd5e1;
 }
 
 .container-lista li.activo {
-    font-weight: bold;
-    color: #3B82F6;
+    color: #1266d6;
 }
 
-.container-datos-pasajeros {
-    font-family: 'Inter', sans-serif;
-    border: 0.1rem solid #64748B;
-    border-radius: 0.8rem;
-    padding: 1rem;
-    max-width: 600px;
-    margin: 0.8rem auto;
-
+.container-lista li.activo::before {
+    border-color: #1266d6;
+    background-color: #1266d6;
+    color: #ffffff;
 }
 
-.container-datos-pasajeros h3 {
-    margin-bottom: 0.2rem;
-    margin: 1rem;
+/* Pasajeros */
+.container-datos-pasajeros,
+.container-pago,
+.container-confirmacion-vuelo-ida-vuelta {
+    width: 100%;
+    max-width: 86rem;
+    margin: 0 auto 2rem;
+    padding: 3rem;
+    background-color: #ffffff;
+    border: 0.1rem solid #d8e2f0;
+    border-radius: 2rem;
+    box-shadow: 0 1.4rem 3rem rgba(15, 23, 42, 0.08);
 }
 
-.container-datos-pasajeros h4 {
-    margin-bottom: 1rem;
-    margin: 1rem;
+.container-datos-pasajeros h3,
+.container-pago>h3 {
+    margin-bottom: 0.8rem;
+}
+
+.container-datos-pasajeros h4,
+.container-pago>h4 {
+    margin-bottom: 2.4rem;
 }
 
 .container-campos {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem;
 }
 
 .container-campos div {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-}
-
-.container-campos label {
-    font-size: 13px;
-    font-weight: 500;
-    color: #64748B;
-}
-
-.container-campos input,
-.container-campos select {
-    padding: 8px 12px;
-    border: 1px solid #CBD5E1;
-    border-radius: 0.8rem;
-    font-size: 14px;
+    gap: 0.8rem;
 }
 
 .container-datos {
     list-style-type: none;
-    font-family: 'Inter', sans-serif;
 }
 
-.botton-agregar-pasajero button {
-    margin: 1rem;
-    background-color: #FFFFFF;
-    border: 0.2rem solid #3B82F6;
-    border-radius: 0.6rem;
-    padding: 0.4rem;
-    color: #3B82F6;
-    cursor: pointer;
+.botton-agregar-pasajero {
+    margin-top: 2rem;
+}
 
+.botton-agregar-pasajero label,
+.botton-agregar-pasajero button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4.2rem;
+    padding: 1rem 1.6rem;
+    background-color: #ffffff;
+    border: 0.2rem solid #1266d6;
+    border-radius: 1rem;
+    color: #1266d6;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
 #pasajero2 {
     display: none;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 0.1rem solid #d8e2f0;
 }
 
 #toggle-pasajero2:checked~.container-datos-pasajeros #pasajero2 {
@@ -252,126 +322,99 @@ h3 {
     display: none;
 }
 
-.botton-agregar-pasajero label {
-    margin: 1rem;
-    background-color: #FFFFFF;
-    border: 0.2rem solid #3B82F6;
-    border-radius: 0.6rem;
-    padding: 0.4rem;
-    color: #3B82F6;
-    cursor: pointer;
-    display: inline-block;
-}
-
-p {
-    font-size: small;
-    color: #64748B;
-
-}
-
-.botones {
-    max-width: 1500px;
-    margin: 0.8rem;
+.botones,
+.container-confirmacion,
+.confirmar-vuelo {
+    max-width: 86rem;
+    margin: 2rem auto 0;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-
+    justify-content: flex-end;
+    gap: 1.4rem;
 }
 
-.botton-continuar button {
-    display: block;
-    margin: 0 auto;
-    padding: 0.5rem;
-    border: 0.1rem solid #3B82F6;
-    border-radius: 0.3rem;
-    color: #FFFFFF;
-    background-color: #3B82F6;
-    cursor: pointer;
+.botton-continuar button,
+.botton-cancelar button,
+.container-confirmacion button,
+.confirmar-vuelo button {
+    min-width: 16rem;
+    min-height: 4.8rem;
+    padding: 1.2rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
 }
 
-.botton-continuar a {
-    text-decoration: none;
-
+.botton-continuar button,
+.container-confirmacion button {
+    border: 0.2rem solid #1266d6;
+    color: #ffffff;
+    background-color: #1266d6;
 }
 
 .botton-cancelar button {
-    padding: 0.5rem;
-    border: 0.1rem solid #64748B;
-    border-radius: 0.3rem;
-    cursor: pointer;
+    border: 0.2rem solid #cbd5e1;
+    color: #0c1735;
+    background-color: #ffffff;
 }
 
-/* #endregion finalizacion de pasajeros.html */
-
-/* #region comienzo de pago.html */
-
-.container-pago {
-    margin: 0.8rem auto;
-    padding: 0.4rem;
-    border: 0.1rem solid #64748B;
-    border-radius: 0.5rem;
-    font-size: medium;
-    max-width: 600px
-}
-
-.container-pago h3 {
-    margin-bottom: 0.5rem;
-    margin: 1rem;
-}
-
-.container-pago h4 {
-    margin: 1rem;
-}
-
-
-.acordeon-credito form,
-.acordeon-debito form,
-.acordeon-trans form {
-    border: 0.1rem solid #64748B;
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-
+/* Pago */
+.container-pago details {
+    overflow: hidden;
+    margin-bottom: 1.6rem;
+    border: 0.1rem solid #d8e2f0;
+    border-radius: 1.4rem;
+    background-color: #ffffff;
 }
 
 details summary {
     list-style: none;
 }
 
-.acordeon {
-    color: #3B82F6;
+details summary::-webkit-details-marker {
+    display: none;
 }
 
-.container-pago label {
-    font-size: 13px;
-    font-weight: 500;
-    color: #64748B;
+.acordeon {
+    min-height: 5.4rem;
+    padding: 1.6rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #1266d6;
+    font-size: 1.6rem;
+    font-weight: 800;
+    background-color: #f8fbff;
 }
 
 .acordeon i {
     transition: transform 0.3s;
-    margin: 0.8rem;
 }
 
 details[open] .acordeon i {
     transform: rotate(180deg);
 }
 
-.container-tarjeta,
-.container-debito,
-.container-transferencia {
-    border-radius: 0.5rem;
+.acordeon-contenido {
+    padding: 2rem;
+    border-top: 0.1rem solid #d8e2f0;
 }
 
-form div input,
-form div select {
-    border: 1px solid #CBD5E1;
-    border-radius: 0.8rem;
-    padding: 8px 12px;
+.acordeon-credito form,
+.acordeon-debito form,
+.acordeon-trans form {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem;
+}
 
-
+.campo-tarjeta,
+.campo-nombre-completo,
+.campo-cuotas,
+.campo-comprobante {
+    grid-column: span 2;
 }
 
 .campo-tarjeta,
@@ -386,68 +429,83 @@ form div select {
 .campo-comprobante {
     display: flex;
     flex-direction: column;
+    gap: 0.8rem;
+}
+
+.subir-archivo input {
+    display: none;
+}
+
+.subir-archivo label {
+    min-height: 8rem;
+    padding: 1.6rem;
+    border: 0.2rem dashed #9bb4d4;
+    border-radius: 1.2rem;
+    background-color: #f8fbff;
+    color: #1266d6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-weight: 800;
+}
+
+.subir-archivo label span {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #64748b;
 }
 
 .pago-texto {
-    justify-content: center;
-    color: green;
-    margin: 1rem;
-    border: 0.1rem solid #64748B;
-    padding: 0.5rem;
+    margin-top: 2rem;
+    padding: 1.4rem 1.8rem;
     display: flex;
-    border-radius: 0.6rem;
+    justify-content: center;
+    border: 0.1rem solid #bbf7d0;
+    border-radius: 1.2rem;
+    background-color: #f0fdf4;
 }
 
-.container-confirmacion {
+.pago-texto h4 {
+    color: #15803d;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+/* Confirmación */
+.container-confirmacion-vuelo-ida-vuelta>h3 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    color: #1266d6;
+}
+
+.container-confirmacion-vuelo-ida-vuelta>p {
     margin-bottom: 2rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #0c1735;
 }
 
-.container-confirmacion button {
-    display: block;
-    margin: 0 auto;
-    padding: 0.5rem;
-    border: 0.1rem solid #3B82F6;
-    border-radius: 0.3rem;
-    color: #FFFFFF;
-    background-color: #3B82F6;
-    cursor: pointer;
-}
-
-.container-confirmacion a {
-    text-decoration: none;
-}
-
-/* #endregion Finalizacion de pago.html */
-
-/* #region Comienzo de confirmacio.html */
-
-.container-confirmacion-vuelo-ida-vuelta {
-    max-width: 600px;
-    margin: 1rem auto;
-    padding: 1rem;
-    border: 0.1rem solid #64748B;
-    border-radius: 0.5rem;
-    font-size: medium;
-}
-
-
-.container-confirmacion-vuelo-ida-vuelta i,
-.container-confirmacion-vuelo-ida-vuelta h3 {
-    color: #3B82F6;
-    margin: 0.2rem;
+.container-confirmacion-vuelo-ida-vuelta i {
+    color: #1266d6;
 }
 
 .vuelo-ida,
 .vuelo-vuelta {
-    border-top: 0.1rem solid #CBD5E1;
-    margin: 1rem;
-
-
+    margin: 0 0 1.8rem;
+    padding: 2rem;
+    border: 0.1rem solid #d8e2f0;
+    border-radius: 1.4rem;
+    background-color: #fbfdff;
 }
 
 .icono-aerolinea {
-    width: 60px;
+    width: 9rem;
     height: auto;
+    display: block;
 }
 
 .vuelo-ida-header,
@@ -455,15 +513,20 @@ form div select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.8rem;
+}
+
+.vuelo-ida-header p,
+.vuelo-vuelta-header p {
+    font-weight: 800;
+    color: #0c1735;
 }
 
 .vuelo-ruta {
-    display: flex;
+    display: grid;
+    grid-template-columns: 14rem 1fr 14rem;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: 2rem;
 }
 
 .vuelo-origen,
@@ -471,26 +534,22 @@ form div select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 80px;
+    gap: 0.3rem;
     text-align: center;
 }
-
 
 .vuelo-flecha {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.2rem;
-    flex: 1;
-    min-width: 120px;
+    gap: 0.6rem;
 }
-
 
 .flecha-larga {
     display: block;
     width: 100%;
-    height: 2px;
-    background-color: #64748B;
+    height: 0.2rem;
+    background-color: #9bb4d4;
     position: relative;
 }
 
@@ -498,108 +557,111 @@ form div select {
     content: '';
     position: absolute;
     right: 0;
-    top: -4px;
-    border: 5px solid transparent;
-    border-left-color: #64748B;
+    top: -0.45rem;
+    border: 0.55rem solid transparent;
+    border-left-color: #9bb4d4;
 }
 
 .vuelo-hora {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #000000;
-}
-
-.asiento i {
-    font-size: 1.2rem;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #0c1735;
 }
 
 .asiento {
-    gap: 0.8rem;
+    margin: 2rem 0;
+    padding: 1.5rem 1.8rem;
     display: flex;
     align-items: center;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    border: 0.1rem solid #3B82F6;
-    border-radius: 0.5rem;
-    background-color: #EFF6FF;
+    gap: 1rem;
+    border: 0.1rem solid #bfdbfe;
+    border-radius: 1.2rem;
+    background-color: #eff6ff;
+}
+
+.asiento i,
+.asiento h5 {
+    color: #1266d6;
 }
 
 .asiento h5 {
-    color: #3B82F6;
-
+    font-size: 1.8rem;
 }
 
 .container-resumen {
-    border: 0.1rem solid #64748B;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    justify-content: space-between;
+    padding: 2rem;
+    border: 0.1rem solid #d8e2f0;
+    border-radius: 1.4rem;
+    background-color: #ffffff;
 }
 
 .precio-fila {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0.3rem 0;
+    padding: 1rem 0;
+    border-bottom: 0.1rem solid #e5edf6;
+}
+
+.precio-fila p:last-child {
+    font-weight: 800;
+    color: #0c1735;
 }
 
 .total h3 {
     display: flex;
     justify-content: flex-end;
+    margin-top: 1.4rem;
+    font-size: 2.4rem;
+    color: #1266d6;
 }
 
 .condiciones {
-    border: 0.1rem solid #a3afc2;
-    border-radius: 0.5rem;
-    max-width: 30rem;
-    margin: 1rem auto;
-    padding: 1rem;
-    background-color: #e8effa;
+    width: 100%;
+    max-width: 86rem;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    background-color: #eff6ff;
+    border: 0.1rem solid #bfdbfe;
+    border-radius: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
 }
 
 .escudo {
-    display: inline-flex;
-    justify-content: space-between;
+    display: flex;
     align-items: center;
-    margin: 0.2rem;
-    gap: 0.5rem;
-
-
+    gap: 1rem;
 }
 
 .condiciones i,
 .condiciones h3 {
-    color: #3B82F6;
+    color: #1266d6;
+}
+
+.terminos {
+    text-align: right;
 }
 
 .terminos-condiciones {
-    text-decoration: none;
-    color: #3B82F6;
-}
-
-.confirmar-vuelo a {
-    text-decoration: none;
+    color: #1266d6;
+    font-weight: 800;
 }
 
 .confirmar-vuelo button {
-    display: block;
-    margin: 1rem auto;
-    padding: 0.8rem 2rem;
-    background-color: green;
-    color: #FFFFFF;
-    border: green;
-    border-radius: 0.5rem;
-    cursor: pointer;
+    background-color: #16a34a;
+    color: #ffffff;
+    border: 0.2rem solid #16a34a;
 }
-
-/* #endregion Finalizacion de confirmacio.html */
 
 /* #region CSS del Footer */
 .footer-custom {
-    background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url(../../img/footer.png) no-repeat center center/cover;
     color: white;
-    padding: 1rem 4%;
+    padding: 4rem 5%;
     font-family: Arial, sans-serif;
 }
 
@@ -635,7 +697,7 @@ form div select {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    padding: 1rem 0;
+    padding: 4rem 0;
     border-bottom: 0.2rem solid rgba(255, 255, 255, 0.2);
 }
 
@@ -649,17 +711,17 @@ form div select {
 }
 
 .column h3 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     color: #a0d4f1;
 }
 
 .column a {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     color: white;
     text-decoration: none;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
     transition: color 0.3s;
 }
 

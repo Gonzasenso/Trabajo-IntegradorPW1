@@ -4,25 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
-    <link href="./estilos_Cuenta.css" rel="stylesheet">
+    <link href="./estilos_Ingresar.css" rel="stylesheet">
 </head>
 
 <body>
     <main>
         <section class="section-formulario">
-            <form class="form-form" action="#" method="post">
 
-                <label for="nombre">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" placeholder="Coloca aqui tu nombre de usuario." required>
+            <!-- action lleva al home cuando el formulario es válido -->
+            <form class="form-form" action="../../home.html">
 
-                <label for="nombre">Contraseña:</label>
-                <input type="text" id="password" name="password" placeholder="Coloca aqui tu contraseña." required>
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Coloca aquí tu nombre de usuario." required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Coloca aquí tu contraseña." required>
 
                 <div class="form-actions">
-                    <a href="../../home.html" class="btn-ingresar">Ingresar</a>
-                    <a href="../../index.html" class="btn-cancelar">Cancelar</a>
+
+                    <!-- AHORA SÍ valida los required -->
+                    <button type="submit" class="btn-ingresar">
+                        Ingresar
+                    </button>
+
+                    <a href="../../index.html" class="btn-cancelar">
+                        Cancelar
+                    </a>
+
                 </div>
+
             </form>
+
         </section>
     </main>
 </body>

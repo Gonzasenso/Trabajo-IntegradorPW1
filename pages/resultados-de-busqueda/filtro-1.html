@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado de Busqueda - Filtro 1</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Resultados de búsqueda - Fly Lena</title>
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body id="top">
     <header>
         <nav>
-            <a class="logo" href="../../home.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png"
+                    alt="logo Fly Lena"></a>
             <ul>
-                <li><a href="../../home.html">Inicio</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
                 <li><a href="../perfil/reservas.html">Reservas</a></li>
                 <li><a href="../ofertas/ofertas.html">Ofertas</a></li>
                 <li><a href="#contacto-footer">Ayuda</a></li>
             </ul>
             <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
-                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
+                <h2 class="nombre">¡Hola, Gonzalo!</h2>
+                <img src="../../img/foto_perfil.jpg" alt="Foto de perfil">
             </a>
         </nav>
     </header>
@@ -34,127 +36,154 @@
                     <i class="fa-solid fa-arrow-right"></i>
                     <p>Madrid (MAD)</p>
                 </div>
+
                 <div class="contenedorInfoParte2">
-                    <p>12 Jun 2024 . 26 Jun 2024</p>
+                    <p>12 Jun 2026</p>
+                    <hr>
+                    <p>26 Jun 2026</p>
                     <hr>
                     <p>1 pasajero</p>
                     <hr>
-                    <p>Economica</p>
+                    <p>Económica</p>
                 </div>
             </div>
 
             <div class="contenedorModificarBusqueda">
                 <a href="../../home.html">Modificar búsqueda</a>
             </div>
-
         </section>
 
-
         <section class="seccionResultados">
-
             <aside class="filtros">
                 <h3>Filtros</h3>
 
-                <div class="grupoFiltro">
-                    <h4>Escalas</h4>
+                <details class="grupoFiltro" open>
+                    <summary>Escalas</summary>
                     <label><input type="checkbox" checked> Directo</label>
                     <label><input type="checkbox"> 1 escala</label>
                     <label><input type="checkbox"> 2 o más escalas</label>
-                </div>
+                </details>
 
-                <div class="grupoFiltro">
-                    <h4>Precio</h4>
+                <details class="grupoFiltro" open>
+                    <summary>Precio</summary>
                     <div class="valoresRango">
                         <span>USD 400</span>
                         <span>USD 1000</span>
                     </div>
+                    <input type="range" min="400" max="1000" value="620">
+                </details>
 
-                    <input type="range" min="400" max="1000" value="1000">
-                </div>
-
-                <div class="grupoFiltro">
-                    <h4>Aerolíneas</h4>
+                <details class="grupoFiltro" open>
+                    <summary>Aerolíneas</summary>
                     <label><input type="checkbox" checked> Todas</label>
                     <label><input type="checkbox"> Air Europa</label>
                     <label><input type="checkbox"> Iberia</label>
                     <label><input type="checkbox"> LATAM</label>
-                </div>
+                </details>
             </aside>
 
             <section class="resultadosVuelos">
                 <div class="encabezadoResultados">
                     <h2>3 vuelos encontrados</h2>
+
                     <div class="dropdown">
                         <input type="checkbox" id="toggleDropdown">
-                        <label for="toggleDropdown" class="botonOrdenar">Ordenar por: Mejor opción <i
-                                class="fa-solid fa-chevron-down"></i></label>
+                        <label for="toggleDropdown" class="botonOrdenar">
+                            Ordenar por: Mejor opción
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </label>
                         <ul class="dropdownMenu">
-                            <li>Mejor opcion</li>
-                            <li>Precio más bajo</li>
-                            <li>Duración mas corta</li>
-                            <li>Salida mas temprana</li>
+                            <li>Mejor opción</li>
+                            <li>Menor precio</li>
+                            <li>Menor duración</li>
+                            <li>Salida más temprana</li>
                         </ul>
                     </div>
                 </div>
 
                 <article class="cardVuelo">
-                    <div class="aerolinea"><img src="../../img/Logos Aerolineas/air-europa-logo.png"
-                            alt="logoAirEuropa"></div>
+                    <div class="aerolinea">
+                        <img src="../../img/Logos Aerolineas/air-europa-logo.png" alt="Air Europa">
+                    </div>
+
                     <div class="horario">
                         <strong>08:30</strong>
                         <span>BUE</span>
                     </div>
+
                     <div class="trayecto">
                         <span>Directo</span>
-                        <hr>
+                        <div class="lineaTrayecto"><i class="fa-solid fa-plane"></i></div>
+                        <small>11h 15m</small>
                     </div>
+
                     <div class="horario">
                         <strong>19:45</strong>
                         <span>MAD</span>
                     </div>
+
                     <div class="duracion">11h 15m</div>
+
                     <div class="precio">
                         <strong>USD 620</strong>
                         <span>ida y vuelta</span>
                         <a href="../detalle-de-vuelo/detalle-de-vuelo-madrid1.html">Ver detalles</a>
                     </div>
                 </article>
+
                 <article class="cardVuelo">
-                    <div class="aerolinea"><img src="../../img/Logos Aerolineas/iberia-logo.png" alt="logoIberia"></div>
+                    <div class="aerolinea">
+                        <img src="../../img/Logos Aerolineas/iberia-logo.png" alt="Iberia">
+                    </div>
+
                     <div class="horario">
                         <strong>12:30</strong>
                         <span>BUE</span>
                     </div>
+
                     <div class="trayecto">
                         <span>Directo</span>
-                        <hr>
+                        <div class="lineaTrayecto"><i class="fa-solid fa-plane"></i></div>
+                        <small>11h 15m</small>
                     </div>
+
                     <div class="horario">
                         <strong>23:45</strong>
                         <span>MAD</span>
                     </div>
+
                     <div class="duracion">11h 15m</div>
+
                     <div class="precio">
                         <strong>USD 1000</strong>
                         <span>ida y vuelta</span>
                         <a href="../detalle-de-vuelo/detalle-de-vuelo-madrid3.html">Ver detalles</a>
                     </div>
                 </article>
+
                 <article class="cardVuelo">
-                    <div class="aerolinea"><img src="../../img/Logos Aerolineas/Latam-logo.png" alt="logoLatam"></div>
+                    <div class="aerolinea">
+                        <img src="../../img/Logos Aerolineas/Latam-logo.png" alt="LATAM Airlines">
+                    </div>
+
                     <div class="horario">
                         <strong>17:00</strong>
                         <span>BUE</span>
                     </div>
+
                     <div class="trayecto">
                         <span>Directo</span>
-                        <hr>
+                        <div class="lineaTrayecto"><i class="fa-solid fa-plane"></i></div>
+                        <small>11h 15m</small>
                     </div>
+
                     <div class="horario">
                         <strong>04:15</strong>
                         <span>MAD</span>
                     </div>
+
                     <div class="duracion">11h 15m</div>
+
                     <div class="precio">
                         <strong>USD 800</strong>
                         <span>ida y vuelta</span>
@@ -163,9 +192,25 @@
                 </article>
             </section>
 
+            <aside class="panelResumen">
+                <section class="boxResumen">
+                    <h3><i class="fa-solid fa-suitcase-rolling"></i> Equipaje</h3>
+                    <label><input type="checkbox" checked> Mochila o bolso de mano</label>
+                    <label><input type="checkbox" checked> Carry on incluido</label>
+                    <label><input type="checkbox"> Agregar valija 23kg</label>
+                    <p>Podés sumar equipaje extra antes de confirmar la compra.</p>
+                </section>
+
+                <section class="boxResumen">
+                    <h3><i class="fa-solid fa-file-shield"></i> Políticas</h3>
+                    <ul>
+                        <li>Cancelación gratis dentro de las primeras 24 horas.</li>
+                        <li>Cambios sujetos a disponibilidad y diferencia tarifaria.</li>
+                        <li>Tarifa no reembolsable luego de emitido el pasaje.</li>
+                    </ul>
+                </section>
+            </aside>
         </section>
-
-
     </main>
 
     <footer id="contacto-footer" class="footer-custom">
@@ -192,7 +237,8 @@
                 <div class="column">
                     <h3>Sobre Nosotros</h3>
                     <a href="../pages_footer/historia.html">Historia</a>
-                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/" target="_blank" rel="noopener noreferrer">Trabajá
+                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/"
+                        target="_blank" rel="noopener noreferrer">Trabajá
                         con nosotros</a>
                 </div>
 
@@ -205,16 +251,19 @@
                 <div class="column">
                     <h3>Atención al Cliente</h3>
                     <a href="../pages_footer/contacto.html">Contacto</a>
-                    <a href="../pages_footer/preguntas_frecuentes.html" >Preguntas Frecuentes</a>
+                    <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
                 <div class="legal-links">
-                    <a href="../../assets/Terminos de Uso y Condiciones.pdf" target="_blank" rel="noopener noreferrer">Términos y condiciones</a>
-                    <a href="../../assets/Politica de Privacidad.pdf" target="_blank" rel="noopener noreferrer">Privacidad</a>
-                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor" target="_blank" rel="noopener noreferrer">Defensa
+                    <a href="../../assets/Terminos de Uso y Condiciones.pdf" target="_blank"
+                        rel="noopener noreferrer">Términos y condiciones</a>
+                    <a href="../../assets/Politica de Privacidad.pdf" target="_blank"
+                        rel="noopener noreferrer">Privacidad</a>
+                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor"
+                        target="_blank" rel="noopener noreferrer">Defensa
                         del Consumidor</a>
                 </div>
             </div>

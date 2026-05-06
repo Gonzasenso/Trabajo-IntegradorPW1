@@ -4,68 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Cuenta</title>
-    <link href="./estilos_Cuenta.css" rel="stylesheet">
+    <link href="./estilos_crear_cuenta.css" rel="stylesheet">
 </head>
 
 <body>
     <main>
         <section class="section-formulario">
-            <form class="form-form" action="#" method="post">
+            <form class="form-form" action="../../home.html" method="post">
+
                 <div class="fila-nombres">
                     <div class="grupo-input">
-                        <label for="nombre1">Nombre 1: <span style="color: red;">(*)</span></label>
-                        <input type="text" id="nombre1" name="nombre1" placeholder="Tu primer nombre." required>
+                        <label for="nombre1">Nombre 1: <span>(*)</span></label>
+                        <input type="text" id="nombre1" name="nombre1" placeholder="Tu primer nombre." maxlength="40"
+                            required>
                     </div>
+
                     <div class="grupo-input">
                         <label for="nombre2">Nombre 2:</label>
-                        <input type="text" id="nombre2" name="nombre2" placeholder="Tu segundo nombre.">
+                        <input type="text" id="nombre2" name="nombre2" placeholder="Tu segundo nombre." maxlength="40">
                     </div>
                 </div>
 
-                <label for="nombre">Apellido: <span style="color: red;">(*)</span></label>
-                <input type="text" id="apellido" name="apellido" placeholder="Coloca aqui tu apellido." required>
+                <div class="grupo-input">
+                    <label for="apellido">Apellido: <span>(*)</span></label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Coloca aquí tu apellido."
+                        maxlength="40" required>
+                </div>
 
-                <label for="tipo_doc">Tipo de Documento: <span style="color: red;">(*)</span></label>
-                <select id="tipo_doc" name="tipo_doc" required>
-                    <option value="" disabled selected>Selecciona tipo</option>
-                    <option value="dni">D.N.I</option>
-                    <option value="dni">L.E</option>
-                    <option value="dni">L.C</option>
-                    <option value="dni">C.I</option>
-                    <option value="pasaporte">Pasaporte</option>
-                </select>
+                <div class="fila-nombres">
+                    <div class="grupo-input">
+                        <label for="tipo_doc">Tipo de Documento: <span>(*)</span></label>
+                        <select id="tipo_doc" name="tipo_doc" required>
+                            <option value="" disabled selected>Selecciona tipo</option>
+                            <option value="dni">D.N.I</option>
+                            <option value="le">L.E</option>
+                            <option value="lc">L.C</option>
+                            <option value="ci">C.I</option>
+                            <option value="pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
 
-                <label for="num_doc">Número de Documento: <span style="color: red;">(*)</span></label>
-                <input type="number" id="num_doc" name="num_doc" placeholder="Solo números" pattern="[0-9\+\-\s\(\)]+" required>
+                    <div class="grupo-input">
+                        <label for="num_doc">Número de Documento: <span>(*)</span></label>
+                        <input type="text" id="num_doc" name="num_doc" placeholder="Solo números" pattern="[0-9]+"
+                            maxlength="12" required>
+                    </div>
+                </div>
 
-                <label for="fecha_nac">Fecha de Nacimiento: <span style="color: red;">(*)</span></label>
-                <input type="date" id="fecha_nac" name="fecha_nac" required>
+                <div class="fila-nombres">
+                    <div class="grupo-input">
+                        <label for="fecha_nac">Fecha de Nacimiento: <span>(*)</span></label>
+                        <input type="date" id="fecha_nac" name="fecha_nac" required>
+                    </div>
 
-                <label for="email">E-mail: <span style="color: red;">(*)</span></label>
-                <input type="email" id="email" name="email" placeholder="Coloca aqui tu@email.com" required>
+                    <div class="grupo-input">
+                        <label for="email">E-mail: <span>(*)</span></label>
+                        <input type="email" id="email" name="email" placeholder="Coloca aquí tu@email.com"
+                            autocomplete="email" required>
+                    </div>
+                </div>
 
-                <label for="telefono">Teléfono Movil: <span style="color: red;">(*)</span></label>
-                <input type="tel" id="telefono" name="telefono" pattern="[0-9\+\-\s\(\)]+"
-                    title="Ingresar telefono válido (+Codigo de país, codigo de area, número de télefono)"
-                    placeholder="+54 9 11 555 4444" required>
+                <div class="fila-nombres">
+                    <div class="grupo-input">
+                        <label for="telefono">Teléfono Móvil: <span>(*)</span></label>
+                        <input type="tel" id="telefono" name="telefono" pattern="[0-9\+\-\s\(\)]+"
+                            title="Ingresar teléfono válido" placeholder="+54 9 11 555 4444" required>
+                    </div>
 
-                <label for="nombre">Dirección: <span style="color: red;">(*)</span></label>
-                <input type="text" id="direccion" name="dirección" placeholder="Coloca aqui tu domicilio actual."
-                    required>
+                    <div class="grupo-input">
+                        <label for="cp">Código Postal: <span>(*)</span></label>
+                        <input type="text" id="cp" name="codigo_postal" placeholder="Tu código postal." maxlength="10"
+                            required>
+                    </div>
+                </div>
 
-                <label for="nombre">Localidad: <span style="color: red;">(*)</span></label>
-                <input type="text" id="localidad" name="localidad" placeholder="Coloca aqui la localidad donde vives."
-                    required>
+                <div class="grupo-input">
+                    <label for="direccion">Dirección: <span>(*)</span></label>
+                    <input type="text" id="direccion" name="direccion" placeholder="Coloca aquí tu domicilio actual."
+                        maxlength="80" required>
+                </div>
 
-                <label for="nombre">Código Postal: <span style="color: red;">(*)</span></label>
-                <input type="text" id="cp" name="código postal" placeholder="Coloca aqui tu código postal." required>
-
+                <div class="grupo-input">
+                    <label for="localidad">Localidad: <span>(*)</span></label>
+                    <input type="text" id="localidad" name="localidad"
+                        placeholder="Coloca aquí la localidad donde vivís." maxlength="50" required>
+                </div>
 
                 <div class="form-actions">
-                    <a href="../../home.html" class="btn-ingresar">Registrarse</a>
-                    <button type="reset">Limpiar Formulario</button>
+                    <button type="submit" class="btn-ingresar">Registrarse</button>
+                    <button type="reset" class="btn-limpiar">Limpiar Formulario</button>
                     <a href="../../index.html" class="btn-cancelar">Cancelar</a>
                 </div>
+
             </form>
         </section>
     </main>

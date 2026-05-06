@@ -9,6 +9,7 @@ html {
     font-size: 62.5%;
 }
 
+/* #region CSS del Header */
 header {
     width: 100%;
     background-color: #0c1735;
@@ -19,7 +20,7 @@ header nav {
     justify-content: space-between;
     padding: 0 4rem;
     align-items: center;
-    height: 10rem;
+    height: 8rem;
     width: 100%;
     margin: 0 auto;
 }
@@ -35,7 +36,6 @@ header nav ul li {
     list-style: none;
 }
 
-
 header nav ul li a {
     position: relative;
     font-size: 2rem;
@@ -44,8 +44,6 @@ header nav ul li a {
     color: #FFFFFF;
 }
 
-
-/* Linea */
 header nav ul li a::after {
     content: "";
     position: absolute;
@@ -54,13 +52,11 @@ header nav ul li a::after {
     width: 100%;
     height: 0.2rem;
     background-color: #FFFFFF;
-
     transform: scale(0);
     transform-origin: left;
     transition: transform 0.3s ease;
 }
 
-/* Hover */
 header nav ul li a:hover::after {
     transform: scaleX(1);
 }
@@ -71,7 +67,7 @@ header nav .iconoPerfil {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 header nav .iconoPerfil .nombre {
@@ -79,11 +75,17 @@ header nav .iconoPerfil .nombre {
     font-size: 2rem;
 }
 
+header nav .logo img {
+    width: 15rem;
+}
+
 header nav .iconoPerfil img {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
 }
+
+/* #endregion CSS del Header */
 
 h1 {
     font-size: 4rem;
@@ -361,31 +363,32 @@ aside {
 }
 
 /* Estilo del botón "Continuar" */
-button {
+.botonContinuar {
     width: 100%;
-    padding: 1.5rem;
-    background-color: #2563EB;
-    /* Botón principal */
-    color: #FFFFFF;
-    border: none;
-    border-radius: 0.8rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2rem;
+    padding: 1.6rem;
+
+    background-color: #2563eb;
+    color: white;
+
+    border-radius: 1.2rem;
+
+    font-size: 2rem;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+    text-decoration: none;
 }
 
-button:hover {
+.botonContinuar:hover {
     background-color: #1D4ED8;
     /* Color hover */
 }
 
-button a{
-    text-decoration: none;
-    color: #FFFFFF;
-    font-size: 1.7rem;
-    font-weight: 700;
-}
 
 /* #region CSS del Footer */
 .footer-custom {
