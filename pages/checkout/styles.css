@@ -10,6 +10,7 @@ html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
+
 /* #endregion config global */
 
 /* #region Header/Nav */
@@ -53,7 +54,8 @@ header nav ul li a {
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
-} 
+}
+
 header nav ul li a::after {
     content: "";
     position: absolute;
@@ -93,6 +95,7 @@ header nav .iconoPerfil img {
     height: 2rem;
     border-radius: 1rem;
 }
+
 /* #endregion Header/Nav */
 
 /* #region comienzo de pasajeros.html */
@@ -102,22 +105,21 @@ h2 {
     line-height: 1.2;
     font-family: 'Inter', sans-serif;
     margin: 0.5rem;
-
-
 }
 
 h3 {
     font-family: 'Inter', sans-serif;
 }
 
-.detalle-de-vuelo{
-border: 1px solid #3B82F6;
+.detalle-de-vuelo {
+    border: 1px solid #3B82F6;
     background-color: #3B82F6;
     text-decoration: none;
     color: #FFFFFF;
     display: block;
     text-align: center;
-    max-width: 200px;  /* ← ajustá a gusto */
+    max-width: 200px;
+    /* ← ajustá a gusto */
     margin: 0.5rem auto;
     border-radius: 0.3rem;
     padding: 0.3rem;
@@ -182,7 +184,7 @@ border: 1px solid #3B82F6;
     border-radius: 0.8rem;
     padding: 1rem;
     max-width: 600px;
-    margin: 0.8rem auto; 
+    margin: 0.8rem auto;
 
 }
 
@@ -243,11 +245,11 @@ border: 1px solid #3B82F6;
     margin-top: 1rem;
 }
 
-#toggle-pasajero2:checked ~ .container-datos-pasajeros #pasajero2 {
+#toggle-pasajero2:checked~.container-datos-pasajeros #pasajero2 {
     display: block;
 }
 
-#toggle-pasajero2:checked ~ .container-datos-pasajeros .botton-agregar-pasajero {
+#toggle-pasajero2:checked~.container-datos-pasajeros .botton-agregar-pasajero {
     display: none;
 }
 
@@ -288,7 +290,7 @@ p {
     cursor: pointer;
 }
 
-.botton-continuar a{
+.botton-continuar a {
     text-decoration: none;
 
 }
@@ -298,10 +300,11 @@ p {
     border: 0.1rem solid #64748B;
     border-radius: 0.3rem;
     cursor: pointer;
-} 
- /* #endregion finalizacion de pasajeros.html */
+}
 
- /* #region comienzo de pago.html */
+/* #endregion finalizacion de pasajeros.html */
+
+/* #region comienzo de pago.html */
 
 .container-pago {
     margin: 0.8rem auto;
@@ -317,7 +320,7 @@ p {
     margin: 1rem;
 }
 
-.container-pago h4{
+.container-pago h4 {
     margin: 1rem;
 }
 
@@ -342,10 +345,10 @@ details summary {
     color: #3B82F6;
 }
 
-.container-pago label{
+.container-pago label {
     font-size: 13px;
     font-weight: 500;
-    color: #64748B; 
+    color: #64748B;
 }
 
 .acordeon i {
@@ -365,10 +368,10 @@ details[open] .acordeon i {
 
 form div input,
 form div select {
-    border: 1px solid  #CBD5E1;
+    border: 1px solid #CBD5E1;
     border-radius: 0.8rem;
     padding: 8px 12px;
-    
+
 
 }
 
@@ -400,7 +403,7 @@ form div select {
     margin-bottom: 2rem;
 }
 
-.container-confirmacion button{
+.container-confirmacion button {
     display: block;
     margin: 0 auto;
     padding: 0.5rem;
@@ -412,14 +415,14 @@ form div select {
 }
 
 .container-confirmacion a {
-text-decoration: none;
+    text-decoration: none;
 }
 
 /* #endregion Finalizacion de pago.html */
 
 /* #region Comienzo de confirmacio.html */
 
-.container-confirmacion-vuelo-ida-vuelta{
+.container-confirmacion-vuelo-ida-vuelta {
     max-width: 600px;
     margin: 1rem auto;
     padding: 1rem;
@@ -429,24 +432,27 @@ text-decoration: none;
 }
 
 
-.container-confirmacion-vuelo-ida-vuelta i, .container-confirmacion-vuelo-ida-vuelta h3{
+.container-confirmacion-vuelo-ida-vuelta i,
+.container-confirmacion-vuelo-ida-vuelta h3 {
     color: #3B82F6;
     margin: 0.2rem;
 }
 
-.vuelo-ida, .vuelo-vuelta{
+.vuelo-ida,
+.vuelo-vuelta {
     border-top: 0.1rem solid #CBD5E1;
     margin: 1rem;
-    
+
 
 }
 
-.icono-aerolinea{
-width: 60px;
-height: auto;
+.icono-aerolinea {
+    width: 60px;
+    height: auto;
 }
 
-.vuelo-ida-header, .vuelo-vuelta-header{
+.vuelo-ida-header,
+.vuelo-vuelta-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -467,8 +473,8 @@ height: auto;
     flex-direction: column;
     align-items: center;
     gap: 0.2rem;
-    flex: 1;         
-    min-width: 120px; 
+    flex: 1;
+    min-width: 120px;
 }
 
 
@@ -495,10 +501,11 @@ height: auto;
     color: #000000;
 }
 
-.asiento i{
-font-size: 1.2rem; 
+.asiento i {
+    font-size: 1.2rem;
 }
-.asiento{
+
+.asiento {
     gap: 0.8rem;
     display: flex;
     align-items: center;
@@ -509,12 +516,12 @@ font-size: 1.2rem;
     background-color: #EFF6FF;
 }
 
-.asiento h5{
+.asiento h5 {
     color: #3B82F6;
 
 }
 
-.container-resumen{
+.container-resumen {
     border: 0.1rem solid #64748B;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -528,12 +535,12 @@ font-size: 1.2rem;
     margin: 0.3rem 0;
 }
 
-.total h3{
-display: flex;
+.total h3 {
+    display: flex;
     justify-content: flex-end;
 }
 
-.condiciones{
+.condiciones {
     border: 0.1rem solid #a3afc2;
     border-radius: 0.5rem;
     max-width: 30rem;
@@ -542,30 +549,31 @@ display: flex;
     background-color: #e8effa;
 }
 
-.escudo{
-    display:inline-flex;
+.escudo {
+    display: inline-flex;
     justify-content: space-between;
     align-items: center;
     margin: 0.2rem;
     gap: 0.5rem;
-    
+
 
 }
 
-.condiciones i, .condiciones h3{
+.condiciones i,
+.condiciones h3 {
     color: #3B82F6;
 }
 
-.terminos-condiciones{
+.terminos-condiciones {
     text-decoration: none;
-    color:#3B82F6;
+    color: #3B82F6;
 }
 
-.confirmar-vuelo a{
+.confirmar-vuelo a {
     text-decoration: none;
 }
 
-.confirmar-vuelo button{
+.confirmar-vuelo button {
     display: block;
     margin: 1rem auto;
     padding: 0.8rem 2rem;

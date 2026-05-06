@@ -146,12 +146,29 @@ header nav .iconoPerfil img {
 }
 
 .etiqueta-cliente {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 8px 0;
     background-color: #E5EEFF;
     color: #1E5BFF;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
+}
+
+.datos-principales {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px; 
+}
+
+.datos-principales h2 {
+    font-size: 2.4rem;
+    color: #0c1735;
+    margin: 0;
 }
 
 .miembro-desde {
