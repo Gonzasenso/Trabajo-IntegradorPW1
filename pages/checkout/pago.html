@@ -11,11 +11,11 @@
 </head>
 
 <body>
-     <header>
+    <header>
         <nav>
-            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <a class="logo" href="../../home.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
             <ul>
-                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../home.html">Inicio</a></li>
                 <li><a href="../perfil/reservas.html">Reservas</a></li>
                 <li><a href="">Ofertas</a></li>
                 <li><a href="">Ayuda</a></li>
@@ -57,15 +57,15 @@
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
-                            <input type="month">
+                            <input type="text" placeholder="mm/yy" pattern="\d{2}/\d{2}" maxlength="5" required>
                         </div>
                         <div class="campo-codigo">
                             <label>Codigo de seguridad</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="123">
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="123" required>
                         </div>
                         <div class="campo-nombre-completo">
                             <label>Nombre completo del titular</label>
-                            <input type="text" placeholder="Ej: GONZALEZ JUAN">
+                            <input type="text" placeholder="Ej: GONZALEZ JUAN" required>
                         </div>
                         <div class="campo-cuotas">
                             <label>Cuotas</label>
@@ -88,19 +88,19 @@
                         <div class="campo-tarjeta">
                             <label>Numero de Tarjeta</label>
                             <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="1234 5678 9012 3456">
+                                placeholder="1234 5678 9012 3456" required>
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
-                            <input type="month">
+                            <input type="text" placeholder="mm/yy" pattern="\d{2}/\d{2}" maxlength="5" required>
                         </div>
                         <div class="campo-codigo">
                             <label>Codigo de seguridad</label>
-                            <input type="text" placeholder="123">
+                            <input type="text" placeholder="123" required>
                         </div>
                         <div class="campo-nombre-completo">
                             <label>Nombre completo del titular</label>
-                            <input type="text" placeholder="Ej: GONZALEZ JUAN">
+                            <input type="text" placeholder="Ej: GONZALEZ JUAN" required>
                         </div>
                     </form>
                 </div>
@@ -124,21 +124,21 @@
                         <div class="campo-cbu">
                             <label>CBU/CVU</label>
                             <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="0000003100000006000000">
+                                placeholder="0000003100000006000000" required>
                         </div>
                         <div class="campo-cuit">
                             <label>CUIT/CUIL</label>
                             <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="20-00000000-0">
+                                placeholder="20-00000000-0" required>
                         </div>
                         <div class="campo-titular">
                             <label>Titular de la cuenta</label>
-                            <input type="text" placeholder="Ej. PEREZ JUAN">
+                            <input type="text" placeholder="Ej. PEREZ JUAN" required>
                         </div>
                         <div class="campo-comprobante">
                             <label>Comprobante de pago</label>
                             <div class="subir-archivo">
-                                <input type="file" id="comprobante" accept=".jpg,.png,.pdf">
+                                <input type="file" id="comprobante" accept=".jpg,.png,.pdf" required>
                                 <label for="comprobante"> Subir archivo
                                     <span>JPG, PNG o PDF hasta 5MB</span>
                                 </label>
@@ -162,48 +162,57 @@
         <div class="footer-container">
             <div class="footer-header">
                 <div class="footer-logo">
-                    <img src="../../img/fly_lena_logo_grande.png" alt="Logo" class="logo-img">
+                    <a href="#top">
+                        <img src="../../img/fly_lena_logo_grande.png" alt="Logo" class="logo-img">
+                    </a>
                 </div>
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
-                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
-                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_X.png" alt="X"></a>
+                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
+                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
+                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img
+                            src="../../img/iconos/icono_X.png" alt="X"></a>
                 </div>
             </div>
 
             <div class="footer-columns">
                 <div class="column">
                     <h3>Sobre Nosotros</h3>
-                    <a href="../pages_footer/historia.html">Historia</a>
-                    <a href="..pages_footer/servicios.html">Servicios</a>
-                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/">Trabajá con nosotros</a>
+                    <a href="../../pages/pages_footer/historia.html">Historia</a>
+                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/"
+                        target="_blank" rel="noopener noreferrer">Trabajá
+                        con nosotros</a>
                 </div>
 
                 <div class="column">
                     <h3>Mi Cuenta</h3>
-                    <a href="../perfil/login.html">Ingresar</a>
-                    <a href="#">Historial de Compras</a>
-                    <a href="#">Seguimiento de Compras</a>
+                    <a href="../../pages/perfil/perfil_de_usuario.html">Perfil de Usuario</a>
+                    <a href="../../pages/perfil/reservas.html">Mis Reservas</a>
                 </div>
 
                 <div class="column">
                     <h3>Atención al Cliente</h3>
-                    <a href="../pages_footer/contacto.html">Contacto</a>
-                    <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
+                    <a href="../../pages/pages_footer/contacto.html">Contacto</a>
+                    <a href="../../pages/pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
                 <div class="legal-links">
-                    <a href="../../assets/Terminos de Uso y Condiciones.pdf">Términos y condiciones</a>
-                    <a href="../../assets/Politica de Privacidad.pdf">Privacidad</a>
-                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor">Defensa del Consumidor</a>
+                    <a href="../../assets/Terminos de Uso y Condiciones.pdf" target="_blank"
+                        rel="noopener noreferrer">Términos y condiciones</a>
+                    <a href="../../assets/Politica de Privacidad.pdf" target="_blank"
+                        rel="noopener noreferrer">Privacidad</a>
+                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor"
+                        target="_blank" rel="noopener noreferrer">Defensa
+                        del Consumidor</a>
                 </div>
             </div>
         </div>
     </footer>
 </body>
-
 </html>
