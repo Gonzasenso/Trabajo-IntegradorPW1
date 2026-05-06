@@ -10,7 +10,14 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8FAFC;
+    margin: 0;
+}
 
+
+/* #region CSS del Header */
 header {
     width: 100%;
     background-color: #0c1735;
@@ -21,7 +28,7 @@ header nav {
     justify-content: space-between;
     padding: 0 4rem;
     align-items: center;
-    height: 10rem;
+    height: 8rem;
     width: 100%;
     margin: 0 auto;
 }
@@ -73,13 +80,16 @@ header nav .iconoPerfil {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 header nav .iconoPerfil .nombre {
     text-decoration: none;
     font-size: 2rem;
-    color: #FFFFFF;
+}
+
+header nav .logo img {
+    width: 15rem;
 }
 
 header nav .iconoPerfil img {
@@ -88,13 +98,7 @@ header nav .iconoPerfil img {
     border-radius: 50%;
 }
 
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #F8FAFC; 
-    color: #0F172A;
-    margin: 0;
-}
+/* #endregion CSS del Header */
 
 .container {
     max-width: 800px;
@@ -105,12 +109,13 @@ body {
 }
 
 h2 {
-    color: #0F172A;
     font-size: 2.8rem;
     font-weight: 700;
     line-height: 1.2;
 }
-h3,h4{
+
+h3,
+h4 {
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -130,14 +135,14 @@ details {
 
 
 summary {
-    padding: 18px 24px; 
+    padding: 18px 24px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
-    list-style: none; 
-    
+    list-style: none;
+
 }
 
 .precio-ruta::after {
@@ -148,7 +153,7 @@ summary {
 }
 
 details[open] .precio-ruta::after {
-    transform: rotate(180deg); 
+    transform: rotate(180deg);
 }
 
 details[open] {
@@ -158,37 +163,37 @@ details[open] {
 .precio-ruta {
     display: flex;
     align-items: center;
-    gap: 12px;  
-    
+    gap: 12px;
+
 }
 
 
 .vuelo {
-    display: flex;          
+    display: flex;
     align-items: center;
-    gap: 16px;             
-    flex-wrap: wrap;        
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .vuelo h4 {
-    flex: 1;                
+    flex: 1;
     min-width: 200px;
 }
 
 .ruta-vuelo {
-    gap: 16px;         
+    gap: 16px;
 }
 
 .detalle-vuelo {
-    padding: 24px;      
+    padding: 24px;
 }
 
 .duracion-vuelo {
-    white-space: nowrap;    
+    white-space: nowrap;
 }
 
 .info-vuelo {
-    margin-left: auto;      
+    margin-left: auto;
 }
 
 .tiempo-vuelo {
@@ -207,7 +212,3 @@ details[open] {
     border-top: 1px solid #FFFFFF;
     background-color: #FFFFFF;
 }
-
-
-
-

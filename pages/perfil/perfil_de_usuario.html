@@ -10,159 +10,158 @@
 </head>
 
 <body id="top">
-    <header class="encabezado-principal">
-        <nav class="navegacion-barra">
-            <a class="logo-header" href="home.html"">
-                <img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena">
-            </a>
-            <ul class="menu-navegacion">
-                <li><a href="../../home.html">Inicio</a></li>
-                <li><a href="./reservas.html">Reservas</a></li>
-                <li><a href="####">Ofertas</a></li>
+    <header>
+        <nav>
+            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../perfil/reservas.html">Reservas</a></li>
+                <li><a href="../ofertas/ofertas.html">Ofertas</a></li>
                 <li><a href="#contacto-footer">Ayuda</a></li>
             </ul>
-            <a class="icono-perfil-gonza" href="./pages/perfil/perfil_de_usuario.html">
-                <span class="nombre-usuario">¡Hola, Gonzalo!</span>
-                <img src="../../img/foto_perfil.jpg" alt="Foto Perfil">
+            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
+                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
             </a>
         </nav>
     </header>
 
-<main class="contenedor-perfil">
-    <section class="encabezado-perfil">
-        <h1><i class="fa-solid fa-circle-user"></i> Mi Perfil</h1>
-        <p>Gestioná tu información personal y preferencias de viaje.</p>
-    </section>
+    <main class="contenedor-perfil">
+        <section class="encabezado-perfil">
+            <h1><i class="fa-solid fa-circle-user"></i> Mi Perfil</h1>
+            <p>Gestioná tu información personal y preferencias de viaje.</p>
+        </section>
 
-    <div class="tarjeta-perfil">
-        <!-- Foto de Perfil e Info Básica -->
-        <div class="perfil-info-basica">
-            <div class="contenedor-avatar">
-                <img src="../../img/foto_perfil.jpg" alt="Foto de Perfil" class="avatar-circular">
-            </div>
-            <div class="datos-principales">
-                <h2>Gonzalo Asenso</h2>
-                <span class="etiqueta-cliente"><i class="fa-solid fa-star"></i> Cliente frecuente</span>
-                <p class="miembro-desde">Miembro desde: 12 Jun 2024</p>
-            </div>
-        </div>
-
-        <!-- Sección de Info Personal ---OJO, LA INFO ESTA HARDCODEADA (NO BDD, NI API, NI JS) -->
-        <div class="seccion-datos">
-            <h3><i class="fa-solid fa-user"></i> Información Personal</h3>
-            <div class="fila-dato">
-                <span><i class="fa-solid fa-envelope"></i> Email</span>
-                <p>gonzalo.asenso@email.com</p>
-            </div>
-            <div class="fila-dato">
-                <span><i class="fa-solid fa-phone"></i> Teléfono</span>
-                <p>+54 11 1234-5678</p>
-            </div>
-            <div class="fila-dato">
-                <span><i class="fa-solid fa-id-card"></i> Nacionalidad</span>
-                <p>Argentina</p>
-            </div>
-            <div class="fila-dato">
-                <span><i class="fa-solid fa-calendar"></i> Fecha de nacimiento</span>
-                <p>15/05/1998</p>
-            </div>
-        </div>
-
-        <!-- Sección de Preferencias de Viaje -->
-        <div class="seccion-datos">
-            <h3><i class="fa-solid fa-gear"></i> Preferencias de viaje</h3>
-            <div class="fila-dato">
-                <span><i class="fa-solid fa-plane"></i> Clase preferida</span>
-                <p>Económica</p>
-            </div>
-            <div class="fila-dato">
-                <span><i class="fa-solid fa-suitcase"></i> Equipaje preferido</span>
-                <p>1 equipaje de mano</p>
-            </div>
-        </div>
-
-        <!---- Los 2 Botones de Colores ---->
-        <div class="acciones-rapidas">
-            <a href="reservas.html" class="btn-accion btn-reservas">
-                <i class="fa-solid fa-ticket"></i>
-                <div>
-                    <strong>Mis reservas</strong>
-                    <small>Ver todas mis reservas</small>
+        <div class="tarjeta-perfil">
+            <!-- Foto de Perfil e Info Básica -->
+            <div class="perfil-info-basica">
+                <div class="contenedor-avatar">
+                    <img src="../../img/foto_perfil.jpg" alt="Foto de Perfil" class="avatar-circular">
                 </div>
-            </a>
-            <a href="../../index.html" class="btn-accion btn-cerrar">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <div>
-                    <strong>Cerrar sesión</strong>
-                    <small>Salir de mi cuenta</small>
+                <div class="datos-principales">
+                    <h2>Gonzalo Asenso</h2>
+                    <span class="etiqueta-cliente"><i class="fa-solid fa-star"></i> Cliente frecuente</span>
+                    <p class="miembro-desde">Miembro desde: 12 Jun 2024</p>
                 </div>
-            </a>
-        </div>
-    </div>
-
-    <!---- Seccion de Necesitas Ayuda ----->
-    <div class="banner-ayuda">
-        <div class="ayuda-texto">
-            <i class="fa-solid fa-headset"></i>
-            <div>
-                <h4>¿Necesitás ayuda?</h4>
-                <p>Nuestro equipo está disponible 24/7 para asistirte.</p>
-            </div>
-        </div>
-        <a href="../pages_footer/contacto.html" class="btn-soporte">Contactar soporte</a>
-    </div>
-</main>
-
-<footer id="contacto-footer" class="footer-custom">
-    <div class="footer-container">
-        <div class="footer-header">
-            <div class="footer-logo">
-                <img src="../../img/fly_lena_logo_chico.png" alt="Logo" class="logo-img">
-            </div>
-            <div class="footer-socials">
-                <a href="https://www.instagram.com/despegar.ar/"><img src="../../img/iconos/icono_ig.png"
-                        alt="Instagram"></a>
-                <a href="https://www.facebook.com/DespegarArgentina/"><img src="../../img/iconos/icono_fb.png"
-                        alt="Facebook"></a>
-                <a href="https://www.tiktok.com/@despegar.ar"><img src="../../img/iconos/icono_tiktok.png"
-                        alt="Tik Tok"></a>
-                <a href="https://x.com/Despegar"><img src="../../img/iconos/icono_X.png" alt="X"></a>
-            </div>
-        </div>
-
-        <div class="footer-columns">
-            <div class="column">
-                <h3>Sobre Nosotros</h3>
-                <a href="../pages_footer/historia.html">Historia</a>
-                <a href="../pages_footer/servicios.html">Servicios</a>
-                <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/">Trabajá
-                    con nosotros</a>
             </div>
 
-            <div class="column">
-                <h3>Mi Cuenta</h3>
-                <a href="../perfil/login.html">Ingresar</a>
-                <a href="#">Historial de Compras</a>
-                <a href="#">Seguimiento de Compras</a>
+            <!-- Sección de Info Personal ---OJO, LA INFO ESTA HARDCODEADA (NO BDD, NI API, NI JS) -->
+            <div class="seccion-datos">
+                <h3><i class="fa-solid fa-user"></i> Información Personal</h3>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-envelope"></i> Email</span>
+                    <p>gonzalo.asenso@email.com</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-phone"></i> Teléfono</span>
+                    <p>+54 11 1234-5678</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-id-card"></i> Nacionalidad</span>
+                    <p>Argentina</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-calendar"></i> Fecha de nacimiento</span>
+                    <p>15/05/1998</p>
+                </div>
             </div>
 
-            <div class="column">
-                <h3>Atención al Cliente</h3>
-                <a href="../pages_footer/contacto.html">Contacto</a>
-                <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
+            <!-- Sección de Preferencias de Viaje -->
+            <div class="seccion-datos">
+                <h3><i class="fa-solid fa-gear"></i> Preferencias de viaje</h3>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-plane"></i> Clase preferida</span>
+                    <p>Económica</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-suitcase"></i> Equipaje preferido</span>
+                    <p>1 equipaje de mano</p>
+                </div>
+            </div>
+
+            <!---- Los 2 Botones de Colores ---->
+            <div class="acciones-rapidas">
+                <a href="reservas.html" class="btn-accion btn-reservas">
+                    <i class="fa-solid fa-ticket"></i>
+                    <div>
+                        <strong>Mis reservas</strong>
+                        <small>Ver todas mis reservas</small>
+                    </div>
+                </a>
+                <a href="../../index.html" class="btn-accion btn-cerrar">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <div>
+                        <strong>Cerrar sesión</strong>
+                        <small>Salir de mi cuenta</small>
+                    </div>
+                </a>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
-            <div class="legal-links">
-                <a href="../../assets/Terminos de Uso y Condiciones.pdf">Términos y condiciones</a>
-                <a href="../../assets/Terminos de Uso y Condiciones.pdf">Privacidad</a>
-                <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor">Defensa del
-                    Consumidor</a>
+        <!---- Seccion de Necesitas Ayuda ----->
+        <div class="banner-ayuda">
+            <div class="ayuda-texto">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h4>¿Necesitás ayuda?</h4>
+                    <p>Nuestro equipo está disponible 24/7 para asistirte.</p>
+                </div>
+            </div>
+            <a href="../pages_footer/contacto.html" class="btn-soporte">Contactar soporte</a>
+        </div>
+    </main>
+
+    <footer id="contacto-footer" class="footer-custom">
+        <div class="footer-container">
+            <div class="footer-header">
+                <div class="footer-logo">
+                    <img src="../../img/fly_lena_logo_chico.png" alt="Logo" class="logo-img">
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/despegar.ar/"><img src="../../img/iconos/icono_ig.png"
+                            alt="Instagram"></a>
+                    <a href="https://www.facebook.com/DespegarArgentina/"><img src="../../img/iconos/icono_fb.png"
+                            alt="Facebook"></a>
+                    <a href="https://www.tiktok.com/@despegar.ar"><img src="../../img/iconos/icono_tiktok.png"
+                            alt="Tik Tok"></a>
+                    <a href="https://x.com/Despegar"><img src="../../img/iconos/icono_X.png" alt="X"></a>
+                </div>
+            </div>
+
+            <div class="footer-columns">
+                <div class="column">
+                    <h3>Sobre Nosotros</h3>
+                    <a href="../pages_footer/historia.html">Historia</a>
+                    <a href="../pages_footer/servicios.html">Servicios</a>
+                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/">Trabajá
+                        con nosotros</a>
+                </div>
+
+                <div class="column">
+                    <h3>Mi Cuenta</h3>
+                    <a href="../perfil/login.html">Ingresar</a>
+                    <a href="#">Historial de Compras</a>
+                    <a href="#">Seguimiento de Compras</a>
+                </div>
+
+                <div class="column">
+                    <h3>Atención al Cliente</h3>
+                    <a href="../pages_footer/contacto.html">Contacto</a>
+                    <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
+                <div class="legal-links">
+                    <a href="../../assets/Terminos de Uso y Condiciones.pdf">Términos y condiciones</a>
+                    <a href="../../assets/Terminos de Uso y Condiciones.pdf">Privacidad</a>
+                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor">Defensa
+                        del
+                        Consumidor</a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
+
 </html>
