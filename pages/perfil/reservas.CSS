@@ -14,6 +14,9 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #FFFFFF;
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -102,10 +105,12 @@ header nav .iconoPerfil img {
 
 .container {
     max-width: 800px;
-    margin: 20 auto;
+    margin: 2rem auto;
     background-color: #ffffff;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    flex:1;
+    width: 100%;
 }
 
 h2 {
@@ -221,6 +226,9 @@ details[open] {
     color: white;
     padding: 4rem 5%;
     font-family: Arial, sans-serif;
+    margin-top: auto;
+    width: 100%;
+    
 }
 
 .footer-container {
