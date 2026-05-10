@@ -1,47 +1,64 @@
+/* #region Config Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+/* #endregion Config Global */
+
+/* #region Historia */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7ff;
+}
+
 .seccion-historia {
     background-color: #E9F0FF;
-    padding: 60px 10% 80px 10%;
+    padding: 6rem 10% 8rem 10%;
     line-height: 1.8;
     color: #333333;
     text-align: justify;
+    min-height: 100vh;
 }
 
 .seccion-historia h1 {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     color: #001E42;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
     font-weight: 600;
     position: relative;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.2rem;
 }
 
-/* Este es la linea debajo del titulo */
 .seccion-historia h1::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 4px;
+    width: 8rem;
+    height: 0.4rem;
     background-color: #7A3CFF;
-    margin: 15px auto 0;
-    border-radius: 2px;
+    margin: 1.5rem auto 0;
+    border-radius: 0.2rem;
 }
 
 .seccion-historia p {
-    font-size: 1.15rem;
-    margin-bottom: 25px;
-    max-width: 900px;
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    max-width: 90rem;
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
 }
 
-/* La Mayus de la primera letra */
 .seccion-historia p:first-of-type::first-letter {
-    font-size: 3.5rem;
+    font-size: 5rem;
     float: left;
-    margin-right: 10px;
+    margin-right: 1rem;
     line-height: 1;
     color: #001E42;
     font-weight: 600;
@@ -49,34 +66,73 @@
 
 .seccion-historia br {
     display: block;
-    margin: 10px 0;
+    margin: 1rem 0;
     content: "";
 }
 
 .form-actions {
-    display: block;  /* NO CAMBIAR ESTE SET UP*/
+    display: block;
     text-align: center;
     width: 100%;
     background: transparent;
+    margin-top: 4rem;
 }
 
-/* Boton de Volver al Home */
 .btn-cancelar {
-    display: inline-block;   /* NO CAMBIAR ESTE SET UP*/ 
-    width: auto; /* NO CAMBIAR ESTE SET UP*/
+    display: inline-block;
+    width: auto;
     text-align: center;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 20px;
-    border: 2px solid #4e4e4e;
+    padding: 1.2rem 2.5rem;
+    border-radius: 2rem;
+    border: 0.2rem solid #4e4e4e;
     background: white;
     color: black;
     font-weight: bold;
+    font-size: 1.6rem;
     transition: 0.3s;
 }
 
-/* Hover de Volver al Home */
 .btn-cancelar:hover {
     background-color: #3B82F6;
     color: white;
+    border-color: #3B82F6;
 }
+/* #endregion CSS de Historia */
+
+/* #region MediaQuery */
+@media (max-width: 768px) {
+    .seccion-historia {
+        padding: 4rem 5%;
+        text-align: left; 
+    }
+
+    .seccion-historia h1 {
+        font-size: 2.6rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .seccion-historia p {
+        font-size: 1.7rem;
+    }
+
+    .seccion-historia p:first-of-type::first-letter {
+        font-size: 4.5rem;
+    }
+
+    .btn-cancelar {
+        width: 100%;
+        max-width: 30rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion-historia h1 {
+        font-size: 2.2rem;
+    }
+
+    .seccion-historia p {
+        font-size: 1.6rem;
+    }
+}
+/* #endregion MediaQuery */

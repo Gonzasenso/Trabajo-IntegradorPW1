@@ -1,3 +1,5 @@
+/* #region Config Global */
+
 * {
     padding: 0;
     margin: 0;
@@ -6,9 +8,11 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 62.5%; 
 }
+/* #endregion Config Global */
 
+/* #region CSS de Registro & Login */
 body {
     background-color: #ffffff;
 }
@@ -33,7 +37,7 @@ main {
 .form-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .fila-nombres {
@@ -49,8 +53,9 @@ main {
 }
 
 .grupo-input label {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
+    color: #0c1735;
 }
 
 .grupo-input label span {
@@ -64,8 +69,9 @@ main {
     border: 0.1rem solid #e5e7eb;
     border-radius: 0.5rem;
     background-color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.6rem; 
     outline: none;
+    transition: all 0.3s ease;
 }
 
 .grupo-input input:focus,
@@ -76,8 +82,8 @@ main {
 
 .form-actions {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .btn-ingresar,
@@ -89,10 +95,11 @@ main {
     align-items: center;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem; 
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .btn-ingresar {
@@ -124,3 +131,57 @@ main {
 .btn-cancelar:hover {
     background-color: #f3f4f6;
 }
+
+/* #endregion CSS de Registro & Login */
+
+/* #region MediaQuerys */
+@media (max-width: 768px) {
+    main {
+        padding: 2rem 1rem;
+    }
+
+    .section-formulario {
+        width: 100%;
+        padding: 2.5rem;
+        border-radius: 1rem;
+        box-shadow: none;
+    }
+
+    .fila-nombres {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .grupo-input label {
+        font-size: 1.7rem;
+    }
+
+    .grupo-input input,
+    .grupo-input select {
+        padding: 1.5rem;
+        font-size: 1.6rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .btn-ingresar,
+    .btn-limpiar,
+    .btn-cancelar {
+        width: 100%;
+        padding: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-formulario {
+        padding: 1.5rem;
+    }
+
+    .hero-contenido h1 {
+        font-size: 2.2rem;
+    }
+}
+/* #endregion MediaQuerys */

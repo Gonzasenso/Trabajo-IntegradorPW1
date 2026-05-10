@@ -251,3 +251,66 @@ html {
 }
 
 /* #endregion CSS del Footer */
+
+/* #region MediaQuerys */
+@media (max-width: 880px) {
+    header nav {
+        height: auto;
+        padding: 1rem 1.5rem;
+        display: grid; 
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    header nav ul {
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+        padding: 1rem 0 0.5rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        gap: 0.5rem;
+    }
+
+    header nav ul li a {
+        font-size: 1.4rem;
+    }
+
+    .section-formulario {
+        width: 92%;
+        margin: 2rem auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .column {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    header nav {
+        padding: 0.5rem 1.5rem;
+    }
+    
+    header nav ul {
+        margin: 0;
+        padding: 0.5rem 0;
+    }
+
+    .section-formulario {
+        margin: 1rem auto;
+    }
+}
+/* #endregion MediaQuerys */

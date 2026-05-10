@@ -1,17 +1,30 @@
+/* #region Config Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+/* #endregion Config Global */
+
+/* #region CSS del FAQ */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f4f7ff;
-    margin: 0;
-    padding: 0;
+    line-height: 1.6;
 }
 
 .contenedor-faq {
     position: relative;
-    max-width: 950px;
-    margin: 0 auto;
+    max-width: 95rem;
+    margin: 4rem auto;
     background: #E9F0FF;
-    padding: 50px;
-    border-radius: 15px;
+    padding: 5rem;
+    border-radius: 1.5rem;
     color: #333;
 }
 
@@ -19,19 +32,21 @@ h1 {
     color: #001E42;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.2rem;
+    font-size: 3.2rem;
+    margin: 2rem 0 4rem;
 }
 
-/* De aca al proximo comment, son las clases del listado */
 .indice-preguntas {
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 }
 
 .indice-preguntas h2 {
     color: #001E42;
-    font-size: 1.4rem;
-    border-left: 5px solid #7A3CFF;
-    padding-left: 15px;
+    font-size: 2.2rem;
+    border-left: 0.5rem solid #7A3CFF;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .indice-preguntas ul {
@@ -40,7 +55,7 @@ h1 {
 }
 
 .indice-preguntas li {
-    margin: 15px 0;
+    margin: 1.5rem 0;
 }
 
 .indice-preguntas a {
@@ -48,56 +63,55 @@ h1 {
     color: #333;
     font-weight: 500;
     transition: 0.2s;
-    font-size: 1.1rem;
+    font-size: 1.7rem;
 }
 
 .indice-preguntas a:hover {
     color: #7A3CFF;
-    padding-left: 10px;
+    padding-left: 1rem;
 }
 
-/* Bloque de clases de las respuestas */
 .separador {
     border: 0;
-    height: 1px;
+    height: 0.1rem;
     background: #c2d1f0;
-    margin: 40px 0;
+    margin: 4rem 0;
 }
 
 .bloque-pregunta {
-    margin-bottom: 60px;
-    padding-bottom: 20px;
+    margin-bottom: 6rem;
+    padding-bottom: 2rem;
 }
 
 .bloque-pregunta h3 {
     color: #001E42;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .bloque-pregunta p {
+    font-size: 1.6rem;
     line-height: 1.7;
     color: #444;
 }
 
-/* Botones */
 .form-actions {
     display: block;
     text-align: center;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 2.5rem;
 }
 
 .btn-volver {
     display: inline-block;
     width: auto;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    border: 1px solid #7A3CFF;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    border: 0.1rem solid #7A3CFF;
     background: transparent;
     color: #7A3CFF;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -109,14 +123,14 @@ h1 {
 
 .btn-home-faq {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 2rem;
+    right: 2rem;
     text-decoration: none;
     background-color: #001E42;
     color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 0.85rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -125,8 +139,52 @@ h1 {
     background-color: #7A3CFF;
     transform: scale(1.05);
 }
+/* #endregion CSS del FAQ */
 
-/* NO TOCAR NI CAMBIAR, es la vuelta lenta del scroll */
-html {
-    scroll-behavior: smooth;
+/* #region MediaQuery */
+@media (max-width: 768px) {
+    .contenedor-faq {
+        margin: 0;
+        border-radius: 0;
+        padding: 8rem 2rem 4rem;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    .btn-home-faq {
+        top: 2rem;
+        right: auto;
+        left: 2rem;
+        width: calc(100% - 4rem);
+        text-align: center;
+    }
+
+    .indice-preguntas h2 {
+        font-size: 2rem;
+    }
+
+    .indice-preguntas a {
+        font-size: 1.6rem;
+    }
+
+    .bloque-pregunta h3 {
+        font-size: 1.8rem;
+    }
+
+    .bloque-pregunta p {
+        font-size: 1.5rem;
+    }
 }
+
+@media (max-width: 480px) {
+    .contenedor-faq {
+        padding: 9rem 1.5rem 3rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+/* #endregion MediaQuery */

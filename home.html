@@ -20,9 +20,12 @@
                 <li><a href="./pages/ofertas/ofertas.html">Ofertas</a></li>
                 <li><a href="#contacto-footer">Ayuda</a></li>
             </ul>
-            <a class="iconoPerfil" href="./pages/perfil/perfil_de_usuario.html">
-                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
-            </a>
+            <div class="user-nav-container">
+                <a class="iconoPerfil" href="./pages/perfil/perfil_de_usuario.html">
+                    <h2 class="nombre">¡Hola, Gonzalo!</h2>
+                    <img src="../../img/foto_perfil.jpg" alt="Perfil">
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -37,33 +40,48 @@
             <!-- Buscador de Vuelos -->
             <div class="buscador-vuelos">
                 <div class="tipo-viaje">
-                    <button class="boton-tipo activo">Ida y vuelta</button>
-                    <button class="boton-tipo">Solo ida</button>
-                    <button class="boton-tipo">Multi destino</button>
+                    <button type="button" class="boton-tipo activo">Ida y vuelta</button>
+                    <button type="button" class="boton-tipo">Solo ida</button>
+                    <button type="button" class="boton-tipo">Multi destino</button>
                 </div>
-                <div class="formulario-vuelos">
+
+                <form class="formulario-vuelos" action="./pages/resultados-de-busqueda/filtro-1.html" method="GET">
                     <div class="campo">
-                        <label>Desde</label>
-                        <input type="text" placeholder="Buenos Aires (BUE)" required>
+                        <label for="desde">Desde</label>
+                        <input type="text" id="desde" name="origen" placeholder="Buenos Aires (BUE)" required>
                     </div>
                     <div class="campo">
-                        <label>Hacia</label>
-                        <input type="text" placeholder="Madrid (MAD)" required>
+                        <label for="hacia">Hacia</label>
+                        <input type="text" id="hacia" name="destino" placeholder="Madrid (MAD)" required>
                     </div>
                     <div class="campo">
-                        <label>Fecha ida</label>
-                        <input type="date" placeholder="12/06/2026" required>
+                        <label for="fecha-ida">Fecha ida</label>
+                        <input type="date" id="fecha-ida" name="ida" required>
                     </div>
                     <div class="campo">
-                        <label>Fecha vuelta</label>
-                        <input type="date" placeholder="26/06/2026" required>
+                        <label for="fecha-vuelta">Fecha vuelta</label>
+                        <input type="date" id="fecha-vuelta" name="vuelta" required>
                     </div>
+
                     <div class="campo">
-                        <label>Pasajeros</label>
-                        <input type="text" placeholder="1 pasajero" required>
+                        <label>Pasajeros y Clase</label>
+                        <div class="select-personalizado">
+                            <select name="pasajeros" required>
+                                <option value="1">1 Pasajero</option>
+                                <option value="2">2 Pasajeros</option>
+                                <option value="3">3 Pasajeros</option>
+                                <option value="4">4 Pasajeros</option>
+                            </select>
+                            <select name="clase" required>
+                                <option value="economica">Económica</option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div>
                     </div>
-                    <a href="./pages/resultados-de-busqueda/filtro-1.html" class="boton-buscar">Buscar vuelos</a>
-                </div>
+
+                    <button type="submit" class="boton-buscar">Buscar vuelos</button>
+                </form>
             </div>
 
         </section>
