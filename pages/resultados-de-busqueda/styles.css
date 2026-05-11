@@ -554,3 +554,256 @@ main {
     color: white;
 }
 /* #endregion CSS del Footer */
+
+
+
+/* RESPONSIVE TABLET */
+
+
+@media (max-width: 1024px) {
+
+    header nav {
+        padding: 0 2rem;
+    }
+
+    header nav ul {
+        gap: 3rem;
+    }
+
+    header nav ul li a {
+        font-size: 1.7rem;
+    }
+
+    .seccionInfoBusqueda {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 3rem 2rem;
+        align-items: flex-start;
+    }
+
+    .seccionResultados {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+
+    .panelResumen {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .boxResumen {
+        flex: 1 1 30rem;
+    }
+
+    .cardVuelo {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .trayecto {
+        grid-column: span 2;
+    }
+
+    .precio {
+        grid-column: span 2;
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .column {
+        border-right: none;
+        border-bottom: .1rem solid rgba(255,255,255,.2);
+        padding-bottom: 2rem;
+    }
+
+    .column:last-child {
+        border-bottom: none;
+    }
+
+}
+
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    /* HEADER */
+
+    header nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        height: auto;
+        padding: 2rem;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    header nav ul li a {
+        font-size: 1.6rem;
+    }
+
+    header nav .iconoPerfil .nombre {
+        font-size: 1.6rem;
+    }
+
+    /* INFO BUSQUEDA */
+
+    .seccionInfoBusqueda {
+        padding: 2rem;
+    }
+
+    .contenedorInfoParte1 p,
+    .contenedorInfoParte1 i {
+        font-size: 2.5rem;
+    }
+
+    .contenedorInfoParte2 p {
+        font-size: 1.6rem;
+    }
+
+    .contenedorModificarBusqueda {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* RESULTADOS */
+
+    .seccionResultados {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .encabezadoResultados {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .encabezadoResultados h2 {
+        font-size: 2rem;
+    }
+
+    /* CARD VUELOS */
+
+    .cardVuelo {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .aerolinea,
+    .horario,
+    .trayecto,
+    .precio {
+        width: 100%;
+    }
+
+    .aerolinea img {
+        width: 9rem;
+    }
+
+    .horario strong {
+        font-size: 2rem;
+    }
+
+    .horario span,
+    .duracion {
+        font-size: 1.7rem;
+    }
+
+    .trayecto small {
+        font-size: 1.3rem;
+    }
+
+    .precio strong {
+        font-size: 2.4rem;
+    }
+
+    .precio span {
+        font-size: 1.6rem;
+    }
+
+    .precio a {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* FILTROS */
+
+    .filtros {
+        padding: 2rem;
+    }
+
+    .filtros h3 {
+        font-size: 2.2rem;
+    }
+
+    .grupoFiltro summary {
+        font-size: 1.8rem;
+    }
+
+    .grupoFiltro label {
+        font-size: 1.5rem;
+    }
+
+    /* PANEL DERECHO */
+
+    .panelResumen {
+        flex-direction: column;
+    }
+
+    .boxResumen {
+        width: 100%;
+    }
+
+    /* FOOTER */
+
+    .footer-header {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-socials {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-columns {
+        padding: 3rem 0;
+    }
+
+    .column {
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .legal-links a {
+        margin: 0;
+    }
+
+}

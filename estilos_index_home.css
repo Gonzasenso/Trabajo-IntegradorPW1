@@ -254,30 +254,38 @@ header nav .iconoPerfil img {
     box-shadow: 0 1rem 3rem rgba(12, 23, 53, 0.18);
 }
 
-/* Escondemos los radios */
+/* Radios ocultos */
+
 input[name="carrusel-control"] {
     display: none;
 }
 
-/* Contenedor de las imágenes en línea */
+/* Slides */
+
 .carrusel-slides {
     display: flex;
     width: 300%;
     transition: transform 0.5s ease-in-out;
-    height: 39rem;
 }
+
+/* Cada slide */
 
 .slide-item {
     width: 33.333%;
+    flex-shrink: 0;
 }
+
+/* Imágenes */
 
 .slide-item img {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
 }
 
-/* Lógica de movimiento según el radio seleccionado */
+/* Movimiento del carrusel */
+
 #slide-1:checked~.carrusel-slides {
     transform: translateX(0);
 }
@@ -290,7 +298,8 @@ input[name="carrusel-control"] {
     transform: translateX(-66.666%);
 }
 
-/* Estilo de los botones laterales del carrusel */
+/* Navegación */
+
 .carrusel-nav .controles {
     display: none;
     position: absolute;
@@ -299,11 +308,15 @@ input[name="carrusel-control"] {
     height: 100%;
 }
 
+/* Mostrar controles correctos */
+
 #slide-1:checked~.carrusel-nav .s1,
 #slide-2:checked~.carrusel-nav .s2,
 #slide-3:checked~.carrusel-nav .s3 {
     display: block;
 }
+
+/* Flechas */
 
 .prev,
 .next {
@@ -316,14 +329,14 @@ input[name="carrusel-control"] {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: transparent;
-    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
     border-radius: 50%;
     font-size: 2rem;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: 0.3s ease;
     user-select: none;
-    box-shadow: 0 0.4rem 1.5rem rgba(0, 0, 0, 0.18);
+    z-index: 5;
 }
 
 .prev {
@@ -337,7 +350,6 @@ input[name="carrusel-control"] {
 .prev:hover,
 .next:hover {
     background: #1E5BFF;
-    color: #FFFFFF;
 }
 
 /* Config de Beneficios ---La fila que esta abajo del carrusel de ofertas--- */
@@ -541,7 +553,19 @@ input[name="carrusel-control"] {
 /* #endregion CSS del Landing */
 
 /* #region MediaQuerys */
+
+@media screen and (max-width: 1024px) {
+
+    .slide-item img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+}
+
 @media screen and (max-width: 768px) {
+
     /* VERTICAL */
     header nav {
         flex-wrap: wrap;
@@ -642,28 +666,29 @@ input[name="carrusel-control"] {
         background: transparent !important;
         height: auto !important;
         min-height: unset !important;
+        border-radius: 1rem;
     }
 
     .carrusel-slides {
-        height: auto !important;
-        background: transparent !important;
+        display: flex;
+        width: 300%;
+        transition: transform 0.5s ease-in-out;
     }
 
     .slide-item {
-        width: 100%;
+        width: 33.333%;
         height: auto !important;
         background: transparent !important;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .slide-item img {
-        width: 100% !important;
-        height: auto !important;
-        display: block;
+        width: 100%;
+        height: auto;
         object-fit: contain;
-        border-radius: 1rem;
     }
 
     .carrusel-nav label {
@@ -674,6 +699,13 @@ input[name="carrusel-control"] {
         justify-content: center;
     }
 
+    .prev,
+    .next {
+        width: 3.2rem;
+        height: 3.2rem;
+        font-size: 1.6rem;
+    }
+
     .seccion-beneficios {
         flex-direction: column;
         gap: 2rem;
@@ -681,14 +713,53 @@ input[name="carrusel-control"] {
     }
 
 
+    .footer-header {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-socials {
+        display: flex;
+        justify-content: center;
+    }
+
     .footer-columns {
         grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
+        gap: 3rem;
     }
+
+    .column {
+        border-right: none;
+        border-bottom: .1rem solid rgba(255, 255, 255, .2);
+        padding-bottom: 2rem;
+    }
+
+    .column:last-child {
+        border-bottom: none;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .legal-links a {
+        margin: 0;
+    }
+
 }
 
 @media screen and (max-height: 500px) and (orientation: landscape) {
+
     /* HORIZONTAL */
     .seccion-hero {
         height: auto !important;
@@ -736,10 +807,15 @@ input[name="carrusel-control"] {
     }
 
     .slide-item img {
-        width: 100% !important;
-        height: auto !important;
-        max-height: unset !important;
-        display: block;
+        aspect-ratio: 16 / 12;
+    }
+
+    .prev,
+    .next {
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.4rem;
     }
 }
+
 /* #endregion MediqQuerys */
