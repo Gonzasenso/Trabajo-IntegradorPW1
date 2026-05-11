@@ -101,6 +101,38 @@ body {
 /* #endregion CSS de Historia */
 
 /* #region MediaQuery */
+/* TABLET */
+@media screen and (max-width: 1280px) {
+    .seccion-historia {
+        padding: 5rem 7%;
+    }
+
+    .seccion-historia h1 {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .seccion-historia h1::after {
+        width: 7rem;
+    }
+
+    .seccion-historia p {
+        font-size: 1.7rem;
+        max-width: 100%;
+        line-height: 1.9;
+    }
+
+    .seccion-historia p:first-of-type::first-letter {
+        font-size: 4.8rem;
+    }
+
+    .btn-cancelar {
+        font-size: 1.5rem;
+        padding: 1.1rem 2.2rem;
+    }
+}
+
+/*MOBILE VERTICAL*/
 @media (max-width: 768px) {
     .seccion-historia {
         padding: 4rem 5%;
@@ -126,6 +158,7 @@ body {
     }
 }
 
+/*MOBILE HORIZONTAL*/
 @media (max-width: 480px) {
     .seccion-historia h1 {
         font-size: 2.2rem;

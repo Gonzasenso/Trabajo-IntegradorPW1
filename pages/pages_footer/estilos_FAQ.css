@@ -142,6 +142,47 @@ h1 {
 /* #endregion CSS del FAQ */
 
 /* #region MediaQuery */
+/* TABLET */
+@media screen and (max-width: 1280px) {
+    .contenedor-faq {
+        max-width: 90%;
+        padding: 4rem 3rem;
+        margin: 3rem auto;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin: 2rem 0 3rem;
+    }
+
+    .indice-preguntas h2 {
+        font-size: 2rem;
+    }
+
+    .indice-preguntas a {
+        font-size: 1.6rem;
+    }
+
+    .bloque-pregunta h3 {
+        font-size: 1.9rem;
+    }
+
+    .bloque-pregunta p {
+        font-size: 1.5rem;
+    }
+
+    .btn-home-faq {
+        font-size: 1.5rem;
+        padding: 1rem 1.8rem;
+    }
+
+    .btn-volver {
+        font-size: 1.4rem;
+        padding: 0.9rem 2rem;
+    }
+}
+
+/*MOBILE VERTICAL*/
 @media (max-width: 768px) {
     .contenedor-faq {
         margin: 0;

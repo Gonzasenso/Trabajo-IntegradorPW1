@@ -8,8 +8,9 @@
 }
 
 html {
-    font-size: 62.5%; 
+    font-size: 62.5%;
 }
+
 /* #endregion Config Global */
 
 /* #region CSS de Registro & Login */
@@ -69,7 +70,7 @@ main {
     border: 0.1rem solid #e5e7eb;
     border-radius: 0.5rem;
     background-color: #ffffff;
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     outline: none;
     transition: all 0.3s ease;
 }
@@ -95,7 +96,7 @@ main {
     align-items: center;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    font-size: 1.7rem; 
+    font-size: 1.7rem;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
@@ -135,6 +136,60 @@ main {
 /* #endregion CSS de Registro & Login */
 
 /* #region MediaQuerys */
+/* TABLET */
+@media screen and (max-width: 1280px) {
+    main {
+        padding: 3rem 2rem;
+    }
+
+    .section-formulario {
+        width: 95%;
+        max-width: 110rem;
+        padding: 4rem;
+    }
+
+    .form-form {
+        gap: 2.2rem;
+    }
+
+    .fila-nombres {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .grupo-input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .grupo-input label {
+        font-size: 1.7rem;
+    }
+
+    .grupo-input input,
+    .grupo-input select {
+        width: 100%;
+        padding: 1.3rem;
+        font-size: 1.5rem;
+    }
+
+    .form-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .btn-ingresar,
+    .btn-limpiar,
+    .btn-cancelar {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.6rem;
+    }
+}
+
+/* MOBILE VERTICAL */
 @media (max-width: 768px) {
     main {
         padding: 2rem 1rem;
@@ -175,6 +230,7 @@ main {
     }
 }
 
+/* MOBILE HORIZONTAL */
 @media (max-width: 480px) {
     .section-formulario {
         padding: 1.5rem;
@@ -184,4 +240,5 @@ main {
         font-size: 2.2rem;
     }
 }
+
 /* #endregion MediaQuerys */

@@ -107,6 +107,46 @@ main {
 /* #endregion CSS del Login */
 
 /* #region MediaQuerys */
+/* TABLET */
+@media screen and (max-width: 1280px) {
+    main {
+        padding: 3rem 2rem;
+    }
+
+    .section-formulario {
+        width: 90%;
+        max-width: 60rem;
+        padding: 4rem;
+    }
+
+    .form-form {
+        gap: 2.2rem;
+    }
+
+    .form-form label {
+        font-size: 1.7rem;
+    }
+
+    .form-form input {
+        width: 100%;
+        padding: 1.4rem;
+        font-size: 1.5rem;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .btn-ingresar,
+    .btn-cancelar {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.6rem;
+    }
+}
+
+/* MOBILE VERTICAL*/
 @media (max-width: 768px) {
     main {
         padding: 2rem 1.5rem;
@@ -135,9 +175,10 @@ main {
     }
 }
 
+/* MOBILE HORIZONTAL */
 @media (max-width: 480px) {
     .section-formulario {
         padding: 1.5rem 1rem;
     }
 }
-/* #endregion */
+/* #endregion MediaQuerys */

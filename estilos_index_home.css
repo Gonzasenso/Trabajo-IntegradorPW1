@@ -554,19 +554,82 @@ input[name="carrusel-control"] {
 
 /* #region MediaQuerys */
 
-@media screen and (max-width: 1024px) {
-
-    .slide-item img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
+/* TABLET (Vertical y Horizontal) */
+@media screen and (max-width: 1280px) {
+    header nav {
+        padding: 0 2rem;
     }
 
+    header nav ul {
+        gap: 3rem;
+    }
+
+    .seccion-hero {
+        height: auto;
+        padding: 5rem 5%;
+    }
+
+    .hero-contenido h1 {
+        font-size: 3.2rem;
+    }
+
+    .buscador-vuelos {
+        width: 100%;
+        overflow: visible;
+    }
+
+    .formulario-vuelos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+
+    .campo {
+        width: 100%;
+    }
+
+    .campo:last-of-type {
+        grid-column: span 2;
+    }
+
+    .select-personalizado {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .select-personalizado select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .boton-buscar {
+        grid-column: span 2;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .seccion-beneficios {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 4rem 5%;
+    }
+
+    .beneficio-item {
+        border-right: none;
+        padding: 2rem;
+        border-bottom: 0.1rem solid #d8dce8;
+    }
+
+    .beneficio-item:nth-child(3),
+    .beneficio-item:nth-child(4) {
+        border-bottom: none;
+    }
 }
 
+/* MOBILE VERTICAL */
 @media screen and (max-width: 768px) {
-
-    /* VERTICAL */
     header nav {
         flex-wrap: wrap;
         height: auto;
@@ -758,9 +821,8 @@ input[name="carrusel-control"] {
 
 }
 
+/* MOBILE HORIZONTAL */
 @media screen and (max-height: 500px) and (orientation: landscape) {
-
-    /* HORIZONTAL */
     .seccion-hero {
         height: auto !important;
         min-height: auto !important;
