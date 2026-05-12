@@ -1,4 +1,4 @@
-/* RESET */
+/* #region RESET & GLOBAL */
 * {
     padding: 0;
     margin: 0;
@@ -7,20 +7,22 @@
 }
 
 html {
-    font-size: 62.5%;
+    /* 62.5% asegura que 1rem = 10px. Es la base estándar para desarrollo web profesional. */
+    font-size: 62.5%; 
 }
 
 body {
-    font-family: 'Inter', sans-serif;
     background-color: #FFFFFF;
-    margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* Fuente base de 16px para todo el cuerpo */
+    font-size: 1.6rem; 
+    color: #0F172A;
 }
+/* #endregion */
 
-
-/* #region CSS del Header */
+/* #region HEADER */
 header {
     width: 100%;
     background-color: #0c1735;
@@ -32,32 +34,24 @@ header nav {
     padding: 0 4rem;
     align-items: center;
     height: 8rem;
-    width: 100%;
+    max-width: 120rem;
     margin: 0 auto;
 }
 
 header nav ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8rem;
-}
-
-header nav ul li {
+    gap: 6rem;
     list-style: none;
 }
 
-
 header nav ul li a {
     position: relative;
-    font-size: 2rem;
+    font-size: 1.8rem; /* Tamaño legible para menú */
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
 }
 
-
-/* Linea */
 header nav ul li a::after {
     content: "";
     position: absolute;
@@ -66,13 +60,11 @@ header nav ul li a::after {
     width: 100%;
     height: 0.2rem;
     background-color: #FFFFFF;
-
-    transform: scale(0);
+    transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
 }
 
-/* Hover */
 header nav ul li a:hover::after {
     transform: scaleX(1);
 }
@@ -80,80 +72,75 @@ header nav ul li a:hover::after {
 header nav .iconoPerfil {
     color: #FFFFFF;
     display: flex;
-    justify-content: center;
     align-items: center;
     text-decoration: none;
     gap: 1.5rem;
 }
 
 header nav .iconoPerfil .nombre {
-    text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 header nav .logo img {
-    width: 15rem;
+    width: 14rem;
 }
 
 header nav .iconoPerfil img {
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 50%;
+    object-fit: cover;
 }
+/* #endregion */
 
-/* #endregion CSS del Header */
-
+/* #region CONTENIDO PRINCIPAL (ACORDEONES) */
 .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 0.8rem;
-    flex:1;
+    max-width: 85rem;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    flex: 1;
     width: 100%;
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     font-weight: 700;
-    line-height: 1.2;
+    margin-bottom: 3rem;
 }
-
-h3,
-h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
 
 .acordion {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 details {
     background-color: #FFFFFF;
-    border: 1px solid #0F172A;
-    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.8rem;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
+details[open] {
+    border: 1.5px solid #0c1735;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 
 summary {
-    padding: 18px 24px;
+    padding: 2rem 2.5rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
+    font-size: 1.8rem;
     list-style: none;
-
 }
 
+/* Flecha del acordeón */
 .precio-ruta::after {
     content: "▼";
     font-size: 1.2rem;
-    color: #0F172A;
+    margin-left: 1.5rem;
     transition: transform 0.3s ease;
 }
 
@@ -161,74 +148,55 @@ details[open] .precio-ruta::after {
     transform: rotate(180deg);
 }
 
-details[open] {
-    border: 1.5px solid #0F172A;
+.detalle-vuelo {
+    padding: 2.5rem;
+    border-top: 1px solid #f1f5f9;
+    background-color: #f8fafc;
 }
-
-.precio-ruta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-}
-
 
 .vuelo {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 2rem;
     flex-wrap: wrap;
+    margin-bottom: 1.5rem;
 }
 
-.vuelo h4 {
-    flex: 1;
-    min-width: 200px;
+.vuelo:last-child {
+    margin-bottom: 0;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #cbd5e1;
 }
 
-.ruta-vuelo {
-    gap: 16px;
-}
+.vuelo h3 { font-size: 1.6rem; color: #64748b; width: 6rem; }
+.vuelo h4 { font-size: 1.6rem; flex: 1; min-width: 20rem; }
 
-.detalle-vuelo {
-    padding: 24px;
+.tiempo-vuelo {
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 
 .duracion-vuelo {
-    white-space: nowrap;
+    font-size: 1.4rem;
+    color: #64748b;
 }
 
 .info-vuelo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1E5BFF;
     margin-left: auto;
 }
+/* #endregion */
 
-.tiempo-vuelo {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.duracion-vuelo {
-    font-size: 0.85rem;
-    color: #64748B;
-}
-
-
-.vuelo.return {
-    border-top: 1px solid #FFFFFF;
-    background-color: #FFFFFF;
-}
-
-
-/* #region CSS del Footer */
+/* #region FOOTER CORREGIDO (Sin Gris) */
 .footer-custom {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url(../../img/footer.png) no-repeat center center/cover;
+    /* Usamos el azul de la marca con opacidad para el gradiente */
+    background: linear-gradient(rgba(12, 23, 53, 0.9), rgba(12, 23, 53, 0.9)),
+                url(../../img/footer.png) no-repeat center center/cover;
     color: white;
-    padding: 4rem 5%;
-    font-family: Arial, sans-serif;
+    padding: 5rem 5% 2rem;
     margin-top: auto;
-    width: 100%;
-    
 }
 
 .footer-container {
@@ -240,77 +208,90 @@ details[open] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 0.2rem solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 3rem;
 }
 
-.logo-img {
-    width: 12rem;
-    height: auto;
-}
+.logo-img { width: 12rem; }
 
 .footer-socials a img {
     width: 3rem;
-    margin-left: 1.5rem;
-    transition: transform 0.3s ease;
+    margin-left: 2rem;
+    transition: transform 0.3s;
 }
 
-.footer-socials a img:hover {
-    transform: scale(1.2);
-}
+.footer-socials a img:hover { transform: scale(1.2); }
 
 .footer-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 4rem;
     padding: 4rem 0;
-    border-bottom: 0.2rem solid rgba(255, 255, 255, 0.2);
-}
-
-.column {
-    padding: 0 2rem;
-    border-right: 0.2rem solid rgba(255, 255, 255, 0.2);
-}
-
-.column:last-child {
-    border-right: none;
 }
 
 .column h3 {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     color: #a0d4f1;
 }
 
 .column a {
     display: block;
-    font-size: 1.8rem;
-    color: white;
+    font-size: 1.6rem;
+    color: #cbd5e1;
     text-decoration: none;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     transition: color 0.3s;
 }
 
-.column a:hover {
-    color: #3498db;
-}
+.column a:hover { color: #FFFFFF; }
 
 .footer-bottom {
     display: flex;
     justify-content: space-between;
-    padding-top: 2rem;
-    font-size: 1.5rem;
+    align-items: center;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.4rem;
+    color: #94a3b8;
 }
 
 .legal-links a {
-    color: #ccc;
+    color: #94a3b8;
     text-decoration: none;
-    margin-left: 1.7rem;
-    font-size: 1.5rem;
+    margin-left: 2rem;
+}
+/* #endregion */
+
+/* #region RESPONSIVE */
+@media (max-width: 768px) {
+    html { font-size: 56.25%; } /* Bajamos un poco la base para tablets */
+    
+    header nav ul { gap: 3rem; }
+    
+    .footer-columns { grid-template-columns: repeat(2, 1fr); }
 }
 
-.legal-links a:hover {
-    color: white;
-}
+@media (max-width: 480px) {
+    header nav {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem;
+    }
 
-/* #endregion CSS del Footer */
+    header nav ul {
+        margin-top: 2rem;
+        gap: 1.5rem;
+    }
+
+    .footer-columns { grid-template-columns: 1fr; text-align: center; }
+    
+    .footer-header { flex-direction: column; gap: 2rem; }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+/* #endregion */
