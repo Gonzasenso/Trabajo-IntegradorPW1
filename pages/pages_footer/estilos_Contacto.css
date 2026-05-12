@@ -180,7 +180,7 @@ header nav ul li a:hover::after {
 /* #region CSS del Footer */
 .footer-custom {
     background:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        linear-gradient(rgba(12, 23, 53, 0.9), rgba(12, 23, 53, 0.9)),
         url(../../img/footer.png) no-repeat center center/cover;
 
     color: white;

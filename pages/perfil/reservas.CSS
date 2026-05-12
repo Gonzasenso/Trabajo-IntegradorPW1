@@ -189,7 +189,7 @@ details[open] .precio-ruta::after {
 }
 /* #endregion */
 
-/* #region FOOTER CORREGIDO (Sin Gris) */
+/* #region FOOTER */
 .footer-custom {
     /* Usamos el azul de la marca con opacidad para el gradiente */
     background: linear-gradient(rgba(12, 23, 53, 0.9), rgba(12, 23, 53, 0.9)),

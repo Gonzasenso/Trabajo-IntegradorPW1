@@ -410,7 +410,7 @@ input[name="carrusel-control"] {
 
 /* #region CSS del Footer */
 .footer-custom {
-    background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+    background: linear-gradient(rgba(12, 23, 53, 0.9), rgba(12, 23, 53, 0.9)),
         url(../../img/footer.png) no-repeat center center/cover;
     color: white;
     padding: 4rem 5%;
