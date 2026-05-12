@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Checkout Pagos</title>
-
 </head>
-
+ 
 <body>
     <header>
         <nav>
@@ -25,35 +24,30 @@
             </a>
         </nav>
     </header>
-
+ 
     <main>
-
-        <h2> Checkout</h2>
-
+ 
+        <h2>Checkout</h2>
+ 
         <a class="detalle-de-vuelo" href="pasajeros.html">Volver a pasajeros</a>
-
+ 
         <ol class="container-lista">
             <li>Pasajeros</li>
             <li class="activo">Pago</li>
             <li>Confirmacion</li>
         </ol>
-
-
+ 
         <section class="container-pago">
             <h3>3. Pago</h3>
             <h4>Seleccione tu metodo de pago</h4>
-
-
-
-
+ 
             <details class="acordeon-credito" open>
                 <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con tarjeta de credito</summary>
                 <div class="acordeon-contenido">
-                    <form class="container-tarjeta">
+                    <form class="container-tarjeta" action="../checkout/confirmacion.html" method="get">
                         <div class="campo-tarjeta">
                             <label>Numero de Tarjeta</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="1234 5678 9012 3456" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="1234 5678 9012 3456" required>
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
@@ -75,20 +69,20 @@
                                 <option>6 cuotas de USD819.95 (%30)</option>
                             </select>
                         </div>
+                        <div class="container-confirmacion">
+                            <button type="submit">Confirmar pago</button>
+                        </div>
                     </form>
                 </div>
             </details>
-
-
-
+ 
             <details class="acordeon-debito">
                 <summary class="acordeon"><i class="fa-solid fa-caret-up"></i> Pago con tarjeta de debito</summary>
                 <div class="acordeon-contenido">
-                    <form class="container-debito">
+                    <form class="container-debito" action="../checkout/confirmacion.html" method="get">
                         <div class="campo-tarjeta">
                             <label>Numero de Tarjeta</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="1234 5678 9012 3456" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="1234 5678 9012 3456" required>
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
@@ -102,16 +96,17 @@
                             <label>Nombre completo del titular</label>
                             <input type="text" placeholder="Ej: GONZALEZ JUAN" required>
                         </div>
+                        <div class="container-confirmacion">
+                            <button type="submit">Confirmar pago</button>
+                        </div>
                     </form>
                 </div>
             </details>
-
-
-
+ 
             <details class="acordeon-trans">
                 <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con Transferencia</summary>
                 <div class="acordeon-contenido">
-                    <form class="container-transferencia">
+                    <form class="container-transferencia" action="../checkout/confirmacion.html" method="get">
                         <div class="campo-banco">
                             <label>Banco</label>
                             <select>
@@ -123,13 +118,11 @@
                         </div>
                         <div class="campo-cbu">
                             <label>CBU/CVU</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="0000003100000006000000" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="0000003100000006000000" required>
                         </div>
                         <div class="campo-cuit">
                             <label>CUIT/CUIL</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="20-00000000-0" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="20-00000000-0" required>
                         </div>
                         <div class="campo-titular">
                             <label>Titular de la cuenta</label>
@@ -144,20 +137,21 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="container-confirmacion">
+                            <button type="submit">Confirmar pago</button>
+                        </div>
                     </form>
                 </div>
             </details>
+ 
             <div class="pago-texto">
                 <h4>Pago 100% seguro</h4>
             </div>
+ 
         </section>
-        <div class="container-confirmacion">
-            <a href="../checkout/confirmacion.html">
-                <button> Confirmar pago</button></a>
-
-        </div>
+ 
     </main>
-
+ 
     <footer id="contacto-footer" class="footer-custom">
         <div class="footer-container">
             <div class="footer-header">
@@ -167,52 +161,39 @@
                     </a>
                 </div>
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
-                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
-                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_X.png" alt="X"></a>
+                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
+                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
+                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img src="../../img/iconos/icono_X.png" alt="X"></a>
                 </div>
             </div>
-
             <div class="footer-columns">
                 <div class="column">
                     <h3>Sobre Nosotros</h3>
                     <a href="../../pages/pages_footer/historia.html">Historia</a>
-                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/"
-                        target="_blank" rel="noopener noreferrer">Trabajá
-                        con nosotros</a>
+                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/" target="_blank" rel="noopener noreferrer">Trabajá con nosotros</a>
                 </div>
-
                 <div class="column">
                     <h3>Mi Cuenta</h3>
                     <a href="../../pages/perfil/perfil_de_usuario.html">Perfil de Usuario</a>
                     <a href="../../pages/perfil/reservas.html">Mis Reservas</a>
                 </div>
-
                 <div class="column">
                     <h3>Atención al Cliente</h3>
                     <a href="../../pages/pages_footer/contacto.html">Contacto</a>
                     <a href="../../pages/pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
                 <div class="legal-links">
-                    <a href="../../assets/Terminos de Uso y Condiciones.pdf" target="_blank"
-                        rel="noopener noreferrer">Términos y condiciones</a>
-                    <a href="../../assets/Politica de Privacidad.pdf" target="_blank"
-                        rel="noopener noreferrer">Privacidad</a>
-                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor"
-                        target="_blank" rel="noopener noreferrer">Defensa
-                        del Consumidor</a>
+                    <a href="../../assets/Terminos de Uso y Condiciones.pdf" target="_blank" rel="noopener noreferrer">Términos y condiciones</a>
+                    <a href="../../assets/Politica de Privacidad.pdf" target="_blank" rel="noopener noreferrer">Privacidad</a>
+                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor" target="_blank" rel="noopener noreferrer">Defensa del Consumidor</a>
                 </div>
             </div>
         </div>
     </footer>
+ 
 </body>
 </html>

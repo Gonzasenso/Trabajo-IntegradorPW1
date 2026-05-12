@@ -37,65 +37,19 @@
         </ol>
 
         <!-- Checkbox oculto para mostrar/ocultar pasajero 2 -->
-        <input type="checkbox" id="toggle-pasajero2" style="display:none;">
+        <input type="checkbox" id="toggle-pasajero2">
 
         <section class="container-datos-pasajeros">
 
             <h3>1. Datos del pasajero</h3>
             <h4>Pasajero 1</h4>
 
-            <form class="container-campos">
-                <div class="campo-nombre">
-                    <label>Nombre</label>
-                    <input type="text" placeholder="Nombre" required>
-                </div>
-                <div class="campo-apellido">
-                    <label>Apellido</label>
-                    <input type="text" placeholder="Apellido" required>
-                </div>
-                <div class="campo-tipo-documento">
-                    <label>Tipo de documento</label>
-                    <select>
-                        <option>DNI</option>
-                        <option>L.E</option>
-                        <option>L.C</option>
-                        <option>C.I</option>
-                        <option>Pasaporte</option>
-                    </select>
-                </div>
-                <div class="campo-numero-dni">
-                    <label>Número de documento</label>
-                    <input type="text" placeholder="1234568" required>
-                </div>
-                <div class="campo-fn">
-                    <label>Fecha de nacimiento</label>
-                    <input type="date" required>
-                </div>
-                <div class="campo">
-                    <label>Nacionalidad</label>
-                    <select>
-                        <option>Argentina</option>
-                        <option>Bolivia</option>
-                        <option>Brasil</option>
-                        <option>Chile</option>
-                        <option>Paraguay</option>
-                        <option>Uruguay</option>
-                    </select>
-                </div>
-                <div class="campo-email">
-                    <label>Email</label>
-                    <input type="email" placeholder="juanperez@email.com" required>
-                </div>
-                <div class="campo-tel">
-                    <label>Teléfono</label>
-                    <input type="tel" placeholder="+54 11 1234 5678" required>
-                </div>
-            </form>
+            <form class="container-datos-pasajeros" action="../checkout/pago.html" method="get">
 
-            <!-- Pasajero 2 oculto -->
-            <div id="pasajero2">
-                <h4>Pasajero 2</h4>
-                <form class="container-campos">
+                <h3>1. Datos del pasajero</h3>
+                <h4>Pasajero 1</h4>
+
+                <div class="container-campos">
                     <div class="campo-nombre">
                         <label>Nombre</label>
                         <input type="text" placeholder="Nombre" required>
@@ -116,8 +70,7 @@
                     </div>
                     <div class="campo-numero-dni">
                         <label>Número de documento</label>
-                        <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="1234568"
-                            required>
+                        <input type="text" placeholder="1234568" required>
                     </div>
                     <div class="campo-fn">
                         <label>Fecha de nacimiento</label>
@@ -140,30 +93,81 @@
                     </div>
                     <div class="campo-tel">
                         <label>Teléfono</label>
-                        <input type="tel" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="+54 11 1234 5678"
-                            required>
+                        <input type="tel" placeholder="+54 11 1234 5678" required>
                     </div>
-                </form>
-            </div>
+                </div>
 
-            <section class="botton-agregar-pasajero">
-                <label for="toggle-pasajero2"><strong>+ Agregar otro pasajero</strong></label>
-            </section>
+                <!-- Pasajero 2 -->
+                <div id="pasajero2">
+                    <div class="pasajero2-header">
+                        <h4>Pasajero 2</h4>
+                        <label for="toggle-pasajero2" class="btn-eliminar-pasajero">- Eliminar pasajero</label>
+                    </div>
+                    <div class="container-campos">
+                        <div class="campo-nombre">
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Nombre">
+                        </div>
+                        <div class="campo-apellido">
+                            <label>Apellido</label>
+                            <input type="text" placeholder="Apellido">
+                        </div>
+                        <div class="campo-tipo-documento">
+                            <label>Tipo de documento</label>
+                            <select>
+                                <option>DNI</option>
+                                <option>L.E</option>
+                                <option>L.C</option>
+                                <option>C.I</option>
+                                <option>Pasaporte</option>
+                            </select>
+                        </div>
+                        <div class="campo-numero-dni">
+                            <label>Número de documento</label>
+                            <input type="text" inputmode="numeric" placeholder="1234568">
+                        </div>
+                        <div class="campo-fn">
+                            <label>Fecha de nacimiento</label>
+                            <input type="date">
+                        </div>
+                        <div class="campo">
+                            <label>Nacionalidad</label>
+                            <select>
+                                <option>Argentina</option>
+                                <option>Bolivia</option>
+                                <option>Brasil</option>
+                                <option>Chile</option>
+                                <option>Paraguay</option>
+                                <option>Uruguay</option>
+                            </select>
+                        </div>
+                        <div class="campo-email">
+                            <label>Email</label>
+                            <input type="email" placeholder="juanperez@email.com">
+                        </div>
+                        <div class="campo-tel">
+                            <label>Teléfono</label>
+                            <input type="tel" inputmode="numeric" placeholder="+54 11 1234 5678">
+                        </div>
+                    </div>
+                </div>
 
-        </section>
+                <section class="botton-agregar-pasajero">
+                    <label for="toggle-pasajero2"><strong>+ Agregar otro pasajero</strong></label>
+                </section>
 
-        <div class="botones">
-            <section class="botton-cancelar">
-                <a href="../../home.html">
-                    <button type="button">Cancelar</button>
-                </a>
-            </section>
-            <section class="botton-continuar">
-                <a href="../checkout/pago.html">
-                    <button type="button">Continuar al Pago</button>
-                </a>
-            </section>
-        </div>
+                <div class="botones">
+                    <section class="botton-cancelar">
+                        <a href="../../home.html">
+                            <button type="button">Cancelar</button>
+                        </a>
+                    </section>
+                    <section class="botton-continuar">
+                        <button type="submit">Continuar al Pago</button>
+                    </section>
+                </div>
+
+            </form>
 
     </main>
     <footer id="contacto-footer" class="footer-custom">

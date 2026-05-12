@@ -318,8 +318,36 @@ main>h2 {
     display: block;
 }
 
+#toggle-pasajero2 {
+    display: none;
+}
+
 #toggle-pasajero2:checked~.container-datos-pasajeros .botton-agregar-pasajero {
     display: none;
+}
+
+.pasajero2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+}
+
+.btn-eliminar-pasajero {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.4rem;
+    background-color: #ffffff;
+    border: 0.2rem solid #dc2626;
+    border-radius: 1rem;
+    color: #dc2626;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+input:user-invalid {
+    border-color: #dc2626;
 }
 
 .botones,
@@ -748,3 +776,304 @@ details[open] .acordeon i {
 }
 
 /* #endregion CSS del Footer */
+
+/* TABLET (Vertical y Horizontal) */
+@media screen and (max-width: 1280px) {
+    header nav {
+        padding: 0 2rem;
+    }
+
+    header nav ul {
+        gap: 3rem;
+    }
+
+    main {
+        padding: 3rem 2rem;
+    }
+
+    /* Ajuste de contenedores del Checkout */
+    .container-datos-pasajeros,
+    .container-pago,
+    .container-confirmacion-vuelo-ida-vuelta,
+    .condiciones,
+    .botones,
+    .confirmar-vuelo {
+        max-width: 100%;
+    }
+
+    /* Rutas de vuelos en Checkout de Confirmación */
+    .vuelo-ruta {
+        grid-template-columns: 12rem 1fr 12rem;
+        gap: 1rem;
+    }
+
+    .vuelo-hora {
+        font-size: 2rem;
+    }
+}
+
+/* MOBILE VERTICAL */
+@media screen and (max-width: 768px) {
+    /* --- HEADER RESPONSIVE --- */
+    header nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 1.5rem;
+    }
+
+    header nav ul {
+        order: 2;
+        width: 100%;
+        justify-content: space-around;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    header nav .logo img {
+        width: 10rem;
+    }
+
+    header nav .iconoPerfil {
+        order: 1;
+        gap: 0.8rem;
+    }
+
+    header nav .iconoPerfil .nombre {
+        font-size: 1.4rem;
+    }
+
+    header nav .iconoPerfil img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    /* --- COMPONENTES GLOBALES DEL MAIN --- */
+    main {
+        padding: 2rem 1.5rem;
+    }
+
+    main h2 {
+        font-size: 2.6rem;
+    }
+
+    /* Línea de pasos/progreso (Pasajeros -> Pago -> Confirmación) */
+    .container-lista {
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .container-lista li {
+        font-size: 1.2rem;
+    }
+
+    .container-lista li::before {
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.2rem;
+    }
+
+    .container-lista li:not(:last-child)::after {
+        width: 4rem; /* Se acorta para que no rompa la pantalla en celulares */
+        margin: 0 0.8rem;
+    }
+
+    /* Tarjetas del Checkout */
+    .container-datos-pasajeros,
+    .container-pago,
+    .container-confirmacion-vuelo-ida-vuelta {
+        padding: 2rem 1.5rem;
+    }
+
+    /* --- PASO 1: PASAJEROS --- */
+    .container-campos {
+        grid-template-columns: 1fr; /* Pasa a una sola columna en móviles */
+        gap: 1.5rem;
+    }
+
+    /* Botones inferiores */
+    .botones {
+        flex-direction: column-reverse; /* Cancelar queda abajo de continuar */
+        width: 100%;
+    }
+
+    .botton-continuar button,
+    .botton-cancelar button,
+    .container-confirmacion button,
+    .confirmar-vuelo button {
+        width: 100%; /* Botones de ancho completo */
+    }
+
+    /* --- PASO 2: PAGO --- */
+    .acordeon-credito form,
+    .acordeon-debito form,
+    .acordeon-trans form {
+        grid-template-columns: 1fr; /* Todo a una columna */
+        gap: 1.5rem;
+    }
+
+    .campo-tarjeta,
+    .campo-nombre-completo,
+    .campo-cuotas,
+    .campo-comprobante {
+        grid-column: span 1;
+    }
+
+    /* --- PASO 3: CONFIRMACIÓN --- */
+    .vuelo-ruta {
+        grid-template-columns: 1fr; /* Stack vertical para los datos del vuelo */
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .vuelo-flecha {
+        padding: 1rem 0;
+    }
+
+    .flecha-larga {
+        width: 50%; /* Más corta para diseño vertical */
+    }
+
+    .condiciones {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .terminos {
+        text-align: center;
+    }
+
+    /* --- FOOTER RESPONSIVE --- */
+    .footer-custom {
+        padding: 4rem 2rem;
+    }
+
+    .footer-header {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-socials {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .footer-socials a img {
+        margin: 0 1rem;
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem 0;
+    }
+
+    .column {
+        border-right: none;
+        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 2rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .column:last-child {
+        border-bottom: none;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .legal-links a {
+        margin: 0;
+    }
+}
+
+/* MOBILE HORIZONTAL (Landscape) */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    main {
+        padding-top: 2rem;
+    }
+    
+    header nav {
+        padding: 1rem 2rem;
+    }
+
+    .container-lista {
+        margin-bottom: 2rem;
+    }
+}
+
+/*
+   AJUSTES ESPECÍFICOS PARA MOBILE S Y M (≤ 480px)
+    */
+@media screen and (max-width: 480px) {
+   
+    .container-lista {
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .container-lista li {
+        font-size: 1.1rem; 
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+        gap: 0.4rem;
+        flex: 1;
+        position: relative;
+    }
+
+    
+    .container-lista li:not(:last-child)::after {
+        display: none;
+    }
+
+    
+    .container-lista li:not(:last-child)::before {
+        margin-bottom: 0; /* Centra la burbuja */
+    }
+
+    
+    main h2 {
+        font-size: 2.2rem;
+    }
+
+    .container-confirmacion-vuelo-ida-vuelta > p {
+        font-size: 1.4rem; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+ 
+    .container-datos-pasajeros,
+    .container-pago,
+    .container-confirmacion-vuelo-ida-vuelta {
+        padding: 1.5rem 1rem; /* Más espacio útil para los inputs */
+        border-radius: 1.2rem;
+    }
+
+   
+    .vuelo-hora {
+        font-size: 1.8rem;
+    }
+
+    .vuelo-origen p, 
+    .vuelo-destino p {
+        font-size: 1.2rem;
+    }
+}
