@@ -69,35 +69,6 @@ body {
     margin: 1rem 0;
     content: "";
 }
-
-.form-actions {
-    display: block;
-    text-align: center;
-    width: 100%;
-    background: transparent;
-    margin-top: 4rem;
-}
-
-.btn-cancelar {
-    display: inline-block;
-    width: auto;
-    text-align: center;
-    text-decoration: none;
-    padding: 1.2rem 2.5rem;
-    border-radius: 2rem;
-    border: 0.2rem solid #4e4e4e;
-    background: white;
-    color: black;
-    font-weight: bold;
-    font-size: 1.6rem;
-    transition: 0.3s;
-}
-
-.btn-cancelar:hover {
-    background-color: #3B82F6;
-    color: white;
-    border-color: #3B82F6;
-}
 /* #endregion CSS de Historia */
 
 /* #region MediaQuery */

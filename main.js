@@ -94,44 +94,5 @@ formBuscador.addEventListener("submit", function(e) {
     };
     
     sessionStorage.setItem("ultimaBusqueda", JSON.stringify(busquedaUsuario));
-    ejecutarFiltradoVuelos(origen, destino);
+    window.location.href = "./pages/resultados-de-busqueda/filtro-1.html";
 });
-
-// Función de Filtrado y Renderizado Dinámico
-function ejecutarFiltradoVuelos(origen, destino) {
-    const seccionResultados = document.getElementById("seccion-resultados");
-    const contenedorResultados = document.getElementById("contenedor-resultados");
-
-    const vuelosFiltrados = VUELOS_DISPONIBLES.filter(vuelo => 
-        vuelo.origen.includes(origen) && vuelo.destino.includes(destino)
-    );
-
-    contenedorResultados.innerHTML = "";
-    seccionResultados.style.display = "block";
-
-    if (vuelosFiltrados.length === 0) {
-        contenedorResultados.innerHTML = `
-            <div class="no-resultados">
-                <p><i class="fa-solid fa-plane-slash"></i> No se encontraron vuelos disponibles para la ruta seleccionada.</p>
-            </div>
-        `;
-    } else {
-        vuelosFiltrados.forEach(vuelo => {
-            const tarjeta = document.createElement("div");
-            tarjeta.classList.add("tarjeta-vuelo");
-            tarjeta.innerHTML = `
-                <div class="vuelo-info">
-                    <h3>${vuelo.aerolinea}</h3>
-                    <p><i class="fa-solid fa-clock"></i> Horario: ${vuelo.hora} hs</p>
-                    <p>Ruta: <strong>${vuelo.origen.toUpperCase()}</strong> hacia <strong>${vuelo.destino.toUpperCase()}</strong></p>
-                </div>
-                <div class="vuelo-precio">
-                    <span>${vuelo.precio}</span>
-                    <button class="boton-buscar">Seleccionar</button>
-                </div>
-            `;
-            contenedorResultados.appendChild(tarjeta);
-        });
-    }
-    seccionResultados.scrollIntoView({ behavior: 'smooth' });
-}

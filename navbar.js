@@ -20,7 +20,7 @@ function renderNavbar() {
     if (isLoggedIn) {
         //OJO ACA: Esta es la solucion de la foto de perfil
         const listaUsuariosNav = JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
-        const datosUsuarioNav = listaUsuariosNav.find(u => u.username.toLowerCase() === userName.toLowerCase());
+        const datosUsuarioNav = listaUsuariosNav.find(u => u.username && u.username.toLowerCase() === userName.toLowerCase());
 
         // OJO ACA x2: Si tiene avatar en localStorage lo usa, sino usa la foto default
         const fotoNavbar = (datosUsuarioNav && datosUsuarioNav.avatar) ? datosUsuarioNav.avatar : `${prefijo}img/perfil_defecto.gif`;
@@ -85,4 +85,6 @@ document.addEventListener("click", function () {
 });
 
 // Ejecutamos la función al cargar la hoja
-renderNavbar();
+document.addEventListener("DOMContentLoaded", function () {
+    renderNavbar();
+});

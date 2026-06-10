@@ -9,22 +9,28 @@ html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
+
 /* #endregion Config Global */
 
 /* #region CSS del FAQ */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f4f7ff;
+    background-color: #E9F0FF;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 .contenedor-faq {
-    position: relative;
-    max-width: 95rem;
-    margin: 4rem auto;
-    background: #E9F0FF;
-    padding: 5rem;
-    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 6rem 8%;
     color: #333;
 }
 
@@ -121,24 +127,6 @@ h1 {
     color: white;
 }
 
-.btn-home-faq {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    text-decoration: none;
-    background-color: #001E42;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-home-faq:hover {
-    background-color: #7A3CFF;
-    transform: scale(1.05);
-}
 /* #endregion CSS del FAQ */
 
 /* #region MediaQuery */
@@ -171,11 +159,6 @@ h1 {
         font-size: 1.5rem;
     }
 
-    .btn-home-faq {
-        font-size: 1.5rem;
-        padding: 1rem 1.8rem;
-    }
-
     .btn-volver {
         font-size: 1.4rem;
         padding: 0.9rem 2rem;
@@ -185,21 +168,11 @@ h1 {
 /*MOBILE VERTICAL*/
 @media (max-width: 768px) {
     .contenedor-faq {
-        margin: 0;
-        border-radius: 0;
-        padding: 8rem 2rem 4rem;
+        padding: 4rem 2rem;
     }
 
     h1 {
         font-size: 2.6rem;
-    }
-
-    .btn-home-faq {
-        top: 2rem;
-        right: auto;
-        left: 2rem;
-        width: calc(100% - 4rem);
-        text-align: center;
     }
 
     .indice-preguntas h2 {
@@ -228,4 +201,5 @@ h1 {
         font-size: 2.2rem;
     }
 }
+
 /* #endregion MediaQuery */

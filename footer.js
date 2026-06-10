@@ -1,6 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-    renderFooter();
-});
+renderFooter();
 
 function renderFooter() {
     const footerContainer = document.getElementById("contacto-footer");

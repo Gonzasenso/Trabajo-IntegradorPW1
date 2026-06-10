@@ -150,6 +150,19 @@ header nav .logo img {
 .dropdown-menu .logout-link i {
     color: #e74c3c;
 }
+
+#nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-container {
+    min-width: 15rem;
+    display: flex;
+    justify-content: flex-end;
+}
 /* #endregion CSS del Header */
 
 /* #region CSS del Main */
