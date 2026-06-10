@@ -3,19 +3,140 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenido a Fly Lena</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Lena</title>
+    <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./estilos_index_home.css">
+    <script src="./navbar.js" defer></script>
+    <script src="./footer.js" defer></script>
+    <script src="./main.js" defer></script>
 </head>
 
-<body>
-    <div class="landing-container">
-        <img src="../../img/fly_lena_logo_grande.png" alt="Fly Lena">
-        <h1>Para continuar, por favor ingresá a tu cuenta</h1>
-        <div class="opciones-acceso">
-            <a href="./pages/perfil/login.html" class="btn-acceso btn-login">Ingresar</a>
-            <a href="./pages/perfil/crear_cuenta.html" class="btn-acceso btn-registro">Crear Cuenta</a>
-        </div>
-        </div>
+<body id="top">
+    <header>
+        <nav>
+            <a class="logo" href="./index.html"><img src="./img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <ul id="nav-links"></ul>
+            <div class="user-nav-container" id="user-container"></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-hero" style="background-image: url(./img/banner_avion.jpg);">
+            <div class="hero-contenido">
+                <h1>Tu próximo destino te está esperando</h1>
+                <p>Compara y reserva vuelos al mejor precio</p>
+            </div>
+
+            <div class="buscador-vuelos">
+                <div class="tipo-viaje">
+                    <button type="button" class="boton-tipo activo" id="btn-ida-vuelta">Ida y Vuelta</button>
+                    <button type="button" class="boton-tipo" id="btn-solo-ida">Solo Ida</button>
+                </div>
+
+                <form class="formulario-vuelos" id="form-buscador">
+                    <div class="campo">
+                        <label for="desde">Desde</label>
+                        <input type="text" id="desde" placeholder="Buenos Aires (BUE)" required>
+                    </div>
+                    <div class="campo">
+                        <label for="hacia">Hacia</label>
+                        <input type="text" id="hacia" placeholder="Madrid (MAD)" required>
+                    </div>
+                    <div class="campo">
+                        <label for="fecha-ida">Fecha ida</label>
+                        <input type="date" id="fecha-ida" required>
+                    </div>
+                    <div class="campo" id="contenedor-vuelta">
+                        <label for="fecha-vuelta">Fecha vuelta</label>
+                        <input type="date" id="fecha-vuelta" required>
+                    </div>
+
+                    <div class="campo">
+                        <label>Pasajeros y Clase</label>
+                        <div class="select-personalizado">
+                            <select id="pasajeros" required>
+                                <option value="1">1 Pasajero</option>
+                                <option value="2">2 Pasajeros</option>
+                                <option value="3">3 Pasajeros</option>
+                                <option value="4">4 Pasajeros</option>
+                            </select>
+                            <select id="clase" required>
+                                <option value="economica">Económica</option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="boton-buscar">Buscar vuelos</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="seccion-resultados" id="seccion-resultados" style="display: none;">
+            <div class="ofertas-cabecera">
+                <h2>Resultados de tu búsqueda</h2>
+            </div>
+            <div class="resultados-container" id="contenedor-resultados"></div>
+        </section>
+
+        <section class="seccion-ofertas">
+            <div class="ofertas-cabecera">
+                <h2>Ofertas destacadas</h2>
+                <a href="./pages/ofertas/ofertas.html" class="link-ver-todas">Ver todas</a>
+            </div>
+
+            <div class="carrusel-container">
+                <input type="radio" name="carrusel-control" id="slide-1" checked>
+                <input type="radio" name="carrusel-control" id="slide-2">
+                <input type="radio" name="carrusel-control" id="slide-3">
+
+                <div class="carrusel-slides">
+                    <div class="slide-item"><img src="./img/promo_madrid_carrusel.png" alt="Oferta 1"></div>
+                    <div class="slide-item"><img src="./img/promo_cancun_carrusel.png" alt="Oferta 2"></div>
+                    <div class="slide-item"><img src="./img/promo_tokio_carrusel.png" alt="Oferta 3"></div>
+                </div>
+
+                <div class="carrusel-nav">
+                    <div class="controles s1">
+                        <label for="slide-3" class="prev">&lt;</label>
+                        <label for="slide-2" class="next">&gt;</label>
+                    </div>
+                    <div class="controles s2">
+                        <label for="slide-1" class="prev">&lt;</label>
+                        <label for="slide-3" class="next">&gt;</label>
+                    </div>
+                    <div class="controles s3">
+                        <label for="slide-2" class="prev">&lt;</label>
+                        <label for="slide-1" class="next">&gt;</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-beneficios">
+            <div class="beneficio-item">
+                <i class="fa-solid fa-tags"></i>
+                <p><strong>Mejor precio garantizado</strong><br>Encontrá las mejores tarifas</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-lock"></i>
+                <p><strong>Pago seguro</strong><br>Tus datos protegidos</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-headset"></i>
+                <p><strong>Atención 24/7</strong><br>Estamos para ayudarte</p>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-star"></i>
+                <p><strong>Millas y puntos</strong><br>Sumá millas en cada viaje</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto-footer" class="footer-custom"></footer>
 </body>
 
 </html>

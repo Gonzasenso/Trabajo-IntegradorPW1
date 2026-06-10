@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Fly Lena</title>
+    <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
+    <link href="./estilos_PerfilUsuario.css" rel="stylesheet">
+    <link href="../registro_login/estilos_footer.css" rel="stylesheet">
+    <script src="../../navbar.js" defer></script>
+    <script src="../../footer.js" defer></script>
+    <script src="./perfil_de_usuario.js" defer></script>
+</head>
+
+<body id="top">
+    <header>
+        <nav>
+            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+
+            <ul id="nav-links"></ul>
+            <div id="user-container"></div>
+        </nav>
+    </header>
+
+    <main class="contenedor-perfil">
+        <section class="encabezado-perfil">
+            <h1><i class="fa-solid fa-circle-user"></i> Mi Perfil</h1>
+            <p>Gestioná tu información personal y preferencias de viaje.</p>
+        </section>
+
+        <div class="tarjeta-perfil">
+            <div class="perfil-info-basica">
+                <div class="zona-avatar">
+                    <div class="contenedor-avatar">
+                        <img src="../../img/perfil_defecto.gif" alt="Foto de Perfil" class="avatar-circular"
+                            id="perf-avatar-img">
+                    </div>
+                    <input type="file" id="input-file-avatar" accept="image/*" style="display: none;">
+                    <button type="button" id="btn-cambiar-foto" class="btn-subir-foto">
+                        <i class="fa-solid fa-camera"></i> Cambiar Foto
+                    </button>
+                </div>
+
+                <div class="datos-principales">
+                    <h2 id="perf-nombre-completo">Cargando usuario...</h2>
+                    <span class="etiqueta-cliente"><i class="fa-solid fa-star"></i> Cliente frecuente</span>
+                    <p class="miembro-desde">Miembro de Fly Lena Airlines</p>
+                </div>
+            </div>
+
+            <div class="seccion-datos">
+                <h3><i class="fa-solid fa-user"></i> Información Personal</h3>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-signature"></i> Nombre de Usuario</span>
+                    <p id="perf-username">-</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-envelope"></i> Email</span>
+                    <p id="perf-email">-</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-id-card"></i> Documento</span>
+                    <p id="perf-doc">-</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-location-dot"></i> Localidad</span>
+                    <p id="perf-localidad">-</p>
+                </div>
+            </div>
+
+            <div class="seccion-datos">
+                <h3><i class="fa-solid fa-gear"></i> Preferencias de viaje</h3>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-plane"></i> Clase preferida</span>
+                    <p id="perf-clase">-</p>
+                </div>
+                <div class="fila-dato">
+                    <span><i class="fa-solid fa-suitcase"></i> Equipaje preferido</span>
+                    <p id="perf-equipaje">-</p>
+                </div>
+            </div>
+
+            <div class="acciones-rapidas">
+                <a href="reservas.html" class="btn-accion btn-reservas">
+                    <i class="fa-solid fa-ticket"></i>
+                    <div>
+                        <strong>Mis reservas</strong>
+                        <small>Ver todas mis reservas</small>
+                    </div>
+                </a>
+                <a href="#" id="btn-perfil-logout" class="btn-accion btn-cerrar">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <div>
+                        <strong>Cerrar sesión</strong>
+                        <small>Salir de mi cuenta</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="banner-ayuda">
+            <div class="ayuda-texto">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h4>¿Necesitás ayuda?</h4>
+                    <p>Nuestro equipo está disponible 24/7 para asistirte.</p>
+                </div>
+            </div>
+            <a href="../pages_footer/contacto.html" class="btn-soporte">Contactar soporte</a>
+        </div>
+    </main>
+
+    <footer id="contacto-footer" class="footer-custom"></footer>
+</body>
+
+</html>
