@@ -17,7 +17,7 @@ asientos.forEach((asiento) => {
         // Buscamos si hay OTRO asiento que ya tenga la clase "seleccionado"
         const asientoSeleccionado = document.querySelector('.asiento.seleccionado');
 
-        // 6. Si existe un asiento seleccionado previo, le quitamos la clase
+        // Si existe un asiento seleccionado previo, le quitamos la clase
         if (asientoSeleccionado) {
             asientoSeleccionado.classList.remove('seleccionado');
         }
@@ -30,7 +30,7 @@ asientos.forEach((asiento) => {
 
 //VALIDACIÓN DEL BOTÓN CONTINUAR 
 
-// Seleccionamos el botón "Continuar" (es un <a>, no un <button>)
+// Seleccionamos el botón "Continuar"
 const botonContinuar = document.querySelector('.botonContinuar');
 
 // Le agregamos un evento de click
