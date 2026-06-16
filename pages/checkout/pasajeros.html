@@ -5,30 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../../../../estilos_index_home.css">
+    <script src="pasajeros.js" defer></script>
+    <script src="../../../../navbar.js" defer></script>
+    <script src="../../../../../footer.js" defer></script>
     <title>Checkout Pasajeros</title>
 </head>
 
 <body>
     <header>
         <nav>
-            <a class="logo" href="../../home.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
-            <ul>
-                <li><a href="../../home.html">Inicio</a></li>
-                <li><a href="../perfil/reservas.html">Reservas</a></li>
-                <li><a href="../ofertas/ofertas.html">Ofertas</a></li>
-                <li><a href="#contacto-footer">Ayuda</a></li>
-            </ul>
-            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
-                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
-            </a>
+            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <ul id="nav-links"></ul>
+            <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
 
     <main>
         <h2>Checkout</h2>
 
-        <a class="detalle-de-vuelo" href="../detalle-de-vuelo/detalle-de-vuelo-madrid1.html">Volver a detalle de
-            vuelo</a>
+        <a class="detalle-de-vuelo" href="../detalle-de-vuelo/detalle-de-vuelo-madrid1.html">Volver a detalle de vuelo</a>
 
         <ol class="container-lista">
             <li class="activo">Pasajeros</li>
@@ -36,19 +32,13 @@
             <li>Confirmacion</li>
         </ol>
 
-        <!-- Checkbox oculto para mostrar/ocultar pasajero 2 -->
-        <input type="checkbox" id="toggle-pasajero2">
-
-        <section class="container-datos-pasajeros">
+        <form id="form-pasajeros" class="container-datos-pasajeros" action="../checkout/pago.html" method="get">
 
             <h3>1. Datos del pasajero</h3>
-            <h4>Pasajero 1</h4>
 
-            <form class="container-datos-pasajeros" action="../checkout/pago.html" method="get">
-
-                <h3>1. Datos del pasajero</h3>
+            <!-- Pasajero 1 (siempre visible, no se puede eliminar) -->
+            <div class="pasajero-bloque" id="pasajero-1">
                 <h4>Pasajero 1</h4>
-
                 <div class="container-campos">
                     <div class="campo-nombre">
                         <label>Nombre</label>
@@ -70,7 +60,7 @@
                     </div>
                     <div class="campo-numero-dni">
                         <label>Número de documento</label>
-                        <input type="text" placeholder="1234568" required>
+                        <input type="text" inputmode="numeric" placeholder="1234568" required>
                     </div>
                     <div class="campo-fn">
                         <label>Fecha de nacimiento</label>
@@ -96,136 +86,33 @@
                         <input type="tel" placeholder="+54 11 1234 5678" required>
                     </div>
                 </div>
+            </div>
 
-                <!-- Pasajero 2 -->
-                <div id="pasajero2">
-                    <div class="pasajero2-header">
-                        <h4>Pasajero 2</h4>
-                        <label for="toggle-pasajero2" class="btn-eliminar-pasajero">- Eliminar pasajero</label>
-                    </div>
-                    <div class="container-campos">
-                        <div class="campo-nombre">
-                            <label>Nombre</label>
-                            <input type="text" placeholder="Nombre">
-                        </div>
-                        <div class="campo-apellido">
-                            <label>Apellido</label>
-                            <input type="text" placeholder="Apellido">
-                        </div>
-                        <div class="campo-tipo-documento">
-                            <label>Tipo de documento</label>
-                            <select>
-                                <option>DNI</option>
-                                <option>L.E</option>
-                                <option>L.C</option>
-                                <option>C.I</option>
-                                <option>Pasaporte</option>
-                            </select>
-                        </div>
-                        <div class="campo-numero-dni">
-                            <label>Número de documento</label>
-                            <input type="text" inputmode="numeric" placeholder="1234568">
-                        </div>
-                        <div class="campo-fn">
-                            <label>Fecha de nacimiento</label>
-                            <input type="date">
-                        </div>
-                        <div class="campo">
-                            <label>Nacionalidad</label>
-                            <select>
-                                <option>Argentina</option>
-                                <option>Bolivia</option>
-                                <option>Brasil</option>
-                                <option>Chile</option>
-                                <option>Paraguay</option>
-                                <option>Uruguay</option>
-                            </select>
-                        </div>
-                        <div class="campo-email">
-                            <label>Email</label>
-                            <input type="email" placeholder="juanperez@email.com">
-                        </div>
-                        <div class="campo-tel">
-                            <label>Teléfono</label>
-                            <input type="tel" inputmode="numeric" placeholder="+54 11 1234 5678">
-                        </div>
-                    </div>
-                </div>
+            <!-- Los pasajeros 2, 3 y 4 se inyectan aquí por JS -->
+            <div id="pasajeros-extra"></div>
 
-                <section class="botton-agregar-pasajero">
-                    <label for="toggle-pasajero2"><strong>+ Agregar otro pasajero</strong></label>
+            <!-- Botón agregar -->
+            <section class="botton-agregar-pasajero" id="btn-agregar-container">
+                <button type="button" id="btn-agregar-pasajero"><strong>+ Agregar otro pasajero</strong></button>
+            </section>
+
+            <div class="botones">
+                <section class="botton-cancelar">
+                    <a href="../../home.html">
+                        <button type="button">Cancelar</button>
+                    </a>
                 </section>
+                <section class="botton-continuar">
+                    <button type="submit">Continuar al Pago</button>
+                </section>
+            </div>
 
-                <div class="botones">
-                    <section class="botton-cancelar">
-                        <a href="../../home.html">
-                            <button type="button">Cancelar</button>
-                        </a>
-                    </section>
-                    <section class="botton-continuar">
-                        <button type="submit">Continuar al Pago</button>
-                    </section>
-                </div>
-
-            </form>
+        </form>
 
     </main>
-    <footer id="contacto-footer" class="footer-custom">
-        <div class="footer-container">
-            <div class="footer-header">
-                <div class="footer-logo">
-                    <a href="#top">
-                        <img src="../../img/fly_lena_logo_grande.png" alt="Logo" class="logo-img">
-                    </a>
-                </div>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/despegar.ar/" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_ig.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/DespegarArgentina/" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_fb.png" alt="Facebook"></a>
-                    <a href="https://www.tiktok.com/@despegar.ar" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_tiktok.png" alt="Tik Tok"></a>
-                    <a href="https://x.com/Despegar" target="_blank" rel="noopener noreferrer"><img
-                            src="../../img/iconos/icono_X.png" alt="X"></a>
-                </div>
-            </div>
 
-            <div class="footer-columns">
-                <div class="column">
-                    <h3>Sobre Nosotros</h3>
-                    <a href="../pages_footer/historia.html">Historia</a>
-                    <a href="https://www.linkedin.com/company/despegar/life/78b5c60d-ce71-4ce2-a62d-eac5a02628db/"
-                        target="_blank" rel="noopener noreferrer">Trabajá
-                        con nosotros</a>
-                </div>
+    <footer id="contacto-footer" class="footer-custom"></footer>
 
-                <div class="column">
-                    <h3>Mi Cuenta</h3>
-                    <a href="../perfil/perfil_de_usuario.html">Perfil de Usuario</a>
-                    <a href="../perfil/reservas.html">Mis Reservas</a>
-                </div>
-
-                <div class="column">
-                    <h3>Atención al Cliente</h3>
-                    <a href="../pages_footer/contacto.html">Contacto</a>
-                    <a href="../pages_footer/preguntas_frecuentes.html">Preguntas Frecuentes</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 Fly Lena S.R.L. Todos los derechos reservados ©.</p>
-                <div class="legal-links">
-                    <a href="../../assets/Terminos de Uso y Condiciones.pdf" target="_blank"
-                        rel="noopener noreferrer">Términos y condiciones</a>
-                    <a href="../../assets/Politica de Privacidad.pdf" target="_blank"
-                        rel="noopener noreferrer">Privacidad</a>
-                    <a href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor"
-                        target="_blank" rel="noopener noreferrer">Defensa
-                        del Consumidor</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>
