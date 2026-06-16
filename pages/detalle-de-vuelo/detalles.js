@@ -1,47 +1,73 @@
-// SELECCIÓN DE ASIENTOS
+/**
+ * Si no hay nada guardado (por ejemplo, si entran directo a la página), por defecto es 1.
+ */
+const getPasajeros = () => {
+    const pasajeros = sessionStorage.getItem('pasajeros_vuelo');
+    return pasajeros ? parseInt(pasajeros, 10) : 1;
+};
 
-// Seleccionamos TODOS los elementos que tengan la clase "asiento"
-const asientos = document.querySelectorAll('.asiento');
+document.addEventListener('DOMContentLoaded', () => {
+    // Almacenamos cuántos pasajeros seleccionó el usuario
+    const cantidadMaxPasajeros = getPasajeros();
 
-// Recorremos cada asiento con forEach para agregarle un evento de click
-asientos.forEach((asiento) => {
+    // PRECIOS 
+    // Buscamos la etiqueta de precio fuerte dentro de la tarjeta de detalles
+    const elementoPrecioFuerte = document.querySelector('.precio strong');
+    
+    if (elementoPrecioFuerte) {
+        // Extraemos el valor numérico (ej: de "USD 620" extrae 620)
+        const textoPrecio = elementoPrecioFuerte.textContent;
+        const precioBaseUnidad = parseInt(textoPrecio.replace(/[^0-9]/g, ''), 10);
 
-    // A cada asiento le agregamos un "escuchador" de eventos de tipo "click"
-    asiento.addEventListener('click', () => {
-
-        // Si el asiento clickeado tiene la clase "ocupado", no hacemos nada
-        if (asiento.classList.contains('ocupado')) {
-            return;
+        // Si el número es válido, lo multiplicamos por la cantidad de pasajeros
+        if (!isNaN(precioBaseUnidad)) {
+            const precioCalculadoTotal = precioBaseUnidad * cantidadMaxPasajeros;
+            elementoPrecioFuerte.textContent = `USD ${precioCalculadoTotal}`;
         }
+    }
 
-        // Buscamos si hay OTRO asiento que ya tenga la clase "seleccionado"
-        const asientoSeleccionado = document.querySelector('.asiento.seleccionado');
+    // SELECCIÓN DE ASIENTOS 
+    const asientos = document.querySelectorAll('.asiento');
 
-        // Si existe un asiento seleccionado previo, le quitamos la clase
-        if (asientoSeleccionado) {
-            asientoSeleccionado.classList.remove('seleccionado');
-        }
+    asientos.forEach((asiento) => {
+        asiento.addEventListener('click', () => {
+            // Si el asiento ya está ocupado por defecto, no hacemos nada
+            if (asiento.classList.contains('ocupado')) {
+                return;
+            }
 
-        // Le agregamos la clase "seleccionado" al asiento que acabamos de clickear
-        asiento.classList.add('seleccionado');
+            // Si el asiento ya estaba seleccionado por este usuario, lo deseleccionamos
+            if (asiento.classList.contains('seleccionado')) {
+                asiento.classList.remove('seleccionado');
+                return;
+            }
+
+            // Contamos cuantos asientos tiene seleccionados el usuario actualmente en el mapa
+            const asientosSeleccionadosActualmente = document.querySelectorAll('.asiento.seleccionado').length;
+
+            // Validamos: si aún no llego al límite de sus pasajeros, le permitimos seleccionar uno más
+            if (asientosSeleccionadosActualmente < cantidadMaxPasajeros) {
+                asiento.classList.add('seleccionado');
+            } else {
+                alert(`Tu búsqueda es para ${cantidadMaxPasajeros} ${cantidadMaxPasajeros === 1 ? 'pasajero' : 'pasajeros'}. Ya seleccionaste el máximo de asientos permitido.`);
+            }
+        });
     });
-});
 
+    // VALIDACIÓN ANTES DE CONTINUAR
+    const botonContinuar = document.querySelector('.botonContinuar');
 
-//VALIDACIÓN DEL BOTÓN CONTINUAR 
+    if (botonContinuar) {
+        botonContinuar.addEventListener('click', (e) => {
+            const asientosSeleccionadosFinal = document.querySelectorAll('.asiento.seleccionado').length;
 
-// Seleccionamos el botón "Continuar"
-const botonContinuar = document.querySelector('.botonContinuar');
-
-// Le agregamos un evento de click
-botonContinuar.addEventListener('click', (e) => {
-
-    // Buscamos si hay algún asiento con la clase "seleccionado"
-    const asientoSeleccionado = document.querySelector('.asiento.seleccionado');
-
-    // Si NO hay ningún asiento seleccionado...
-    if (!asientoSeleccionado) {
-        e.preventDefault();
-        alert('Por favor, seleccioná un asiento antes de continuar.');
+            // Si selecciono menos asientos que la cantidad de pasajeros, bloqueamos el avance
+            if (asientosSeleccionadosFinal < cantidadMaxPasajeros) {
+                e.preventDefault(); 
+                
+                const faltantes = cantidadMaxPasajeros - asientosSeleccionadosFinal;
+                alert(`Debes seleccionar los asientos para todos los pasajeros. Te falta elegir ${faltantes} ${faltantes === 1 ? 'asiento' : 'asientos'}.`);
+            }
+        });
     }
 });
