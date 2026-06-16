@@ -63,7 +63,7 @@ const vuelos = [
         codigoOrigen: "BUE",
         codigoDestino: "MAD",
         aerolinea: "Iberia",
-        tipo: "Escala",
+        tipo: "2 o mas escalas",
         salida: "12:30",
         llegada: "23:45",
         duracion: "13h 15m",
@@ -87,65 +87,65 @@ const vuelos = [
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
-    id: 4,
-    origen: "Buenos Aires",
-    destino: "Rio de Janeiro",
-    codigoOrigen: "BUE",
-    codigoDestino: "GIG",
-    aerolinea: "LATAM",
-    tipo: "Directo",
-    salida: "09:30",
-    llegada: "12:10",
-    duracion: "2h 40m",
-    precio: 280,
-    detalle: "#",
-    logo: "../../img/Logos Aerolineas/Latam-logo.png"
-},
-{
-    id: 5,
-    origen: "Buenos Aires",
-    destino: "Roma",
-    codigoOrigen: "BUE",
-    codigoDestino: "FCO",
-    aerolinea: "Iberia",
-    tipo: "Escala",
-    salida: "11:20",
-    llegada: "05:50",
-    duracion: "14h 30m",
-    precio: 740,
-    detalle: "#",
-    logo: "../../img/Logos Aerolineas/iberia-logo.png"
-},
-{
-    id: 6,
-    origen: "Buenos Aires",
-    destino: "Tokio",
-    codigoOrigen: "BUE",
-    codigoDestino: "HND",
-    aerolinea: "LATAM",
-    tipo: "Escala",
-    salida: "08:00",
-    llegada: "14:30",
-    duracion: "28h 30m",
-    precio: 1120,
-    detalle: "#",
-    logo: "../../img/Logos Aerolineas/Latam-logo.png"
-},
-{
-    id: 7,
-    origen: "Buenos Aires",
-    destino: "Maldivias",
-    codigoOrigen: "BUE",
-    codigoDestino: "MLE",
-    aerolinea: "Iberia",
-    tipo: "Escala",
-    salida: "22:15",
-    llegada: "23:50",
-    duracion: "22h 35m",
-    precio: 1890,
-    detalle: "#",
-    logo: "../../img/Logos Aerolineas/iberia-logo.png"
-}
+        id: 4,
+        origen: "Buenos Aires",
+        destino: "Rio de Janeiro",
+        codigoOrigen: "BUE",
+        codigoDestino: "GIG",
+        aerolinea: "LATAM",
+        tipo: "Directo",
+        salida: "09:30",
+        llegada: "12:10",
+        duracion: "2h 40m",
+        precio: 280,
+        detalle: "#",
+        logo: "../../img/Logos Aerolineas/Latam-logo.png"
+    },
+    {
+        id: 5,
+        origen: "Buenos Aires",
+        destino: "Roma",
+        codigoOrigen: "BUE",
+        codigoDestino: "FCO",
+        aerolinea: "Iberia",
+        tipo: "1 escala",
+        salida: "11:20",
+        llegada: "05:50",
+        duracion: "14h 30m",
+        precio: 740,
+        detalle: "#",
+        logo: "../../img/Logos Aerolineas/iberia-logo.png"
+    },
+    {
+        id: 6,
+        origen: "Buenos Aires",
+        destino: "Tokio",
+        codigoOrigen: "BUE",
+        codigoDestino: "HND",
+        aerolinea: "LATAM",
+        tipo: "2 o mas escalas",
+        salida: "08:00",
+        llegada: "14:30",
+        duracion: "28h 30m",
+        precio: 1120,
+        detalle: "#",
+        logo: "../../img/Logos Aerolineas/Latam-logo.png"
+    },
+    {
+        id: 7,
+        origen: "Buenos Aires",
+        destino: "Maldivias",
+        codigoOrigen: "BUE",
+        codigoDestino: "MLE",
+        aerolinea: "Iberia",
+        tipo: "1 escala",
+        salida: "22:15",
+        llegada: "23:50",
+        duracion: "22h 35m",
+        precio: 1890,
+        detalle: "#",
+        logo: "../../img/Logos Aerolineas/iberia-logo.png"
+    }
 ];
 
 // Selectores
@@ -354,6 +354,22 @@ const vuelosFiltrados =
 
     });
 
+if (vuelosFiltrados.length > 0) {
+
+    const tipoVuelo =
+        vuelosFiltrados[0].tipo;
+
+    document
+        .querySelectorAll(".filtroTipo")
+        .forEach(radio => {
+
+            radio.checked =
+                radio.value === tipoVuelo;
+
+        });
+
+}
+
 if (vuelosFiltrados.length === 0) {
 
     contenedor.innerHTML = `
@@ -402,7 +418,7 @@ document
     });
 
 // Menor Duracion
-    document
+document
     .querySelector("#menorDuracion")
     .addEventListener("click", () => {
 

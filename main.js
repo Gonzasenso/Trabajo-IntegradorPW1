@@ -31,8 +31,56 @@ btnSoloIda.addEventListener("click", () => {
     tipoVuelo = "solo-ida";
 });
 
+// Recuperar ultima busqueda
+const ultimaBusqueda =
+    JSON.parse(
+        sessionStorage.getItem(
+            "ultimaBusqueda"
+        )
+    );
+
+if (ultimaBusqueda) {
+
+    inputOrigen.value =
+        ultimaBusqueda.origen;
+
+    inputDestino.value =
+        ultimaBusqueda.destino;
+
+    inputIda.value =
+        ultimaBusqueda.fechaIda;
+
+    if (
+        ultimaBusqueda.tipoVuelo ===
+        "ida-vuelta"
+    ) {
+
+        inputVuelta.value =
+            ultimaBusqueda.fechaVuelta;
+
+    }
+    if (ultimaBusqueda.tipoVuelo === "solo-ida") {
+
+        btnSoloIda.click();
+
+    } else {
+
+        btnIdaVuelta.click();
+
+        inputVuelta.value =
+            ultimaBusqueda.fechaVuelta;
+    }
+
+    selectPasajeros.value =
+        ultimaBusqueda.pasajeros;
+
+    selectClase.value =
+        ultimaBusqueda.clase;
+
+}
+
 // Submit del Buscador
-formBuscador.addEventListener("submit", function(e) {
+formBuscador.addEventListener("submit", function (e) {
     e.preventDefault();
 
     if (!inputOrigen.value || !inputDestino.value || !inputIda.value || (tipoVuelo === "ida-vuelta" && !inputVuelta.value)) {
@@ -51,7 +99,7 @@ formBuscador.addEventListener("submit", function(e) {
 
     const fechaIda = new Date(inputIda.value);
     const hoy = new Date();
-    hoy.setHours(0,0,0,0);
+    hoy.setHours(0, 0, 0, 0);
 
     if (fechaIda < hoy) {
         alert("La fecha de ida no puede ser anterior al día de hoy.");
@@ -83,7 +131,7 @@ formBuscador.addEventListener("submit", function(e) {
         clase: selectClase.value,
         tipoVuelo: tipoVuelo
     };
-    
+
     sessionStorage.setItem("ultimaBusqueda", JSON.stringify(busquedaUsuario));
     window.location.href = "./pages/resultados-de-busqueda/filtro-1.html";
 });
