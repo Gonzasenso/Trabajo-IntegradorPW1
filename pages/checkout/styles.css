@@ -998,6 +998,8 @@ details[open] .acordeon i {
     .legal-links a {
         margin: 0;
     }
+
+    
 }
 
 /* MOBILE HORIZONTAL (Landscape) */
@@ -1012,6 +1014,96 @@ details[open] .acordeon i {
 
     .container-lista {
         margin-bottom: 2rem;
+    }
+}
+
+#modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(12, 23, 53, 0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+#modal-overlay.activo {
+    display: flex;
+}
+
+.modal-box {
+    background: #ffffff;
+    border-radius: 2rem;
+    padding: 3.2rem 2.8rem;
+    max-width: 46rem;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2rem 5rem rgba(12, 23, 53, 0.2);
+    animation: modalEntrada 0.25s ease;
+}
+
+@keyframes modalEntrada {
+    from { opacity: 0; transform: translateY(1.6rem) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-icono {
+    font-size: 4.8rem;
+    color: #16a34a;
+    margin-bottom: 1.4rem;
+}
+
+.modal-box h3 {
+    font-size: 2.2rem;
+    color: #0c1735;
+    margin-bottom: 1rem;
+}
+
+.modal-box p {
+    font-size: 1.5rem;
+    color: #44516c;
+    margin-bottom: 2.4rem;
+}
+
+.modal-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+}
+
+.modal-botones button {
+    min-width: 14rem;
+    min-height: 4.6rem;
+    padding: 1.1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#modal-cancelar {
+    border: 0.2rem solid #cbd5e1;
+    background: #ffffff;
+    color: #0c1735;
+}
+
+#modal-cancelar:hover { background: #f1f5f9; }
+
+#modal-confirmar {
+    border: 0.2rem solid #16a34a;
+    background: #16a34a;
+    color: #ffffff;
+}
+
+#modal-confirmar:hover { background: #15803d; }
+
+@media screen and (max-width: 480px) {
+    .modal-botones {
+        flex-direction: column-reverse;
+    }
+    .modal-botones button {
+        width: 100%;
     }
 }
 
