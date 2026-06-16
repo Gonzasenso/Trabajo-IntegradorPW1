@@ -120,7 +120,7 @@ header nav ul li {
 
 header nav ul li a {
     position: relative;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 500;
     text-decoration: none;
     color: #FFFFFF;
@@ -615,6 +615,34 @@ details[open] .acordeon i {
 .asiento h5 {
     font-size: 1.8rem;
 }
+/* --- Estilos para agrandar el bloque de Pasajeros --- */
+
+/* El título general "Pasajero(s)" */
+.resumen-pasajeros-titulo {
+    font-size: 1.8rem !important; /* Estaba muy chico, lo subimos */
+    font-weight: 600;
+    color: #0c1735;
+    margin-bottom: 1.2rem;
+}
+
+/* El nombre del pasajero (P1 Estefanía Corvalán) */
+.resumen-pasajero-nombre strong {
+    font-size: 1.6rem !important; 
+    color: #0c1735;
+}
+
+/* El indicador P1, P2, etc. */
+.resumen-numero {
+    font-size: 1.3rem !important;
+}
+
+/* Los datos clave (DNI, Nacimiento, Nacionalidad) y el Contacto (Email, Teléfono) */
+.resumen-pasajero-detalle span,
+.resumen-pasajero-contacto span {
+    font-size: 1.4rem !important; /* Subimos a un tamaño super legible */
+    color: #4a5568; /* Un gris un poco más oscuro para que contraste mejor */
+    line-height: 1.5; /* Separa un poquito las líneas para que no se encimen */
+}
 
 .container-resumen {
     padding: 2rem;
@@ -1016,6 +1044,7 @@ details[open] .acordeon i {
         margin-bottom: 2rem;
     }
 }
+
 
 #modal-overlay {
     display: none;
