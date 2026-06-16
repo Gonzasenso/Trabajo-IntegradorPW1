@@ -1,10 +1,10 @@
 const ofertas = [
     {
         destino: "Madrid",
-        precio: 620,
+        precio: 900,
         imagen: "../../img/imagenMadrid.png",
-        descripcion:
-            "Viajá a Europa con precio especial por tiempo limitado."
+        descripcion: "Viajá a Europa con precio especial por tiempo limitado.",
+        equipajeIncluido: true
     },
     {
         destino: "Rio de Janeiro",
@@ -15,10 +15,10 @@ const ofertas = [
     },
     {
         destino: "Cancun",
-        precio: 760,
+        precio: 700,
         imagen: "../../img/imagenCancun.png",
-        descripcion:
-            "Promoción especial para viajes en temporada baja."
+        descripcion: "Promoción especial para viajes en temporada baja.",
+        equipajeIncluido: true
     },
     {
         destino: "Roma",
@@ -36,11 +36,11 @@ const ofertas = [
     },
     {
         destino: "Tokio",
-        precio: 1120,
+        precio: 1200,
         imagen: "../../img/imagenTokio.png",
-        descripcion:
-            "Tradición y tecnología se combinan en una de las ciudades más fascinantes del mundo."
-    }
+        descripcion: "Tradición y tecnología se combinan en una de las ciudades más fascinantes del mundo.",
+        equipajeIncluido: true
+    },
 ];
 
 const contenedor =
@@ -113,7 +113,8 @@ document
                         fechaIda: "2026-07-10",
                         fechaVuelta: "2026-07-20",
                         pasajeros: "1",
-                        clase: "economica"
+                        clase: "economica",
+                        equipajeIncluido: true
                     })
                 );
 

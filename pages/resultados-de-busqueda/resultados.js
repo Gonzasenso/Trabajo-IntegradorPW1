@@ -48,11 +48,11 @@ const vuelos = [
         codigoOrigen: "BUE",
         codigoDestino: "MAD",
         aerolinea: "Air Europa",
-        tipo: "Directo",
+        tipo: "2 o mas escalas",
         salida: "08:30",
         llegada: "19:45",
         duracion: "11h 15m",
-        precio: 620,
+        precio: 900,
         detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/air-europa-logo.png"
     },
@@ -63,7 +63,7 @@ const vuelos = [
         codigoOrigen: "BUE",
         codigoDestino: "MAD",
         aerolinea: "Iberia",
-        tipo: "2 o mas escalas",
+        tipo: "Directo",
         salida: "12:30",
         llegada: "23:45",
         duracion: "13h 15m",
@@ -78,11 +78,11 @@ const vuelos = [
         codigoOrigen: "BUE",
         codigoDestino: "CUN",
         aerolinea: "LATAM",
-        tipo: "Directo",
+        tipo: "2 o mas escalas",
         salida: "17:00",
         llegada: "04:15",
         duracion: "11h 15m",
-        precio: 760,
+        precio: 700,
         detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid2.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
@@ -93,7 +93,7 @@ const vuelos = [
         codigoOrigen: "BUE",
         codigoDestino: "GIG",
         aerolinea: "LATAM",
-        tipo: "Directo",
+        tipo: "1 escala",
         salida: "09:30",
         llegada: "12:10",
         duracion: "2h 40m",
@@ -127,7 +127,7 @@ const vuelos = [
         salida: "08:00",
         llegada: "14:30",
         duracion: "28h 30m",
-        precio: 1120,
+        precio: 1200,
         detalle: "#",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
@@ -163,6 +163,26 @@ const contador = document.querySelector("#cantidadVuelos");
 
 const equipajeExtra = document.querySelector("#equipajeExtra");
 
+const labelEquipaje = equipajeExtra.parentElement;
+
+if (datosBusqueda.equipajeIncluido) {
+
+    equipajeExtra.checked = true;
+
+    equipajeExtra.disabled = true;
+
+    labelEquipaje.innerHTML = `
+        <input
+            type="checkbox"
+            id="equipajeExtra"
+            checked
+            disabled
+        >
+        Valija 23kg incluida
+    `;
+
+}
+
 
 function calcularPrecio(vuelo) {
 
@@ -177,9 +197,16 @@ function calcularPrecio(vuelo) {
         precioFinal *= 2;
     }
 
+    // Pasajeros
+    precioFinal *= Number(
+        datosBusqueda.pasajeros
+    );
+
     // Equipaje
-    if (equipajeExtra.checked) {
-        precioFinal += 100;
+    if (equipajeExtra.checked && !datosBusqueda.equipajeIncluido) {
+
+        precioFinal += 100 * Number(datosBusqueda.pasajeros);
+
     }
 
     return Math.round(precioFinal);
@@ -230,7 +257,7 @@ function renderizarVuelos(lista) {
 
             <div class="precio">
                 <strong>USD ${precioFinal}</strong>
-                <span>ida y vuelta</span>
+                <span>${datosBusqueda.pasajeros} pasajero(s)</span>
 
                 <a href="${vuelo.detalle}">
                     Ver detalles
@@ -263,8 +290,7 @@ function filtrarVuelos() {
     const resultado =
         vuelosFiltrados.filter(vuelo => {
 
-            const cumplePrecio =
-                calcularPrecio(vuelo) <= precioMax;
+            const cumplePrecio = calcularPrecio(vuelo) <= precioMax;
 
             const cumpleAerolinea =
                 aerolineas.length === 0 ||
@@ -353,6 +379,19 @@ const vuelosFiltrados =
         );
 
     });
+
+const precioMasAlto =
+    Math.max(
+        ...vuelosFiltrados.map(
+            vuelo => calcularPrecio(vuelo)
+        )
+    );
+
+filtroPrecio.max = precioMasAlto;
+filtroPrecio.value = precioMasAlto;
+
+precioActual.textContent =
+    `USD ${precioMasAlto}`;
 
 if (vuelosFiltrados.length > 0) {
 
@@ -470,6 +509,10 @@ equipajeExtra.addEventListener(
     "change",
     () => {
 
+        if (datosBusqueda.equipajeIncluido) {
+            return;
+        }
+
         if (equipajeExtra.checked) {
 
             alert(
@@ -481,3 +524,4 @@ equipajeExtra.addEventListener(
         filtrarVuelos();
 
     });
+
