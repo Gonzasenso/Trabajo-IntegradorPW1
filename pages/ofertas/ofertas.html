@@ -8,23 +8,17 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+    <script src="../../navbar.js" defer></script>
+    <script src="../../footer.js" defer></script>
 </head>
 
 <body>
 
     <header>
         <nav>
-            <a class="logo" href="../../home.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
-            <ul>
-                <li><a href="../../home.html">Inicio</a></li>
-                <li><a href="../perfil/reservas.html">Reservas</a></li>
-                <li><a href="../ofertas/ofertas.html">Ofertas</a></li>
-                <li><a href="#contacto-footer">Ayuda</a></li>
-            </ul>
-            <a class="iconoPerfil" href="../perfil/perfil_de_usuario.html">
-                <h2 class="nombre">¡Hola, Gonzalo!</h2><img src="../../img/foto_perfil.jpg" alt="">
-            </a>
+            <a class="logo" href="/index.html"><img src="/img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <ul id="nav-links"></ul>
+            <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
 
@@ -40,115 +34,7 @@
                 <img class="avionHero" src="../../img/imagenOfertas.png" alt="">
             </div>
         </section>
-        <section class="seccionCardsOfertas">
-
-            <article class="cardOfertaPagina">
-                <img src="../../img/imagenMadrid.png" alt="Madrid">
-
-                <div class="contenidoOferta">
-                    <h2>Buenos Aires → Madrid</h2>
-                    <p>Viajá a Europa con precio especial por tiempo limitado.</p>
-
-                    <div class="footerOferta">
-                        <div>
-                            <span>Desde</span>
-                            <strong>USD 620</strong>
-                        </div>
-
-                        <a href="#">Ver oferta</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="cardOfertaPagina">
-                <img src="../../img/imagenRioDeJaneiro.png" alt="Río de Janeiro">
-
-                <div class="contenidoOferta">
-                    <h2>Buenos Aires → Río de Janeiro</h2>
-                    <p>Escapada ideal para disfrutar playa, sol y descanso.</p>
-
-                    <div class="footerOferta">
-                        <div>
-                            <span>Desde</span>
-                            <strong>USD 280</strong>
-                        </div>
-
-                        <a href="#">Ver oferta</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="cardOfertaPagina">
-                <img src="../../img/imagenCancun.png" alt="Cancún">
-
-                <div class="contenidoOferta">
-                    <h2>Buenos Aires → Cancún</h2>
-                    <p>Promoción especial para viajes en temporada baja.</p>
-
-                    <div class="footerOferta">
-                        <div>
-                            <span>Desde</span>
-                            <strong>USD 760</strong>
-                        </div>
-
-                        <a href="#">Ver oferta</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="cardOfertaPagina">
-                <img src="../../img/imagenRoma.png" alt="Roma">
-
-                <div class="contenidoOferta">
-                    <h2>Buenos Aires → Roma</h2>
-                    <p>Descubrí la historia, la arquitectura y la gastronomía italiana en la ciudad eterna.</p>
-
-                    <div class="footerOferta">
-                        <div>
-                            <span>Desde</span>
-                            <strong>USD 740</strong>
-                        </div>
-
-                        <a href="#">Ver oferta</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="cardOfertaPagina">
-                <img src="../../img/imagenMaldivias.png" alt="Maldivias">
-
-                <div class="contenidoOferta">
-                    <h2>Buenos Aires → Maldivias</h2>
-                    <p>Playas paradisíacas, agua cristalina y resorts de lujo en un destino soñado.</p>
-
-                    <div class="footerOferta">
-                        <div>
-                            <span>Desde</span>
-                            <strong>USD 1.890</strong>
-                        </div>
-
-                        <a href="#">Ver oferta</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="cardOfertaPagina">
-                <img src="../../img/imagenTokio.png" alt="Tokio">
-
-                <div class="contenidoOferta">
-                    <h2>Buenos Aires → Tokio</h2>
-                    <p>Tradición y tecnología se combinan en una de las ciudades más fascinantes del mundo.</p>
-
-                    <div class="footerOferta">
-                        <div>
-                            <span>Desde</span>
-                            <strong>USD 1.120</strong>
-                        </div>
-
-                        <a href="#">Ver oferta</a>
-                    </div>
-                </div>
-            </article>
+        <section class="seccionCardsOfertas" id="contenedorOfertas">
 
         </section>
 
@@ -210,7 +96,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="./ofertas.js" defer></script>
 </body>
 
 </html>

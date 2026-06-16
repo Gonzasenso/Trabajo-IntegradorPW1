@@ -1,12 +1,3 @@
-// Base de Datos Simulada de Vuelos Disponibles
-const VUELOS_DISPONIBLES = [
-    { id: 1, origen: "buenos aires", destino: "madrid", precio: "$950.000", aerolinea: "Fly Lena Airlines", hora: "08:30" },
-    { id: 2, origen: "buenos aires", destino: "madrid", precio: "$1.120.000", aerolinea: "Iberia", hora: "14:15" },
-    { id: 3, origen: "buenos aires", destino: "cancun", precio: "$780.000", aerolinea: "Fly Lena Airlines", hora: "23:00" },
-    { id: 4, origen: "buenos aires", destino: "tokio", precio: "$2.400.000", aerolinea: "Qatar Airways", hora: "11:45" },
-    { id: 5, origen: "cordoba", destino: "madrid", precio: "$1.050.000", aerolinea: "Fly Lena Airlines", hora: "02:10" }
-];
-
 // Formulario del Buscador de Vuelos
 const formBuscador = document.getElementById("form-buscador");
 const inputOrigen = document.getElementById("desde");
