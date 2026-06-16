@@ -120,20 +120,11 @@ h2 {
     margin-bottom: 2rem;
 }
 
-details {
+/* HEADER DEL ACORDEÓN */
+.acordion-header {
     background-color: #FFFFFF;
     border: 1px solid #e2e8f0;
     border-radius: 0.8rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-details[open] {
-    border: 1.5px solid #0c1735;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-summary {
     padding: 2rem 2.5rem;
     cursor: pointer;
     display: flex;
@@ -142,20 +133,63 @@ summary {
     font-weight: 600;
     font-size: 1.8rem;
     list-style: none;
+    transition: all 0.3s ease;
 }
 
-/* Flecha del acordeón */
-.precio-ruta::after {
-    content: "▼";
+/* Efecto al pasar el mouse */
+.acordion-header:hover {
+    border-color: #0c1735;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Cuando está abierto */
+.acordion-header.active {
+    border: 1.5px solid #0c1735;
+    border-bottom: 1.5px solid #0c1735;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nombre-ruta {
+    flex: 1;  
+}
+
+.precio-y-flecha {
+    display: flex;
+    gap: 1.5rem;  
+}
+
+/*  FLECHA DEL ACORDEÓN  */
+.flecha-acordion {
     font-size: 1.2rem;
-    margin-left: 1.5rem;
     transition: transform 0.3s ease;
+    display: inline-block;
 }
 
-details[open] .precio-ruta::after {
+/* Rotación de la flecha cuando se abre */
+.acordion-header.active .flecha-acordion {
     transform: rotate(180deg);
 }
 
+/*  CONTENIDO DEL ACORDEÓN  */
+.acordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    border-radius: 0 0 0.8rem 0.8rem;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+/* Cuando está abierto */
+.acordion-content.active {
+    max-height: 200rem; 
+    padding: 0;
+    border: 1px solid #0c1735;
+    border-top: none;
+}
+
+/*  ESTILOS DEL CONTENIDO DEL VUELO  */
 .detalle-vuelo {
     padding: 2.5rem;
     border-top: 1px solid #f1f5f9;
