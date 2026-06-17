@@ -68,7 +68,7 @@ const vuelos = [
         llegada: "23:45",
         duracion: "13h 15m",
         precio: 1000,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid3.html",
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     },
     {
@@ -83,7 +83,7 @@ const vuelos = [
         llegada: "04:15",
         duracion: "11h 15m",
         precio: 700,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid2.html",
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
@@ -98,7 +98,7 @@ const vuelos = [
         llegada: "12:10",
         duracion: "2h 40m",
         precio: 280,
-        detalle: "#",
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
@@ -113,7 +113,7 @@ const vuelos = [
         llegada: "05:50",
         duracion: "14h 30m",
         precio: 740,
-        detalle: "#",
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     },
     {
@@ -128,7 +128,7 @@ const vuelos = [
         llegada: "14:30",
         duracion: "28h 30m",
         precio: 1200,
-        detalle: "#",
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
@@ -143,7 +143,7 @@ const vuelos = [
         llegada: "23:50",
         duracion: "22h 35m",
         precio: 1890,
-        detalle: "#",
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     }
 ];
