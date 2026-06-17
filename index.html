@@ -8,16 +8,24 @@
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./estilos_index_home.css">
-    <script src="./navbar.js" defer></script>
     <script src="./footer.js" defer></script>
     <script src="./main.js" defer></script>
+    <script src="./navbar.js" defer></script>
 </head>
 
 <body id="top">
     <header>
         <nav>
-            <a class="logo" href="./index.html"><img src="./img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <button id="hamburger-btn" class="hamburger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a class="logo" href="./index.html">
+                <img src="./img/fly_lena_logo_chico.png" alt="logoFlyLena">
+            </a>
+
             <ul id="nav-links"></ul>
+
             <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>

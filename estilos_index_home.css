@@ -16,6 +16,9 @@ html {
 header {
     width: 100%;
     background-color: #0c1735;
+    position: relative;
+    z-index: 100; 
+    overflow: visible;
 }
 
 header nav {
@@ -66,6 +69,11 @@ header nav ul li a:hover::after {
 
 header nav .logo img {
     width: 15rem;
+}
+
+/* Ocultar la hamburguesa por defecto en computadoras */
+.hamburger-btn {
+    display: none;
 }
 
 /* Dropdown e Interfaz de Usuario Dinámica */
@@ -604,15 +612,99 @@ input[name="carrusel-control"] {
 }
 
 @media screen and (max-width: 768px) {
-    header nav { flex-wrap: wrap; height: auto; padding: 1.5rem; }
-    header nav ul { order: 2; width: 100%; justify-content: space-around; margin-top: 1rem; }
-    .user-nav-container { order: 1; }
-    .dropdown-menu { top: 5.5rem; right: -5rem; }
-    .formulario-vuelos { display: flex; flex-direction: column; }
-    .select-personalizado { flex-direction: column; }
-    .seccion-beneficios { flex-direction: column; }
-    .footer-header, .footer-bottom { flex-direction: column; gap: 2rem; text-align: center; }
-    .footer-columns { grid-template-columns: 1fr; }
-    .column { border-right: none; border-bottom: .1rem solid rgba(255, 255, 255, .2); padding-bottom: 2rem; }
+    header nav {
+        position: relative;
+        height: 7rem;
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .hamburger-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: #FFFFFF;
+        font-size: 2.5rem;
+        cursor: pointer;
+        width: 4rem;
+        height: 4rem;
+        order: 1;
+        z-index: 1001;
+    }
+
+    .hamburger-btn i {
+        pointer-events: none;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        order: 2;
+    }
+
+    .logo img {
+        width: 12rem;
+    }
+
+    .user-nav-container {
+        order: 3;
+        margin-left: auto;
+    }
+
+    .dropdown-trigger .nombre {
+        display: none;
+    }
+
+    .dropdown-trigger i.fa-chevron-down {
+        display: none;
+    }
+
+    .dropdown-trigger img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    #nav-links {
+        display: none !important;
+        position: absolute;
+        top: 7rem;
+        left: 0;
+        width: 100%;
+        background-color: #0c1735;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+    }
+
+    /* Inyectado dinámicamente por JS */
+    #nav-links.open {
+        display: flex !important; 
+        max-height: 40rem;
+        border: 2px solid #1E5BFF;
+    }
+
+    #nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 1.5rem 0;
+        border-top: .1rem solid rgba(255,255,255,.1);
+    }
+
+    #nav-links li a {
+        display: block;
+        width: 100%;
+        font-size: 1.6rem;
+    }
+
+    .dropdown-menu {
+        top: 5rem;
+        right: 0;
+    }
 }
 /* #endregion MediqQuerys */
