@@ -130,8 +130,6 @@ if (botonContinuar) {
         const asientosSeleccionados =
             [...document.querySelectorAll('.asiento.seleccionado')]
             .map(a => a.dataset.codigo);
-            
-
         console.log(asientosSeleccionados);
 
         sessionStorage.setItem(

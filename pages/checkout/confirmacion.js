@@ -2,6 +2,13 @@
 const datosPasajeros = JSON.parse(sessionStorage.getItem("datosPasajeros") || "{}");
 const metodoPago     = JSON.parse(sessionStorage.getItem("metodoPago")     || "{}");
 
+const asientos = JSON.parse(
+    sessionStorage.getItem("asientosSeleccionados")
+) || [];
+
+const resumenVuelo = JSON.parse(
+    localStorage.getItem("resumenVuelo")
+) || {};
 
 // ─── Mostrar datos de pasajeros ───────────────────────────────────────────────
 function renderizarPasajeros() {
@@ -175,25 +182,23 @@ crearModal();
 bindBotonConfirmar();
 
 //asientos
-const asientos = JSON.parse(
-    sessionStorage.getItem("asientosSeleccionados")
-) || [];
 
-console.log(asientos);
 
-const resumenVuelo = JSON.parse(
-    localStorage.getItem("resumenVuelo")
-) || {};
+const contenedorAsiento =
+    document.querySelector(".asiento");
+
+if (contenedorAsiento) {
+
+    contenedorAsiento.innerHTML = `
+        <i class="fa-solid fa-couch"></i>
+        <p>Asiento${asientos.length > 1 ? "s" : ""} seleccionado${asientos.length > 1 ? "s" : ""}:</p>
+        <h5>${asientos.join(", ") || "-"}</h5>
+    `;
+}
+
 
 function renderizarResumenVuelo() {
-
     if (!resumenVuelo.total) return;
-
-    document.getElementById(
-        "asientos-confirmacion"
-    ).textContent =
-        asientos.join(", ");
-
     document.getElementById(
         "cantidad-pasajeros"
     ).textContent =
