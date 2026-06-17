@@ -226,3 +226,118 @@ function guardarMetodoPago(form) {
 
   sessionStorage.setItem("metodoPago", JSON.stringify({ metodo, datos }));
 }
+
+// ==========================
+// DESCUENTOS Y TOTAL DINÁMICO
+// ==========================
+
+const resumenVuelo =
+    JSON.parse(
+        localStorage.getItem("resumenVuelo")
+    );
+
+    const selectCuotas = document.querySelector(".campo-cuotas select");
+
+if (selectCuotas && resumenVuelo) {
+
+    const total = resumenVuelo.total;
+
+    const cuota1 = total;
+
+    const cuota3 = Math.round((total * 1.15) / 3);
+
+    const cuota6 = Math.round((total * 1.30) / 6);
+
+    selectCuotas.innerHTML = `
+        <option>
+            1 cuota (sin interés) de USD ${cuota1}
+        </option>
+
+        <option>
+            3 cuotas de USD ${cuota3} (15%)
+        </option>
+
+        <option>
+            6 cuotas de USD ${cuota6} (30%)
+        </option>
+    `;
+}
+
+let descuentoAplicado = 0;
+
+function actualizarResumen() {
+
+    if (!resumenVuelo) return;
+
+    const subtotal =
+        resumenVuelo.total;
+
+    const total =
+        subtotal - descuentoAplicado;
+
+    document.querySelector(
+        "#subtotal-checkout"
+    ).textContent =
+        `USD ${subtotal}`;
+
+    document.querySelector(
+        "#descuento-checkout"
+    ).textContent =
+        `- USD ${descuentoAplicado}`;
+
+    document.querySelector(
+        "#total-checkout"
+    ).textContent =
+        `USD ${total}`;
+}
+
+const btnDescuento =
+    document.querySelector(
+        "#btn-aplicar-descuento"
+    );
+
+if (btnDescuento) {
+
+    btnDescuento.addEventListener(
+        "click",
+        () => {
+
+            const codigo =
+                document
+                    .querySelector("#codigo-descuento")
+                    .value
+                    .trim()
+                    .toUpperCase();
+
+            if (codigo === "FLYLENA10") {
+
+                descuentoAplicado =
+                    Math.round(
+                        resumenVuelo.total * 0.10
+                    );
+
+                sessionStorage.setItem(
+                    "descuentoAplicado",
+                    descuentoAplicado
+                );
+
+                alert(
+                    "Descuento del 10% aplicado"
+                );
+
+            } else {
+
+                descuentoAplicado = 0;
+
+                alert(
+                    "Código inválido"
+                );
+            }
+
+            actualizarResumen();
+
+        }
+    );
+
+    actualizarResumen();
+}

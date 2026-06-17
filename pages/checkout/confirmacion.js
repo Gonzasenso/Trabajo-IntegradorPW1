@@ -170,5 +170,56 @@ function formatearFecha(fechaISO) {
 // ─── Init ─────────────────────────────────────────────────────────────────────
 renderizarPasajeros();
 renderizarPago();
+renderizarResumenVuelo();
 crearModal();
 bindBotonConfirmar();
+
+//asientos
+const asientos = JSON.parse(
+    sessionStorage.getItem("asientosSeleccionados")
+) || [];
+
+console.log(asientos);
+
+const resumenVuelo = JSON.parse(
+    localStorage.getItem("resumenVuelo")
+) || {};
+
+function renderizarResumenVuelo() {
+
+    if (!resumenVuelo.total) return;
+
+    document.getElementById(
+        "asientos-confirmacion"
+    ).textContent =
+        asientos.join(", ");
+
+    document.getElementById(
+        "cantidad-pasajeros"
+    ).textContent =
+        `${resumenVuelo.pasajeros} ${
+            resumenVuelo.pasajeros === 1
+                ? "Pasajero"
+                : "Pasajeros"
+        }`;
+
+    document.getElementById(
+        "subtotal-confirmacion"
+    ).textContent =
+        `USD ${resumenVuelo.tarifa}`;
+
+    document.getElementById(
+        "tarifa-confirmacion"
+    ).textContent =
+        `USD ${resumenVuelo.tarifa}`;
+
+    document.getElementById(
+        "impuestos-confirmacion"
+    ).textContent =
+        `USD ${resumenVuelo.impuestos}`;
+
+    document.getElementById(
+        "total-confirmacion"
+    ).textContent =
+        `Total USD ${resumenVuelo.total}`;
+}

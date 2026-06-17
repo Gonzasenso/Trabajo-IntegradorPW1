@@ -43,7 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const impuestosBasePersona = 90; 
     const impuestosTotalesCalculados = impuestosBasePersona * cantidadMaxPasajeros;
     
-    const granTotalCalculado = tarifaTotalCalculada + impuestosTotalesCalculados;
+    const granTotalCalculado = tarifaTotalCalculada + impuestosTotalesCalculados
+   localStorage.setItem(
+    "resumenVuelo",
+    JSON.stringify({
+        tarifa: tarifaTotalCalculada,
+        impuestos: impuestosTotalesCalculados,
+        total: granTotalCalculado,
+        pasajeros: cantidadMaxPasajeros
+    })
+);
+
+console.log("RESUMEN GUARDADO");
+console.log(localStorage.getItem("resumenVuelo"));
 
     // Seleccionamos las filas del contenedor .precio-card
     const filasPrecio = document.querySelectorAll('.precio-card .fila-precio');
@@ -68,6 +80,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // SELECCIÓN DE MÚLTIPLES ASIENTOS
     const asientos = document.querySelectorAll('.asiento');
+    const letras = ["A", "B", "C", "D", "E", "F"];
+
+document.querySelectorAll(".fila").forEach((fila) => {
+
+    const numeroFila =
+        fila.querySelector(".numero-fila")?.textContent.trim();
+
+    const asientosFila =
+        fila.querySelectorAll(".asiento");
+
+    asientosFila.forEach((asiento, indice) => {
+
+        asiento.dataset.codigo =
+            numeroFila + letras[indice];
+
+    });
+});
 
     asientos.forEach((asiento) => {
         asiento.addEventListener('click', () => {
@@ -90,18 +119,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // VALIDACIÓN ANTES DE CONTINUAR
-    const botonContinuar = document.querySelector('.botonContinuar');
+    
+const botonContinuar =
+    document.querySelector('.botonContinuar');
 
-    if (botonContinuar) {
-        botonContinuar.addEventListener('click', (e) => {
-            const asientosSeleccionadosFinal = document.querySelectorAll('.asiento.seleccionado').length;
+// ACA SE GUARDAN LOS ASIENTOS
+if (botonContinuar) {
+    botonContinuar.addEventListener('click', () => {
 
-            if (asientosSeleccionadosFinal < cantidadMaxPasajeros) {
-                e.preventDefault(); 
-                const faltantes = cantidadMaxPasajeros - asientosSeleccionadosFinal;
-                alert(`Debes seleccionar los asientos para todos los pasajeros. Te falta elegir ${faltantes} ${faltantes === 1 ? 'asiento' : 'asientos'}.`);
-            }
-        });
-    }
+        const asientosSeleccionados =
+            [...document.querySelectorAll('.asiento.seleccionado')]
+            .map(a => a.dataset.codigo);
+            
+
+        console.log(asientosSeleccionados);
+
+        sessionStorage.setItem(
+            "asientosSeleccionados",
+            JSON.stringify(asientosSeleccionados)
+        )
+    })
+}
 });

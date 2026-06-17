@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <script src="../../../../../footer.js" defer></script>
     <title>Checkout Pagos</title>
 </head>
- 
+
 <body>
     <header>
         <nav>
@@ -21,30 +21,31 @@
             <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
- 
+
     <main>
- 
+
         <h2>Checkout</h2>
- 
+
         <a class="detalle-de-vuelo" href="pasajeros.html">Volver a pasajeros</a>
- 
+
         <ol class="container-lista">
             <li>Pasajeros</li>
             <li class="activo">Pago</li>
             <li>Confirmacion</li>
         </ol>
- 
+
         <section class="container-pago">
             <h3>3. Pago</h3>
             <h4>Seleccione tu metodo de pago</h4>
- 
+
             <details class="acordeon-credito" open>
                 <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con tarjeta de credito</summary>
                 <div class="acordeon-contenido">
                     <form class="container-tarjeta" action="confirmacion.html" method="get">
                         <div class="campo-tarjeta">
                             <label>Numero de Tarjeta</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="1234 5678 9012 3456" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
+                                placeholder="1234 5678 9012 3456" required>
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
@@ -52,7 +53,8 @@
                         </div>
                         <div class="campo-codigo">
                             <label>Codigo de seguridad</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="123" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="123"
+                                required>
                         </div>
                         <div class="campo-nombre-completo">
                             <label>Nombre completo del titular</label>
@@ -72,14 +74,15 @@
                     </form>
                 </div>
             </details>
- 
+
             <details class="acordeon-debito">
                 <summary class="acordeon"><i class="fa-solid fa-caret-up"></i> Pago con tarjeta de debito</summary>
                 <div class="acordeon-contenido">
                     <form class="container-debito" action="../checkout/confirmacion.html" method="get">
                         <div class="campo-tarjeta">
                             <label>Numero de Tarjeta</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="1234 5678 9012 3456" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
+                                placeholder="1234 5678 9012 3456" required>
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
@@ -99,7 +102,7 @@
                     </form>
                 </div>
             </details>
- 
+
             <details class="acordeon-trans">
                 <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con Transferencia</summary>
                 <div class="acordeon-contenido">
@@ -115,11 +118,13 @@
                         </div>
                         <div class="campo-cbu">
                             <label>CBU/CVU</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="0000003100000006000000" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
+                                placeholder="0000003100000006000000" required>
                         </div>
                         <div class="campo-cuit">
                             <label>CUIT/CUIL</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="20-00000000-0" required>
+                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
+                                placeholder="20-00000000-0" required>
                         </div>
                         <div class="campo-titular">
                             <label>Titular de la cuenta</label>
@@ -135,22 +140,55 @@
                             </div>
                         </div>
                         <div class="container-confirmacion">
-                        <button type="submit">Confirmar pago</button>
+                            <button type="submit">Confirmar pago</button>
                         </div>
                     </form>
                 </div>
             </details>
- 
+
+            <section class="checkout-resumen">
+
+                <h4>Resumen</h4>
+
+                <div class="precio-fila">
+                    <span>Subtotal</span>
+                    <span id="subtotal-checkout">USD 0</span>
+                </div>
+
+                <div class="precio-fila">
+                    <span>Descuento</span>
+                    <span id="descuento-checkout">USD 0</span>
+                </div>
+
+                <div class="precio-fila total">
+                    <span>Total</span>
+                    <span id="total-checkout">USD 0</span>
+                </div>
+
+            </section>
+
+            <section class="codigo-descuento">
+
+                <input type="text" id="codigo-descuento" placeholder="Código de descuento">
+
+                <button type="button" id="btn-aplicar-descuento">
+                    Aplicar
+                </button>
+
+            </section>
+
             <div class="pago-texto">
                 <h4>Pago 100% seguro</h4>
             </div>
- 
+
         </section>
- 
+
+
     </main>
- 
+
     <footer id="contacto-footer" class="footer-custom"></footer>
 
- 
+
 </body>
+
 </html>

@@ -1146,6 +1146,11 @@ details[open] .acordeon i {
         gap: 0.5rem;
     }
 
+    .container-lista li:not(:last-child)::after {
+    width: 3rem;
+    margin: 0 0.5rem;
+}
+
     .container-lista li {
         font-size: 1.1rem; 
         flex-direction: column; 
@@ -1196,5 +1201,183 @@ details[open] .acordeon i {
     .vuelo-origen p, 
     .vuelo-destino p {
         font-size: 1.2rem;
+    }
+}
+
+.codigo-descuento {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.codigo-descuento input {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #d0d7e2;
+    border-radius: 8px;
+    font-size: 1.4rem;
+}
+
+#btn-aplicar-descuento {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-aplicar-descuento:hover {
+    background-color: #1d4ed8;
+}
+
+#btn-aplicar-descuento:active {
+    transform: scale(0.98);
+}
+
+.checkout-resumen h4 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-resumen .precio-fila {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+.checkout-resumen .precio-fila span {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.checkout-resumen .total span {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+
+    .container-pago{
+        width: 95%;
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+
+    .acordeon-credito form,
+    .acordeon-debito form,
+    .acordeon-trans form {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-tarjeta,
+    .campo-nombre-completo,
+    .campo-cuotas,
+    .campo-comprobante {
+        grid-column: span 1;
+    }
+
+    .acordeon-contenido {
+        padding: 1.5rem;
+    }
+
+    .codigo-descuento{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #btn-aplicar-descuento{
+        width: 100%;
+    }
+
+    .container-confirmacion button{
+        width: 100%;
+    }
+
+    .precio-fila{
+        font-size: 1.6rem;
+    }
+
+    .total{
+        font-size: 2rem;
+    }
+
+    .acordeon-credito form,
+.acordeon-debito form,
+.acordeon-trans form {
+    grid-template-columns: 1fr;
+}
+
+.campo-tarjeta,
+.campo-nombre-completo,
+.campo-cuotas,
+.campo-comprobante {
+    grid-column: span 1;
+}
+
+.acordeon-contenido {
+    padding: 1.5rem;
+}
+
+.codigo-descuento {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#btn-aplicar-descuento {
+    width: 100%;
+}
+
+.container-confirmacion button {
+    width: 100%;
+}
+}
+
+@media screen and (max-width: 768px) {
+
+    .acordeon-credito form,
+    .acordeon-debito form,
+    .acordeon-trans form {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-tarjeta,
+    .campo-nombre-completo,
+    .campo-cuotas,
+    .campo-comprobante {
+        grid-column: span 1;
+    }
+
+    .acordeon-contenido {
+        padding: 1.5rem;
+    }
+
+    .container-pago {
+        padding: 1.5rem;
+    }
+
+    .container-confirmacion button,
+    .botton-continuar button,
+    .botton-cancelar button {
+        width: 100%;
+    }
+
+    .codigo-descuento {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #btn-aplicar-descuento {
+        width: 100%;
+    }
+
+    .container-lista li:not(:last-child)::after {
+        width: 3rem;
+        margin: 0 0.5rem;
     }
 }

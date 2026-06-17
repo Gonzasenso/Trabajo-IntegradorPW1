@@ -1,3 +1,10 @@
+const datosBusqueda = JSON.parse(
+    sessionStorage.getItem("ultimaBusqueda")
+);
+
+const cantidadPasajerosBuscada =
+    parseInt(datosBusqueda?.pasajeros || 1);
+
 // ─── Constantes ───────────────────────────────────────────────────────────────
 const MAX_PASAJEROS = 4;
 
@@ -78,7 +85,7 @@ function crearBloquePasajero(numero) {
 
 // ─── Agregar pasajero ─────────────────────────────────────────────────────────
 function agregarPasajero() {
-  if (totalPasajeros >= MAX_PASAJEROS) return;
+  if (totalPasajeros >= cantidadPasajerosBuscada) return;
 
   totalPasajeros++;
   const bloque = crearBloquePasajero(totalPasajeros);
@@ -121,12 +128,13 @@ function renumerarPasajeros() {
 
 // ─── Mostrar u ocultar el botón "Agregar" ────────────────────────────────────
 function actualizarBotonAgregar() {
-  if (totalPasajeros >= MAX_PASAJEROS) {
+  if (totalPasajeros >= cantidadPasajerosBuscada) {
     btnAgregarContainer.style.display = "none";
   } else {
     btnAgregarContainer.style.display = "block";
   }
 }
+  
 
 // ─── Validación ───────────────────────────────────────────────────────────────
 function marcarError(campo, mensaje) {
@@ -228,8 +236,15 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  guardarEnSession();
-  window.location.href = form.getAttribute("action");
+if (totalPasajeros !== cantidadPasajerosBuscada) {
+    alert(
+        `Debés completar los datos de los ${cantidadPasajerosBuscada} pasajeros seleccionados para el viaje.`
+    );
+    return;
+}
+
+guardarEnSession();
+window.location.href = form.getAttribute("action");
 });
 
 // ─── Evento del botón agregar ─────────────────────────────────────────────────
