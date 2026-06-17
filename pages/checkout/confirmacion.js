@@ -1,3 +1,13 @@
+const vueloSeleccionado =
+    JSON.parse(
+        sessionStorage.getItem(
+            "vueloSeleccionado"
+        )
+    ) || {};
+
+    console.log(vueloSeleccionado);
+
+
 // ─── Leer sessionStorage ──────────────────────────────────────────────────────
 const datosPasajeros = JSON.parse(sessionStorage.getItem("datosPasajeros") || "{}");
 const metodoPago     = JSON.parse(sessionStorage.getItem("metodoPago")     || "{}");
@@ -178,6 +188,7 @@ function formatearFecha(fechaISO) {
 renderizarPasajeros();
 renderizarPago();
 renderizarResumenVuelo();
+renderizarVueloSeleccionado();
 crearModal();
 bindBotonConfirmar();
 
@@ -227,4 +238,62 @@ function renderizarResumenVuelo() {
         "total-confirmacion"
     ).textContent =
         `Total USD ${resumenVuelo.total}`;
+}
+
+function renderizarVueloSeleccionado() {
+
+    if (!vueloSeleccionado.id) return;
+
+    document.getElementById("ruta-vuelo").innerHTML =
+        `${vueloSeleccionado.origen} (${vueloSeleccionado.codigoOrigen})
+        <i class="fa-solid fa-arrow-right"></i>
+        ${vueloSeleccionado.destino} (${vueloSeleccionado.codigoDestino})`;
+
+    document.getElementById("hora-salida").textContent =
+        vueloSeleccionado.salida;
+
+    document.getElementById("hora-llegada").textContent =
+        vueloSeleccionado.llegada;
+
+    document.getElementById("codigo-origen").textContent =
+        vueloSeleccionado.codigoOrigen;
+
+    document.getElementById("codigo-destino").textContent =
+        vueloSeleccionado.codigoDestino;
+
+    document.getElementById("nombre-origen").textContent =
+        vueloSeleccionado.origen;
+
+    document.getElementById("nombre-destino").textContent =
+        vueloSeleccionado.destino;
+
+    document.getElementById("duracion-vuelo").textContent =
+        vueloSeleccionado.duracion;
+
+    document.getElementById("logo-aerolinea").src =
+        vueloSeleccionado.logo;
+
+        document.getElementById("hora-salida-vuelta").textContent =
+    vueloSeleccionado.salida;
+
+document.getElementById("hora-llegada-vuelta").textContent =
+    vueloSeleccionado.llegada;
+
+document.getElementById("codigo-origen-vuelta").textContent =
+    vueloSeleccionado.codigoDestino;
+
+document.getElementById("codigo-destino-vuelta").textContent =
+    vueloSeleccionado.codigoOrigen;
+
+document.getElementById("nombre-origen-vuelta").textContent =
+    vueloSeleccionado.destino;
+
+document.getElementById("nombre-destino-vuelta").textContent =
+    vueloSeleccionado.origen;
+
+document.getElementById("duracion-vuelta").textContent =
+    vueloSeleccionado.duracion;
+
+document.getElementById("logo-aerolinea-vuelta").src =
+    vueloSeleccionado.logo;
 }

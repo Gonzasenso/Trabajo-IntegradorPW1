@@ -36,34 +36,40 @@
 
         <section class="container-confirmacion-vuelo-ida-vuelta">
             <h3> <i class="fa-solid fa-plane-departure"></i> Resumen de tu reserva</h3>
-            <p>Buenos Aires (EZE) <i class="fa-solid fa-arrow-right"></i> Madrid(MAD) </p>
+            <p id="ruta-vuelo">
+    Buenos Aires (EZE)
+    <i class="fa-solid fa-arrow-right"></i>
+    Madrid (MAD)
+</p>
 
 
             <section class="vuelo-ida">
 
                 <div class="vuelo-ida-header">
-                    <img class="icono-aerolinea" src="../../img/Logos Aerolineas/air-europa-logo.png"
+                    <img id="logo-aerolinea"
+     class="icono-aerolinea"
+     src="../../img/Logos Aerolineas/air-europa-logo.png">
                         alt="logo aerolinea">
                     <p>Ida 12 Jun 2024</p>
                 </div>
 
                 <section class="vuelo-ruta">
                     <div class="vuelo-origen">
-                        <p class="vuelo-hora">08:30</p>
-                        <p>EZE</p>
-                        <p>Buenos Aires</p>
+                       <p id="hora-salida" class="vuelo-hora">08:30</p>
+                        <p id="codigo-origen">EZE</p>
+                        <p id="nombre-origen">Buenos Aires</p>
                     </div>
 
                     <div class="vuelo-flecha">
                         <p>Directo</p>
                         <span class="flecha-larga"></span>
-                        <p>2h 15m</p>
+                        <p id="duracion-vuelo">2h 15m</p>
                     </div>
 
                     <div class="vuelo-destino">
-                        <p class="vuelo-hora">10:45</p>
-                        <p>MAD</p>
-                        <p>Madrid</p>
+                       <p id="hora-llegada" class="vuelo-hora">10:45</p>
+                        <p id="codigo-destino">MAD</p>
+                     <p id="nombre-destino">Madrid</p>
                     </div>
                 </section>
 
@@ -71,33 +77,39 @@
 
             <section class="vuelo-vuelta">
 
-                <div class="vuelo-vuelta-header">
-                    <img class="icono-aerolinea" src="../../img/Logos Aerolineas/air-europa-logo.png"
-                        alt="logo aerolinea">
-                    <p>Vuelta 26 Jun 2024</p>
-                </div>
+    <div class="vuelo-vuelta-header">
+        <img
+            id="logo-aerolinea-vuelta"
+            class="icono-aerolinea"
+            src="../../img/Logos Aerolineas/air-europa-logo.png"
+            alt="logo aerolinea">
 
-                <section class="vuelo-ruta">
-                    <div class="vuelo-origen">
-                        <p class="vuelo-hora">16:00</p>
-                        <p>MAD</p>
-                        <p>Madrid</p>
-                    </div>
+        <p>Vuelta 26 Jun 2024</p>
+    </div>
 
-                    <div class="vuelo-flecha">
-                        <p>Directo</p>
-                        <span class="flecha-larga"></span>
-                        <p>2h 15m</p>
-                    </div>
+    <section class="vuelo-ruta">
 
-                    <div class="vuelo-destino">
-                        <p class="vuelo-hora">23:15</p>
-                        <p>EZE</p>
-                        <p>Buenos Aires</p>
-                    </div>
+        <div class="vuelo-origen">
+            <p class="vuelo-hora" id="hora-salida-vuelta">16:00</p>
+            <p id="codigo-origen-vuelta">MAD</p>
+            <p id="nombre-origen-vuelta">Madrid</p>
+        </div>
 
-                </section>
+        <div class="vuelo-flecha">
+            <p>Directo</p>
+            <span class="flecha-larga"></span>
+            <p id="duracion-vuelta">2h 15m</p>
+        </div>
 
+        <div class="vuelo-destino">
+            <p class="vuelo-hora" id="hora-llegada-vuelta">23:15</p>
+            <p id="codigo-destino-vuelta">EZE</p>
+            <p id="nombre-destino-vuelta">Buenos Aires</p>
+        </div>
+
+    </section>
+
+</section>
             </section>
 
 

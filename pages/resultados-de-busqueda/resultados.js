@@ -259,9 +259,13 @@ function renderizarVuelos(lista) {
                 <strong>USD ${precioFinal}</strong>
                 <span>${datosBusqueda.pasajeros} pasajero(s)</span>
 
-                <a href="${vuelo.detalle}">
-                    Ver detalles
-                </a>
+              <a
+    href="${vuelo.detalle}"
+    class="btn-detalle"
+    data-id="${vuelo.id}"
+>
+    Ver detalles
+</a>
             </div>
 
         </article>
@@ -328,6 +332,24 @@ function filtrarVuelos() {
 
 
     renderizarVuelos(resultado);
+
+    document.addEventListener("click", (e) => {
+
+    const boton = e.target.closest(".btn-detalle");
+
+    if (!boton) return;
+
+    const idVuelo =
+        Number(boton.dataset.id);
+
+    const vueloSeleccionado =
+        vuelos.find(v => v.id === idVuelo);
+
+    sessionStorage.setItem(
+        "vueloSeleccionado",
+        JSON.stringify(vueloSeleccionado)
+    );
+});
 
 }
 

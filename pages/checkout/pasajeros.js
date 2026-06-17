@@ -30,9 +30,15 @@ function crearBloquePasajero(numero) {
   bloque.id = `pasajero-${numero}`;
   bloque.innerHTML = `
     <div class="pasajero2-header">
-      <h4>Pasajero ${numero}</h4>
-      <button type="button" class="btn-eliminar-pasajero" data-numero="${numero}">− Eliminar pasajero</button>
-    </div>
+  <h4>Pasajero ${numero}</h4>
+  ${
+    totalPasajeros > cantidadPasajerosBuscada
+      ? `<button type="button" class="btn-eliminar-pasajero" data-numero="${numero}">
+          − Eliminar pasajero
+        </button>`
+      : ""
+  }
+</div>
     <div class="container-campos">
       <div class="campo-nombre">
         <label>Nombre</label>
@@ -47,9 +53,14 @@ function crearBloquePasajero(numero) {
         <select>${opcionesDoc}</select>
       </div>
       <div class="campo-numero-dni">
-        <label>Número de documento</label>
-        <input type="text" inputmode="numeric" placeholder="1234568" required>
-      </div>
+    <label>Número de documento</label>
+    <input
+        type="text"
+        inputmode="numeric"
+        maxlength="8"
+        placeholder="12345678"
+        required>
+</div>
       <div class="campo-fn">
         <label>Fecha de nacimiento</label>
         <input type="date" required>
@@ -69,11 +80,6 @@ function crearBloquePasajero(numero) {
     </div>
   `;
 
-  // Evento eliminar
-  bloque.querySelector(".btn-eliminar-pasajero").addEventListener("click", () => {
-    eliminarPasajero(bloque);
-  });
-
   // Validación en tiempo real de los campos del nuevo bloque
   bloque.querySelectorAll("input, select").forEach(campo => {
     campo.addEventListener("blur",  () => validarCampo(campo));
@@ -82,6 +88,15 @@ function crearBloquePasajero(numero) {
 
   return bloque;
 }
+
+// Limita a 9 digitos el numero de DNI
+document.querySelectorAll(".campo-numero-dni input").forEach(input => {
+    input.addEventListener("input", () => {
+        input.value = input.value
+            .replace(/\D/g, "") // solo números
+            .slice(0, 8);       // máximo 9 dígitos
+    });
+});
 
 // ─── Agregar pasajero ─────────────────────────────────────────────────────────
 function agregarPasajero() {
@@ -105,6 +120,10 @@ function agregarPasajero() {
 // ─── Eliminar pasajero ────────────────────────────────────────────────────────
 function eliminarPasajero(bloque) {
   // Eliminar también el <hr> que precede al bloque
+
+  if (cantidadActualPasajeros > cantidadMaxPasajeros) {
+    // mostrar botón eliminar
+}
   const hr = bloque.previousElementSibling;
   if (hr && hr.classList.contains("divisor-pasajero")) hr.remove();
 
