@@ -1,7 +1,7 @@
-// CONFIGURACIÓN 
+//CONFIGURACIÓN
 
 /**
- * Obtiene los datos de la búsqueda global (pasajeros, clase, etc.) desde sessionStorage.
+ * Obtiene los datos de la búsqueda global desde sessionStorage.
  */
 const getDatosBusqueda = () => {
     const busqueda = sessionStorage.getItem('ultimaBusqueda');
@@ -11,39 +11,58 @@ const getDatosBusqueda = () => {
 document.addEventListener('DOMContentLoaded', () => {
     const datosBusqueda = getDatosBusqueda();
     
-    // Obtenemos cuántos pasajeros seleccionó el usuario (por defecto 1)
+    // Cantidad real de pasajeros (por defecto 1)
     const cantidadMaxPasajeros = datosBusqueda ? parseInt(datosBusqueda.pasajeros, 10) : 1;
 
     // CÁLCULO DE PRECIOS 
+    
+    // Identificamos las páginas por su nombre de archivo para saber qué precio base usar
+    const paginaActual = window.location.pathname;
+    let precioBaseVuelo = 900; // Por defecto Madrid 1 (Air Europa)
 
-    // Seleccionamos las filas de precio reales de tu nueva tarjeta estructural
+    if (paginaActual.includes('detalle-de-vuelo-madrid3.html')) {
+        precioBaseVuelo = 1000; // Iberia
+    } else if (paginaActual.includes('detalle-de-vuelo-madrid2.html')) {
+        precioBaseVuelo = 700;  // LATAM
+    }
+
+    // Aplicamos la formula parecida a resultados.js
+    let precioTarifaIndividual = precioBaseVuelo;
+
+    // Multiplicador por Clase
+    if (datosBusqueda && datosBusqueda.clase === "business") {
+        precioTarifaIndividual *= 1.5;
+    } else if (datosBusqueda && datosBusqueda.clase === "first") {
+        precioTarifaIndividual *= 2;
+    }
+
+    // Calculamos los totales finales multiplicando por los pasajeros reales
+    const tarifaTotalCalculada = Math.round(precioTarifaIndividual * cantidadMaxPasajeros);
+    
+    // Supongamos un valor fijo de impuestos base por persona
+    const impuestosBasePersona = 90; 
+    const impuestosTotalesCalculados = impuestosBasePersona * cantidadMaxPasajeros;
+    
+    const granTotalCalculado = tarifaTotalCalculada + impuestosTotalesCalculados;
+
+    // Seleccionamos las filas del contenedor .precio-card
     const filasPrecio = document.querySelectorAll('.precio-card .fila-precio');
     const contenedorTotal = document.querySelector('.precio-card .total span:last-child');
 
     if (filasPrecio.length >= 3) {
-        // 1. Fila de indicador de pasajeros: "1 pasajero" -> "X pasajeros"
-        const labelPasajeros = filasPrecio[0].querySelector('span:first-child');
-        const valorPasajerosBase = filasPrecio[0].querySelector('span:last-child');
-        if (labelPasajeros) {
-            labelPasajeros.textContent = `${cantidadMaxPasajeros} ${cantidadMaxPasajeros === 1 ? 'pasajero' : 'pasajeros'}`;
-        }
+        // Fila 1: Cantidad de pasajeros e indicador
+        filasPrecio[0].querySelector('span:first-child').textContent = `${cantidadMaxPasajeros} ${cantidadMaxPasajeros === 1 ? 'pasajero' : 'pasajeros'}`;
+        filasPrecio[0].querySelector('span:last-child').textContent = `USD ${tarifaTotalCalculada}`;
 
-        // 2. Extraer los costos unitarios base escritos en el HTML 
-        const precioTarifaBase = parseInt(valorPasajerosBase.textContent.replace(/[^0-9]/g, ''), 10) || 530;
-        const precioImpuestosBase = parseInt(filasPrecio[2].querySelector('span:last-child').textContent.replace(/[^0-9]/g, ''), 10) || 90;
+        // Fila 2: Desglose de Tarifa pura
+        filasPrecio[1].querySelector('span:last-child').textContent = `USD ${tarifaTotalCalculada}`;
 
-        // 3. Multiplicar los valores base por la cantidad real de pasajeros
-        const tarifaCalculada = precioTarifaBase * cantidadMaxPasajeros;
-        const impuestosCalculados = precioImpuestosBase * cantidadMaxPasajeros;
-        const totalCalculado = tarifaCalculada + impuestosCalculados;
-
-        // 4. Nuevos valores 
-        filasPrecio[0].querySelector('span:last-child').textContent = `USD ${tarifaCalculada}`;
-        filasPrecio[1].querySelector('span:last-child').textContent = `USD ${tarifaCalculada}`;
-        filasPrecio[2].querySelector('span:last-child').textContent = `USD ${impuestosCalculados}`;
+        // Fila 3: Impuestos dinámicos
+        filasPrecio[2].querySelector('span:last-child').textContent = `USD ${impuestosTotalesCalculados}`;
         
+        // Fila Final: TOTAL 
         if (contenedorTotal) {
-            contenedorTotal.textContent = `USD ${totalCalculado}`;
+            contenedorTotal.textContent = `USD ${granTotalCalculado}`;
         }
     }
 
@@ -52,21 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     asientos.forEach((asiento) => {
         asiento.addEventListener('click', () => {
-            // Si el asiento ya está ocupado por defecto, no hace nada
             if (asiento.classList.contains('ocupado')) {
                 return;
             }
 
-            // Si el asiento ya estaba seleccionado por este usuario, lo deselecciona
             if (asiento.classList.contains('seleccionado')) {
                 asiento.classList.remove('seleccionado');
                 return;
             }
 
-            // Contamos cuantos asientos tiene seleccionados el usuario actualmente en el mapa
             const asientosSeleccionadosActualmente = document.querySelectorAll('.asiento.seleccionado').length;
 
-            // Validamos: si aún no llego al límite, hacemos que seleccione uno nuevo
             if (asientosSeleccionadosActualmente < cantidadMaxPasajeros) {
                 asiento.classList.add('seleccionado');
             } else {
@@ -75,17 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // VALIDACIÓN ANTES DE CONTINUAR 
+    // VALIDACIÓN ANTES DE CONTINUAR
     const botonContinuar = document.querySelector('.botonContinuar');
 
     if (botonContinuar) {
         botonContinuar.addEventListener('click', (e) => {
             const asientosSeleccionadosFinal = document.querySelectorAll('.asiento.seleccionado').length;
 
-            // Si seleccionó menos asientos que la cantidad de pasajeros, bloqueamos el avance
             if (asientosSeleccionadosFinal < cantidadMaxPasajeros) {
                 e.preventDefault(); 
-                
                 const faltantes = cantidadMaxPasajeros - asientosSeleccionadosFinal;
                 alert(`Debes seleccionar los asientos para todos los pasajeros. Te falta elegir ${faltantes} ${faltantes === 1 ? 'asiento' : 'asientos'}.`);
             }
