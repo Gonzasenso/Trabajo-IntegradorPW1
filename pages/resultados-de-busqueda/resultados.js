@@ -1,43 +1,20 @@
-const datosBusqueda =
-    JSON.parse(
-        sessionStorage.getItem(
-            "ultimaBusqueda"
-        )
-    );
+const datosBusqueda = JSON.parse(sessionStorage.getItem("ultimaBusqueda"));
 
 // Mostrar Origen y Destino
-document.querySelector("#origenBusqueda")
-    .textContent =
-    datosBusqueda.origen.charAt(0).toUpperCase() +
-    datosBusqueda.origen.slice(1);
+document.querySelector("#origenBusqueda") .textContent = datosBusqueda.origen.charAt(0).toUpperCase() + datosBusqueda.origen.slice(1);
 
-document.querySelector("#destinoBusqueda")
-    .textContent =
-    datosBusqueda.destino.charAt(0).toUpperCase() +
-    datosBusqueda.destino.slice(1);
+document.querySelector("#destinoBusqueda") .textContent = datosBusqueda.destino.charAt(0).toUpperCase() + datosBusqueda.destino.slice(1);
 
 // Mostrar fechas
-document.querySelector(
-    "#fechaIdaBusqueda"
-).textContent =
-    datosBusqueda.fechaIda;
+document.querySelector("#fechaIdaBusqueda") .textContent = datosBusqueda.fechaIda;
 
-document.querySelector(
-    "#fechaVueltaBusqueda"
-).textContent =
-    datosBusqueda.fechaVuelta;
+document.querySelector("#fechaVueltaBusqueda") .textContent = datosBusqueda.fechaVuelta;
 
 // Mostrar Pasajeros
-document.querySelector(
-    "#pasajerosBusqueda"
-).textContent =
-    `${datosBusqueda.pasajeros} pasajero(s)`;
+document.querySelector("#pasajerosBusqueda") .textContent = `${datosBusqueda.pasajeros} pasajero(s)`;
 
 // Mostrar Clase
-document.querySelector("#claseBusqueda")
-    .textContent =
-    datosBusqueda.clase.charAt(0).toUpperCase() +
-    datosBusqueda.clase.slice(1);
+document.querySelector("#claseBusqueda") .textContent = datosBusqueda.clase.charAt(0).toUpperCase() + datosBusqueda.clase.slice(1);
 
 // Datos
 const vuelos = [
@@ -335,21 +312,21 @@ function filtrarVuelos() {
 
     document.addEventListener("click", (e) => {
 
-    const boton = e.target.closest(".btn-detalle");
+        const boton = e.target.closest(".btn-detalle");
 
-    if (!boton) return;
+        if (!boton) return;
 
-    const idVuelo =
-        Number(boton.dataset.id);
+        const idVuelo =
+            Number(boton.dataset.id);
 
-    const vueloSeleccionado =
-        vuelos.find(v => v.id === idVuelo);
+        const vueloSeleccionado =
+            vuelos.find(v => v.id === idVuelo);
 
-    sessionStorage.setItem(
-        "vueloSeleccionado",
-        JSON.stringify(vueloSeleccionado)
-    );
-});
+        sessionStorage.setItem(
+            "vueloSeleccionado",
+            JSON.stringify(vueloSeleccionado)
+        );
+    });
 
 }
 
@@ -402,18 +379,25 @@ const vuelosFiltrados =
 
     });
 
-const precioMasAlto =
-    Math.max(
-        ...vuelosFiltrados.map(
-            vuelo => calcularPrecio(vuelo)
-        )
-    );
+function actualizarRangoPrecio() {
 
-filtroPrecio.max = precioMasAlto;
-filtroPrecio.value = precioMasAlto;
+    const precioMasAlto =
+        Math.max(
+            ...vuelosFiltrados.map(
+                vuelo => calcularPrecio(vuelo)
+            )
+        );
 
-precioActual.textContent =
-    `USD ${precioMasAlto}`;
+    filtroPrecio.max =
+        precioMasAlto;
+
+    filtroPrecio.value =
+        precioMasAlto;
+
+    precioActual.textContent =
+        `USD ${precioMasAlto}`;
+
+}
 
 if (vuelosFiltrados.length > 0) {
 
@@ -441,6 +425,7 @@ if (vuelosFiltrados.length === 0) {
 
 } else {
 
+    actualizarRangoPrecio();
     renderizarVuelos(vuelosFiltrados);
 
 }
@@ -543,6 +528,7 @@ equipajeExtra.addEventListener(
 
         }
 
+        actualizarRangoPrecio();
         filtrarVuelos();
 
     });
