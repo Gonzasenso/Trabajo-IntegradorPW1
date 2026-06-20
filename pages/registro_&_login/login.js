@@ -1,3 +1,5 @@
+const mensajeLogin = document.getElementById("mensajeLogin");
+
 const formLogin = document.getElementById("form-login");
 
 //Verificacion de Usuario (Si esta registrado y/o es Adm)
@@ -28,7 +30,14 @@ formLogin.addEventListener("submit", function (e) {
             usuarioEncontrado.nombre
         );
     } else {
-        alert("Usuario o contraseña incorrectos. Por favor, vuelva a intentarlo.");
+        mensajeLogin.textContent =
+            "Usuario o contraseña incorrectos.";
+
+        mensajeLogin.className =
+            "mensajeLogin mensajeError";
+
+        mensajeLogin.style.display =
+            "block";
     }
 });
 
@@ -42,7 +51,19 @@ function conectarUsuario(username, nombreParaMostrar) {
     // Nombre para mostrar en pantalla
     sessionStorage.setItem("displayName", nombreParaMostrar);
 
-    alert(`¡Bienvenido/a, ${nombreParaMostrar}! Gracias por elegir Fly Lena nuevamente.`);
+    mensajeLogin.textContent =
+        `¡Bienvenido/a, ${nombreParaMostrar}!`;
 
-    window.location.href = "../../index.html";
+    mensajeLogin.className =
+        "mensajeLogin mensajeExito";
+
+    mensajeLogin.style.display =
+        "block";
+        
+    setTimeout(() => {
+
+        window.location.href =
+            "../../index.html";
+
+    }, 1500);
 }

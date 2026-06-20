@@ -61,9 +61,14 @@ function inicializarNavbar() {
 
         document.getElementById("logoutBtn")?.addEventListener("click", function (e) {
             e.preventDefault();
+
             sessionStorage.setItem("isLoggedIn", "false");
             sessionStorage.setItem("userName", "");
+
             sessionStorage.removeItem("displayName");
+            sessionStorage.removeItem("ultimaBusqueda");
+            sessionStorage.removeItem("vueloSeleccionado");
+
             window.location.href = `${prefijo}index.html`;
         });
 

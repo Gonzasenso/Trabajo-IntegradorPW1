@@ -558,6 +558,74 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Sin Sesion */
+.sinSesion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.cardSinSesion {
+    background: white;
+    padding: 4rem;
+    border-radius: 1.6rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .08);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.cardSinSesion i {
+    font-size: 5rem;
+    color: #0D1B4C;
+    margin-bottom: 2rem;
+}
+
+.cardSinSesion h2 {
+    color: #0D1B4C;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.cardSinSesion p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+}
+
+.accionesSesion {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.btnSesion,
+.btnRegistro {
+    text-decoration: none;
+    padding: 1.2rem 2.4rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    transition: .3s;
+    font-size: 1.5rem;
+}
+
+.btnSesion {
+    background: #0D1B4C;
+    color: white;
+}
+
+.btnRegistro {
+    background: #1677FF;
+    color: white;
+}
+
+.btnSesion:hover,
+.btnRegistro:hover {
+    transform: translateY(-2px);
+}
+
 /* #endregion Main */
 
 /* #region CSS del Footer */

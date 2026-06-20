@@ -1,20 +1,73 @@
+// Validar sesión
+const usuarioLogueado = sessionStorage.getItem("isLoggedIn");
+
+if (usuarioLogueado !== "true") {
+
+    document.querySelector("main").innerHTML = `
+
+        <section class="sinSesion">
+
+            <div class="cardSinSesion">
+
+                <i class="fa-solid fa-user-lock"></i>
+
+                <h2>
+                    Debes iniciar sesión
+                </h2>
+
+                <p>
+                    Para consultar vuelos y acceder
+                    a las ofertas necesitás iniciar
+                    sesión o registrarte.
+                </p>
+
+                <div class="accionesSesion">
+
+                    <a
+                        href="/pages/registro_&_login/login.html"
+                        class="btnSesion"
+                    >
+                        Iniciar sesión
+                    </a>
+
+                    <a
+                        href="/pages/registro_&_login/registro_de_cuenta.html"
+                        class="btnRegistro"
+                    >
+                        Registrarse
+                    </a>
+
+                </div>
+
+            </div>
+
+</section>
+
+        `;
+
+    throw new Error(
+        "Usuario no autenticado"
+    );
+}
+
+
 const datosBusqueda = JSON.parse(sessionStorage.getItem("ultimaBusqueda"));
 
 // Mostrar Origen y Destino
-document.querySelector("#origenBusqueda") .textContent = datosBusqueda.origen.charAt(0).toUpperCase() + datosBusqueda.origen.slice(1);
+document.querySelector("#origenBusqueda").textContent = datosBusqueda.origen.charAt(0).toUpperCase() + datosBusqueda.origen.slice(1);
 
-document.querySelector("#destinoBusqueda") .textContent = datosBusqueda.destino.charAt(0).toUpperCase() + datosBusqueda.destino.slice(1);
+document.querySelector("#destinoBusqueda").textContent = datosBusqueda.destino.charAt(0).toUpperCase() + datosBusqueda.destino.slice(1);
 
 // Mostrar fechas
-document.querySelector("#fechaIdaBusqueda") .textContent = datosBusqueda.fechaIda;
+document.querySelector("#fechaIdaBusqueda").textContent = datosBusqueda.fechaIda;
 
-document.querySelector("#fechaVueltaBusqueda") .textContent = datosBusqueda.fechaVuelta;
+document.querySelector("#fechaVueltaBusqueda").textContent = datosBusqueda.fechaVuelta;
 
 // Mostrar Pasajeros
-document.querySelector("#pasajerosBusqueda") .textContent = `${datosBusqueda.pasajeros} pasajero(s)`;
+document.querySelector("#pasajerosBusqueda").textContent = `${datosBusqueda.pasajeros} pasajero(s)`;
 
 // Mostrar Clase
-document.querySelector("#claseBusqueda") .textContent = datosBusqueda.clase.charAt(0).toUpperCase() + datosBusqueda.clase.slice(1);
+document.querySelector("#claseBusqueda").textContent = datosBusqueda.clase.charAt(0).toUpperCase() + datosBusqueda.clase.slice(1);
 
 // Datos
 const vuelos = [
@@ -122,6 +175,96 @@ const vuelos = [
         precio: 1890,
         detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
+    },
+    {
+        id: 8,
+        origen: "Buenos Aires",
+        destino: "Madrid",
+        codigoOrigen: "BUE",
+        codigoDestino: "MAD",
+        aerolinea: "LATAM",
+        tipo: "1 escala",
+        salida: "14:20",
+        llegada: "07:15",
+        duracion: "15h 55m",
+        precio: 950,
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        logo: "../../img/Logos Aerolineas/Latam-logo.png"
+    },
+    {
+        id: 9,
+        origen: "Buenos Aires",
+        destino: "Roma",
+        codigoOrigen: "BUE",
+        codigoDestino: "FCO",
+        aerolinea: "Air Europa",
+        tipo: "2 o mas escalas",
+        salida: "10:45",
+        llegada: "03:20",
+        duracion: "16h 35m",
+        precio: 820,
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        logo: "../../img/Logos Aerolineas/air-europa-logo.png"
+    },
+    {
+        id: 10,
+        origen: "Buenos Aires",
+        destino: "Cancun",
+        codigoOrigen: "BUE",
+        codigoDestino: "CUN",
+        aerolinea: "Iberia",
+        tipo: "1 escala",
+        salida: "06:30",
+        llegada: "18:15",
+        duracion: "11h 45m",
+        precio: 790,
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        logo: "../../img/Logos Aerolineas/iberia-logo.png"
+    },
+    {
+        id: 11,
+        origen: "Buenos Aires",
+        destino: "Rio de Janeiro",
+        codigoOrigen: "BUE",
+        codigoDestino: "GIG",
+        aerolinea: "Air Europa",
+        tipo: "Directo",
+        salida: "07:10",
+        llegada: "10:00",
+        duracion: "2h 50m",
+        precio: 320,
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        logo: "../../img/Logos Aerolineas/air-europa-logo.png"
+    },
+    {
+        id: 12,
+        origen: "Buenos Aires",
+        destino: "Tokio",
+        codigoOrigen: "BUE",
+        codigoDestino: "HND",
+        aerolinea: "Iberia",
+        tipo: "1 escala",
+        salida: "16:20",
+        llegada: "21:40",
+        duracion: "25h 20m",
+        precio: 1350,
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        logo: "../../img/Logos Aerolineas/iberia-logo.png"
+    },
+    {
+        id: 13,
+        origen: "Buenos Aires",
+        destino: "Maldivias",
+        codigoOrigen: "BUE",
+        codigoDestino: "MLE",
+        aerolinea: "LATAM",
+        tipo: "2 o mas escalas",
+        salida: "18:00",
+        llegada: "19:30",
+        duracion: "25h 30m",
+        precio: 2100,
+        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        logo: "../../img/Logos Aerolineas/Latam-logo.png"
     }
 ];
 
@@ -149,11 +292,11 @@ if (datosBusqueda.equipajeIncluido) {
     equipajeExtra.disabled = true;
 
     labelEquipaje.innerHTML = `
-        <input
-            type="checkbox"
-            id="equipajeExtra"
-            checked
-            disabled
+        < input
+    type = "checkbox"
+    id = "equipajeExtra"
+    checked
+    disabled
         >
         Valija 23kg incluida
     `;
@@ -245,7 +388,7 @@ function renderizarVuelos(lista) {
 </a>
             </div>
 
-        </article>
+        </article >
 
         `;
     });
@@ -296,10 +439,10 @@ function filtrarVuelos() {
     if (resultado.length === 0) {
 
         contenedor.innerHTML = `
-            <div class="sinResultados">
+        <div class="sinResultados">
                 <h3>No se encontraron vuelos</h3>
                 <p>Probá modificando los filtros.</p>
-            </div>
+            </div >
         `;
 
         contador.textContent = "0 vuelos encontrados";
@@ -336,7 +479,7 @@ filtroPrecio.addEventListener(
     () => {
 
         precioActual.textContent =
-            `USD ${filtroPrecio.value}`;
+            `USD ${filtroPrecio.value} `;
 
         filtrarVuelos();
 
@@ -395,7 +538,7 @@ function actualizarRangoPrecio() {
         precioMasAlto;
 
     precioActual.textContent =
-        `USD ${precioMasAlto}`;
+        `USD ${precioMasAlto} `;
 
 }
 
@@ -418,10 +561,10 @@ if (vuelosFiltrados.length > 0) {
 if (vuelosFiltrados.length === 0) {
 
     contenedor.innerHTML = `
-        <h2>
-            No se encontraron vuelos
-        </h2>
-    `;
+        < h2 >
+        No se encontraron vuelos
+        </h2 >
+        `;
 
 } else {
 
