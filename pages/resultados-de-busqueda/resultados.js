@@ -83,7 +83,7 @@ const vuelos = [
         llegada: "19:45",
         duracion: "11h 15m",
         precio: 900,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/air-europa-logo.png"
     },
     {
@@ -98,7 +98,7 @@ const vuelos = [
         llegada: "23:45",
         duracion: "13h 15m",
         precio: 1000,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     },
     {
@@ -113,7 +113,7 @@ const vuelos = [
         llegada: "04:15",
         duracion: "11h 15m",
         precio: 700,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
@@ -128,7 +128,7 @@ const vuelos = [
         llegada: "12:10",
         duracion: "2h 40m",
         precio: 280,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
@@ -143,7 +143,7 @@ const vuelos = [
         llegada: "05:50",
         duracion: "14h 30m",
         precio: 740,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     },
     {
@@ -158,7 +158,7 @@ const vuelos = [
         llegada: "14:30",
         duracion: "28h 30m",
         precio: 1200,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
@@ -173,7 +173,7 @@ const vuelos = [
         llegada: "23:50",
         duracion: "22h 35m",
         precio: 1890,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     },
     {
@@ -188,7 +188,7 @@ const vuelos = [
         llegada: "07:15",
         duracion: "15h 55m",
         precio: 950,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     },
     {
@@ -203,7 +203,7 @@ const vuelos = [
         llegada: "03:20",
         duracion: "16h 35m",
         precio: 820,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/air-europa-logo.png"
     },
     {
@@ -218,7 +218,7 @@ const vuelos = [
         llegada: "18:15",
         duracion: "11h 45m",
         precio: 790,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     },
     {
@@ -233,7 +233,7 @@ const vuelos = [
         llegada: "10:00",
         duracion: "2h 50m",
         precio: 320,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/air-europa-logo.png"
     },
     {
@@ -248,7 +248,7 @@ const vuelos = [
         llegada: "21:40",
         duracion: "25h 20m",
         precio: 1350,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/iberia-logo.png"
     },
     {
@@ -263,7 +263,7 @@ const vuelos = [
         llegada: "19:30",
         duracion: "25h 30m",
         precio: 2100,
-        detalle: "../detalle-de-vuelo/detalle-de-vuelo-madrid1.html",
+        detalle: "../detalle-de-vuelo/detalles.html",
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     }
 ];

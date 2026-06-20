@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Detalles del Vuelo - Fly Lena</title>
+    <link rel='stylesheet' href='styles.css'>
+    <link rel="stylesheet" href="../../estilos_index_home.css">
+
+    <script src="../../navbar.js" defer></script>
+    <script src="../../footer.js" defer></script>
+    <script src="detalles.js" defer></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+            <ul id="nav-links"></ul>
+            <div class="user-nav-container" id="user-container"></div>
+        </nav>
+    </header>
+
+    <main>
+        <a href="../resultados-de-busqueda/filtro-1.html"><i class="fa-solid fa-arrow-left"></i> Volver a Resultados</a>
+        <h1>Detalles de Vuelo</h1>
+
+        <div class="contenedor">
+            <!-- PANEL IZQUIERDO: Contenedores donde JS pondra la info -->
+            <div class="panel-izquierdo" id="panel-vuelos-info">
+                <!-- Se realizara el tramo de ida y, opcionalmente, el de vuelta -->
+            </div>
+
+            <!-- PANEL DERECHO: Contenedor dinámico para los mapas de asientos -->
+            <div class="panel-derecho">
+                <h2>Seleccioná tu asiento</h2>
+                
+                <div class="leyenda">
+                    <div class="leyenda-item">
+                        <span class="cuadrado-disponible"></span>
+                        <span>Disponible</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <span class="cuadrado-ocupado"></span>
+                        <span>Ocupado</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <span class="cuadrado-seleccionado"></span>
+                        <span>Seleccionado</span>
+                    </div>
+                </div>
+
+                <!-- Los mapas se pondran según el tipo de viaje -->
+                <div id="contenedor-mapas-asientos"></div>
+
+                <button class="botonContinuar" id="btn-continuar" disabled>Continuar</button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contacto-footer" class="footer-custom"></footer>
+</body>
+</html>
