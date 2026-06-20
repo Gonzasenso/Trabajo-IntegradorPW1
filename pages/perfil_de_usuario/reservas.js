@@ -123,6 +123,10 @@ function buscarVueloCatalogo(origen, destino) {
  * Devuelve null si no hay datos en sesión.
  */
 function construirReservaDesdeSesion() {
+    // Si el usuario no llegó a confirmar, no se guarda nada
+    const confirmada = sessionStorage.getItem("reservaConfirmada");
+    if (confirmada !== "true") return null;
+
     const raw = sessionStorage.getItem("ultimaBusqueda");
     if (!raw) return null;
 
@@ -131,7 +135,6 @@ function construirReservaDesdeSesion() {
         const vuelo = buscarVueloCatalogo(datos.origen, datos.destino);
 
         return {
-            // ID único basado en origen+destino+fechaIda para evitar duplicados
             id:            `${datos.origen}-${datos.destino}-${datos.fechaIda}`.toLowerCase().replace(/\s/g, ""),
             origen:        capitalizar(datos.origen),
             destino:       capitalizar(datos.destino),
@@ -183,10 +186,11 @@ function obtenerReservas() {
     if (nuevaReserva) {
         const yaExiste = historial.some(r => r.id === nuevaReserva.id);
         if (!yaExiste) {
-            // La más reciente va primero
             historial.unshift(nuevaReserva);
             guardarHistorial(historial);
         }
+        // Ya se usó la confirmación, se limpia para evitar guardados accidentales futuros
+        sessionStorage.removeItem("reservaConfirmada");
     }
 
     return historial;

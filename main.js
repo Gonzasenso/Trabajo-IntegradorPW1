@@ -135,3 +135,8 @@ formBuscador.addEventListener("submit", function (e) {
     sessionStorage.setItem("ultimaBusqueda", JSON.stringify(busquedaUsuario));
     window.location.href = "./pages/resultados-de-busqueda/filtro-1.html";
 });
+
+// Cada vez que se inicia una búsqueda nueva, se invalida cualquier confirmación previa
+sessionStorage.setItem("ultimaBusqueda", JSON.stringify(busquedaUsuario));
+sessionStorage.removeItem("reservaConfirmada");
+window.location.href = "./pages/resultados-de-busqueda/filtro-1.html";

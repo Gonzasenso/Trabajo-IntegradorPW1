@@ -297,3 +297,18 @@ document.getElementById("duracion-vuelta").textContent =
 document.getElementById("logo-aerolinea-vuelta").src =
     vueloSeleccionado.logo;
 }
+
+
+function confirmarYRedirigir() {
+  // Solo acá se marca que la reserva fue efectivamente confirmada
+  sessionStorage.setItem("reservaConfirmada", "true");
+
+  // Limpiar sessionStorage al finalizar el checkout
+  sessionStorage.removeItem("datosPasajeros");
+  sessionStorage.removeItem("metodoPago");
+
+  const btnConfirmar = document.querySelector(".confirmar-vuelo a");
+  if (btnConfirmar) {
+    window.location.href = btnConfirmar.getAttribute("href");
+  }
+}
