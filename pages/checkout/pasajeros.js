@@ -256,11 +256,32 @@ form.addEventListener("submit", (e) => {
   }
 
 if (totalPasajeros !== cantidadPasajerosBuscada) {
-    alert(
-        `Debés completar los datos de los ${cantidadPasajerosBuscada} pasajeros seleccionados para el viaje.`
-    );
+
+    const faltantes = [];
+
+    for (let i = totalPasajeros + 1; i <= cantidadPasajerosBuscada; i++) {
+        faltantes.push(i);
+    }
+
+    let mensaje = "";
+
+    if (faltantes.length === 1) {
+        mensaje =
+            `Para continuar, debés completar los datos del pasajero ${faltantes[0]}.`;
+    } else {
+        mensaje =
+            `Para continuar, debés completar los datos de los pasajeros ${faltantes.join(", ")}.`;
+    }
+
+    document.getElementById("mensaje-pasajeros").textContent = mensaje;
+
     return;
 }
+
+document.getElementById("mensaje-pasajeros").textContent = "";
+
+guardarEnSession();
+window.location.href = form.getAttribute("action");
 
 guardarEnSession();
 window.location.href = form.getAttribute("action");
@@ -268,3 +289,36 @@ window.location.href = form.getAttribute("action");
 
 // ─── Evento del botón agregar ─────────────────────────────────────────────────
 btnAgregar.addEventListener("click", agregarPasajero);
+
+
+function cargarDatosGuardados() {
+  const datosGuardados = JSON.parse(sessionStorage.getItem("datosPasajeros"));
+
+  if (!datosGuardados) return;
+
+  for (let i = 2; i <= datosGuardados.total; i++) {
+    agregarPasajero();
+  }
+
+  Object.keys(datosGuardados).forEach(clave => {
+    if (clave.startsWith("pasajero")) {
+      const numero = clave.replace("pasajero", "");
+      const bloque = document.getElementById(`pasajero-${numero}`);
+      const datos = datosGuardados[clave];
+
+      if (bloque && datos) {
+        bloque.querySelector(".campo-nombre input").value = datos.nombre;
+        bloque.querySelector(".campo-apellido input").value = datos.apellido;
+        bloque.querySelector(".campo-tipo-documento select").value = datos.tipoDocumento;
+        bloque.querySelector(".campo-numero-dni input").value = datos.numeroDocumento;
+        bloque.querySelector(".campo-fn input").value = datos.fechaNacimiento;
+        bloque.querySelector(".campo select").value = datos.nacionalidad;
+        bloque.querySelector(".campo-email input").value = datos.email;
+        bloque.querySelector(".campo-tel input").value = datos.telefono;
+      }
+    }
+  });
+}
+
+btnAgregar.addEventListener("click", agregarPasajero);
+cargarDatosGuardados();

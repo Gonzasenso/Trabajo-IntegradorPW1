@@ -675,7 +675,7 @@ details[open] .acordeon i {
 .condiciones {
     width: 100%;
     max-width: 86rem;
-    margin: 0 auto 2rem;
+    margin: 3rem 0 auto 15rem;
     padding: 2rem;
     background-color: #eff6ff;
     border: 0.1rem solid #bfdbfe;
@@ -801,6 +801,14 @@ details[open] .acordeon i {
 
 .legal-links a:hover {
     color: white;
+}
+
+.mensaje-validacion {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #dc2626;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 /* #endregion CSS del Footer */
@@ -1335,6 +1343,7 @@ details[open] .acordeon i {
 .container-confirmacion button {
     width: 100%;
 }
+
 }
 
 @media screen and (max-width: 768px) {
