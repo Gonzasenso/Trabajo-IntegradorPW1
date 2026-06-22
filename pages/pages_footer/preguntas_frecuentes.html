@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes - Fly Lena</title>
-    <link href="../../estilos_index_home.css" rel="stylesheet">
-    <link rel="stylesheet" href="./estilos_FAQ.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
+    <link href="../../estilos_navbar_&_footer.css" rel="stylesheet">
+    <link href="./estilos_FAQ.css" rel="stylesheet">
     <script src="../../navbar.js" defer></script>
     <script src="../../footer.js" defer></script>
 </head>
-
 <body>
-    <header class="encabezado-principal">
-        <nav class="navegacion-barra">
-            <div class="logo">
-                <a href="../../index.html">
-                    <img src="../../img/fly_lena_logo_chico.png" alt="Fly Lena">
-                </a>
-            </div>
-
+ 
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a class="logo" href="../../index.html">
+                <img src="../../img/fly_lena_logo_chico.png" alt="Fly Lena">
+            </a>
             <ul id="nav-links"></ul>
-
-            <div id="user-container"></div>
+            <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
-    <main class="contenedor-faq">
-        <h1 id="inicio">Centro de Ayuda</h1>
-
+ 
+    <main class="contenedor-faq" id="inicio">
+        <h1>Centro de Ayuda</h1>
+ 
         <section class="indice-preguntas">
             <h2>Preguntas frecuentes</h2>
             <ul>
@@ -50,121 +49,105 @@
                 <li><a href="#p15">15. ¿Cómo contacto con el servicio de atención al cliente?</a></li>
             </ul>
         </section>
-
+ 
         <hr class="separador">
-
+ 
         <section class="contenido-respuestas">
-
+ 
             <article id="p1" class="bloque-pregunta">
                 <h3>1. ¿Cuál es la política de equipaje de mano?</h3>
-                <p>Se permite una pieza de hasta 8kg que no supere los 55x35x25 cm, además de un objeto personal pequeño
-                    (mochila o cartera) que debe ubicarse debajo del asiento delantero.</p>
+                <p>Se permite una pieza de hasta 8kg que no supere los 55x35x25 cm, además de un objeto personal pequeño (mochila o cartera) que debe ubicarse debajo del asiento delantero.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p2" class="bloque-pregunta">
                 <h3>2. ¿Cómo realizo un cambio de fecha en mi pasaje?</h3>
-                <p>Podés gestionarlo en "Mis Viajes" con tu código de reserva. Los cambios están sujetos a las
-                    condiciones de la tarifa adquirida y pueden implicar costos adicionales por diferencia tarifaria.
-                </p>
+                <p>Podés gestionarlo en "Mis Viajes" con tu código de reserva. Los cambios están sujetos a las condiciones de la tarifa adquirida y pueden implicar costos adicionales por diferencia tarifaria.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p3" class="bloque-pregunta">
                 <h3>3. ¿Cuándo y cómo puedo hacer el check-in online?</h3>
-                <p>El check-in se habilita 48 horas antes de la salida y cierra 3 horas antes. Solo necesitás tu
-                    documento de identidad y el código de reserva (PNR).</p>
+                <p>El check-in se habilita 48 horas antes de la salida y cierra 3 horas antes. Solo necesitás tu documento de identidad y el código de reserva (PNR).</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p4" class="bloque-pregunta">
                 <h3>4. ¿Cómo solicito un reembolso por cancelación?</h3>
-                <p>Si tu tarifa es reembolsable, podés solicitarlo vía web. Si el vuelo fue cancelado por la aerolínea,
-                    tenés derecho a reprogramación o devolución total sin penalidad.</p>
+                <p>Si tu tarifa es reembolsable, podés solicitarlo vía web. Si el vuelo fue cancelado por la aerolínea, tenés derecho a reprogramación o devolución total sin penalidad.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p5" class="bloque-pregunta">
                 <h3>5. ¿Qué documentos necesito para vuelos internacionales?</h3>
-                <p>Pasaporte vigente con al menos 6 meses de validez. Dependiendo del destino, también podrías necesitar
-                    visa, seguro de viaje o certificados de vacunación específicos.</p>
+                <p>Pasaporte vigente con al menos 6 meses de validez. Dependiendo del destino, también podrías necesitar visa, seguro de viaje o certificados de vacunación específicos.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p6" class="bloque-pregunta">
                 <h3>6. ¿Puedo viajar con mi mascota en la cabina?</h3>
-                <p>Sí, permitimos perros y gatos pequeños (hasta 7kg con canil incluido). El servicio debe reservarse
-                    con 48hs de antelación debido a que tenemos cupos limitados por vuelo.</p>
+                <p>Sí, permitimos perros y gatos pequeños (hasta 7kg con canil incluido). El servicio debe reservarse con 48hs de antelación debido a que tenemos cupos limitados por vuelo.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p7" class="bloque-pregunta">
                 <h3>7. ¿Cómo selecciono mi asiento con anticipación?</h3>
-                <p>Podés elegir tu ubicación durante la compra o posteriormente en la gestión de reserva. Los asientos
-                    en salidas de emergencia o con más espacio tienen un costo extra.</p>
+                <p>Podés elegir tu ubicación durante la compra o posteriormente en la gestión de reserva. Los asientos en salidas de emergencia o con más espacio tienen un costo extra.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p8" class="bloque-pregunta">
                 <h3>8. ¿Qué sucede si mi vuelo se retrasa o cancela?</h3>
-                <p>En caso de demoras mayores a 4 horas, brindamos asistencia (vouchers de comida). Si la demora es
-                    mayor o hay cancelación, ofrecemos alojamiento y transporte si corresponde.</p>
+                <p>En caso de demoras mayores a 4 horas, brindamos asistencia (vouchers de comida). Si la demora es mayor o hay cancelación, ofrecemos alojamiento y transporte si corresponde.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p9" class="bloque-pregunta">
                 <h3>9. ¿Ofrecen servicios especiales para personas con movilidad reducida?</h3>
-                <p>Sí, contamos con asistencia gratuita para el embarque y desembarque. Por favor, infórmanos al menos
-                    24 horas antes para coordinar el personal y la silla de ruedas.</p>
+                <p>Sí, contamos con asistencia gratuita para el embarque y desembarque. Por favor, infórmanos al menos 24 horas antes para coordinar el personal y la silla de ruedas.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p10" class="bloque-pregunta">
                 <h3>10. ¿Pueden viajar menores de edad solos (sin acompañante)?</h3>
-                <p>Ofrecemos el servicio de "Menor No Acompañado" para niños de 5 a 12 años. Un agente de la compañía
-                    los supervisará desde el check-in hasta la entrega a un adulto responsable.</p>
+                <p>Ofrecemos el servicio de "Menor No Acompañado" para niños de 5 a 12 años. Un agente de la compañía los supervisará desde el check-in hasta la entrega a un adulto responsable.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p11" class="bloque-pregunta">
                 <h3>11. ¿Cuáles son los métodos de pago aceptados?</h3>
-                <p>Aceptamos tarjetas de crédito y débito Visa, Mastercard y American Express. También habilitamos pagos
-                    mediante transferencias bancarias y billeteras virtuales seleccionadas.</p>
+                <p>Aceptamos tarjetas de crédito y débito Visa, Mastercard y American Express. También habilitamos pagos mediante transferencias bancarias y billeteras virtuales seleccionadas.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p12" class="bloque-pregunta">
                 <h3>12. ¿Cómo obtengo mi factura de compra?</h3>
-                <p>La factura se envía automáticamente al correo electrónico registrado tras confirmarse el pago.
-                    También podés descargarla en la sección de facturación con tu número de ticket.</p>
+                <p>La factura se envía automáticamente al correo electrónico registrado tras confirmarse el pago. También podés descargarla en la sección de facturación con tu número de ticket.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p13" class="bloque-pregunta">
                 <h3>13. ¿Qué artículos están prohibidos en el equipaje de bodega?</h3>
-                <p>No se permiten materiales inflamables, gases comprimidos, baterías de litio sueltas ni objetos
-                    explosivos. Consultá la lista completa en nuestra sección de seguridad.</p>
+                <p>No se permiten materiales inflamables, gases comprimidos, baterías de litio sueltas ni objetos explosivos. Consultá la lista completa en nuestra sección de seguridad.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p14" class="bloque-pregunta">
                 <h3>14. ¿Cómo canjeo mis puntos de viajero frecuente?</h3>
-                <p>Ingresá a tu cuenta "Fly Lena Rewards" al momento de buscar vuelos. Podrás seleccionar la opción de
-                    pago con puntos o una combinación de puntos + dinero.</p>
+                <p>Ingresá a tu cuenta "Fly Lena Rewards" al momento de buscar vuelos. Podrás seleccionar la opción de pago con puntos o una combinación de puntos + dinero.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
             <article id="p15" class="bloque-pregunta">
                 <h3>15. ¿Cómo contacto con el servicio de atención al cliente?</h3>
-                <p>Podés llamarnos al 0800-FLY-LENA o escribirnos por WhatsApp. Atendemos consultas generales de lunes a
-                    viernes de 9 a 20 hs, y emergencias las 24 hs.</p>
+                <p>Podés llamarnos al 0800-FLY-LENA o escribirnos por WhatsApp. Atendemos consultas generales de lunes a viernes de 9 a 20 hs, y emergencias las 24 hs.</p>
                 <div class="form-actions"><a href="#inicio" class="btn-volver">Volver al índice ↑</a></div>
             </article>
-
+ 
         </section>
     </main>
-
+ 
     <footer id="contacto-footer" class="footer-custom"></footer>
+ 
 </body>
-
 </html>

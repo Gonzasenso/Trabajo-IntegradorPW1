@@ -4,151 +4,49 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-
-html {
-    font-size: 62.5%;
-}
-
-/* #region CSS del Header */
-header {
-    width: 100%;
-    background-color: #0c1735;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 4rem;
-    align-items: center;
-    height: 8rem;
-    width: 100%;
-    margin: 0 auto;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8rem;
-}
-
-header nav ul li {
-    list-style: none;
-}
-
-header nav ul li a {
-    position: relative;
-    font-size: 2rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-header nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.6rem;
-    width: 100%;
-    height: 0.2rem;
-    background-color: #FFFFFF;
-    transform: scale(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-header nav ul li a:hover::after {
-    transform: scaleX(1);
-}
-
-header nav .iconoPerfil {
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    gap: 1.5rem;
-}
-
-header nav .iconoPerfil .nombre {
-    text-decoration: none;
-    font-size: 2rem;
-}
-
-header nav .logo img {
-    width: 15rem;
-}
-
-header nav .iconoPerfil img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-}
-
-/* #endregion CSS del Header */
-
-h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #0F172A;
-    margin-bottom: 2rem;
-}
-
-h2 {
-    font-size: 2.8rem;
-    font-weight: 700;
-}
-
-h3 {
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-p {
-    font-size: 1.6rem;
-    color: #64748B;
-}
-
-/* Texto secundario */
-
-
+ 
+html { font-size: 62.5%; }
+h1 { font-size: 4rem; font-weight: 700; color: #0F172A; margin-bottom: 2rem; }
+h2 { font-size: 2.8rem; font-weight: 700; }
+h3 { font-size: 2rem; font-weight: 600; }
+p  { font-size: 1.6rem; color: #64748B; }
+ 
+/* ── Layout principal ─────────────────────────────────────── */
 main {
-    max-width: 1200px;
+    max-width: 1400px;   
     margin: 4rem auto;
     padding: 0 2rem;
 }
-
-main>a {
+ 
+main > a {
     display: inline-block;
     font-size: 1.4rem;
     color: #2563EB;
     text-decoration: none;
     margin-bottom: 1rem;
 }
-
+ 
 .contenedor {
     display: flex;
     gap: 3rem;
-    /* Espaciado entre columnas */
     align-items: flex-start;
 }
-
+ 
 .panel-izquierdo {
-    flex: 2;
-    /* Ocupa más espacio para los detalles del vuelo */
+    flex: 1 1 38rem;
+    min-width: 30rem;
 }
 
 .panel-derecho {
-    flex: 1;
-    /* Ocupa menos espacio para el mapa de asientos */
+    flex: 2 1 60rem;
     background-color: #FFFFFF;
     padding: 2.5rem;
     border-radius: 1.2rem;
     border: 1px solid #E2E8F0;
 }
 
-section,
-aside {
+.panel-izquierdo section,
+.panel-izquierdo aside {
     background-color: #FFFFFF;
     padding: 2rem;
     border-radius: 1.2rem;
@@ -156,91 +54,57 @@ aside {
     border: 1px solid #E2E8F0;
 }
 
+.swal2-popup { font-size: 1.6rem !important; }
+.swal2-title { font-size: 2rem !important; }
+ 
+/* ── Línea de tiempo del vuelo ────────────────────────────── */
 .linea-tiempo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
+    gap: 1rem;
 }
-
+ 
 .origen,
 .destino {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
-
-.hora {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0F172A;
-}
-
-.codigo {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #0F172A;
-}
-
-.ciudad {
-    font-size: 1.2rem;
-    color: #64748B;
-}
-
+ 
+.hora   { font-size: 2rem; font-weight: 700; color: #0F172A; }
+.codigo { font-size: 1.4rem; font-weight: 600; color: #0F172A; }
+.ciudad { font-size: 1.2rem; color: #64748B; }
+ 
 .aerolinea {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     margin-bottom: 0.5rem;
 }
-
-.aerolinea img {
-    height: 2.5rem;
-    width: auto;
-}
-
+.aerolinea img { height: 2.5rem; width: auto; }
+ 
 .conexion {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
-    max-width: 20rem;
-    font-size: 1.5rem;
+    max-width: 18rem;
+    font-size: 1.4rem;
+    gap: 0.3rem;
 }
-
-.cabecera-columnas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.8rem;
-    margin-bottom: 0.4rem;
-}
-
-.cabecera-columnas span {
-    width: 3rem;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #64748B;
-}
-
-.pasillo {
-    width: 2.5rem;
-}
-
-/* El elemento Linea es el que une las ciudades en el HTML */
-.linea {
-    width: 100%;
-    height: 1px;
-    background-color: #64748B;
-}
-
+.linea { width: 100%; height: 1px; background-color: #64748B; }
+ 
+/* ── Resumen de precio ────────────────────────────────────── */
 .precio-card .fila-precio {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+    font-size: 1.6rem;
 }
-
+ 
 .precio-card .total {
     border-top: 1px solid #E2E8F0;
     padding-top: 1.5rem;
@@ -248,6 +112,8 @@ aside {
     font-size: 2rem;
     font-weight: 700;
     color: #1E3A8A;
+    display: flex;
+    justify-content: space-between;
 }
 
 .info-titulo {
@@ -258,14 +124,62 @@ aside {
     color: #2563EB;
 }
 
-.mapa-asientos {
-    margin-top: 2rem;
-    padding: 2rem;
-    background-color: #F1F5F9;
-    border-radius: 4rem 4rem 1rem 1rem;
-    /* Forma redondeada del avión */
+.mapas-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;         
 }
 
+.columna-mapa {
+    flex: 1 1 26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.columna-mapa .titulo-asiento {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0F172A;
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+ 
+.columna-mapa .subtitulo-tramo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2563EB;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.mapa-asientos {
+    padding: 1.5rem 1rem;
+    background-color: #F1F5F9;
+    border-radius: 4rem 4rem 1rem 1rem;
+    width: 100%;
+}
+ 
+.cabecera-columnas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
+}
+.cabecera-columnas span {
+    width: 3rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #64748B;
+}
+.pasillo { width: 2.5rem; }
+ 
 .fila {
     display: flex;
     justify-content: center;
@@ -273,18 +187,14 @@ aside {
     gap: 0.8rem;
     margin-bottom: 0.8rem;
 }
-
-.fila-precio {
-    font-size: 2rem;
-}
-
+ 
 .numero-fila {
     width: 2rem;
     text-align: center;
     font-size: 1.3rem;
     color: #64748B;
 }
-
+ 
 .frente-avion,
 .trasera-avion {
     text-align: center;
@@ -306,38 +216,22 @@ aside {
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
-
-.asiento:hover {
-    background-color: #BFDBFE;
-    /* azul clarito */
-}
-
-.asiento.ocupado {
-    background-color: #E2E8F0;
-    border-color: #CBD5E1;
-}
-
-/* Clase "hardcodeada" para el asiento que decidamos que esté seleccionado */
-.asiento.seleccionado {
-    background-color: #2563EB;
-    /* Azul principal de botones */
-    border-color: #1D4ED8;
-    /* Azul oscuro de hover */
-}
-
+.asiento:hover             { background-color: #BFDBFE; }
+.asiento.ocupado           { background-color: #E2E8F0; border-color: #CBD5E1; cursor: not-allowed; }
+.asiento.seleccionado      { background-color: #2563EB; border-color: #1D4ED8; }
+ 
 .leyenda {
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
-
 .leyenda-item {
     display: flex;
     align-items: center;
     gap: 0.6rem;
     font-size: 1.3rem;
 }
-
 .cuadrado-disponible,
 .cuadrado-ocupado,
 .cuadrado-seleccionado {
@@ -346,229 +240,49 @@ aside {
     border-radius: 0.3rem;
     display: inline-block;
 }
+.cuadrado-disponible  { background-color: #FFFFFF; border: 2px solid #3B82F6; }
+.cuadrado-ocupado     { background-color: #E2E8F0; border: 2px solid #CBD5E1; }
+.cuadrado-seleccionado{ background-color: #2563EB; border: 2px solid #1D4ED8; }
 
-.cuadrado-disponible {
-    background-color: #FFFFFF;
-    border: 2px solid #3B82F6;
-}
-
-.cuadrado-ocupado {
-    background-color: #E2E8F0;
-    border: 2px solid #CBD5E1;
-}
-
-.cuadrado-seleccionado {
-    background-color: #2563EB;
-    border: 2px solid #1D4ED8;
-}
-
-/* Estilo del botón "Continuar" */
 .botonContinuar {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin-top: 2rem;
     padding: 1.6rem;
-
-    background-color: #2563eb;
-    color: white;
-
+    background-color: #2563EB;
+    color: #FFFFFF;
+    border: none;
     border-radius: 1.2rem;
-
     font-size: 2rem;
     font-weight: 700;
-
-    transition: 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     text-decoration: none;
 }
-
-.botonContinuar:hover {
-    background-color: #1D4ED8;
-    /* Color hover */
-}
-
-
-/* #region CSS del Footer */
-.footer-custom {
-    background: linear-gradient(rgba(12, 23, 53, 0.9), rgba(12, 23, 53, 0.9)),
-        url(../../img/footer.png) no-repeat center center/cover;
-    color: white;
-    padding: 4rem 5%;
-    font-family: Arial, sans-serif;
-}
-
-.footer-container {
-    max-width: 120rem;
-    margin: 0 auto;
-}
-
-.footer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 0.2rem solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 2rem;
-}
-
-.logo-img {
-    width: 12rem;
-    height: auto;
-}
-
-.footer-socials a img {
-    width: 3rem;
-    margin-left: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.footer-socials a img:hover {
-    transform: scale(1.2);
-}
-
-.footer-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 4rem 0;
-    border-bottom: 0.2rem solid rgba(255, 255, 255, 0.2);
-}
-
-.column {
-    padding: 0 2rem;
-    border-right: 0.2rem solid rgba(255, 255, 255, 0.2);
-}
-
-.column:last-child {
-    border-right: none;
-}
-
-.column h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #a0d4f1;
-}
-
-.column a {
-    display: block;
-    font-size: 1.8rem;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 1.5rem;
-    transition: color 0.3s;
-}
-
-.column a:hover {
-    color: #3498db;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem;
-    font-size: 1.5rem;
-}
-
-.legal-links a {
-    color: #ccc;
-    text-decoration: none;
-    margin-left: 1.7rem;
-    font-size: 1.5rem;
-}
-
-.legal-links a:hover {
-    color: white;
-}
-
-/* #endregion CSS del Footer */
-
-/* ========== RESPONSIVE ========== */
-
-/* Tablet (hasta 1024px): achicamos un poco el contenido */
-
-@media (max-width: 1024px) {
-    .contenedor {
-        flex-direction: column; /* los paneles se apilan */
-    }
-
-    .panel-derecho {
-        width: 100%; /* ocupa todo el ancho */
-    }
-
-    header nav ul {
-        gap: 4rem;
-    }
-}
-
-/* Mobile (hasta 768px): todo en una columna */
-
-@media (max-width: 768px) {
-    header nav ul {
-        display: none; /* el menú se oculta en mobile */
-    }
-
-    header nav {
-        padding: 0 2rem;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    .linea-tiempo {
-        gap: 1rem;
-    }
-
-    .conexion {
-        max-width: 10rem;
-    }
-
-    .mapa-asientos {
-        padding: 1rem;
-    }
-
-    .asiento {
-        width: 2.5rem;
-        height: 3rem;
-    }
-
-    .footer-columns {
-        grid-template-columns: 1fr; 
-    }
-
-    .column {
-        border-right: none;
-        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.2);
-        padding-bottom: 2rem;
-    }
-
-    .column:last-child {
-        border-bottom: none;
-    }
-
-    .footer-header {
-        flex-direction: column;
-        gap: 2rem;
-        align-items: flex-start;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .legal-links a {
-        margin-left: 0;
-        margin-right: 1.5rem;
-    }
-}
-
-/* Estado deshabilitado para el botón Continuar */
+.botonContinuar:hover    { background-color: #1D4ED8; }
 .botonContinuar:disabled {
-    background-color: #94A3B8; 
-    cursor: not-allowed;      
+    background-color: #94A3B8;
+    cursor: not-allowed;
     opacity: 0.7;
-    transform: none !important;
-    box-shadow: none;
+}
+ 
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .contenedor { flex-direction: column; }
+    .panel-izquierdo,
+    .panel-derecho { width: 100%; }
+}
+ 
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    main { margin-top: 2rem; }
+    .mapas-wrapper { flex-direction: column; }
+    .columna-mapa  { width: 100%; }
+    .linea-tiempo { gap: 0.5rem; }
+    .conexion     { max-width: 10rem; font-size: 1.2rem; }
+    .asiento { width: 2.5rem; height: 3rem; }
+    .mapa-asientos { padding: 1rem 0.5rem; }
+    .panel-derecho { padding: 1.5rem 1rem; }
 }

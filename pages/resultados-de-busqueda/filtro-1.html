@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de búsqueda - Fly Lena</title>
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="../../estilos_navbar_&_footer.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="../../navbar.js" defer></script>
     <script src="../../footer.js" defer></script>
 </head>
-
+ 
 <body id="top">
-    <header>
-        <nav>
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button id="hamburger-btn" class="hamburger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+ 
             <a class="logo" href="/index.html"><img src="/img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
             <ul id="nav-links"></ul>
             <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
+ 
     <main>
         <section class="seccionInfoBusqueda">
             <div class="contenedorInfo">
@@ -29,7 +35,7 @@
                     <i class="fa-solid fa-arrow-right"></i>
                     <p id="destinoBusqueda"></p>
                 </div>
-
+ 
                 <div class="contenedorInfoParte2">
                     <p id="fechaIdaBusqueda"></p>
                     <hr>
@@ -40,133 +46,138 @@
                     <p id="claseBusqueda"></p>
                 </div>
             </div>
-
+ 
             <div class="contenedorModificarBusqueda">
                 <a href="../../index.html">Modificar búsqueda</a>
             </div>
         </section>
-
+ 
         <section class="seccionResultados">
             <aside class="filtros">
                 <h3>Filtros</h3>
-
+ 
                 <details class="grupoFiltro" open>
                     <summary>Escalas</summary>
-
+ 
                     <div class="contenidoAccordion">
-
+ 
                         <label>
-                            <input type="radio" name="escalas" class="filtroTipo" value="Directo" checked>
+                            <input type="radio" name="escalas" class="filtroTipo" value="Todos" checked>
+                            Todos
+                        </label>
+ 
+                        <label>
+                            <input type="radio" name="escalas" class="filtroTipo" value="Directo">
                             Directo
                         </label>
-
+ 
                         <label>
                             <input type="radio" name="escalas" class="filtroTipo" value="1 escala">
                             1 escala
                         </label>
-
+ 
                         <label>
                             <input type="radio" name="escalas" class="filtroTipo" value="2 o mas escalas">
                             2 o más escalas
                         </label>
-
+ 
                     </div>
-
+ 
                 </details>
-
+ 
                 <details class="grupoFiltro" open>
                     <summary>Precio</summary>
                     <div class="filtro">
-
+ 
                         <div class="contenidoAccordion">
-
+ 
                             <div class="valoresRango">
                                 <span>USD 280</span>
                                 <span id="precioActual">USD 2500</span>
                             </div>
-
+ 
                             <input type="range" id="filtroPrecio" min="400" max="2500" value="2500">
-
+ 
                         </div>
-
+ 
                     </div>
                 </details>
-
+ 
                 <details class="grupoFiltro" open>
                     <summary>Aerolíneas</summary>
                     <div class="filtro">
-
-
+ 
+ 
                         <div class="contenidoAccordion">
-
+ 
                             <label>
                                 <input type="checkbox" class="filtroAerolinea" value="LATAM">
                                 LATAM
                             </label>
-
+ 
                             <label>
                                 <input type="checkbox" class="filtroAerolinea" value="Iberia">
                                 Iberia
                             </label>
-
+ 
                             <label>
                                 <input type="checkbox" class="filtroAerolinea" value="Air Europa">
                                 Air Europa
                             </label>
-
+ 
                         </div>
-
+ 
                     </div>
                 </details>
             </aside>
-
+ 
             <section class="resultadosVuelos">
-
+ 
                 <div class="encabezadoResultados">
-
+ 
                     <h2 id="cantidadVuelos">
                         0 vuelos encontrados
                     </h2>
-
+ 
                     <div class="dropdown">
-
+ 
                         <input type="checkbox" id="toggleDropdown">
-
+ 
                         <label for="toggleDropdown" class="botonOrdenar">
-
+ 
                             Ordenar por: Mejor opción
-
+ 
                             <i class="fa-solid fa-chevron-down"></i>
-
+ 
                         </label>
-
+ 
                         <ul class="dropdownMenu">
-
+ 
                             <li id="mejorOpcion">
                                 Mejor opción
                             </li>
-
+ 
                             <li id="menorPrecio">
                                 Menor precio
                             </li>
-
+ 
                             <li id="menorDuracion">
                                 Menor duración
                             </li>
-
+ 
                             <li id="salidaTemprana">
                                 Salida más temprana
                             </li>
-
+ 
                         </ul>
-
+ 
                     </div>
-
+ 
                 </div>
-
-
+ 
+ 
                 <div id="contenedorVuelos"></div>
-
+ 
             </section>
             <aside class="panelResumen">
                 <section class="boxResumen">
@@ -179,7 +190,7 @@
                     </label>
                     <p>Podés sumar equipaje extra antes de confirmar la compra.</p>
                 </section>
-
+ 
                 <section class="boxResumen">
                     <h3><i class="fa-solid fa-file-shield"></i> Políticas</h3>
                     <ul>
@@ -191,9 +202,9 @@
             </aside>
         </section>
     </main>
-
+ 
     <footer id="contacto-footer" class="footer-custom"></footer>
     <script src="resultados.js"></script>
 </body>
-
+ 
 </html>

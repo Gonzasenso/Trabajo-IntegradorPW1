@@ -1,52 +1,65 @@
-<!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../../../../../estilos_index_home.css">
+    <title>Checkout Pasajeros - Fly Lena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <link rel="stylesheet" href="../../estilos_navbar_&_footer.css">
+    <link rel="stylesheet" href="./estilos_pasajeros.css">
+    <script src="../../navbar.js" defer></script>
+    <script src="../../footer.js" defer></script>
     <script src="pasajeros.js" defer></script>
-    <script src="../../../../navbar.js" defer></script>
-    <script src="../../../../../footer.js" defer></script>
-    <title>Checkout Pasajeros</title>
 </head>
-
+ 
 <body>
-    <header>
-        <nav>
-            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button id="hamburger-btn" class="hamburger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a class="logo" href="../../index.html">
+                <img src="../../img/fly_lena_logo_chico.png" alt="Logo Fly Lena">
+            </a>
             <ul id="nav-links"></ul>
             <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
+ 
     <main>
         <h2>Checkout</h2>
-
-        <a class="detalle-de-vuelo" href="../detalle-de-vuelo/detalle-de-vuelo-madrid1.html">Volver a detalle de vuelo</a>
-
+        <a class="detalle-de-vuelo" href="../detalle-de-vuelo/detalles.html">
+            <i class="fa-solid fa-arrow-left" style="margin-right: 0.6rem;"></i>
+            Volver a detalle de vuelo
+        </a>
+ 
         <ol class="container-lista">
             <li class="activo">Pasajeros</li>
             <li>Pago</li>
             <li>Confirmacion</li>
         </ol>
-
-        <form id="form-pasajeros" class="container-datos-pasajeros" action="../checkout/pago.html" method="get">
-
+ 
+        <form id="form-pasajeros" class="container-datos-pasajeros" action="../checkout/pago.html" method="get" novalidate>
             <h3>1. Datos del pasajero</h3>
-
-            <!-- Pasajero 1 (siempre visible, no se puede eliminar) -->
             <div class="pasajero-bloque" id="pasajero-1">
-                <h4>Pasajero 1</h4>
+                <div class="pasajero2-header">
+                    <h4>Pasajero 1</h4>
+                    <button type="button" id="btn-autocompletar" class="btn-autocompletar">
+                        <i class="fa-solid fa-user-check"></i>
+                        Usar mis datos
+                    </button>
+                </div>
+ 
                 <div class="container-campos">
                     <div class="campo-nombre">
                         <label>Nombre</label>
-                        <input type="text" placeholder="Nombre" required>
+                        <input type="text" placeholder="Nombre" autocomplete="off">
                     </div>
                     <div class="campo-apellido">
                         <label>Apellido</label>
-                        <input type="text" placeholder="Apellido" required>
+                        <input type="text" placeholder="Apellido" autocomplete="off">
                     </div>
                     <div class="campo-tipo-documento">
                         <label>Tipo de documento</label>
@@ -60,11 +73,11 @@
                     </div>
                     <div class="campo-numero-dni">
                         <label>Número de documento</label>
-                        <input type="text" inputmode="numeric" placeholder="1234568" required>
+                        <input type="text" inputmode="numeric" placeholder="12345678" maxlength="8" autocomplete="off">
                     </div>
                     <div class="campo-fn">
                         <label>Fecha de nacimiento</label>
-                        <input type="date" required>
+                        <input type="date">
                     </div>
                     <div class="campo">
                         <label>Nacionalidad</label>
@@ -79,42 +92,34 @@
                     </div>
                     <div class="campo-email">
                         <label>Email</label>
-                        <input type="email" placeholder="juanperez@email.com" required>
+                        <input type="email" placeholder="juanperez@email.com" autocomplete="off">
                     </div>
                     <div class="campo-tel">
                         <label>Teléfono</label>
-                        <input type="tel" placeholder="+54 11 1234 5678" required>
+                        <input type="tel" placeholder="+54 11 1234 5678" autocomplete="off">
                     </div>
                 </div>
             </div>
-
-            <!-- Los pasajeros 2, 3 y 4 se inyectan aquí por JS -->
+ 
             <div id="pasajeros-extra"></div>
-
-            <!-- Botón agregar -->
             <section class="botton-agregar-pasajero" id="btn-agregar-container">
                 <button type="button" id="btn-agregar-pasajero"><strong>+ Agregar otro pasajero</strong></button>
             </section>
-
+ 
             <div class="botones">
                 <section class="botton-cancelar">
-                    <a href="../../home.html">
-                        <button type="button">Cancelar</button>
-                    </a>
+                    <button type="button" id="btn-cancelar">Cancelar</button>
                 </section>
                 <section class="botton-continuar">
                     <button type="submit">Continuar al Pago</button>
                 </section>
             </div>
-
+ 
             <div id="mensaje-pasajeros" class="mensaje-validacion"></div>
-
         </form>
-
     </main>
-
+ 
     <footer id="contacto-footer" class="footer-custom"></footer>
-
+ 
 </body>
-
 </html>

@@ -1,177 +1,20 @@
-/* #region Config Global & Fuente*/
+/* #region Config Global & Fuente */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-
+ 
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
+ 
+html, body {
+    overflow-x: hidden;
+}
 /* #endregion CSS Global & Fuente */
-
-/* #region CSS del Header */
-header {
-    width: 100%;
-    background-color: #0c1735;
-    position: relative;
-    z-index: 100; 
-    overflow: visible;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 4rem;
-    align-items: center;
-    height: 8rem;
-    width: 100%;
-    margin: 0 auto;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-}
-
-header nav ul li {
-    list-style: none;
-}
-
-header nav ul li a {
-    position: relative;
-    font-size: 1.8rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-header nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.6rem;
-    width: 100%;
-    height: 0.2rem;
-    background-color: #FFFFFF;
-    transform: scale(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-header nav ul li a:hover::after {
-    transform: scaleX(1);
-}
-
-header nav .logo img {
-    width: 15rem;
-}
-
-/* Ocultar la hamburguesa por defecto en computadoras */
-.hamburger-btn {
-    display: none;
-}
-
-/* Dropdown e Interfaz de Usuario Dinámica */
-.user-nav-container {
-    position: relative;
-}
-
-.perfil-dropdown-wrapper {
-    position: relative;
-}
-
-.dropdown-trigger {
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    cursor: pointer;
-}
-
-.dropdown-trigger .nombre {
-    font-size: 1.8rem;
-    font-weight: 400;
-}
-
-.dropdown-trigger img {
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 50%;
-    border: 0.2rem solid #1E5BFF;
-    object-fit: cover;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 5.5rem;
-    right: 0;
-    background-color: #FFFFFF;
-    min-width: 22rem;
-    border-radius: 0.8rem;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
-    display: none;
-    flex-direction: column;
-    z-index: 1000;
-    padding: 0.8rem 0;
-}
-
-.dropdown-menu.show {
-    display: flex;
-}
-
-.dropdown-menu a {
-    color: #333333;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.dropdown-menu a i {
-    color: #1E5BFF;
-    width: 2rem;
-}
-
-.dropdown-menu a:hover {
-    background-color: #f5f6fa;
-}
-
-.dropdown-menu hr {
-    border: none;
-    border-top: 0.1rem solid #eeeeee;
-    margin: 0.8rem 0;
-}
-
-.dropdown-menu .logout-link {
-    color: #e74c3c;
-}
-
-.dropdown-menu .logout-link i {
-    color: #e74c3c;
-}
-
-#nav-links {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#user-container {
-    min-width: 15rem;
-    display: flex;
-    justify-content: flex-end;
-}
-/* #endregion CSS del Header */
 
 /* #region CSS del Main */
 .seccion-hero {
@@ -186,20 +29,20 @@ header nav .logo img {
     color: white;
     overflow: hidden;
 }
-
+ 
 .seccion-hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(0, 35, 90, 0.55), rgba(0, 35, 90, 0.1));
 }
-
+ 
 .hero-contenido,
 .buscador-vuelos {
     position: relative;
     z-index: 1;
 }
-
+ 
 .hero-contenido h1 {
     max-width: 80rem;
     font-size: 4rem;
@@ -207,29 +50,30 @@ header nav .logo img {
     line-height: 1.1;
     text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
 }
-
+ 
 .hero-contenido p {
     font-size: 2rem;
     color: #FFFFFF;
 }
-
+ 
 /* Config del Buscador */
 .buscador-vuelos {
     background-color: #FFFFFF;
     border-radius: 1.2rem;
-    padding: 2rem;
+    padding: 2rem 2rem 4.5rem;
     margin-top: 3rem;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
     color: #333;
+    overflow: visible;
 }
-
+ 
 .tipo-viaje {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 2rem;
     border-bottom: 0.1rem solid #CFCFCF;
 }
-
+ 
 .boton-tipo {
     background: none;
     border: none;
@@ -241,48 +85,51 @@ header nav .logo img {
     transition: background 0.3s;
     border-bottom: 0.3rem solid transparent;
 }
-
+ 
 .boton-tipo:hover {
     background-color: #CFCFCF;
 }
-
+ 
 .boton-tipo.activo {
     color: #1E5BFF;
     border-bottom: 0.3rem solid #1E5BFF;
 }
-
+ 
 .formulario-vuelos {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
     align-items: flex-end;
+    padding-bottom: 0;
 }
-
+ 
 .campo {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
     min-width: 15rem;
+    position: relative;
+    padding-bottom: 2rem;
 }
-
+ 
 .campo label {
     font-size: 1.5rem;
     font-weight: 600;
 }
-
+ 
 .campo input {
     padding: 1rem;
     border: 0.1rem solid #CFCFCF;
     border-radius: 0.6rem;
     font-size: 1.5rem;
 }
-
+ 
 .select-personalizado {
     display: flex;
     gap: 0.5rem;
 }
-
+ 
 .select-personalizado select {
     padding: 1rem;
     border: 0.1rem solid #CFCFCF;
@@ -292,7 +139,7 @@ header nav .logo img {
     cursor: pointer;
     flex: 1;
 }
-
+ 
 .boton-buscar {
     background-color: #1E5BFF;
     color: white;
@@ -303,22 +150,62 @@ header nav .logo img {
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
+    margin-bottom: 2rem;
 }
-
+ 
+.mensaje-validacion {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+    line-height: 1.3;
+    width: 100%;
+}
+ 
+.campo.invalido input {
+    border: 0.1rem solid #e74c3c !important;
+    background-color: #fdeaea !important;
+}
+ 
+.campo.invalido .mensaje-validacion {
+    color: #e74c3c;
+}
+ 
+.campo.valido input {
+    border: 0.1rem solid #2ecc71 !important;
+    background-color: #eafaf1 !important;
+}
+ 
+.campo.valido .mensaje-validacion {
+    color: #2ecc71;
+}
+ 
+input.input-valido {
+    border: 0.15rem solid #2ecc71 !important;
+    background-color: #eafaf1 !important;
+}
+ 
+input.input-invalido {
+    border: 0.15rem solid #e74c3c !important;
+    background-color: #fdeaea !important;
+}
+ 
 /* Sección de Visualización de Resultados Filtrados */
 .seccion-resultados {
     max-width: 120rem;
     margin: 4rem auto;
     padding: 0 2rem;
 }
-
+ 
 .resultados-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 2rem;
 }
-
+ 
 .tarjeta-vuelo {
     background: #FFFFFF;
     border: 0.1rem solid #e2e8f0;
@@ -327,33 +214,33 @@ header nav .logo img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0.4rem 1.2rem rgba(0,0,0,0.05);
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.05);
 }
-
+ 
 .vuelo-info h3 {
     font-size: 1.8rem;
     color: #0c1735;
     margin-bottom: 0.5rem;
 }
-
+ 
 .vuelo-info p {
     font-size: 1.4rem;
     color: #555555;
 }
-
+ 
 .vuelo-precio {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
 }
-
+ 
 .vuelo-precio span {
     font-size: 2.2rem;
     font-weight: 600;
     color: #1E5BFF;
 }
-
+ 
 .no-resultados {
     background: #f8fafc;
     border: 0.1rem dashed #cbd5e1;
@@ -363,7 +250,7 @@ header nav .logo img {
     font-size: 1.6rem;
     color: #64748b;
 }
-
+ 
 /* Config de Ofertas Destacadas */
 .seccion-ofertas {
     background-color: white;
@@ -372,7 +259,7 @@ header nav .logo img {
     margin-left: auto;
     margin-right: auto;
 }
-
+ 
 .ofertas-cabecera {
     max-width: 120rem;
     margin: 0 auto;
@@ -382,18 +269,18 @@ header nav .logo img {
     border-bottom: 0.1rem solid #CFCFCF;
     padding-bottom: 1rem;
 }
-
+ 
 .ofertas-cabecera h2 {
     font-size: 2rem;
 }
-
+ 
 .link-ver-todas {
     color: #1E5BFF;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.5rem;
 }
-
+ 
 .carrusel-container {
     position: relative;
     width: 100%;
@@ -403,33 +290,41 @@ header nav .logo img {
     border-radius: 1.2rem;
     box-shadow: 0 1rem 3rem rgba(12, 23, 53, 0.18);
 }
-
+ 
 input[name="carrusel-control"] {
     display: none;
 }
-
+ 
 .carrusel-slides {
     display: flex;
     width: 300%;
     transition: transform 0.5s ease-in-out;
 }
-
+ 
 .slide-item {
     width: 33.333%;
     flex-shrink: 0;
 }
-
+ 
 .slide-item img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
 }
-
-#slide-1:checked~.carrusel-slides { transform: translateX(0); }
-#slide-2:checked~.carrusel-slides { transform: translateX(-33.333%); }
-#slide-3:checked~.carrusel-slides { transform: translateX(-66.666%); }
-
+ 
+#slide-1:checked~.carrusel-slides {
+    transform: translateX(0);
+}
+ 
+#slide-2:checked~.carrusel-slides {
+    transform: translateX(-33.333%);
+}
+ 
+#slide-3:checked~.carrusel-slides {
+    transform: translateX(-66.666%);
+}
+ 
 .carrusel-nav .controles {
     display: none;
     position: absolute;
@@ -437,13 +332,13 @@ input[name="carrusel-control"] {
     width: 100%;
     height: 100%;
 }
-
+ 
 #slide-1:checked~.carrusel-nav .s1,
 #slide-2:checked~.carrusel-nav .s2,
 #slide-3:checked~.carrusel-nav .s3 {
     display: block;
 }
-
+ 
 .prev,
 .next {
     position: absolute;
@@ -464,12 +359,20 @@ input[name="carrusel-control"] {
     user-select: none;
     z-index: 5;
 }
-
-.prev { left: 1.5rem; }
-.next { right: 1.5rem; }
-
-.prev:hover, .next:hover { background: #1E5BFF; }
-
+ 
+.prev {
+    left: 1.5rem;
+}
+ 
+.next {
+    right: 1.5rem;
+}
+ 
+.prev:hover,
+.next:hover {
+    background: #1E5BFF;
+}
+ 
 /* Config de Beneficios */
 .seccion-beneficios {
     display: flex;
@@ -478,7 +381,7 @@ input[name="carrusel-control"] {
     padding: 4.5rem 10%;
     background-color: #FFFFFF;
 }
-
+ 
 .beneficio-item {
     flex: 1;
     text-align: center;
@@ -486,225 +389,72 @@ input[name="carrusel-control"] {
     color: #333;
     border-right: 0.1rem solid #d8dce8;
 }
-
+ 
 .beneficio-item:last-child {
     border-right: none;
 }
-
+ 
 .beneficio-item i {
     font-size: 4rem;
     color: #1E5BFF;
     margin-bottom: 1rem;
 }
-
+ 
 .beneficio-item p {
     font-size: 1.5rem;
 }
 /* #endregion CSS del Main */
-
-/* #region CSS del Footer */
-.footer-custom {
-    background: linear-gradient(rgba(12, 23, 53, 0.9), rgba(12, 23, 53, 0.9));
-    color: white;
-    padding: 4rem 5%;
-}
-
-.footer-container {
-    max-width: 120rem;
-    margin: 0 auto;
-}
-
-.footer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 0.2rem solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 2rem;
-}
-
-.logo-img {
-    width: 12rem;
-    height: auto;
-}
-
-.footer-socials a img {
-    width: 3rem;
-    margin-left: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.footer-socials a img:hover {
-    transform: scale(1.2);
-}
-
-.footer-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 4rem 0;
-    border-bottom: 0.2rem solid rgba(255, 255, 255, 0.2);
-}
-
-.column {
-    padding: 0 2rem;
-    border-right: 0.2rem solid rgba(255, 255, 255, 0.2);
-}
-
-.column:last-child {
-    border-right: none;
-}
-
-.column h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #a0d4f1;
-}
-
-.column a {
-    display: block;
-    font-size: 1.8rem;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 1.5rem;
-    transition: color 0.3s;
-}
-
-.column a:hover {
-    color: #3498db;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem;
-    font-size: 1.5rem;
-}
-
-.legal-links a {
-    color: #ccc;
-    text-decoration: none;
-    margin-left: 1.7rem;
-    font-size: 1.5rem;
-}
-
-.legal-links a:hover {
-    color: white;
-}
-/* #endregion CSS del Footer */
-
+ 
 /* #region MediaQuerys */
 @media screen and (max-width: 1280px) {
-    header nav { padding: 0 2rem; }
-    header nav ul { gap: 3rem; }
-    .seccion-hero { height: auto; padding: 5rem 5%; }
-    .hero-contenido h1 { font-size: 3.2rem; }
+    .seccion-hero {
+        height: auto;
+        padding: 5rem 5%;
+    }
+ 
+    .hero-contenido h1 {
+        font-size: 3.2rem;
+    }
+ 
     .formulario-vuelos {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-bottom: 3.5rem;
+    }
+ 
+    .campo:last-of-type,
+    .boton-buscar {
+        grid-column: span 2;
+        width: 100%;
+    }
+ 
+    .tarjeta-vuelo {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+ 
+    .vuelo-precio {
+        align-items: flex-start;
+        width: 100%;
+    }
+ 
+    .seccion-beneficios {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
     }
-    .campo:last-of-type, .boton-buscar { grid-column: span 2; width: 100%; }
-    .tarjeta-vuelo { flex-direction: column; gap: 2rem; align-items: flex-start; }
-    .vuelo-precio { align-items: flex-start; width: 100%; }
-    .seccion-beneficios { display: grid; grid-template-columns: repeat(2, 1fr); }
-    .beneficio-item { border-right: none; border-bottom: 0.1rem solid #d8dce8; padding: 2rem; }
-    .beneficio-item:nth-child(3), .beneficio-item:nth-child(4) { border-bottom: none; }
-}
-
-@media screen and (max-width: 768px) {
-    header nav {
-        position: relative;
-        height: 7rem;
-        padding: 0 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
+ 
+    .beneficio-item {
+        border-right: none;
+        border-bottom: 0.1rem solid #d8dce8;
+        padding: 2rem;
     }
-
-    .hamburger-btn {
-        display: block;
-        background: none;
-        border: none;
-        color: #FFFFFF;
-        font-size: 2.5rem;
-        cursor: pointer;
-        width: 4rem;
-        height: 4rem;
-        order: 1;
-        z-index: 1001;
-    }
-
-    .hamburger-btn i {
-        pointer-events: none;
-    }
-
-    .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        order: 2;
-    }
-
-    .logo img {
-        width: 12rem;
-    }
-
-    .user-nav-container {
-        order: 3;
-        margin-left: auto;
-    }
-
-    .dropdown-trigger .nombre {
-        display: none;
-    }
-
-    .dropdown-trigger i.fa-chevron-down {
-        display: none;
-    }
-
-    .dropdown-trigger img {
-        width: 4rem;
-        height: 4rem;
-    }
-
-    #nav-links {
-        display: none !important;
-        position: absolute;
-        top: 7rem;
-        left: 0;
-        width: 100%;
-        background-color: #0c1735;
-        flex-direction: column;
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height .3s ease;
-    }
-
-    /* Inyectado dinámicamente por JS */
-    #nav-links.open {
-        display: flex !important; 
-        max-height: 40rem;
-        border: 2px solid #1E5BFF;
-    }
-
-    #nav-links li {
-        width: 100%;
-        text-align: center;
-        padding: 1.5rem 0;
-        border-top: .1rem solid rgba(255,255,255,.1);
-    }
-
-    #nav-links li a {
-        display: block;
-        width: 100%;
-        font-size: 1.6rem;
-    }
-
-    .dropdown-menu {
-        top: 5rem;
-        right: 0;
+ 
+    .beneficio-item:nth-child(3),
+    .beneficio-item:nth-child(4) {
+        border-bottom: none;
     }
 }
-/* #endregion MediqQuerys */
+/* #endregion MediaQuerys */

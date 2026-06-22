@@ -1,69 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Obtención segura del estado desde sessionStorage
+
     const datosBusqueda = JSON.parse(sessionStorage.getItem('ultimaBusqueda'));
     const vuelo = JSON.parse(sessionStorage.getItem('vueloSeleccionado'));
 
-    // Redirección de seguridad si perdemos el contexto del vuelo seleccionado
     if (!vuelo || !datosBusqueda) {
-        window.location.href = "../resultados-de-busqueda/filtro-1.html";
+        window.location.href = '../resultados-de-busqueda/filtro-1.html';
         return;
     }
 
     const esIdaVuelta = datosBusqueda.tipoVuelo === 'ida-vuelta';
     const cantidadPasajeros = parseInt(datosBusqueda.pasajeros, 10) || 1;
+    const asientosOcupadosIda = vuelo.asientosOcupadosIda || generarOcupados(vuelo.id || 'ida', 12);
+    const asientosOcupadosVuelta = vuelo.asientosOcupadosVuelta || generarOcupados(vuelo.id || 'vuelta', 10);
 
-    // Estructuras de control para el mapa de asientos
-    const totalFilas = 8;
-    const letrasColumnas = ["A", "B", "C", "D", "E", "F"];
-    
-    // Simulación de asientos ocupados persistentes por tramo
-    const asientosOcupadosIda = ["1B", "1C", "2E", "5B", "5E", "7B", "7C"];
-    const asientosOcupadosVuelta = ["3A", "4C", "4D", "6B", "8E", "8F"];
-
-    // 2. Renderizado de la información del vuelo (Panel Izquierdo)
     renderizarInformacionVuelos(vuelo, datosBusqueda, esIdaVuelta);
 
-    // 3. Renderizado de los mapas de asientos (Panel Derecho)
     const contenedorMapas = document.getElementById('contenedor-mapas-asientos');
-    contenedorMapas.innerHTML = ""; // Limpieza inicial
+    contenedorMapas.innerHTML = '';
 
-    // Inyectamos mapa de ida
-    contenedorMapas.appendChild(crearEstructuraMapa('ida', 'Ida', asientosOcupadosIda));
-    
-    // Si aplica, inyectamos mapa de vuelta
+    contenedorMapas.appendChild(
+        crearColumnaConMapa('ida', 'Ida', asientosOcupadosIda, cantidadPasajeros)
+    );
+
     if (esIdaVuelta) {
-        contenedorMapas.appendChild(crearEstructuraMapa('vuelta', 'Vuelta', asientosOcupadosVuelta));
+        contenedorMapas.appendChild(
+            crearColumnaConMapa('vuelta', 'Vuelta', asientosOcupadosVuelta, cantidadPasajeros)
+        );
     }
 
-    // 4. Cálculos Financieros Dinámicos
     calcularYMostrarPrecios(vuelo, datosBusqueda, esIdaVuelta, cantidadPasajeros);
-
-    // 5. Gestión del Evento de Persistencia al Continuar
+    restaurarAsientosGuardados(esIdaVuelta);
     configurarBotonContinuar(cantidadPasajeros, esIdaVuelta);
 });
 
-/**
- * Genera de forma semántica las cards informativas de los tramos de vuelo
- */
+
+//Generador de Asientos Ocupados
+function generarOcupados(semilla, cantidad) {
+    const letras = ['A', 'B', 'C', 'D', 'E', 'F'];
+    const totalFilas = 8;
+    const todos = [];
+    for (let f = 1; f <= totalFilas; f++) {
+        for (const l of letras) todos.push(`${f}${l}`);
+    }
+
+    // PRNG simple basado en la semilla (string → número)
+    let seed = [...String(semilla)].reduce((acc, c) => acc + c.charCodeAt(0), 0);
+    const rand = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+
+    const ocupados = [];
+    const disponibles = [...todos];
+    while (ocupados.length < cantidad && disponibles.length > 0) {
+        const idx = Math.floor(rand() * disponibles.length);
+        ocupados.push(disponibles.splice(idx, 1)[0]);
+    }
+    return ocupados;
+}
+
+//Detalle de Vuelo
 function renderizarInformacionVuelos(vuelo, datosBusqueda, esIdaVuelta) {
     const contenedorInfo = document.getElementById('panel-vuelos-info');
-    
-    // Formatear cadenas para capitalización correcta
-    const origenCapitalizado = datosBusqueda.origen.charAt(0).toUpperCase() + datosBusqueda.origen.slice(1);
-    const destinoCapitalizado = datosBusqueda.destino.charAt(0).toUpperCase() + datosBusqueda.destino.slice(1);
 
-    let htmlContenido = `
-        <section class="ida-card">
-            <p><strong>Ida</strong> - ${datosBusqueda.fechaIda}</p>
+    const cap = (str) => str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+    const origen = cap(datosBusqueda.origen);
+    const destino = cap(datosBusqueda.destino);
+
+    const bloqueVuelo = (esVuelta) => `
+        <section class="${esVuelta ? 'vuelta-card' : 'ida-card'}">
+            <p><strong>${esVuelta ? 'Vuelta' : 'Ida'}</strong> – ${esVuelta ? datosBusqueda.fechaVuelta : datosBusqueda.fechaIda}</p>
             <div class="aerolinea">
-                <img src="${vuelo.logo}" alt="Logo de ${vuelo.aerolinea}">
+                <img src="${vuelo.logo}" alt="${vuelo.aerolinea}">
                 <span>${vuelo.aerolinea}</span>
             </div>
             <div class="linea-tiempo">
                 <div class="origen">
                     <span class="hora">${vuelo.salida}</span>
-                    <span class="codigo">${vuelo.codigoOrigen}</span>
-                    <span class="ciudad">${origenCapitalizado}</span>
+                    <span class="codigo">${esVuelta ? vuelo.codigoDestino : vuelo.codigoOrigen}</span>
+                    <span class="ciudad">${esVuelta ? destino : origen}</span>
                 </div>
                 <div class="conexion">
                     <span>${vuelo.tipo}</span>
@@ -72,172 +84,160 @@ function renderizarInformacionVuelos(vuelo, datosBusqueda, esIdaVuelta) {
                 </div>
                 <div class="destino">
                     <span class="hora">${vuelo.llegada}</span>
-                    <span class="codigo">${vuelo.codigoDestino}</span>
-                    <span class="ciudad">${destinoCapitalizado}</span>
+                    <span class="codigo">${esVuelta ? vuelo.codigoOrigen : vuelo.codigoDestino}</span>
+                    <span class="ciudad">${esVuelta ? origen : destino}</span>
                 </div>
             </div>
-        </section>
-    `;
+        </section>`;
 
-    if (esIdaVuelta) {
-        htmlContenido += `
-            <section class="vuelta-card">
-                <p><strong>Vuelta</strong> - ${datosBusqueda.fechaVuelta}</p>
-                <div class="aerolinea">
-                    <img src="${vuelo.logo}" alt="Logo de ${vuelo.aerolinea}">
-                    <span>${vuelo.aerolinea}</span>
-                </div>
-                <div class="linea-tiempo">
-                    <!-- Invertimos los puntos de origen y destino para el tramo de regreso -->
-                    <div class="origen">
-                        <span class="hora">${vuelo.salida}</span>
-                        <span class="codigo">${vuelo.codigoDestino}</span>
-                        <span class="ciudad">${destinoCapitalizado}</span>
-                    </div>
-                    <div class="conexion">
-                        <span>${vuelo.tipo}</span>
-                        <div class="linea"></div>
-                        <span>${vuelo.duracion}</span>
-                    </div>
-                    <div class="destino">
-                        <span class="hora">${vuelo.llegada}</span>
-                        <span class="codigo">${vuelo.codigoOrigen}</span>
-                        <span class="ciudad">${origenCapitalizado}</span>
-                    </div>
-                </div>
-            </section>
-        `;
-    }
-
-    // Contenedor base del desglose de precios que será llenado dinámicamente
-    htmlContenido += `
+    //Resumen de Precio
+    const resumenHTML = `
         <section class="precio-card" id="desglose-precios-card">
             <h3>Resumen de Precio</h3><br>
-            <div class="fila-precio"><span>Pasajeros</span><span id="txt-calc-pasajeros">-</span></div>
-            <div class="fila-precio"><span>Tarifa base</span><span id="txt-calc-tarifa">-</span></div>
-            <div class="fila-precio"><span>Impuestos</span><span id="txt-calc-impuestos">-</span></div>
-            <div class="total"><span>TOTAL</span><span id="txt-calc-total">-</span></div>
+            <div class="fila-precio"><span>Pasajeros</span><span id="txt-calc-pasajeros">–</span></div>
+            <div class="fila-precio"><span>Tarifa base</span><span id="txt-calc-tarifa">–</span></div>
+            <div class="fila-precio"><span>Impuestos</span><span id="txt-calc-impuestos">–</span></div>
+            <div class="total"><span>TOTAL</span><span id="txt-calc-total">–</span></div>
         </section>
         <aside class="informacion-card">
             <div class="info-titulo"><i class="fa-solid fa-circle-info"></i><h3>Información</h3></div>
-            <p>Por favor seleccione los asientos correspondientes para cada tramo del viaje antes de proceder.</p>
-        </aside>
-    `;
+            <p>Seleccioná un asiento por pasajero en cada tramo del viaje antes de continuar.</p>
+        </aside>`;
 
-    contenedorInfo.innerHTML = htmlContenido;
+    contenedorInfo.innerHTML =
+        bloqueVuelo(false) +
+        (esIdaVuelta ? bloqueVuelo(true) : '') +
+        resumenHTML;
 }
 
-/**
- * Fábrica de componentes que construye un mapa de asientos accesible (WCAG Compliant)
- */
-function crearEstructuraMapa(tipoTramo, tituloLabel, asientosOcupados) {
-    const divMapa = document.createElement('div');
-    divMapa.className = "mapa-asientos";
-    divMapa.style.marginBottom = "2.5rem";
+//Columnas del Mapa de Asientos
+function crearColumnaConMapa(tipoTramo, tituloLabel, asientosOcupados, cantidadPasajeros) {
+    const columna = document.createElement('div');
+    columna.className = 'columna-mapa';
 
-    const titulo = document.createElement('h3');
-    titulo.textContent = `Tramo de ${tituloLabel}`;
-    titulo.style.textAlign = "center";
-    titulo.style.color = "#0F172A";
+    // Título simétrico
+    const titulo = document.createElement('p');
+    titulo.className = 'titulo-asiento';
+    titulo.textContent = 'Seleccioná tu asiento';
+
+    const subtitulo = document.createElement('p');
+    subtitulo.className = 'subtitulo-tramo';
+    subtitulo.textContent = `Tramo de ${tituloLabel}`;
+
+    columna.appendChild(titulo);
+    columna.appendChild(subtitulo);
+    columna.appendChild(crearMapa(tipoTramo, tituloLabel, asientosOcupados, cantidadPasajeros));
+
+    return columna;
+}
+
+//Mapa de los Asientos
+function crearMapa(tipoTramo, tituloLabel, asientosOcupados, cantidadPasajeros) {
+    const divMapa = document.createElement('div');
+    divMapa.className = 'mapa-asientos';
+
+    // Cabecera de columnas
+    const cabecera = document.createElement('div');
+    cabecera.className = 'cabecera-columnas';
+    cabecera.innerHTML = `
+        <span></span>
+        <span>A</span><span>B</span><span>C</span>
+        <div class="pasillo"></div>
+        <span>D</span><span>E</span><span>F</span>
+        <span></span>`;
 
     const frente = document.createElement('div');
-    frente.className = "frente-avion";
-    frente.innerHTML = "<span>Frente del avión</span>";
+    frente.className = 'frente-avion';
+    frente.innerHTML = '<span>Frente del avión</span>';
 
-    const cabecera = document.createElement('div');
-    cabecera.className = "cabecera-columnas";
-    cabecera.innerHTML = "<span></span><span>A</span><span>B</span><span>C</span><div class='pasillo'></div><span>D</span><span>E</span><span>F</span><span></span>";
-
-    divMapa.appendChild(titulo);
     divMapa.appendChild(frente);
     divMapa.appendChild(cabecera);
 
-    // Generamos las filas dinámicamente aplicando DRY
+    // Filas de asientos
     for (let f = 1; f <= 8; f++) {
-        const filaElement = document.createElement('div');
-        filaElement.className = "fila";
+        const filaEl = document.createElement('div');
+        filaEl.className = 'fila';
 
-        const numFilaIzq = document.createElement('span');
-        numFilaIzq.className = "numero-fila";
-        numFilaIzq.textContent = f;
-        filaElement.appendChild(numFilaIzq);
+        const numIzq = document.createElement('span');
+        numIzq.className = 'numero-fila';
+        numIzq.textContent = f;
+        filaEl.appendChild(numIzq);
 
-        // Renderizado de las columnas A-F
-        ["A", "B", "C", "D", "E", "F"].forEach((letra, index) => {
-            if (index === 3) {
+        ['A', 'B', 'C', 'D', 'E', 'F'].forEach((letra, idx) => {
+            if (idx === 3) {
                 const pasillo = document.createElement('div');
-                pasillo.className = "pasillo";
-                filaElement.appendChild(pasillo);
+                pasillo.className = 'pasillo';
+                filaEl.appendChild(pasillo);
             }
 
-            const codigoAsiento = `${f}${letra}`;
-            
-            // Reemplazo semántico y accesible: Usamos un button nativo en lugar de div
-            const botonAsiento = document.createElement('button');
-            botonAsiento.type = "button";
-            botonAsiento.className = "asiento";
-            botonAsiento.dataset.codigo = codigoAsiento;
-            botonAsiento.dataset.tramo = tipoTramo;
+            const codigo = `${f}${letra}`;
+            const boton = document.createElement('button');
+            boton.type = 'button';
+            boton.className = 'asiento';
+            boton.dataset.codigo = codigo;
+            boton.dataset.tramo = tipoTramo;
 
-            if (asientosOcupados.includes(codigoAsiento)) {
-                botonAsiento.classList.add('ocupado');
-                botonAsiento.setAttribute('aria-label', `Asiento ${codigoAsiento} de ${tituloLabel}, Ocupado`);
+            if (asientosOcupados.includes(codigo)) {
+                boton.classList.add('ocupado');
+                boton.setAttribute('aria-label', `Asiento ${codigo} – Ocupado`);
+                boton.disabled = true;
             } else {
-                botonAsiento.setAttribute('aria-label', `Asiento ${codigoAsiento} de ${tituloLabel}, Disponible`);
-                
-                // Event listener individual para encapsular el comportamiento del tramo
-                botonAsiento.addEventListener('click', () => gestionarSeleccionAsiento(botonAsiento, tipoTramo));
+                boton.setAttribute('aria-label', `Asiento ${codigo} – Disponible`);
+                boton.addEventListener('click', () =>
+                    gestionarSeleccionAsiento(boton, tipoTramo, cantidadPasajeros)
+                );
             }
 
-            filaElement.appendChild(botonAsiento);
+            filaEl.appendChild(boton);
         });
 
-        const numFilaDer = document.createElement('span');
-        numFilaDer.className = "numero-fila";
-        numFilaDer.textContent = f;
-        filaElement.appendChild(numFilaDer);
+        const numDer = document.createElement('span');
+        numDer.className = 'numero-fila';
+        numDer.textContent = f;
+        filaEl.appendChild(numDer);
 
-        divMapa.appendChild(filaElement);
+        divMapa.appendChild(filaEl);
     }
 
     const trasera = document.createElement('div');
-    trasera.className = "trasera-avion";
-    trasera.innerHTML = "<span>Parte trasera del avión</span>";
+    trasera.className = 'trasera-avion';
+    trasera.innerHTML = '<span>Parte trasera del avión</span>';
     divMapa.appendChild(trasera);
 
     return divMapa;
 }
 
-/**
- * Controla la máquina de estados de selección de asientos por tramo
- */
-function gestionarSeleccionAsiento(boton, tipoTramo) {
-    const datosBusqueda = JSON.parse(sessionStorage.getItem('ultimaBusqueda'));
-    const cupoMaximo = parseInt(datosBusqueda.pasajeros, 10) || 1;
-
+//Validacion de Cantidad de Pasajeros por Tramo
+function gestionarSeleccionAsiento(boton, tipoTramo, cantidadPasajeros) {
+    // Si ya estaba seleccionado → deseleccionar
     if (boton.classList.contains('seleccionado')) {
         boton.classList.remove('seleccionado');
-        // Actualizamos el estado del botón cada vez que se deselecciona un asiento
         actualizarEstadoBoton();
         return;
     }
 
-    // Buscamos cuántos asientos han sido seleccionados exclusivamente en ESTE tramo
-    const seleccionadosEnTramo = document.querySelectorAll(`.asiento.seleccionado[data-tramo="${tipoTramo}"]`).length;
+    // Contar seleccionados actuales en este tramo
+    const seleccionados = document.querySelectorAll(
+        `.asiento.seleccionado[data-tramo="${tipoTramo}"]`
+    ).length;
 
-    if (seleccionadosEnTramo < cupoMaximo) {
+    if (seleccionados < cantidadPasajeros) {
         boton.classList.add('seleccionado');
     } else {
-        alert(`Has alcanzado el límite. Tu reserva es para ${cupoMaximo} passenger(s) en el tramo de ${tipoTramo}.`);
+        Swal.fire({
+            title: '<i class="fa-solid fa-circle-exclamation" style="color:#2563EB"></i> Máximo alcanzado',
+            html: `<p style="font-size:1.5rem">Ya seleccionaste el máximo de <b>${cantidadPasajeros} asiento${cantidadPasajeros > 1 ? 's' : ''}</b> para el tramo de <b>${tipoTramo}</b>.<br><br>Deseleccioná uno si querés cambiar.</p>`,
+            confirmButtonText: 'Volver',
+            confirmButtonColor: '#2563EB',
+            allowOutsideClick: true,
+            customClass: { popup: 'swal-detalles' }
+        });
     }
 
-    // Actualizamos el estado del botón tras cada intento de selección exitoso
     actualizarEstadoBoton();
 }
 
-/**
- * Evalúa las condiciones en tiempo real y habilita/deshabilita el botón de continuar
- */
+//Funcion de Control de Cantidad de Pasajeros
 function actualizarEstadoBoton() {
     const btn = document.getElementById('btn-continuar');
     if (!btn) return;
@@ -246,83 +246,113 @@ function actualizarEstadoBoton() {
     const cantidadPasajeros = parseInt(datosBusqueda.pasajeros, 10) || 1;
     const esIdaVuelta = datosBusqueda.tipoVuelo === 'ida-vuelta';
 
-    // Contamos los asientos seleccionados por tramo en el DOM actual
-    const seleccionadosIda = document.querySelectorAll('.asiento.seleccionado[data-tramo="ida"]').length;
-    const seleccionadosVuelta = document.querySelectorAll('.asiento.seleccionado[data-tramo="vuelta"]').length;
+    const selIda = document.querySelectorAll('.asiento.seleccionado[data-tramo="ida"]').length;
+    const selVuelta = document.querySelectorAll('.asiento.seleccionado[data-tramo="vuelta"]').length;
 
-    // Condición estricta: Ida completa
-    const idaCompleta = (seleccionadosIda === cantidadPasajeros);
-    
-    // Condición estricta: Vuelta completa (si corresponde)
-    const vueltaCompleta = !esIdaVuelta || (seleccionadosVuelta === cantidadPasajeros);
+    const idaOk = selIda === cantidadPasajeros;
+    const vueltaOk = !esIdaVuelta || selVuelta === cantidadPasajeros;
 
-    // Si ambas condiciones se cumplen, removemos el atributo 'disabled'
-    if (idaCompleta && vueltaCompleta) {
-        btn.disabled = false;
-    } else {
-        btn.disabled = true;
-    }
+    btn.disabled = !(idaOk && vueltaOk);
 }
 
-
+//Funcion de Calculo de Precios
 function calcularYMostrarPrecios(vuelo, datosBusqueda, esIdaVuelta, cantidadPasajeros) {
-    let precioBaseIndividual = vuelo.precio;
+    // Precio base individual (ya viene del objeto vuelo)
+    let precioBase = parseFloat(vuelo.precio) || 0;
 
-    // Multiplicador estricto por segmentación de clase
-    if (datosBusqueda.clase === "business") {
-        precioBaseIndividual *= 1.5;
-    } else if (datosBusqueda.clase === "first") {
-        precioBaseIndividual *= 2;
+    // Multiplicador de clase
+    const clase = (datosBusqueda.clase || 'economy').toLowerCase();
+    if (clase === 'business') precioBase *= 1.5;
+    else if (clase === 'first') precioBase *= 2;
+
+    // Si es ida y vuelta se duplica
+    if (esIdaVuelta) precioBase *= 2;
+
+    // Subtotal tarifa
+    const subtotalTarifa = Math.round(precioBase * cantidadPasajeros);
+
+    // Impuestos: 90 USD por persona por tramo (90 ida / 180 ida+vuelta)
+    const impuestosPorPersona = esIdaVuelta ? 180 : 90;
+    const totalImpuestos = impuestosPorPersona * cantidadPasajeros;
+
+    // Cargo equipaje extra (100 USD por persona si se solicitó)
+    const cargoEquipaje = datosBusqueda.equipajeIncluido ? (100 * cantidadPasajeros) : 0;
+    const granTotal = subtotalTarifa + totalImpuestos + cargoEquipaje;
+
+    const claseDisplay = clase.charAt(0).toUpperCase() + clase.slice(1);
+    document.getElementById('txt-calc-pasajeros').textContent =
+        `${cantidadPasajeros} × ${claseDisplay}`;
+    document.getElementById('txt-calc-tarifa').textContent = `USD ${subtotalTarifa.toLocaleString('es-AR')}`;
+    document.getElementById('txt-calc-impuestos').textContent = `USD ${totalImpuestos.toLocaleString('es-AR')}`;
+
+    //Fila de equipaje (solo si aplica)
+    if (cargoEquipaje > 0) {
+        const desgloseCard = document.getElementById('desglose-precios-card');
+        const divTotal = desgloseCard.querySelector('.total');
+        const filaEquipaje = document.createElement('div');
+        filaEquipaje.className = 'fila-precio';
+        filaEquipaje.innerHTML = `
+            <span>Equipaje extra</span>
+            <span>USD ${cargoEquipaje.toLocaleString('es-AR')}</span>`;
+        desgloseCard.insertBefore(filaEquipaje, divTotal);
     }
 
-    // REGLA: Si es viaje redondo (Ida y Vuelta), el costo del tramo base se duplica
-    if (esIdaVuelta) {
-        precioBaseIndividual *= 2;
-    }
+    document.getElementById('txt-calc-total').textContent = `USD ${granTotal.toLocaleString('es-AR')}`;
 
-    const subtotalTarifa = Math.round(precioBaseIndividual * cantidadPasajeros);
-    
-    // Impuestos proporcionales calculados por volumen de pasajeros y tramos (90 USD base por tramo por persona)
-    const impuestosBasePorPersona = esIdaVuelta ? 180 : 90;
-    const totalImpuestos = impuestosBasePorPersona * cantidadPasajeros;
-    const granTotal = subtotalTarifa + totalImpuestos;
-
-    // Modificación explícita de nodos DOM
-    document.getElementById('txt-calc-pasajeros').textContent = `${cantidadPasajeros} x ${datosBusqueda.clase.toUpperCase()}`;
-    document.getElementById('txt-calc-tarifa').textContent = `USD ${subtotalTarifa}`;
-    document.getElementById('txt-calc-impuestos').textContent = `USD ${totalImpuestos}`;
-    document.getElementById('txt-calc-total').textContent = `USD ${granTotal}`;
-
-    // Preservar en localStorage para pasos posteriores de la checkout
-    localStorage.setItem("resumenVuelo", JSON.stringify({
+    //Persistir resumen para el checkout
+    localStorage.setItem('resumenVuelo', JSON.stringify({
         tarifa: subtotalTarifa,
         impuestos: totalImpuestos,
+        equipaje: cargoEquipaje,
         total: granTotal,
-        pasajeros: cantidadPasajeros
+        pasajeros: cantidadPasajeros,
+        clase: clase
     }));
 }
 
-/**
- * Asegura la integridad de la selección y maneja la navegación del botón nativo
- */
+//Funcion que Recupera los Asientos Guardados
+function restaurarAsientosGuardados(esIdaVuelta) {
+    const raw = sessionStorage.getItem('asientosSeleccionados');
+    if (!raw) return;
+
+    let mapa;
+    try { mapa = JSON.parse(raw); } catch { return; }
+
+    const restaurar = (codigos, tramo) => {
+        if (!Array.isArray(codigos)) return;
+        codigos.forEach(codigo => {
+            const boton = document.querySelector(
+                `.asiento[data-tramo="${tramo}"][data-codigo="${codigo}"]`
+            );
+            if (boton && !boton.classList.contains('ocupado')) {
+                boton.classList.add('seleccionado');
+            }
+        });
+    };
+
+    restaurar(mapa.ida, 'ida');
+    if (esIdaVuelta) restaurar(mapa.vuelta, 'vuelta');
+    actualizarEstadoBoton();
+}
+
+
+//Boton de Continuar
 function configurarBotonContinuar(cantidadPasajeros, esIdaVuelta) {
     const btn = document.getElementById('btn-continuar');
     if (!btn) return;
 
     btn.addEventListener('click', () => {
-        // Obtenemos los códigos finales elegidos por el usuario
-        const seleccionadosIda = [...document.querySelectorAll('.asiento.seleccionado[data-tramo="ida"]')].map(a => a.dataset.codigo);
-        const seleccionadosVuelta = [...document.querySelectorAll('.asiento.seleccionado[data-tramo="vuelta"]')].map(a => a.dataset.codigo);
+        const ida = [...document.querySelectorAll('.asiento.seleccionado[data-tramo="ida"]')]
+            .map(a => a.dataset.codigo);
+        const vuelta = [...document.querySelectorAll('.asiento.seleccionado[data-tramo="vuelta"]')]
+            .map(a => a.dataset.codigo);
 
-        // Estructuración del objeto final de persistencia
-        const mapaAsientosReserva = {
-            ida: seleccionadosIda,
-            vuelta: esIdaVuelta ? seleccionadosVuelta : []
-        };
+        // Guardar en sessionStorage para recuperar al volver
+        sessionStorage.setItem('asientosSeleccionados', JSON.stringify({
+            ida,
+            vuelta: esIdaVuelta ? vuelta : []
+        }));
 
-        sessionStorage.setItem("asientosSeleccionados", JSON.stringify(mapaAsientosReserva));
-
-        // Como ahora es un <button> y no un <a>, redirigimos manualmente por código de manera limpia
-        window.location.href = "../checkout/pasajeros.html";
+        window.location.href = '../checkout/pasajeros.html';
     });
 }

@@ -1,18 +1,15 @@
-/* #region Config Global */
+/* #region Reset y Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
-
-/* #endregion Config Global */
-
-/* #region CSS del FAQ */
+ 
 body {
     font-family: 'Inter', sans-serif;
     background-color: #E9F0FF;
@@ -20,12 +17,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
-
+/* #endregion */
+ 
+/* #region Contenido FAQ */
 main {
     flex: 1;
 }
-
+ 
 .contenedor-faq {
     width: 100%;
     max-width: 120rem;
@@ -34,7 +34,7 @@ main {
     color: #333;
 }
 
-h1 {
+.contenedor-faq h1 {
     color: #001E42;
     text-align: center;
     text-transform: uppercase;
@@ -42,11 +42,11 @@ h1 {
     font-size: 3.2rem;
     margin: 2rem 0 4rem;
 }
-
+ 
 .indice-preguntas {
     margin-bottom: 5rem;
 }
-
+ 
 .indice-preguntas h2 {
     color: #001E42;
     font-size: 2.2rem;
@@ -54,63 +54,62 @@ h1 {
     padding-left: 1.5rem;
     margin-bottom: 2rem;
 }
-
+ 
 .indice-preguntas ul {
     list-style: none;
     padding: 0;
 }
-
+ 
 .indice-preguntas li {
     margin: 1.5rem 0;
 }
-
+ 
 .indice-preguntas a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: 0.2s;
     font-size: 1.7rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
 }
-
+ 
 .indice-preguntas a:hover {
     color: #7A3CFF;
     padding-left: 1rem;
 }
-
+ 
 .separador {
     border: 0;
     height: 0.1rem;
     background: #c2d1f0;
     margin: 4rem 0;
 }
-
+ 
 .bloque-pregunta {
     margin-bottom: 6rem;
     padding-bottom: 2rem;
 }
-
+ 
 .bloque-pregunta h3 {
     color: #001E42;
     font-size: 2rem;
     margin-bottom: 1.5rem;
 }
-
+ 
 .bloque-pregunta p {
     font-size: 1.6rem;
     line-height: 1.7;
     color: #444;
 }
-
+ 
 .form-actions {
     display: block;
     text-align: center;
     width: 100%;
     margin-top: 2.5rem;
 }
-
+ 
 .btn-volver {
     display: inline-block;
-    width: auto;
     text-decoration: none;
     padding: 0.8rem 2rem;
     border-radius: 2rem;
@@ -118,88 +117,52 @@ h1 {
     background: transparent;
     color: #7A3CFF;
     font-size: 1.4rem;
-    font-weight: bold;
-    transition: 0.3s;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+ 
 .btn-volver:hover {
     background-color: #7A3CFF;
-    color: white;
+    color: #ffffff;
 }
-
-/* #endregion CSS del FAQ */
-
-/* #region MediaQuery */
-/* TABLET */
+/* #endregion */
+  
+/* #region de los Media Queery */
 @media screen and (max-width: 1280px) {
     .contenedor-faq {
         max-width: 90%;
         padding: 4rem 3rem;
         margin: 3rem auto;
     }
-
-    h1 {
+ 
+    .contenedor-faq h1 {
         font-size: 3rem;
         margin: 2rem 0 3rem;
     }
-
-    .indice-preguntas h2 {
-        font-size: 2rem;
-    }
-
-    .indice-preguntas a {
-        font-size: 1.6rem;
-    }
-
-    .bloque-pregunta h3 {
-        font-size: 1.9rem;
-    }
-
-    .bloque-pregunta p {
-        font-size: 1.5rem;
-    }
-
-    .btn-volver {
-        font-size: 1.4rem;
-        padding: 0.9rem 2rem;
-    }
+ 
+    .indice-preguntas h2 { font-size: 2rem; }
+    .indice-preguntas a  { font-size: 1.6rem; }
+    .bloque-pregunta h3  { font-size: 1.9rem; }
+    .bloque-pregunta p   { font-size: 1.5rem; }
 }
-
-/*MOBILE VERTICAL*/
+ 
 @media (max-width: 768px) {
     .contenedor-faq {
         padding: 4rem 2rem;
     }
-
-    h1 {
-        font-size: 2.6rem;
-    }
-
-    .indice-preguntas h2 {
-        font-size: 2rem;
-    }
-
-    .indice-preguntas a {
-        font-size: 1.6rem;
-    }
-
-    .bloque-pregunta h3 {
-        font-size: 1.8rem;
-    }
-
-    .bloque-pregunta p {
-        font-size: 1.5rem;
-    }
+ 
+    .contenedor-faq h1   { font-size: 2.6rem; }
+    .indice-preguntas h2 { font-size: 2rem; }
+    .indice-preguntas a  { font-size: 1.6rem; }
+    .bloque-pregunta h3  { font-size: 1.8rem; }
+    .bloque-pregunta p   { font-size: 1.5rem; }
 }
-
+ 
 @media (max-width: 480px) {
     .contenedor-faq {
-        padding: 9rem 1.5rem 3rem;
+        padding: 3rem 1.5rem;
     }
-
-    h1 {
-        font-size: 2.2rem;
-    }
+ 
+    .contenedor-faq h1 { font-size: 2.2rem; }
 }
-
-/* #endregion MediaQuery */
+/* #endregion */

@@ -1,71 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../../../../estilos_index_home.css">
+    <title>Checkout Pago - Fly Lena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <link rel="stylesheet" href="../../estilos_navbar_&_footer.css">
+    <link rel="stylesheet" href="./estilos_pagos.css">
+    <script src="../../navbar.js" defer></script>
+    <script src="../../footer.js" defer></script>
     <script src="pago.js" defer></script>
-    <script src="../../../../navbar.js" defer></script>
-    <script src="../../../../../footer.js" defer></script>
-    <title>Checkout Pagos</title>
 </head>
-
+ 
 <body>
-    <header>
-        <nav>
-            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button id="hamburger-btn" class="hamburger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a class="logo" href="../../index.html">
+                <img src="../../img/fly_lena_logo_chico.png" alt="Logo Fly Lena">
+            </a>
             <ul id="nav-links"></ul>
             <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
+ 
     <main>
-
         <h2>Checkout</h2>
-
-        <a class="detalle-de-vuelo" href="pasajeros.html">Volver a pasajeros</a>
-
+ 
+        <a class="detalle-de-vuelo" href="pasajeros.html">
+            <i class="fa-solid fa-arrow-left" style="margin-right: 0.6rem;"></i>
+            Volver a pasajeros
+        </a>
+ 
         <ol class="container-lista">
             <li>Pasajeros</li>
             <li class="activo">Pago</li>
             <li>Confirmacion</li>
         </ol>
-
+ 
         <section class="container-pago">
-            <h3>3. Pago</h3>
-            <h4>Seleccione tu metodo de pago</h4>
-
+            <h3>2. Método de pago</h3>
+            <h4>Seleccioná tu método de pago</h4>
+ 
+            <!-- Tarjeta de crédito -->
             <details class="acordeon-credito" open>
-                <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con tarjeta de credito</summary>
+                <summary class="acordeon">
+                    <i class="fa-solid fa-caret-up"></i>
+                    Pago con tarjeta de crédito
+                </summary>
                 <div class="acordeon-contenido">
-                    <form class="container-tarjeta" action="confirmacion.html" method="get">
+                    <form class="container-tarjeta" action="confirmacion.html" method="get" novalidate>
                         <div class="campo-tarjeta">
-                            <label>Numero de Tarjeta</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="1234 5678 9012 3456" required>
+                            <label>Número de tarjeta</label>
+                            <input type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="off">
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
-                            <input type="text" placeholder="mm/yy" pattern="\d{2}/\d{2}" maxlength="5" required>
+                            <input type="text" placeholder="mm/yy" maxlength="5" autocomplete="off">
                         </div>
                         <div class="campo-codigo">
-                            <label>Codigo de seguridad</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric" placeholder="123"
-                                required>
+                            <label>Código de seguridad</label>
+                            <input type="text" inputmode="numeric" placeholder="123" autocomplete="off">
                         </div>
                         <div class="campo-nombre-completo">
                             <label>Nombre completo del titular</label>
-                            <input type="text" placeholder="Ej: GONZALEZ JUAN" required>
+                            <input type="text" placeholder="Ej: GONZALEZ JUAN" autocomplete="off">
                         </div>
                         <div class="campo-cuotas">
                             <label>Cuotas</label>
-                            <select>
-                                <option>1 cuota (sin interes) de USD620</option>
-                                <option>3 cuotas de USD713 (%15)</option>
-                                <option>6 cuotas de USD819.95 (%30)</option>
+                            <select id="select-cuotas">
+                                <option>1 cuota (sin interés)</option>
+                                <option>3 cuotas (15%)</option>
+                                <option>6 cuotas (30%)</option>
                             </select>
                         </div>
                         <div class="container-confirmacion">
@@ -74,27 +85,30 @@
                     </form>
                 </div>
             </details>
-
+ 
+            <!-- Tarjeta de débito -->
             <details class="acordeon-debito">
-                <summary class="acordeon"><i class="fa-solid fa-caret-up"></i> Pago con tarjeta de debito</summary>
+                <summary class="acordeon">
+                    <i class="fa-solid fa-caret-up"></i>
+                    Pago con tarjeta de débito
+                </summary>
                 <div class="acordeon-contenido">
-                    <form class="container-debito" action="../checkout/confirmacion.html" method="get">
+                    <form class="container-debito" action="confirmacion.html" method="get" novalidate>
                         <div class="campo-tarjeta">
-                            <label>Numero de Tarjeta</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="1234 5678 9012 3456" required>
+                            <label>Número de tarjeta</label>
+                            <input type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="off">
                         </div>
                         <div class="campo-fecha">
                             <label>Fecha de vencimiento</label>
-                            <input type="text" placeholder="mm/yy" pattern="\d{2}/\d{2}" maxlength="5" required>
+                            <input type="text" placeholder="mm/yy" maxlength="5" autocomplete="off">
                         </div>
                         <div class="campo-codigo">
-                            <label>Codigo de seguridad</label>
-                            <input type="text" placeholder="123" required>
+                            <label>Código de seguridad</label>
+                            <input type="text" inputmode="numeric" placeholder="123" autocomplete="off">
                         </div>
                         <div class="campo-nombre-completo">
                             <label>Nombre completo del titular</label>
-                            <input type="text" placeholder="Ej: GONZALEZ JUAN" required>
+                            <input type="text" placeholder="Ej: GONZALEZ JUAN" autocomplete="off">
                         </div>
                         <div class="container-confirmacion">
                             <button type="submit">Confirmar pago</button>
@@ -102,39 +116,42 @@
                     </form>
                 </div>
             </details>
-
+ 
+            <!-- Transferencia bancaria -->
             <details class="acordeon-trans">
-                <summary class="acordeon"><i class="fa-solid fa-caret-up"></i>Pago con Transferencia</summary>
+                <summary class="acordeon">
+                    <i class="fa-solid fa-caret-up"></i>
+                    Pago con transferencia bancaria
+                </summary>
                 <div class="acordeon-contenido">
-                    <form class="container-transferencia" action="../checkout/confirmacion.html" method="get">
+                    <form class="container-transferencia" action="confirmacion.html" method="get" novalidate>
                         <div class="campo-banco">
                             <label>Banco</label>
                             <select>
                                 <option>Banco Provincia</option>
                                 <option>Banelco</option>
-                                <option>Banco Santander Rio</option>
-                                <option>Banco Nacion</option>
+                                <option>Banco Santander Río</option>
+                                <option>Banco Nación</option>
                             </select>
                         </div>
                         <div class="campo-cbu">
                             <label>CBU/CVU</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="0000003100000006000000" required>
+                            <input type="text" inputmode="numeric" placeholder="0000003100000006000000" autocomplete="off">
                         </div>
                         <div class="campo-cuit">
                             <label>CUIT/CUIL</label>
-                            <input type="text" pattern="[0-9\+\-\s\(\)]+" inputmode="numeric"
-                                placeholder="20-00000000-0" required>
+                            <input type="text" inputmode="numeric" placeholder="20-00000000-0" autocomplete="off">
                         </div>
                         <div class="campo-titular">
                             <label>Titular de la cuenta</label>
-                            <input type="text" placeholder="Ej. PEREZ JUAN" required>
+                            <input type="text" placeholder="Ej. PEREZ JUAN" autocomplete="off">
                         </div>
                         <div class="campo-comprobante">
                             <label>Comprobante de pago</label>
                             <div class="subir-archivo">
-                                <input type="file" id="comprobante" accept=".jpg,.png,.pdf" required>
-                                <label for="comprobante"> Subir archivo
+                                <input type="file" id="comprobante" accept=".jpg,.png,.pdf">
+                                <label for="comprobante">
+                                    Subir archivo
                                     <span>JPG, PNG o PDF hasta 5MB</span>
                                 </label>
                             </div>
@@ -145,50 +162,38 @@
                     </form>
                 </div>
             </details>
-
+ 
+            <!-- Resumen de precios -->
             <section class="checkout-resumen">
-
                 <h4>Resumen</h4>
-
                 <div class="precio-fila">
-                    <span>Subtotal</span>
-                    <span id="subtotal-checkout">USD 0</span>
+                    <p>Subtotal</p>
+                    <p id="subtotal-checkout">USD 0</p>
                 </div>
-
                 <div class="precio-fila">
-                    <span>Descuento</span>
-                    <span id="descuento-checkout">USD 0</span>
+                    <p>Descuento</p>
+                    <p id="descuento-checkout">USD 0</p>
                 </div>
-
-                <div class="precio-fila total">
-                    <span>Total</span>
-                    <span id="total-checkout">USD 0</span>
+                <div class="precio-fila">
+                    <p><strong>Total</strong></p>
+                    <p id="total-checkout"><strong>USD 0</strong></p>
                 </div>
-
             </section>
-
+ 
+            <!-- Código de descuento -->
             <section class="codigo-descuento">
-
                 <input type="text" id="codigo-descuento" placeholder="Código de descuento">
-
-                <button type="button" id="btn-aplicar-descuento">
-                    Aplicar
-                </button>
-
+                <button type="button" id="btn-aplicar-descuento">Aplicar</button>
             </section>
-
+ 
             <div class="pago-texto">
-                <h4>Pago 100% seguro</h4>
+                <h4><i class="fa-solid fa-lock" style="margin-right: 0.6rem;"></i>Pago 100% seguro</h4>
             </div>
-
+ 
         </section>
-
-
     </main>
-
+ 
     <footer id="contacto-footer" class="footer-custom"></footer>
-
-
+ 
 </body>
-
 </html>

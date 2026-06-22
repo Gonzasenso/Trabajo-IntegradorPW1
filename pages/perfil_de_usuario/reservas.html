@@ -1,34 +1,35 @@
-<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis vuelos reservados - Fly Lena</title>
-    <link href="reservas.CSS" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="../../estilos_navbar_&_footer.css" rel="stylesheet">
+    <link href="./reservas.CSS" rel="stylesheet">
     <script src="../../navbar.js" defer></script>
     <script src="../../footer.js" defer></script>
     <script src="reservas.js" defer></script>
 </head>
-
 <body>
-    <header>
-        <nav>
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <a class="logo" href="../../index.html">
-                <img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena">
+                <img src="../../img/fly_lena_logo_chico.png" alt="Logo Fly Lena">
             </a>
             <ul id="nav-links"></ul>
             <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
-    <div class="container">
+ 
+    <main class="container">
         <h2>Mis Vuelos Reservados</h2>
-    </div>
-
+    </main>
+ 
     <footer id="contacto-footer" class="footer-custom"></footer>
+ 
 </body>
-
 </html>

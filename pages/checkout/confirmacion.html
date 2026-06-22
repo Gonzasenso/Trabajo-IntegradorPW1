@@ -1,172 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../../../../estilos_index_home.css">
+    <title>Checkout Confirmación - Fly Lena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../../estilos_navbar_&_footer.css">
+    <link rel="stylesheet" href="./estilos_confirmacion.css">
+    <script src="../../navbar.js" defer></script>
+    <script src="../../footer.js" defer></script>
     <script src="confirmacion.js" defer></script>
-    <script src="../../../../navbar.js" defer></script>
-    <script src="../../../../../footer.js" defer></script>
-    <title>Checkout Confirmacion</title>
-
 </head>
-
+ 
 <body>
-    <header>
-        <nav>
-            <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button id="hamburger-btn" class="hamburger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a class="logo" href="../../index.html">
+                <img src="../../img/fly_lena_logo_chico.png" alt="Logo Fly Lena">
+            </a>
             <ul id="nav-links"></ul>
             <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
-
+ 
     <main>
         <h2>Checkout</h2>
-
-        <a class="detalle-de-vuelo" href="pago.html">Volver a pago</a>
+ 
+        <a class="detalle-de-vuelo" href="pago.html">
+            <i class="fa-solid fa-arrow-left" style="margin-right: 0.6rem;"></i>
+            Volver a pago
+        </a>
+ 
         <ol class="container-lista">
             <li>Pasajeros</li>
             <li>Pago</li>
             <li class="activo">Confirmacion</li>
         </ol>
-
+ 
         <section class="container-confirmacion-vuelo-ida-vuelta">
-            <h3> <i class="fa-solid fa-plane-departure"></i> Resumen de tu reserva</h3>
+            <h3><i class="fa-solid fa-plane-departure"></i> Resumen de tu reserva</h3>
             <p id="ruta-vuelo">
-    Buenos Aires (EZE)
-    <i class="fa-solid fa-arrow-right"></i>
-    Madrid (MAD)
-</p>
-
-
+                Buenos Aires (EZE)
+                <i class="fa-solid fa-arrow-right"></i>
+                Madrid (MAD)
+            </p>
+ 
+            <!-- Vuelo de ida -->
             <section class="vuelo-ida">
-
                 <div class="vuelo-ida-header">
-                    <img id="logo-aerolinea"
-     class="icono-aerolinea"
-     src="../../img/Logos Aerolineas/air-europa-logo.png" alt="logo aerolinea">
-                        
-                    <p>Ida 12 Jun 2024</p>
+                    <img id="logo-aerolinea" class="icono-aerolinea"
+                        src="../../img/Logos Aerolineas/air-europa-logo.png" alt="logo aerolinea">
+                    <p>Ida</p>
                 </div>
-
                 <section class="vuelo-ruta">
                     <div class="vuelo-origen">
-                       <p id="hora-salida" class="vuelo-hora">08:30</p>
+                        <p id="hora-salida" class="vuelo-hora">08:30</p>
                         <p id="codigo-origen">EZE</p>
                         <p id="nombre-origen">Buenos Aires</p>
                     </div>
-
                     <div class="vuelo-flecha">
                         <p>Directo</p>
                         <span class="flecha-larga"></span>
                         <p id="duracion-vuelo">2h 15m</p>
                     </div>
-
                     <div class="vuelo-destino">
-                       <p id="hora-llegada" class="vuelo-hora">10:45</p>
+                        <p id="hora-llegada" class="vuelo-hora">10:45</p>
                         <p id="codigo-destino">MAD</p>
-                     <p id="nombre-destino">Madrid</p>
+                        <p id="nombre-destino">Madrid</p>
                     </div>
                 </section>
-
             </section>
-
-            <section class="vuelo-vuelta">
-
-    <div class="vuelo-vuelta-header">
-        <img
-            id="logo-aerolinea-vuelta"
-            class="icono-aerolinea"
-            src="../../img/Logos Aerolineas/air-europa-logo.png"
-            alt="logo aerolinea">
-
-        <p>Vuelta 26 Jun 2024</p>
-    </div>
-
-    <section class="vuelo-ruta">
-
-        <div class="vuelo-origen">
-            <p class="vuelo-hora" id="hora-salida-vuelta">16:00</p>
-            <p id="codigo-origen-vuelta">MAD</p>
-            <p id="nombre-origen-vuelta">Madrid</p>
-        </div>
-
-        <div class="vuelo-flecha">
-            <p>Directo</p>
-            <span class="flecha-larga"></span>
-            <p id="duracion-vuelta">2h 15m</p>
-        </div>
-
-        <div class="vuelo-destino">
-            <p class="vuelo-hora" id="hora-llegada-vuelta">23:15</p>
-            <p id="codigo-destino-vuelta">EZE</p>
-            <p id="nombre-destino-vuelta">Buenos Aires</p>
-        </div>
-
-    </section>
-
-</section>
+ 
+            <!-- Vuelo de vuelta -->
+            <section class="vuelo-vuelta" id="seccion-vuelta">
+                <div class="vuelo-vuelta-header">
+                    <img id="logo-aerolinea-vuelta" class="icono-aerolinea"
+                        src="../../img/Logos Aerolineas/air-europa-logo.png" alt="logo aerolinea">
+                    <p>Vuelta</p>
+                </div>
+                <section class="vuelo-ruta">
+                    <div class="vuelo-origen">
+                        <p class="vuelo-hora" id="hora-salida-vuelta">16:00</p>
+                        <p id="codigo-origen-vuelta">MAD</p>
+                        <p id="nombre-origen-vuelta">Madrid</p>
+                    </div>
+                    <div class="vuelo-flecha">
+                        <p>Directo</p>
+                        <span class="flecha-larga"></span>
+                        <p id="duracion-vuelta">2h 15m</p>
+                    </div>
+                    <div class="vuelo-destino">
+                        <p class="vuelo-hora" id="hora-llegada-vuelta">23:15</p>
+                        <p id="codigo-destino-vuelta">EZE</p>
+                        <p id="nombre-destino-vuelta">Buenos Aires</p>
+                    </div>
+                </section>
             </section>
-
-
-
-           <section class="asiento">
-    <i class="fa-solid fa-couch"></i>
-    <p>Asiento seleccionado:</p>
-    <h5 id="asientos-confirmacion">-</h5>
-</section>
-
-<section class="container-resumen">
-
-    <div class="precio-fila">
-    <p id="cantidad-pasajeros">1 Pasajero</p>
-    <p id="subtotal-confirmacion">USD530</p>
-</div>
-
-<div class="precio-fila">
-    <p>Tarifa</p>
-    <p id="tarifa-confirmacion">USD530</p>
-</div>
-
-<div class="precio-fila">
-    <p>Impuestos y tasas</p>
-    <p id="impuestos-confirmacion">USD90</p>
-</div>
-
-<div class="total">
-    <h3 id="total-confirmacion">Total USD 620</h3>
-</div>
-
-</section>
-
+ 
         </section>
-
+        <section class="asiento">
+            <i class="fa-solid fa-couch"></i>
+            <p>Asientos seleccionados:</p>
+            <h5 id="asientos-confirmacion">-</h5>
+        </section>
+ 
+        <!-- Resumen de precios -->
+        <section class="container-resumen">
+            <div class="precio-fila">
+                <p id="cantidad-pasajeros">1 Pasajero</p>
+                <p id="subtotal-confirmacion">USD 530</p>
+            </div>
+            <div class="precio-fila">
+                <p>Tarifa</p>
+                <p id="tarifa-confirmacion">USD 530</p>
+            </div>
+            <div class="precio-fila">
+                <p>Impuestos y tasas</p>
+                <p id="impuestos-confirmacion">USD 90</p>
+            </div>
+            <!-- Método de pago inyectado por JS -->
+            <div class="total">
+                <h3 id="total-confirmacion">Total USD 620</h3>
+            </div>
+        </section>
+ 
+        <!-- Términos y condiciones -->
         <section class="condiciones">
-
             <div class="escudo">
                 <i class="fa-solid fa-shield"></i>
-                <h3> Confirmacion</h3>
+                <h3>Confirmación</h3>
             </div>
-
             <div class="terminos">
-                <p>Al confirmar tu compra aceptas nuestros</p>
-                <a href="../../assets/Terminos de Uso y Condiciones.pdf" class="terminos-condiciones" target="_blank">Terminos y condiciones</a>
+                <p>Al confirmar tu compra aceptás nuestros</p>
+                <a href="../../assets/Terminos de Uso y Condiciones.pdf" class="terminos-condiciones"
+                    target="_blank">Términos y condiciones</a>
             </div>
         </section>
-
-
+ 
+        <!-- Botón confirmar -->
         <section class="confirmar-vuelo">
-            <a href="../perfil_de_usuario/reservas.html"><button>Confirmar vuelo</button></a>
+            <a href="../perfil_de_usuario/reservas.html">
+                <button type="button">Confirmar vuelo</button>
+            </a>
         </section>
-
-
+ 
     </main>
-
+ 
     <footer id="contacto-footer" class="footer-custom"></footer>
+ 
 </body>
-
 </html>

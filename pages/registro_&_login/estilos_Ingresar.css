@@ -6,107 +6,106 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* #endregion Config Global */
-
-/* #region CSS del Login */
 html {
     font-size: 62.5%;
 }
-
+/* #endregion Config Global */
+ 
+/* #region CSS de Login */
 body {
-    background-color: #ffffff;
+    background-color: #f0f4ff;
 }
-
+ 
 main {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 4rem 2rem;
 }
-
+ 
 .section-formulario {
-    width: 80%;
-    max-width: 50rem;
+    width: 100%;
+    max-width: 50rem; 
     padding: 5rem;
     background-color: #ffffff;
     border-radius: 1.5rem;
-    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.1);
-    border: 0.1rem solid #e5e7eb;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
 }
-
+ 
+/* EXTRA: título arriba del form */
+.form-titulo {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #0c1735;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+ 
 .form-form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem; 
 }
-
-.form-form label {
-    font-size: 1.8rem;
-    font-weight: bold;
+ 
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    position: relative;
+}
+ 
+.grupo-input label {
+    font-size: 1.6rem;
+    font-weight: 600;
     color: #0c1735;
-    margin-bottom: -0.5rem;
 }
-
-.form-form input {
+ 
+.grupo-input input {
     width: 100%;
-    padding: 1.5rem;
+    padding: 1.2rem;
     border: 0.1rem solid #e5e7eb;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
     font-size: 1.6rem;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
-.form-form input:focus {
+ 
+.grupo-input input:focus {
     border-color: #3B82F6;
-    box-shadow: 0 0 0 0.3rem rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 0.3rem rgba(59, 130, 246, 0.15);
 }
 
-.mensajeLogin {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 1.2rem;
-    border-radius: 0.8rem;
-    text-align: center;
-    font-weight: 600;
-    display: none;
-}
-
-.mensajeError {
-    background-color: #ffe5e5;
-    color: #c62828;
-    border: 0.1rem solid #ef9a9a;
-    font-size: 1.5rem;
-}
-
-.mensajeExito {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    border: 0.1rem solid #81c784;
-    font-size: 1.5rem;
-}
-
-.mensajeError {
-    background-color: #ffe5e5;
-    color: #c62828;
-    border: 1px solid #ef9a9a;
+.msg-validacion {
     font-size: 1.2rem;
+    font-weight: 500;
+    min-height: 1.6rem;
+    display: block;
 }
 
-.mensajeExito {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #81c784;
-    font-size: 1.2rem;
+.btn-toggle-pass {
+    background: none;
+    border: none;
+    color: #3B82F6;
+    font-size: 1.3rem;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    margin-top: 0.2rem;
+    width: fit-content;
 }
-
+ 
+.btn-toggle-pass:hover {
+    text-decoration: underline;
+}
+ 
 .form-actions {
     display: flex;
     gap: 1.5rem;
     margin-top: 1rem;
 }
-
+ 
 .btn-ingresar,
 .btn-cancelar {
     flex: 1;
@@ -114,112 +113,50 @@ main {
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
     font-size: 1.7rem;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s;
+    border: none;
 }
-
+ 
 .btn-ingresar {
-    background: #3B82F6;
+    background-color: #1E5BFF;
     color: #ffffff;
-    border: 0.2rem solid #3B82F6;
 }
-
+ 
 .btn-ingresar:hover {
-    background: #2563EB;
-    border-color: #2563EB;
+    background-color: #1749cc;
 }
-
+ 
 .btn-cancelar {
-    background: #ffffff;
-    color: #333;
+    background-color: #ffffff;
+    color: #000000;
     border: 0.2rem solid #e5e7eb;
 }
-
+ 
 .btn-cancelar:hover {
-    background-color: #f9fafb;
-    border-color: #d1d5db;
+    background-color: #f3f4f6;
 }
-
-/* #endregion CSS del Login */
-
+/* #endregion CSS de Login */
+ 
 /* #region MediaQuerys */
-/* TABLET */
-@media screen and (max-width: 1280px) {
-    main {
-        padding: 3rem 2rem;
-    }
-
+@media screen and (max-width: 768px) {
     .section-formulario {
-        width: 90%;
-        max-width: 60rem;
-        padding: 4rem;
-    }
-
-    .form-form {
-        gap: 2.2rem;
-    }
-
-    .form-form label {
-        font-size: 1.7rem;
-    }
-
-    .form-form input {
-        width: 100%;
-        padding: 1.4rem;
-        font-size: 1.5rem;
-    }
-
-    .form-actions {
-        display: flex;
-        gap: 1.5rem;
-    }
-
-    .btn-ingresar,
-    .btn-cancelar {
-        width: 100%;
-        padding: 1.5rem;
-        font-size: 1.6rem;
-    }
-}
-
-/* MOBILE VERTICAL*/
-@media (max-width: 768px) {
-    main {
-        padding: 2rem 1.5rem;
-    }
-
-    .section-formulario {
-        width: 100%;
         padding: 3rem 2rem;
         box-shadow: none;
-        border: none;
     }
-
-    .form-form label {
-        font-size: 1.7rem;
-    }
-
+ 
     .form-actions {
         flex-direction: column;
-        gap: 1.2rem;
     }
-
+ 
     .btn-ingresar,
     .btn-cancelar {
         width: 100%;
         padding: 1.8rem;
     }
 }
-
-/* MOBILE HORIZONTAL */
-@media (max-width: 480px) {
-    .section-formulario {
-        padding: 1.5rem 1rem;
-    }
-}
-
 /* #endregion MediaQuerys */

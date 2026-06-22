@@ -1,41 +1,51 @@
-/* #region Config Global */
+/* #region Reset y Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 html {
     font-size: 62.5%;
 }
-/* #endregion Config Global */
-
-/* #region Historia */
+ 
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f4f7ff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
+/* #endregion */
 
+/* #region Historia */
+main {
+    flex: 1;
+}
+ 
 .seccion-historia {
     background-color: #E9F0FF;
-    padding: 6rem 10% 8rem 10%;
+    padding: 6rem 10% 8rem;
     line-height: 1.8;
     color: #333333;
     text-align: justify;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 }
 
 .seccion-historia h1 {
     font-size: 3.2rem;
     color: #001E42;
     text-align: center;
-    margin-bottom: 5rem;
     font-weight: 600;
-    position: relative;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+    position: relative;
+    margin-bottom: 2.5rem;
 }
-
+ 
 .seccion-historia h1::after {
     content: '';
     display: block;
@@ -45,16 +55,16 @@ body {
     margin: 1.5rem auto 0;
     border-radius: 0.2rem;
 }
-
+ 
 .seccion-historia p {
     font-size: 1.8rem;
-    margin-bottom: 2.5rem;
     max-width: 90rem;
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
+    width: 100%;
 }
-
+ 
 .seccion-historia p:first-of-type::first-letter {
     font-size: 5rem;
     float: left;
@@ -63,80 +73,54 @@ body {
     color: #001E42;
     font-weight: 600;
 }
-
-.seccion-historia br {
-    display: block;
-    margin: 1rem 0;
-    content: "";
-}
-/* #endregion CSS de Historia */
-
-/* #region MediaQuery */
-/* TABLET */
+/* #endregion */
+ 
+/* #region de los Media Query */
 @media screen and (max-width: 1280px) {
     .seccion-historia {
         padding: 5rem 7%;
     }
-
+ 
     .seccion-historia h1 {
         font-size: 3rem;
-        margin-bottom: 4rem;
     }
-
+ 
     .seccion-historia h1::after {
         width: 7rem;
     }
-
+ 
     .seccion-historia p {
         font-size: 1.7rem;
         max-width: 100%;
         line-height: 1.9;
     }
-
+ 
     .seccion-historia p:first-of-type::first-letter {
         font-size: 4.8rem;
     }
-
-    .btn-cancelar {
-        font-size: 1.5rem;
-        padding: 1.1rem 2.2rem;
-    }
 }
-
-/*MOBILE VERTICAL*/
+ 
 @media (max-width: 768px) {
     .seccion-historia {
         padding: 4rem 5%;
-        text-align: left; 
+        text-align: left;
     }
-
+ 
     .seccion-historia h1 {
         font-size: 2.6rem;
-        margin-bottom: 3.5rem;
     }
-
+ 
     .seccion-historia p {
         font-size: 1.7rem;
     }
-
+ 
     .seccion-historia p:first-of-type::first-letter {
         font-size: 4.5rem;
     }
-
-    .btn-cancelar {
-        width: 100%;
-        max-width: 30rem;
-    }
 }
-
-/*MOBILE HORIZONTAL*/
+ 
 @media (max-width: 480px) {
-    .seccion-historia h1 {
-        font-size: 2.2rem;
-    }
-
-    .seccion-historia p {
-        font-size: 1.6rem;
-    }
+    .seccion-historia h1 { font-size: 2.2rem; }
+    .seccion-historia p  { font-size: 1.6rem; }
 }
-/* #endregion MediaQuery */
+/* #endregion */

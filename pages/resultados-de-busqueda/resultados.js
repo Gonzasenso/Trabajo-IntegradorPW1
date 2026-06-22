@@ -1,74 +1,74 @@
 // Validar sesión
 const usuarioLogueado = sessionStorage.getItem("isLoggedIn");
-
+ 
 if (usuarioLogueado !== "true") {
-
+ 
     document.querySelector("main").innerHTML = `
-
+ 
         <section class="sinSesion">
-
+ 
             <div class="cardSinSesion">
-
+ 
                 <i class="fa-solid fa-user-lock"></i>
-
+ 
                 <h2>
                     Debes iniciar sesión
                 </h2>
-
+ 
                 <p>
                     Para consultar vuelos y acceder
                     a las ofertas necesitás iniciar
                     sesión o registrarte.
                 </p>
-
+ 
                 <div class="accionesSesion">
-
+ 
                     <a
                         href="/pages/registro_&_login/login.html"
                         class="btnSesion"
                     >
                         Iniciar sesión
                     </a>
-
+ 
                     <a
                         href="/pages/registro_&_login/registro_de_cuenta.html"
                         class="btnRegistro"
                     >
                         Registrarse
                     </a>
-
+ 
                 </div>
-
+ 
             </div>
-
+ 
 </section>
-
+ 
         `;
-
+ 
     throw new Error(
         "Usuario no autenticado"
     );
 }
-
-
+ 
+ 
 const datosBusqueda = JSON.parse(sessionStorage.getItem("ultimaBusqueda"));
-
+ 
 // Mostrar Origen y Destino
 document.querySelector("#origenBusqueda").textContent = datosBusqueda.origen.charAt(0).toUpperCase() + datosBusqueda.origen.slice(1);
-
+ 
 document.querySelector("#destinoBusqueda").textContent = datosBusqueda.destino.charAt(0).toUpperCase() + datosBusqueda.destino.slice(1);
-
+ 
 // Mostrar fechas
 document.querySelector("#fechaIdaBusqueda").textContent = datosBusqueda.fechaIda;
-
+ 
 document.querySelector("#fechaVueltaBusqueda").textContent = datosBusqueda.fechaVuelta;
-
+ 
 // Mostrar Pasajeros
 document.querySelector("#pasajerosBusqueda").textContent = `${datosBusqueda.pasajeros} pasajero(s)`;
-
+ 
 // Mostrar Clase
 document.querySelector("#claseBusqueda").textContent = datosBusqueda.clase.charAt(0).toUpperCase() + datosBusqueda.clase.slice(1);
-
+ 
 // Datos
 const vuelos = [
     {
@@ -267,30 +267,30 @@ const vuelos = [
         logo: "../../img/Logos Aerolineas/Latam-logo.png"
     }
 ];
-
+ 
 // Selectores
 const contenedor = document.querySelector("#contenedorVuelos");
-
+ 
 const filtroPrecio = document.querySelector("#filtroPrecio");
-
+ 
 const precioActual = document.querySelector("#precioActual");
-
+ 
 const filtrosAerolinea = document.querySelectorAll(".filtroAerolinea");
-
+ 
 const filtrosTipo = document.querySelectorAll(".filtroTipo");
-
+ 
 const contador = document.querySelector("#cantidadVuelos");
-
+ 
 const equipajeExtra = document.querySelector("#equipajeExtra");
-
+ 
 const labelEquipaje = equipajeExtra.parentElement;
-
+ 
 if (datosBusqueda.equipajeIncluido) {
-
+ 
     equipajeExtra.checked = true;
-
+ 
     equipajeExtra.disabled = true;
-
+ 
     labelEquipaje.innerHTML = `
         < input
     type = "checkbox"
@@ -300,64 +300,64 @@ if (datosBusqueda.equipajeIncluido) {
         >
         Valija 23kg incluida
     `;
-
+ 
 }
-
-
+ 
+ 
 function calcularPrecio(vuelo) {
-
+ 
     let precioFinal = vuelo.precio;
-
+ 
     // Clase
     if (datosBusqueda.clase === "business") {
         precioFinal *= 1.5;
     }
-
+ 
     if (datosBusqueda.clase === "first") {
         precioFinal *= 2;
     }
-
+ 
     // Pasajeros
     precioFinal *= Number(
         datosBusqueda.pasajeros
     );
-
+ 
     // Equipaje
     if (equipajeExtra.checked && !datosBusqueda.equipajeIncluido) {
-
+ 
         precioFinal += 100 * Number(datosBusqueda.pasajeros);
-
+ 
     }
-
+ 
     return Math.round(precioFinal);
-
+ 
 }
-
+ 
 // Renderizado
 function renderizarVuelos(lista) {
-
+ 
     contenedor.innerHTML = "";
-
+ 
     contador.textContent =
         `${lista.length} vuelos encontrados`;
-
+ 
     lista.forEach(vuelo => {
-
+ 
         const precioFinal = calcularPrecio(vuelo);
-
+ 
         contenedor.innerHTML += `
-
+ 
         <article class="cardVuelo">
-
+ 
             <div class="aerolinea">
                 <img src="${vuelo.logo}">
             </div>
-
+ 
             <div class="horario">
                 <strong>${vuelo.salida}</strong>
                 <span>${vuelo.codigoOrigen}</span>
             </div>
-
+ 
             <div class="trayecto">
                 <span>${vuelo.tipo}</span>
                 <div class="lineaTrayecto">
@@ -365,20 +365,20 @@ function renderizarVuelos(lista) {
                 </div>
                 <small>${vuelo.duracion}</small>
             </div>
-
+ 
             <div class="horario">
                 <strong>${vuelo.llegada}</strong>
                 <span>${vuelo.codigoDestino}</span>
             </div>
-
+ 
             <div class="duracion">
                 ${vuelo.duracion}
             </div>
-
+ 
             <div class="precio">
                 <strong>USD ${precioFinal}</strong>
                 <span>${datosBusqueda.pasajeros} pasajero(s)</span>
-
+ 
               <a
     href="${vuelo.detalle}"
     class="btn-detalle"
@@ -387,292 +387,299 @@ function renderizarVuelos(lista) {
     Ver detalles
 </a>
             </div>
-
+ 
         </article >
-
+ 
         `;
     });
-
+ 
 }
-
+ 
 // Filtrado
 function filtrarVuelos() {
-
+ 
     const precioMax =
         Number(filtroPrecio.value);
-
+ 
     const aerolineas =
         [...filtrosAerolinea]
             .filter(c => c.checked)
             .map(c => c.value);
-
+ 
     const tipos =
         [...filtrosTipo]
             .filter(c => c.checked)
             .map(c => c.value);
-
+ 
+    // Si el filtro seleccionado es "Todos" (o no hay ninguno marcado),
+    // no se filtra por tipo de escala.
+    const filtrarPorTipo =
+        tipos.length > 0 && !tipos.includes("Todos");
+ 
     const resultado =
         vuelosFiltrados.filter(vuelo => {
-
+ 
             const cumplePrecio = calcularPrecio(vuelo) <= precioMax;
-
+ 
             const cumpleAerolinea =
                 aerolineas.length === 0 ||
                 aerolineas.includes(
                     vuelo.aerolinea
                 );
-
+ 
             const cumpleTipo =
-                tipos.length === 0 ||
+                !filtrarPorTipo ||
                 tipos.includes(
                     vuelo.tipo
                 );
-
+ 
             return (
                 cumplePrecio &&
                 cumpleAerolinea &&
                 cumpleTipo
             );
-
+ 
         });
-
+ 
     if (resultado.length === 0) {
-
+ 
         contenedor.innerHTML = `
         <div class="sinResultados">
                 <h3>No se encontraron vuelos</h3>
                 <p>Probá modificando los filtros.</p>
             </div >
         `;
-
+ 
         contador.textContent = "0 vuelos encontrados";
-
+ 
         return;
     }
-
-
+ 
+ 
     renderizarVuelos(resultado);
-
+ 
     document.addEventListener("click", (e) => {
-
+ 
         const boton = e.target.closest(".btn-detalle");
-
+ 
         if (!boton) return;
-
+ 
         const idVuelo =
             Number(boton.dataset.id);
-
+ 
         const vueloSeleccionado =
             vuelos.find(v => v.id === idVuelo);
-
+ 
         sessionStorage.setItem(
             "vueloSeleccionado",
             JSON.stringify(vueloSeleccionado)
         );
     });
-
+ 
 }
-
+ 
 // Range
 filtroPrecio.addEventListener(
     "input",
     () => {
-
+ 
         precioActual.textContent =
             `USD ${filtroPrecio.value} `;
-
+ 
         filtrarVuelos();
-
+ 
     });
-
+ 
 // Aerolineas
 filtrosAerolinea.forEach(check => {
-
+ 
     check.addEventListener(
         "change",
         filtrarVuelos
     );
-
+ 
 });
-
+ 
 // Tipo de Vuelo
 filtrosTipo.forEach(check => {
-
+ 
     check.addEventListener(
         "change",
         filtrarVuelos
     );
-
+ 
 });
-
+ 
 const vuelosFiltrados =
     vuelos.filter(vuelo => {
-
+ 
         return (
-
+ 
             vuelo.origen.toLowerCase() ===
             datosBusqueda.origen.toLowerCase()
-
+ 
             &&
-
+ 
             vuelo.destino.toLowerCase() ===
             datosBusqueda.destino.toLowerCase()
-
+ 
         );
-
+ 
     });
-
+ 
 function actualizarRangoPrecio() {
-
+ 
     const precioMasAlto =
         Math.max(
             ...vuelosFiltrados.map(
                 vuelo => calcularPrecio(vuelo)
             )
         );
-
+ 
     filtroPrecio.max =
         precioMasAlto;
-
+ 
     filtroPrecio.value =
         precioMasAlto;
-
+ 
     precioActual.textContent =
         `USD ${precioMasAlto} `;
-
+ 
 }
-
-if (vuelosFiltrados.length > 0) {
-
-    const tipoVuelo =
-        vuelosFiltrados[0].tipo;
-
-    document
-        .querySelectorAll(".filtroTipo")
-        .forEach(radio => {
-
-            radio.checked =
-                radio.value === tipoVuelo;
-
-        });
-
-}
-
+ 
 if (vuelosFiltrados.length === 0) {
-
+ 
     contenedor.innerHTML = `
         < h2 >
         No se encontraron vuelos
         </h2 >
         `;
-
+ 
 } else {
-
+ 
     actualizarRangoPrecio();
     renderizarVuelos(vuelosFiltrados);
-
+ 
 }
-
+ 
 // Aplicar filtros iniciales
 filtrarVuelos();
-
-
+ 
+ 
 // Ordenar por precio
-
+ 
 // Mejor Opcion
 document
     .querySelector("#mejorOpcion")
     .addEventListener("click", () => {
-
+ 
         renderizarVuelos(vuelosFiltrados);
-
+ 
         document.querySelector("#toggleDropdown").checked = false;
-
+ 
     });
-
+ 
 // Menor Precio
 document
     .querySelector("#menorPrecio")
     .addEventListener("click", () => {
-
+ 
         const ordenados =
             [...vuelosFiltrados].sort(
                 (a, b) => a.precio - b.precio
             );
-
+ 
         renderizarVuelos(ordenados);
-
+ 
         document.querySelector("#toggleDropdown").checked = false;
-
+ 
     });
-
+ 
 // Menor Duracion
 document
     .querySelector("#menorDuracion")
     .addEventListener("click", () => {
-
+ 
         const ordenados =
             [...vuelosFiltrados].sort(
                 (a, b) => {
-
+ 
                     const duracionA =
                         parseInt(a.duracion);
-
+ 
                     const duracionB =
                         parseInt(b.duracion);
-
+ 
                     return duracionA - duracionB;
-
+ 
                 });
-
+ 
         renderizarVuelos(ordenados);
-
+ 
         document.querySelector(
             "#toggleDropdown"
         ).checked = false;
-
+ 
     });
-
+ 
 // Salida mas temprana
 document
     .querySelector("#salidaTemprana")
     .addEventListener("click", () => {
-
+ 
         const ordenados =
             [...vuelosFiltrados].sort(
                 (a, b) => {
-
+ 
                     return a.salida.localeCompare(
                         b.salida
                     );
-
+ 
                 });
-
+ 
         renderizarVuelos(ordenados);
-
+ 
         document.querySelector("#toggleDropdown").checked = false;
-
+ 
     });
-
+ 
 // Equipaje
 equipajeExtra.addEventListener(
     "change",
     () => {
-
+ 
         if (datosBusqueda.equipajeIncluido) {
             return;
         }
-
+ 
         if (equipajeExtra.checked) {
-
-            alert(
-                "Se agregará equipaje extra por USD 100"
-            );
-
+ 
+            Swal.fire({
+                title: '<i class="fa-solid fa-suitcase-rolling" style="color: #1E5BFF;"></i> Equipaje extra',
+                html: '<p style="font-size: 1.4rem;">Se agregará equipaje extra por <b>USD 100</b>. ¿Querés confirmarlo?</p>',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: '<i class="fa-solid fa-check"></i> Aceptar',
+                cancelButtonText: '<i class="fa-solid fa-xmark"></i> Rechazar',
+                confirmButtonColor: '#2ecc71',
+                cancelButtonColor: '#e74c3c',
+                allowOutsideClick: false
+            }).then((result) => {
+ 
+                if (!result.isConfirmed) {
+                    equipajeExtra.checked = false;
+                }
+ 
+                actualizarRangoPrecio();
+                filtrarVuelos();
+ 
+            });
+ 
+            return;
+ 
         }
-
+ 
         actualizarRangoPrecio();
         filtrarVuelos();
-
+ 
     });
-

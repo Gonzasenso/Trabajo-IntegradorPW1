@@ -1,15 +1,16 @@
+/* #region Reset y Base */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-
+ 
 html {
-    /* 62.5% asegura que 1rem = 10px. Es la base estándar para desarrollo web profesional. */
+
     font-size: 62.5%;
 }
-
+ 
 body {
     background-color: #FFFFFF;
     min-height: 100vh;
@@ -17,192 +18,33 @@ body {
     flex-direction: column;
     font-size: 1.6rem;
     color: #0F172A;
+    overflow-x: hidden;
 }
-
 /* #endregion */
+  
+/* #region Contenido principal */
 
-/* #region CSS del Header */
-header {
-    width: 100%;
-    background-color: #0c1735;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 4rem;
-    align-items: center;
-    height: 8rem;
-    width: 100%;
-    margin: 0 auto;
-}
-
-header nav .logo img {
-    width: 15rem;
-}
-
-/* Nav links */
-#nav-links {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    list-style: none;
-}
-
-#nav-links li a {
-    position: relative;
-    font-size: 1.8rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-#nav-links li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.6rem;
-    width: 100%;
-    height: 0.2rem;
-    background-color: #FFFFFF;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-#nav-links li a:hover::after {
-    transform: scaleX(1);
-}
-
-/* Contenedor del usuario */
-#user-container {
-    min-width: 15rem;
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* Contenedor que envuelve todo el menú desplegable */
-.perfil-dropdown-wrapper {
-    position: relative;
-}
-
-/* Botón que abre el menú desplegable */
-.dropdown-trigger {
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    cursor: pointer;
-    padding: 0;
-}
-
-/* Limpia los estilos del h2 global para que no rompa el diseño adentro del botón */
-.dropdown-trigger .nombre {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: #FFFFFF;
-    margin: 0;
-    line-height: 1;
-}
-
-/* Avatar */
-.dropdown-trigger img {
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 50%;
-    border: 0.2rem solid #1E5BFF;
-    object-fit: cover;
-}
-
-/* Flecha indicadora del desplegable */
-.dropdown-trigger .fa-chevron-down {
-    font-size: 1.2rem;
-    color: #FFFFFF;
-}
-
-/* El menú oculto que se despliega al hacer clic */
-.dropdown-menu {
-    position: absolute;
-    top: calc(100% + 1.2rem);
-    right: 0;
-    background-color: #FFFFFF;
-    min-width: 22rem;
-    border-radius: 0.8rem;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
-    display: none;
-    flex-direction: column;
-    z-index: 1000;
-    padding: 0.8rem 0;
-}
-
-.dropdown-menu.show {
-    display: flex;
-}
-
-/* Links dentro del menú */
-.dropdown-menu a {
-    color: #333333;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    transition: background-color 0.2s;
-}
-
-.dropdown-menu a i {
-    color: #1E5BFF;
-    width: 2rem;
-    text-align: center;
-}
-
-.dropdown-menu a:hover {
-    background-color: #f5f6fa;
-}
-
-/* Separador */
-.dropdown-menu hr {
-    border: none;
-    border-top: 0.1rem solid #eeeeee;
-    margin: 0.8rem 0;
-}
-
-/* Cerrar sesión */
-.dropdown-menu .logout-link {
-    color: #e74c3c;
-}
-
-.dropdown-menu .logout-link i {
-    color: #e74c3c;
-}
-
-/* #endregion CSS del Header */
-
-/* #region Acordeones */
 .container {
     max-width: 85rem;
+    width: 100%;
     margin: 4rem auto;
     padding: 0 2rem;
-    flex: 1;
-    width: 100%;
+    flex: 1;         
 }
-
-h2 {
+ 
+.container > h2 {
     font-size: 3.2rem;
     font-weight: 700;
     margin-bottom: 3rem;
 }
-
+/* #endregion */
+ 
+/* #region Acordeones */
 .acordion {
     margin-bottom: 2rem;
 }
-
-/* Header del acordeon */
+ 
+/* Header del acordeón */
 .acordion-header {
     background-color: #FFFFFF;
     border: 1px solid #e2e8f0;
@@ -215,44 +57,42 @@ h2 {
     font-weight: 600;
     font-size: 1.8rem;
     list-style: none;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* Efecto al pasar el mouse */
+ 
 .acordion-header:hover {
     border-color: #0c1735;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
-
-/* Cuando está abierto */
+ 
 .acordion-header.active {
     border: 1.5px solid #0c1735;
-    border-bottom: 1.5px solid #0c1735;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 0.8rem 0.8rem 0 0;
 }
-
+ 
 .nombre-ruta {
-    flex: 1;  
+    flex: 1;
 }
-
+ 
 .precio-y-flecha {
     display: flex;
-    gap: 1.5rem;  
+    align-items: center;
+    gap: 1.5rem;
 }
-
-/*  Flecha del acordeon  */
+ 
+/* Flecha del acordeón */
 .flecha-acordion {
     font-size: 1.2rem;
     transition: transform 0.3s ease;
     display: inline-block;
 }
-
-/* Rotación de la flecha cuando se abre */
+ 
 .acordion-header.active .flecha-acordion {
     transform: rotate(180deg);
 }
-
-/*  Contenido del acordeon  */
+ 
+/* Contenido del acordeón */
 .acordion-content {
     max-height: 0;
     overflow: hidden;
@@ -260,24 +100,21 @@ h2 {
     border: 1px solid #e2e8f0;
     border-top: none;
     border-radius: 0 0 0.8rem 0.8rem;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    transition: max-height 0.4s ease;
 }
-
-/* Cuando está abierto */
+ 
 .acordion-content.active {
-    max-height: 200rem; 
-    padding: 0;
-    border: 1px solid #0c1735;
+    max-height: 200rem;
+    border-color: #0c1735;
     border-top: none;
 }
-
-/*  Estilos del contenido de vuelo  */
+ 
+/* Detalle del vuelo dentro del acordeón */
 .detalle-vuelo {
     padding: 2.5rem;
     border-top: 1px solid #f1f5f9;
-    background-color: #f8fafc;
 }
-
+ 
 .vuelo {
     display: flex;
     align-items: center;
@@ -285,43 +122,45 @@ h2 {
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
 }
-
+ 
 .vuelo:last-child {
     margin-bottom: 0;
     padding-top: 1.5rem;
     border-top: 1px dashed #cbd5e1;
 }
-
+ 
 .vuelo h3 {
     font-size: 1.6rem;
     color: #64748b;
     width: 6rem;
+    font-weight: 600;
 }
-
+ 
 .vuelo h4 {
     font-size: 1.6rem;
     flex: 1;
     min-width: 20rem;
+    font-weight: 500;
 }
-
+ 
 .tiempo-vuelo {
     font-size: 1.6rem;
     font-weight: 700;
 }
-
+ 
 .duracion-vuelo {
     font-size: 1.4rem;
     color: #64748b;
 }
-
+ 
 .info-vuelo {
     font-size: 1.4rem;
     font-weight: 600;
     color: #1E5BFF;
     margin-left: auto;
 }
-
-/* Badge con aerolinea / clase / pasajeros */
+ 
+/* Badges: aerolínea / clase / pasajeros */
 .info-badge {
     display: flex;
     flex-wrap: wrap;
@@ -330,7 +169,7 @@ h2 {
     padding-top: 1.6rem;
     border-top: 1px solid #e2e8f0;
 }
-
+ 
 .info-badge span {
     background-color: #e0f2fe;
     color: #0369a1;
@@ -339,7 +178,7 @@ h2 {
     padding: 0.4rem 1rem;
     border-radius: 9999px;
 }
-
+ 
 /* Mensaje cuando no hay reservas */
 .sin-reservas {
     font-size: 1.6rem;
@@ -347,167 +186,92 @@ h2 {
     padding: 3rem 0;
     text-align: center;
 }
-
 /* #endregion */
-
-/* #region FOOTER */
-.footer-custom {
-    /* Usamos el azul de la marca con opacidad para el gradiente */
-    background: linear-gradient(rgba(12, 23, 53, 0.9), rgba(12, 23, 53, 0.9)),
-        url(../../img/footer.png) no-repeat center center/cover;
-    color: white;
-    padding: 5rem 5% 2rem;
-    margin-top: auto;
-}
-
-.footer-container {
-    max-width: 120rem;
-    margin: 0 auto;
-}
-
-.footer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 3rem;
-}
-
-.logo-img {
-    width: 12rem;
-}
-
-.footer-socials a img {
-    width: 3rem;
-    margin-left: 2rem;
-    transition: transform 0.3s;
-}
-
-.footer-socials a img:hover {
-    transform: scale(1.2);
-}
-
-.footer-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
-    padding: 4rem 0;
-}
-
-.column h3 {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-    color: #a0d4f1;
-}
-
-.column a {
-    display: block;
-    font-size: 1.6rem;
-    color: #cbd5e1;
-    text-decoration: none;
-    margin-bottom: 1.2rem;
-    transition: color 0.3s;
-}
-
-.column a:hover {
-    color: #FFFFFF;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 1.4rem;
-    color: #94a3b8;
-}
-
-.legal-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    margin-left: 2rem;
-}
-
-/* #endregion */
-
-/* #region RESPONSIVE */
+ 
+ 
+/* #region Responsive */
 @media (max-width: 768px) {
     html {
-        font-size: 56.25%; 
-    }
-
-    header nav ul {
-        gap: 3rem;
-    }
-
-    .footer-columns {
-        grid-template-columns: repeat(2, 1fr);
+        font-size: 56.25%;
     }
 }
-
+ 
 @media (max-width: 580px) {
-
     .vuelo {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
     }
-
-    .vuelo h3, .vuelo h4 {
+ 
+    .vuelo h3,
+    .vuelo h4 {
         width: 100%;
         min-width: 0;
     }
-
+ 
     .info-vuelo {
-        margin-left: 0; 
-        background-color: #e0f2fe; 
+        margin-left: 0;
+        background-color: #e0f2fe;
         padding: 0.4rem 0.8rem;
         border-radius: 0.4rem;
     }
 }
-
+ 
 @media (max-width: 480px) {
     html {
-        font-size: 50%; 
+        font-size: 50%;
     }
-
-    header nav {
-        flex-direction: column;
-        height: auto;
-        padding: 2rem;
-    }
-
-    header nav ul {
-        margin-top: 2rem;
-        gap: 1.5rem;
-    }
-
+ 
     .acordion-header {
         padding: 1.5rem;
         font-size: 1.6rem;
     }
-
+ 
     .detalle-vuelo {
         padding: 1.5rem;
     }
-
-    .footer-columns {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-header {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 2rem;
-        text-align: center;
-    }
-
 }
+/* #endregion */
 
+@media (max-width: 768px) {
+    html {
+        font-size: 56.25%;
+    }
+}
+ 
+@media (max-width: 580px) {
+    .vuelo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+ 
+    .vuelo h3,
+    .vuelo h4 {
+        width: 100%;
+        min-width: 0;
+    }
+ 
+    .info-vuelo {
+        margin-left: 0;
+        background-color: #e0f2fe;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.4rem;
+    }
+}
+ 
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+ 
+    .acordion-header {
+        padding: 1.5rem;
+        font-size: 1.6rem;
+    }
+ 
+    .detalle-vuelo {
+        padding: 1.5rem;
+    }
+}
 /* #endregion */

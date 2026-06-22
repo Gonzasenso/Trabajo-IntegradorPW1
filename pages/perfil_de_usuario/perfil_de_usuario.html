@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - Fly Lena</title>
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../estilos_navbar_&_footer.css">
     <link href="./estilos_PerfilUsuario.css" rel="stylesheet">
-    <link href="../registro_login/estilos_footer.css" rel="stylesheet">
     <script src="../../navbar.js" defer></script>
     <script src="../../footer.js" defer></script>
     <script src="./perfil_de_usuario.js" defer></script>
 </head>
-
+ 
 <body id="top">
-    <header>
-        <nav>
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button id="hamburger-btn" class="hamburger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+ 
             <a class="logo" href="../../index.html"><img src="../../img/fly_lena_logo_chico.png" alt="logoFlyLena"></a>
-
+ 
             <ul id="nav-links"></ul>
-            <div id="user-container"></div>
+            <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
+ 
     <main class="contenedor-perfil">
         <section class="encabezado-perfil">
             <h1><i class="fa-solid fa-circle-user"></i> Mi Perfil</h1>
             <p>Gestioná tu información personal y preferencias de viaje.</p>
         </section>
-
+ 
         <div class="tarjeta-perfil">
             <div class="perfil-info-basica">
                 <div class="zona-avatar">
@@ -41,14 +45,14 @@
                         <i class="fa-solid fa-camera"></i> Cambiar Foto
                     </button>
                 </div>
-
+ 
                 <div class="datos-principales">
                     <h2 id="perf-nombre-completo">Cargando usuario...</h2>
                     <span class="etiqueta-cliente"><i class="fa-solid fa-star"></i> Cliente frecuente</span>
                     <p class="miembro-desde">Miembro de Fly Lena Airlines</p>
                 </div>
             </div>
-
+ 
             <div class="seccion-datos">
                 <h3><i class="fa-solid fa-user"></i> Información Personal</h3>
                 <div class="fila-dato">
@@ -68,7 +72,7 @@
                     <p id="perf-localidad">-</p>
                 </div>
             </div>
-
+ 
             <div class="seccion-datos">
                 <h3><i class="fa-solid fa-gear"></i> Preferencias de viaje</h3>
                 <div class="fila-dato">
@@ -80,7 +84,7 @@
                     <p id="perf-equipaje">-</p>
                 </div>
             </div>
-
+ 
             <div class="acciones-rapidas">
                 <a href="reservas.html" class="btn-accion btn-reservas">
                     <i class="fa-solid fa-ticket"></i>
@@ -98,7 +102,7 @@
                 </a>
             </div>
         </div>
-
+ 
         <div class="banner-ayuda">
             <div class="ayuda-texto">
                 <i class="fa-solid fa-headset"></i>
@@ -110,8 +114,8 @@
             <a href="../pages_footer/contacto.html" class="btn-soporte">Contactar soporte</a>
         </div>
     </main>
-
+ 
     <footer id="contacto-footer" class="footer-custom"></footer>
 </body>
-
+ 
 </html>

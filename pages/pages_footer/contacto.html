@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Contacto - Fly Lena</title>
     <script src="https://kit.fontawesome.com/c4d24c071d.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="../../estilos_index_home.css" rel="stylesheet">
+    <link href="../../estilos_navbar_&_footer.css" rel="stylesheet">
     <link href="./estilos_Contacto.css" rel="stylesheet">
     <script src="../../navbar.js" defer></script>
     <script src="../../footer.js" defer></script>
@@ -15,44 +14,44 @@
 </head>
 
 <body id="top">
-    <header class="encabezado-principal">
-        <nav class="navegacion-barra">
-            <div class="logo">
-                <a href="../../index.html">
-                    <img src="../../img/fly_lena_logo_chico.png" alt="Fly Lena">
-                </a>
-            </div>
-
+    <header class="fl-header">
+        <nav class="fl-nav">
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a class="logo" href="../../index.html">
+                <img src="../../img/fly_lena_logo_chico.png" alt="Fly Lena">
+            </a>
             <ul id="nav-links"></ul>
-
-            <div id="user-container"></div>
+            <div class="user-nav-container" id="user-container"></div>
         </nav>
     </header>
-
+ 
     <main>
         <section class="section-formulario">
             <form class="form-form" id="form-contacto">
                 <label for="nombre">Nombre & Apellido</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Coloca aqui tu nombre y apellido." required>
-
+                <input type="text" id="nombre" name="nombre" placeholder="Coloca aquí tu nombre y apellido." required>
+ 
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Coloca aqui tu@email.com" required>
-
+                <input type="email" id="email" name="email" placeholder="Coloca aquí tu@email.com" required>
+ 
                 <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" pattern="[\+]?[\d\s\-\(\)]{8,}"
-                    title="Ingresar telefono válido (+Codigo de país, codigo de area, número de télefono)"
+                <input type="tel" id="telefono" name="telefono"
+                    pattern="[\+]?[\d\s\-\(\)]{8,}"
+                    title="Ingresar teléfono válido (+Código de país, código de área, número de teléfono)"
                     placeholder="+54 9 11 555 4444" required>
-
+ 
                 <label for="mensaje">Mensaje</label>
                 <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribí tu mensaje..." required></textarea>
-
+ 
                 <div class="form-actions">
                     <button type="submit" id="btn-enviar">Enviar</button>
                     <a href="../../index.html" class="btn-cancelar">Cancelar</a>
                 </div>
             </form>
         </section>
-
+ 
         <div id="modal-exito" class="modal-oculto">
             <div class="modal-contenido">
                 <i class="fa-solid fa-circle-check icono-exito"></i>
@@ -61,9 +60,8 @@
             </div>
         </div>
     </main>
-
-    <footer id="contacto-footer" class="footer-custom">
-    </footer>
+ 
+    <footer id="contacto-footer" class="footer-custom"></footer>
+ 
 </body>
-
 </html>
