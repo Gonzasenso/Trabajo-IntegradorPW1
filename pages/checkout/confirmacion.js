@@ -239,13 +239,42 @@ function cerrarModal() {
  
 //Funcion de Confirmar y Redirigir
 function confirmarYRedirigir() {
+  // Persistir el precio final calculado en detalles.js antes de limpiar la sesión, para que reservas.js lo pueda leer directamente sin recalcular. 
+    const descuento = parseInt(sessionStorage.getItem("descuentoAplicado") || "0");
+    const resumenLocal = JSON.parse(localStorage.getItem("resumenVuelo") || "null");
+    const busqueda     = JSON.parse(sessionStorage.getItem("ultimaBusqueda") || "{}");
+
+    let totalFinal;
+    
+    if (resumenLocal && resumenLocal.total) {
+        totalFinal = resumenLocal.total - descuento;
+    } else {
+        // Fallback con la misma lógica de detalles.js
+        const vuelo       = JSON.parse(sessionStorage.getItem("vueloSeleccionado") || "{}");
+        const esIdaVuelta = busqueda.tipoVuelo === "ida-vuelta";
+        const pasajeros   = parseInt(busqueda.pasajeros, 10) || 1;
+        const clase       = (busqueda.clase || "economica").toLowerCase();
+
+        let precioBase = parseFloat(vuelo.precio) || 0;
+        if (clase === "business") precioBase *= 1.5;
+        else if (clase === "first")    precioBase *= 2;
+        if (esIdaVuelta) precioBase *= 2;
+
+        const tarifa    = Math.round(precioBase * pasajeros);
+        const impuestos = (esIdaVuelta ? 180 : 90) * pasajeros;
+        const equipaje  = busqueda.equipajeIncluido ? 100 * pasajeros : 0;
+        totalFinal = tarifa + impuestos + equipaje - descuento;
+    }
+    busqueda.precioFinalTotal = totalFinal;
+    sessionStorage.setItem("ultimaBusqueda", JSON.stringify(busqueda));
+    
     sessionStorage.setItem("reservaConfirmada", "true");
     sessionStorage.removeItem("datosPasajeros");
     sessionStorage.removeItem("metodoPago");
     sessionStorage.removeItem("borradorPago");
     sessionStorage.removeItem("asientosSeleccionados");
     sessionStorage.removeItem("descuentoAplicado");
- 
+
     const enlace = document.querySelector(".confirmar-vuelo a");
     if (enlace) window.location.href = enlace.getAttribute("href");
 }

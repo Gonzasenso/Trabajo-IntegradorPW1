@@ -257,8 +257,10 @@ formBuscador.addEventListener("submit", function (e) {
         tipoVuelo:   tipoVuelo
     };
  
-    // Cada vez que se inicia una búsqueda nueva, se invalida cualquier confirmación previa
+    // Cada vez que se inicia una búsqueda nueva, se invalida cualquier confirmación previa y se limpia el precio guardado para que no contamine la próxima reserva.
     sessionStorage.setItem("ultimaBusqueda", JSON.stringify(busquedaUsuario));
     sessionStorage.removeItem("reservaConfirmada");
+    localStorage.removeItem("resumenVuelo"); // limpiar precio de sesión anterior
+    //localStorage.removeItem("precioFinalConfirmado");
     window.location.href = "./pages/resultados-de-busqueda/filtro-1.html";
 });

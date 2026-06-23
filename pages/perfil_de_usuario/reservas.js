@@ -134,6 +134,7 @@ function construirReservaDesdeSesion() {
     try {
         const datos = JSON.parse(raw);
         const vuelo = buscarVueloCatalogo(datos.origen, datos.destino);
+        const precioFinal = datos.precioFinalTotal ? Math.round(datos.precioFinalTotal) : (vuelo ? calcularPrecioFinal(vuelo.precio, datos) : null);
  
         return {
             id:            `${datos.origen}-${datos.destino}-${datos.fechaIda}`.toLowerCase().replace(/\s/g, ""),
@@ -150,7 +151,7 @@ function construirReservaDesdeSesion() {
             codigoOrigen:  vuelo?.codigoOrigen    || "—",
             codigoDestino: vuelo?.codigoDestino   || "—",
             aerolinea:     vuelo?.aerolinea       || "—",
-            precio:        vuelo ? calcularPrecioFinal(vuelo.precio, datos) : null,
+            precio:        precioFinal,
         };
     } catch (e) {
         console.warn("Error al parsear ultimaBusqueda:", e);
