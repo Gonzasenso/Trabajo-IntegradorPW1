@@ -292,7 +292,7 @@ if (datosBusqueda.equipajeIncluido) {
     equipajeExtra.disabled = true;
  
     labelEquipaje.innerHTML = `
-        < input
+        <input
     type = "checkbox"
     id = "equipajeExtra"
     checked

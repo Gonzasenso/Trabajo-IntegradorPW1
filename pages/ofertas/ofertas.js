@@ -114,7 +114,8 @@ document
                         fechaVuelta: "2026-07-20",
                         pasajeros: "1",
                         clase: "economica",
-                        equipajeIncluido: true
+                        equipajeIncluido: false,
+                        tipoVuelo: "ida-vuelta"
                     })
                 );
 
