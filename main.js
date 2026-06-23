@@ -261,6 +261,5 @@ formBuscador.addEventListener("submit", function (e) {
     sessionStorage.setItem("ultimaBusqueda", JSON.stringify(busquedaUsuario));
     sessionStorage.removeItem("reservaConfirmada");
     localStorage.removeItem("resumenVuelo"); // limpiar precio de sesión anterior
-    //localStorage.removeItem("precioFinalConfirmado");
     window.location.href = "./pages/resultados-de-busqueda/filtro-1.html";
 });
